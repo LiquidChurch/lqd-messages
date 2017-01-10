@@ -23,10 +23,10 @@ Justin Sternberg (@jsternberg) created the core GC-Sermons WordPress plugin. Liq
 * [FitVid.js 1.1](http://fitvidsjs.com/) - Ensures that videos are responsive rather than fixed width allowing for proper display on a variety of viewports.
 * Composer
 * CMB2
- **CMB2 Related Links
- ** CMB2 Term Select
- ** CMB2 Post Search Field
- ** CMB2 User Select
+  **CMB2 Related Links
+  ** CMB2 Term Select
+  ** CMB2 Post Search Field
+  ** CMB2 User Select
 * WordPress Shortcode Button
 * TechCrunch WP Asynchronous Tasks
 * TGMPA
