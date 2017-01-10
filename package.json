@@ -1,0 +1,37 @@
+{
+  "name": "lqd-messages",
+  "title": "Liquid Messages",
+  "version": "0.1.6",
+  "description": "Manage messages (sermons) and message content in WordPress",
+  "homepage": "http://www.liquidchurch.com/",
+  "bugs": {
+    "url": "https://github.com/LiquidChurch/lqd-messages"
+  },
+  "author": {
+    "name": "liquidchurch",
+    "url":  "http://www.liquidchurch.com/"
+  },
+  "contributors": [
+    {
+      "name": "jtsternberg",
+      "url": "http://dsgnwrks.pro"
+    },
+    {
+      "name": "davidshq",
+      "url":  "http://www.davemackey.net/"
+    },
+    {
+      "name": "surajprgupta"
+    }
+  ],
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-wp-i18n": "latest",
+    "grunt-contrib-compress": "~0.11.0",
+    "grunt-githooks": "~0.3.1",
+    "grunt-text-replace": "latest",
+    "load-grunt-tasks": "latest"
+  }
+}
