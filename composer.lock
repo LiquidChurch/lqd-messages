@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2c9c02fad673a42d2f1145178924ce5e",
-    "content-hash": "598143d7f38e809ae7fdf338863f5535",
+    "content-hash": "3c3967b481b006edf115532ab3832b63",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -49,7 +48,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-05-30 07:10:25"
+            "time": "2016-05-30T07:10:25+00:00"
         },
         {
             "name": "jtsternberg/cmb2-term-select",
@@ -93,20 +92,20 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-05-30 06:08:55"
+            "time": "2016-05-30T06:08:55+00:00"
         },
         {
             "name": "jtsternberg/shortcode-button",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-                "reference": "8234bbc8f7410c788b222f6ec64f6b8152d82d46"
+                "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/8234bbc8f7410c788b222f6ec64f6b8152d82d46",
-                "reference": "8234bbc8f7410c788b222f6ec64f6b8152d82d46",
+                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/05e1abda5557d93e25a063123f72ece315aa2e3a",
+                "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a",
                 "shasum": ""
             },
             "require": {
@@ -137,7 +136,7 @@
                 "shortcodes",
                 "wordpress"
             ],
-            "time": "2016-09-13 00:42:11"
+            "time": "2017-02-27T16:51:40+00:00"
         },
         {
             "name": "techcrunch/wp-async-task",
@@ -243,7 +242,7 @@
                 "theme",
                 "wordpress"
             ],
-            "time": "2015-07-16 08:59:11"
+            "time": "2015-07-16T08:59:11+00:00"
         },
         {
             "name": "webdevstudios/cmb2-post-search-field",
@@ -287,20 +286,20 @@
                 "search",
                 "wordpress"
             ],
-            "time": "2016-05-30 06:58:49"
+            "time": "2016-05-30T06:58:49+00:00"
         },
         {
             "name": "webdevstudios/cmb2-user-select",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "ad506e47c5fd064d78097efc538c172504799206"
+                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/ad506e47c5fd064d78097efc538c172504799206",
-                "reference": "ad506e47c5fd064d78097efc538c172504799206",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/de9bbc80c8d2fe03a52af1798167ecbe454fd394",
+                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +330,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-03-27 04:42:17"
+            "time": "2016-10-03T20:25:58+00:00"
         },
         {
             "name": "webdevstudios/cpt-core",
@@ -339,12 +338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CPT_Core.git",
-                "reference": "081908762ccde2aa3681a70df2c4be184f679e9e"
+                "reference": "1f856e619a20c96f093f6916b4e6fa522d851b7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/081908762ccde2aa3681a70df2c4be184f679e9e",
-                "reference": "081908762ccde2aa3681a70df2c4be184f679e9e",
+                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/1f856e619a20c96f093f6916b4e6fa522d851b7c",
+                "reference": "1f856e619a20c96f093f6916b4e6fa522d851b7c",
                 "shasum": ""
             },
             "suggest": {
@@ -375,7 +374,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2016-09-14 13:43:18"
+            "time": "2017-03-24 16:06:06"
         },
         {
             "name": "webdevstudios/taxonomy_core",
@@ -408,7 +407,7 @@
                 }
             ],
             "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods.",
-            "time": "2016-02-27 20:21:38"
+            "time": "2016-02-27T20:21:38+00:00"
         },
         {
             "name": "webdevstudios/wds-shortcodes",
@@ -458,7 +457,7 @@
                 "wordpress",
                 "wp-api"
             ],
-            "time": "2016-09-13 15:49:16"
+            "time": "2016-09-13T15:49:16+00:00"
         }
     ],
     "packages-dev": [],
