@@ -108,7 +108,15 @@ class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
+			'name'    => __( 'Pagination number of years in the first page if paging_by is per_year', 'gc-sermons' ),
+			'type'    => 'text',
+			'id'      => $this->prefix . 'show_num_years_first_page',
+			'default' => 0,
+		);
+
+		$fields[] = array(
 			'name'    => __( 'Pagination initial years if paging_by is per_year', 'gc-sermons' ),
+            'desc'    => __( 'This is only applicable if `show_num_years_first_page` is empty or 0', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'paging_init_year',
 			'default' => array(date('Y', time())),
