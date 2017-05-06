@@ -43,7 +43,7 @@
     );
     
     // User composer autoload.
-    require 'vendor/autoload.php';
+    require __DIR__ . '/vendor/autoload.php';
     
     /**
      * Main initiation class
