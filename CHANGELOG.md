@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.10.0 - 2017-01-09
+### Added
+* Recent sermon shortcode
+
 ## 0.9.0 - 2017-01-09
 ### Enhancements
 * Removed dependency on xrstf/composer-php52 (now requires PHP greater than 5.2).
