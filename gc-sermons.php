@@ -3,7 +3,7 @@
      * Plugin Name: GC Sermons
      * Plugin URI:  http://liquidcgurch.com
      * Description: Manage sermons and sermon content in WordPress
-     * Version:     0.1.9
+     * Version:     0.9.0
      * Author:      jtsternberg, surajprgupta
      * Author URI:  http://liquidcgurch.com
      * Donate link: http://liquidcgurch.com
@@ -63,7 +63,7 @@
          * @var  string
          * @since  0.1.0
          */
-        const VERSION = '0.1.9';
+        const VERSION = '0.9.0';
         
         /**
          * URL of plugin directory

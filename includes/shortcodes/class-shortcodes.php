@@ -83,6 +83,7 @@ class GCS_Shortcodes {
 		$this->sermons        = new GCS_Shortcodes_Sermons( $plugin );
 		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
 		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
+		$this->recent_sermons = new GCS_Shortcodes_Recent_Sermon( $plugin );
 		$this->series         = new GCS_Shortcodes_Series( $plugin );
 		$this->related_links  = new GCS_Shortcodes_Related_Links( $plugin );
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
