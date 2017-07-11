@@ -50,7 +50,7 @@
         {
             $output = $this->_shortcode();
             
-            return apply_filters('lc_sermon_recent_sermon_shortcode_output', $output, $this);
+            return apply_filters('gc_sermon_recent_sermon_shortcode_output', $output, $this);
         }
         
         protected function _shortcode()

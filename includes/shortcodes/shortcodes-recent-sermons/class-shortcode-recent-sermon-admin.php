@@ -21,8 +21,8 @@
         function js_button_data()
         {
             return array(
-                'qt_button_text' => __('GCS Recent Sermon', 'lc-func'),
-                'button_tooltip' => __('GCS Recent Sermon', 'lc-func'),
+                'qt_button_text' => __('GC Recent Sermon', 'lc-func'),
+                'button_tooltip' => __('GC Recent Sermon', 'lc-func'),
                 'icon'           => 'dashicons-media-interactive',
                 // 'mceView'        => true, // The future
             );
