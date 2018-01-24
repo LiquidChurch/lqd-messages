@@ -59,10 +59,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'args' => array(
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'menu_icon' => 'dashicons-playlist-video',
-                'rewrite' => array(
-                    'slug' => 'sermons',
-                    'with_front' => false,
-                ),
+                'rewrite' => array('slug' => 'sermons'),
             ),
         ));
         $this->query_args['post_type'] = $this->post_type();

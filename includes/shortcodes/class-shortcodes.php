@@ -1,12 +1,13 @@
 <?php
+    
     /**
      * GC Sermons Shortcodes
      *
      * @version 0.1.6
      * @package GC Sermons
      */
-
-class GCS_Shortcodes {
+    class GCS_Shortcodes
+    {
         
         /**
          * Instance of GCS_Shortcodes_Play_Button
@@ -95,7 +96,8 @@ class GCS_Shortcodes {
          * @param  object $plugin Main plugin object.
          * @return void
          */
-	public function __construct( $plugin ) {
+        public function __construct($plugin)
+        {
             $this->play_button = new GCS_Shortcodes_Play_Button($plugin);
             $this->sermons = new GCS_Shortcodes_Sermons($plugin);
             $this->sermon_single = new GCS_Shortcodes_Sermon($plugin);
@@ -116,7 +118,8 @@ class GCS_Shortcodes {
          * @throws Exception Throws an exception if the field is invalid.
          * @return mixed
          */
-	public function __get( $field ) {
+        public function __get($field)
+        {
             return $this->{$field};
         }
     }
