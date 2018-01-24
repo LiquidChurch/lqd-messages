@@ -1,8 +1,6 @@
 <?php
-    
     /**
      * GC Sermons Sermon Post
-     *
      * @version 0.1.6
      * @package GC Sermons
      */
@@ -153,7 +151,6 @@
             );
             $this->add_media_type('video');
             $this->add_media_type('audio');
-            
             return $this->media;
         }
         
@@ -313,6 +310,18 @@
         }
         
         /**
+         * Wrapper for get_post_thumbnail_id
+         *
+         * @since  0.1.0
+         *
+         * @return string|int Post thumbnail ID or empty string.
+         */
+        public function featured_image_id()
+        {
+            return get_post_thumbnail_id($this->ID);
+        }
+
+		/**
          * Get the series image.
          *
          * @since  0.1.0
@@ -358,49 +367,10 @@
             return $this->single_series;
         }
         
-        /**
-         * Wrapper for get_the_terms for the series taxonomy
-         *
-         * @since  0.1.0
-         *
-         * @return array  Array of series terms
-         */
-        public function series()
-        {
-            if (empty($this->series)) {
-                $this->series = $this->init_taxonomy('series');
-            }
-            
-            return $this->series;
-        }
+ 
         
-        /**
-         * Initate the taxonomy.
-         *
-         * @since  0.1.0
-         *
-         * @param  string $taxonomy Taxonomy to initiate
-         *
-         * @return array             Array of terms for this taxonomy.
-         */
-        protected function init_taxonomy($taxonomy)
-        {
-            $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
-            
-            return get_the_terms($this->ID, $tax_slug);
-        }
         
-        /**
-         * Wrapper for get_post_thumbnail_id
-         *
-         * @since  0.1.0
-         *
-         * @return string|int Post thumbnail ID or empty string.
-         */
-        public function featured_image_id()
-        {
-            return get_post_thumbnail_id($this->ID);
-        }
+
         
         /**
          * Get all speakers for this sermon
@@ -551,6 +521,23 @@
             return gc_sermons()->sermons->get_many($args);
         }
         
+
+       /**
+         * Wrapper for get_the_terms for the series taxonomy
+         *
+         * @since  0.1.0
+         *
+         * @return array  Array of series terms
+         */
+        public function series()
+        {
+            if (empty($this->series)) {
+                $this->series = $this->init_taxonomy('series');
+            }
+            
+            return $this->series;
+        }
+
         /**
          * Get single speaker for this sermon
          *
@@ -607,6 +594,21 @@
         }
         
         /**
+         * Initate the taxonomy.
+         *
+         * @since  0.1.0
+         *
+         * @param  string $taxonomy Taxonomy to initiate
+         *
+         * @return array             Array of terms for this taxonomy.
+         */
+        protected function init_taxonomy($taxonomy)
+        {
+            $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
+            return get_the_terms($this->ID, $tax_slug);
+        }
+
+	    /**
          * Wrapper for get_post_meta
          *
          * @since  0.1.1
@@ -645,7 +647,6 @@
                     if (empty($this->media)) {
                         return $this->init_media();
                     }
-                    
                     return $this->media;
                 default:
                     // Check post object for property
@@ -703,7 +704,6 @@
                 case 'topics':
                 case 'tags':
                     $terms = $this->{$property}();
-                    
                     return !empty($terms);
                 default:
                     // Check post object for property
@@ -712,5 +712,4 @@
                     return isset($this->post->{$property});
             }
         }
-        
     }
