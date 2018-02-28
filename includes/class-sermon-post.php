@@ -1,5 +1,4 @@
 <?php
-    
     /**
      * GC Sermons Sermon Post
      *
@@ -7,8 +6,7 @@
      * @package GC Sermons
      */
 
-    class GCS_Sermon_Post
-    {
+class GCS_Sermon_Post {
         
         /**
          * Post object to wrap
@@ -88,8 +86,7 @@
          * @param  mixed $post Post object to wrap
          * @return void
          */
-        public function __construct($post)
-        {
+	public function __construct( $post ) {
             if (!($post instanceof WP_Post)) {
                 throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
             }
@@ -97,46 +94,10 @@
             $post_type = gc_sermons()->sermons->post_type();
             
             if ($post->post_type !== $post_type) {
-                throw new Exception('Sorry, ' . __CLASS__ . ' expects a ' . $post_type .
-                                    ' object.');
+			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
             }
             
             $this->post = $post;
-        }
-        
-        /**
-         * Wrapper for wp_oembed_get/wp_video_shortcode
-         *
-         * @since  0.1.1
-         *
-         * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
-         *                     or wp_video_shortcode.
-         * @return mixed       The video player if successful.
-         */
-        public function get_video_player($args = array())
-        {
-            global $wp_embed;
-            
-            $media = empty($this->media) ? $this->init_media() : $this->media;
-            $video = isset($media['video']) ? $media['video'] : array();
-            if (!isset($video['type'])) {
-                return '';
-            }
-            
-            $video_url = '';
-            if ('url' === $video['type']) {
-                $wp_embed->post_ID = $this->ID;
-                $video_player = $wp_embed->shortcode($args, $video['value']);
-            } elseif ('attachment_id' === $video['type']) {
-                
-                $args['src'] = $video['attachment_url'];
-                if ($video_player = wp_video_shortcode($args)) {
-                    $video_player = '<div class="gc-video-wrap">' . $video_player .
-                                    '</div><!-- .gc-video-wrap -->';
-                }
-            }
-            
-            return $video_player;
         }
         
         /**
@@ -146,15 +107,13 @@
          *
          * @return array Array of video/audio media info.
          */
-        protected function init_media()
-        {
+	protected function init_media() {
             $this->media = array(
                 'video' => array(),
                 'audio' => array(),
             );
             $this->add_media_type('video');
             $this->add_media_type('audio');
-            
             return $this->media;
         }
         
@@ -165,8 +124,7 @@
          *
          * @param string $type type of media
          */
-        protected function add_media_type($type = 'video')
-        {
+	protected function add_media_type( $type = 'video' ) {
             // Only audio/video allowed.
             $type = 'video' === $type ? $type : 'audio';
             $media = false;
@@ -197,14 +155,46 @@
         }
         
         /**
+         * Wrapper for wp_oembed_get/wp_video_shortcode
+         *
+         * @since  0.1.1
+         *
+         * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
+         *                     or wp_video_shortcode.
+         * @return mixed       The video player if successful.
+         */
+	public function get_video_player( $args = array() ) {
+            global $wp_embed;
+            
+            $media = empty($this->media) ? $this->init_media() : $this->media;
+            $video = isset($media['video']) ? $media['video'] : array();
+            if (!isset($video['type'])) {
+                return '';
+            }
+            
+            $video_url = '';
+            if ('url' === $video['type']) {
+                $wp_embed->post_ID = $this->ID;
+                $video_player = $wp_embed->shortcode($args, $video['value']);
+            } elseif ('attachment_id' === $video['type']) {
+                
+                $args['src'] = $video['attachment_url'];
+                if ($video_player = wp_video_shortcode($args)) {
+				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
+                }
+            }
+            
+            return $video_player;
+        }
+
+		/**
          * Wrapper for wp_audio_shortcode
          *
          * @since  0.1.1
          *
          * @return mixed The audio player if successful.
          */
-        public function get_audio_player()
-        {
+	public function get_audio_player() {
             // Lazy-load the media-getting
             if (empty($this->media)) {
                 $this->init_media();
@@ -223,8 +213,7 @@
             }
             
             if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
-                $audio_player = '<div class="gc-audio-wrap">' . $audio_player .
-                                '</div><!-- .gc-audio-wrap -->';
+			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
             }
             
             return $audio_player;
@@ -237,8 +226,7 @@
          *
          * @return string Sermon post permalink.
          */
-        public function permalink()
-        {
+	public function permalink() {
             return get_permalink($this->ID);
         }
         
@@ -249,8 +237,7 @@
          *
          * @return string Sermon post title.
          */
-        public function title()
-        {
+	public function title() {
             return get_the_title($this->ID);
         }
         
@@ -261,8 +248,7 @@
          *
          * @return string Sermon post excerpt.
          */
-        public function loop_excerpt()
-        {
+	public function loop_excerpt() {
             ob_start();
             the_excerpt();
             // grab the data from the output buffer and add it to our $content variable
@@ -282,14 +268,11 @@
          * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
          * @return string             The post thumbnail image tag.
          */
-        public function featured_image($size = 'full', $attr = '')
-        {
+	public function featured_image( $size = 'full', $attr = '' ) {
             // Unique id for the passed-in attributes.
             $id = md5($attr);
             
-            if (!isset($attr['series_image_fallback']) ||
-                false !== $attr['series_image_fallback']
-            ) {
+		if ( ! isset( $attr['series_image_fallback'] ) || false !== $attr['series_image_fallback'] ) {
                 $series_image_fallback = true;
                 if (isset($attr['series_image_fallback'])) {
                     unset($attr['series_image_fallback']);
@@ -314,6 +297,16 @@
         }
         
         /**
+         * Wrapper for get_post_thumbnail_id
+         *
+         * @since  0.1.0
+         *
+         * @return string|int Post thumbnail ID or empty string.
+         */
+	public function featured_image_id() {
+            return get_post_thumbnail_id($this->ID);
+        }
+		/**
          * Get the series image.
          *
          * @since  0.1.0
@@ -324,18 +317,58 @@
          * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
          * @return string             The series image tag.
          */
-        public function series_image($size = 'full', $attr = '', $return_type = 'img')
-        {
+	public function series_image( $size = 'full', $attr = '' ) {
             $args = array('image_size' => $size);
             $series = $this->get_series($args);
             
-            if ($return_type == 'img') {
                 return $series->image;
-            } else {
-                return $series->image_id;
-            }
         }
         
+        /**
+         * Get all speakers for this sermon
+         *
+         * @since  0.1.7
+         *
+         * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+         *
+         * @return WP_Term|false Speaker term object.
+         */
+	public function get_speakers( $args = array() ) {
+            $speakers = $this->speakers();
+            if (empty($speakers)) {
+                return false;
+            }
+            
+            $speaker = array();
+            foreach ($speakers as $key => $val) {
+                $speaker[] = gc_sermons()->taxonomies->speaker->get($val, $args);
+            }
+            
+            return $speaker;
+        }
+
+
+       /**
+         * Get single speaker for this sermon
+         *
+         * @since  0.1.1
+         *
+         * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+         *
+         * @return WP_Term|false Speaker term object.
+         */
+	public function get_speaker( $args = array() ) {
+            $speakers = $this->speakers();
+            if (empty($speakers)) {
+                return false;
+            }
+            
+            if (null === $this->speaker) {
+                $this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
+            }
+            
+            return $this->speaker;
+        }
         /**
          * Get single series for this sermon
          *
@@ -345,8 +378,7 @@
          *
          * @return WP_Term|false Series term object.
          */
-        public function get_series($args = array())
-        {
+	public function get_series( $args = array() ) {
             $series = $this->series();
             if (empty($series)) {
                 return false;
@@ -360,90 +392,6 @@
         }
         
         /**
-         * Wrapper for get_the_terms for the series taxonomy
-         *
-         * @since  0.1.0
-         *
-         * @return array  Array of series terms
-         */
-        public function series()
-        {
-            if (empty($this->series)) {
-                $this->series = $this->init_taxonomy('series');
-            }
-            
-            return $this->series;
-        }
-        
-        /**
-         * Initate the taxonomy.
-         *
-         * @since  0.1.0
-         *
-         * @param  string $taxonomy Taxonomy to initiate
-         *
-         * @return array             Array of terms for this taxonomy.
-         */
-        protected function init_taxonomy($taxonomy)
-        {
-            $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
-            
-            return get_the_terms($this->ID, $tax_slug);
-        }
-        
-        /**
-         * Wrapper for get_post_thumbnail_id
-         *
-         * @since  0.1.0
-         *
-         * @return string|int Post thumbnail ID or empty string.
-         */
-        public function featured_image_id()
-        {
-            return get_post_thumbnail_id($this->ID);
-        }
-        
-        /**
-         * Get all speakers for this sermon
-         *
-         * @since  0.1.7
-         *
-         * @param  array         Args to pass to GCS_Taxonomies_Base::get()
-         *
-         * @return WP_Term|false Speaker term object.
-         */
-        public function get_speakers($args = array())
-        {
-            $speakers = $this->speakers();
-            if (empty($speakers)) {
-                return false;
-            }
-            
-            $speaker = array();
-            foreach ($speakers as $key => $val) {
-                $speaker[] = gc_sermons()->taxonomies->speaker->get($val, $args);
-            }
-            
-            return $speaker;
-        }
-        
-        /**
-         * Wrapper for get_the_terms for the speaker taxonomy
-         *
-         * @since  0.1.0
-         *
-         * @return array  Array of speaker terms
-         */
-        public function speakers()
-        {
-            if (empty($this->speakers)) {
-                $this->speakers = $this->init_taxonomy('speaker');
-            }
-            
-            return $this->speakers;
-        }
-        
-        /**
          * Get scripture for this sermon
          *
          * @since  0.1.7
@@ -452,8 +400,7 @@
          *
          * @return WP_Term|false scripture term object.
          */
-        public function get_scriptures($args = array())
-        {
+	public function get_scriptures( $args = array() ) {
             $scriptures = $this->scripture();
             if (empty($scriptures)) {
                 return false;
@@ -468,22 +415,6 @@
         }
         
         /**
-         * Wrapper for get_the_terms for the scripture taxonomy
-         *
-         * @since  0.1.7
-         *
-         * @return array  Array of scripture terms
-         */
-        public function scripture()
-        {
-            if (empty($this->scripture)) {
-                $this->scripture = $this->init_taxonomy('scripture');
-            }
-            
-            return $this->scripture;
-        }
-        
-        /**
          * Get other sermons in the same series.
          *
          * @since  0.1.1
@@ -492,12 +423,10 @@
          *
          * @return mixed        WP_Query instance if successful.
          */
-        public function get_others_in_series($args = array())
-        {
+	public function get_others_in_series( $args = array() ) {
             $series = $this->get_series();
             if (!$series) {
-                return new WP_Error('no_series_for_sermon',
-                    __('There is no series associated with this sermon.', 'gc-sermons'), $this->ID);
+			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'gc-sermons' ), $this->ID );
             }
             
             $args = wp_parse_args($args, array(
@@ -526,13 +455,10 @@
          *
          * @return mixed        WP_Query instance if successful.
          */
-        public function get_others_by_speaker($args = array())
-        {
+	public function get_others_by_speaker( $args = array() ) {
             $speaker = $this->get_speaker();
             if (!$speaker) {
-                return new WP_Error('no_speaker_for_sermon',
-                    __('There is no speaker associated with this sermon.', 'gc-sermons'),
-                    $this->ID);
+			return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'gc-sermons' ), $this->ID );
             }
             
             $args = wp_parse_args($args, array(
@@ -553,26 +479,47 @@
         }
         
         /**
-         * Get single speaker for this sermon
+         * Wrapper for get_the_terms for the series taxonomy
          *
-         * @since  0.1.1
+         * @since  0.1.0
          *
-         * @param  array         Args to pass to GCS_Taxonomies_Base::get()
-         *
-         * @return WP_Term|false Speaker term object.
+         * @return array  Array of series terms
          */
-        public function get_speaker($args = array())
-        {
-            $speakers = $this->speakers();
-            if (empty($speakers)) {
-                return false;
+	public function series() {
+            if (empty($this->series)) {
+                $this->series = $this->init_taxonomy('series');
             }
             
-            if (null === $this->speaker) {
-                $this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
+            return $this->series;
+        }
+         /**
+         * Wrapper for get_the_terms for the scripture taxonomy
+         *
+         * @since  0.1.7
+         *
+         * @return array  Array of scripture terms
+         */
+	public function scripture() {
+            if (empty($this->scripture)) {
+                $this->scripture = $this->init_taxonomy('scripture');
             }
             
-            return $this->speaker;
+            return $this->scripture;
+        }
+ 
+       /**
+         * Wrapper for get_the_terms for the speaker taxonomy
+         *
+         * @since  0.1.0
+         *
+         * @return array  Array of speaker terms
+         */
+	public function speakers() {
+            if (empty($this->speakers)) {
+                $this->speakers = $this->init_taxonomy('speaker');
+            }
+            
+            return $this->speakers;
         }
         
         /**
@@ -582,8 +529,7 @@
          *
          * @return array  Array of topic terms
          */
-        public function topics()
-        {
+	public function topics() {
             if (empty($this->topics)) {
                 $this->topics = $this->init_taxonomy('topic');
             }
@@ -598,8 +544,7 @@
          *
          * @return array  Array of tag terms
          */
-        public function tags()
-        {
+	public function tags() {
             if (empty($this->tags)) {
                 $this->tags = $this->init_taxonomy('tag');
             }
@@ -607,6 +552,19 @@
             return $this->tags;
         }
         
+       /**
+         * Initate the taxonomy.
+         *
+         * @since  0.1.0
+         *
+         * @param  string $taxonomy Taxonomy to initiate
+         *
+         * @return array             Array of terms for this taxonomy.
+         */
+	protected function init_taxonomy( $taxonomy ) {
+            $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
+            return get_the_terms($this->ID, $tax_slug);
+        }
         /**
          * Wrapper for get_post_meta
          *
@@ -616,8 +574,7 @@
          *
          * @return mixed        Value of post meta
          */
-        public function get_meta($key)
-        {
+	public function get_meta( $key ) {
             return get_post_meta($this->ID, $key, 1);
         }
         
@@ -628,8 +585,7 @@
          * @throws Exception Throws an exception if the field is invalid.
          * @return mixed
          */
-        public function __get($property)
-        {
+	public function __get( $property ) {
             $property = $this->translate_property($property);
             
             // Automate
@@ -646,7 +602,6 @@
                     if (empty($this->media)) {
                         return $this->init_media();
                     }
-                    
                     return $this->media;
                 default:
                     // Check post object for property
@@ -659,7 +614,34 @@
             }
         }
         
+     
+
         /**
+         * Magic isset checker for our object.
+         *
+         * @param string $property
+         * @throws Exception Throws an exception if the field is invalid.
+         * @return mixed
+         */
+	public function __isset( $property ) {
+            $property = $this->translate_property($property);
+            
+            // Automate
+            switch ($property) {
+                case 'series':
+                case 'speakers':
+                case 'topics':
+                case 'tags':
+                    $terms = $this->{$property}();
+                    return !empty($terms);
+                default:
+                    // Check post object for property
+                    // In general, we'll avoid using same-named properties,
+                    // so the post object properties are always available.
+                    return isset($this->post->{$property});
+            }
+        }
+   /**
          * Allow some variations on the object __getter
          *
          * @since  NEXXT
@@ -668,8 +650,7 @@
          *
          * @return string            Maybe-modified property name
          */
-        protected function translate_property($property)
-        {
+	protected function translate_property( $property ) {
             // Translate
             switch ($property) {
                 case 'speaker':
@@ -684,34 +665,6 @@
             }
             
             return $property;
-        }
-        
-        /**
-         * Magic isset checker for our object.
-         *
-         * @param string $property
-         * @throws Exception Throws an exception if the field is invalid.
-         * @return mixed
-         */
-        public function __isset($property)
-        {
-            $property = $this->translate_property($property);
-            
-            // Automate
-            switch ($property) {
-                case 'series':
-                case 'speakers':
-                case 'topics':
-                case 'tags':
-                    $terms = $this->{$property}();
-                    
-                    return !empty($terms);
-                default:
-                    // Check post object for property
-                    // In general, we'll avoid using same-named properties,
-                    // so the post object properties are always available.
-                    return isset($this->post->{$property});
-            }
         }
         
     }

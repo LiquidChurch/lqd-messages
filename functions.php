@@ -84,15 +84,16 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
 }
 
 /**
- * Get's info for a speaker attached to the sermon.
+ * Get's info for a speaker attached to the message.
  *
  * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  boolean $args Args array
+ * @param  array $args
  * @param  array $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
  *
  * @return string Sermon speaker info output.
+ * @throws Exception
  */
 function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
 {
@@ -139,6 +140,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
  *
  * @return string Sermon related links output.
+ * @throws Exception
  */
 function gc_get_sermon_related_links($sermon = 0)
 {

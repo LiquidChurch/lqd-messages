@@ -42,8 +42,8 @@
         'gc-sermon'
     );
     
-    // User composer autoload.
-    require __DIR__ . '/vendor/autoload.php';
+    // Use composer autoload.
+    require 'vendor/autoload.php';
     
     /**
      * Main initiation class

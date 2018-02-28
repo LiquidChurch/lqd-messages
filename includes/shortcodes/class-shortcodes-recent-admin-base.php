@@ -36,7 +36,7 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
             true
         );
         wp_localize_script('gc-sermons-admin', 'php_vars', array(
-                'postID' => isset($_GET['post']) ? $_GET['post'] : 0,
+                'postID' => $_GET['post'],
                 'nonce' => wp_create_nonce('scripterz-nonce')
             )
         );
