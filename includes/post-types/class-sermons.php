@@ -29,6 +29,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
      * @since  0.1.0
      */
     protected $plugin = null;
+    
     /**
      * Default WP_Query args
      *
@@ -59,7 +60,11 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'args' => array(
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'menu_icon' => 'dashicons-playlist-video',
-                'rewrite' => array('slug' => 'sermons'),
+                'rewrite' => array(
+                    'slug' => 'sermons',
+                    'with_front' => false,
+                    'ep_mask' => EP_ALL,
+                ),
             ),
         ));
         $this->query_args['post_type'] = $this->post_type();
@@ -421,7 +426,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
     /**
-     * For making custom coloumns sortable
+     * For making custom columns sortable
      *
      * @since  0.1.7
      *

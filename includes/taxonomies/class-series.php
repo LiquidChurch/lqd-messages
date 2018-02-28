@@ -47,7 +47,11 @@ class GCS_Series extends GCS_Taxonomies_Base {
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,
-				'rewrite' => array( 'slug' => 'sermon-series' ),
+				'rewrite' => array(
+				    'slug' => 'sermon-series',
+					'with_front' => false,
+					'ep_mask' => EP_CATEGORIES,
+                ),
 			),
 		) );
 	}
@@ -63,7 +67,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	}
 
 	/**
-	 * Add custom fields to the CPT
+	 * Add custom fields to the Custom Taxonomy
 	 *
 	 * @since  0.1.0
 	 * @return void

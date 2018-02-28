@@ -164,7 +164,7 @@
             flush_rewrite_rules();
         }
         
-                /**
+        /**
          * Creates or returns an instance of this class.
          *
          * @since  0.1.0
@@ -207,7 +207,7 @@
             }
         }
         
-/**
+        /**
          * Attach other plugin classes to the base plugin class.
          *
          * @since  0.1.0
