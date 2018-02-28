@@ -103,7 +103,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 	public function do_scripts() {
 
-		// Enqueue whatever version of fontawesome that's registereed (if it is registered)
+		// Enqueue whatever version of fontawesome that's registered (if it is registered)
 		wp_enqueue_style( 'qode_font_awesome-css' );
 		wp_enqueue_style( 'font_awesome' );
 		wp_enqueue_style( 'font-awesome' );

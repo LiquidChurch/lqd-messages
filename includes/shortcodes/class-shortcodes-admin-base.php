@@ -26,8 +26,8 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 * @param  object $run Main plugin object.
-	 * @return void
+	 *
+	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
 	 */
 	public function __construct( GCS_Shortcodes_Run_Base $run ) {
 		$this->run = $run;

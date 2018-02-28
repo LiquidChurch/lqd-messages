@@ -39,10 +39,11 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  boolean $args Args array
+ * @param array $args Args array
  * @param  array $get_series_args Args for GCS_Sermon_Post::get_series()
  *
  * @return string Sermon series info output.
+ * @throws Exception
  */
 function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
 {
@@ -183,6 +184,7 @@ function is_array_empty($InputVariable)
  * @param  mixed $args Arguments passed to GCS_Sermon_Post::get_video_player().
  *
  * @return string Sermon video player output.
+ * @throws Exception
  */
 function gc_get_sermon_video_player($sermon = 0, $args = array())
 {
@@ -205,6 +207,7 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
  * @param  mixed $args Arguments passed to GCS_Sermon_Post::get_audio_player().
  *
  * @return string Sermon audio player output.
+ * @throws Exception
  */
 function gc_get_sermon_audio_player($sermon = 0, $args = array())
 {

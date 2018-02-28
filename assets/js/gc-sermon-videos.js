@@ -1,10 +1,5 @@
 window.GCVideoModal = window.GCVideoModal || {};
 
-/**
- * @todo Play video when opening
- * @todo Test with local video
- * @todo Add a close icon
- */
 ( function( window, document, $, app, undefined ) {
 	'use strict';
 

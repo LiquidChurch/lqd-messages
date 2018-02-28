@@ -65,8 +65,9 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
+	 *
 	 * @param  object $sermons GCS_Sermons object.
-	 * @return void
+	 * @param $args
 	 */
 	public function __construct( $sermons, $args ) {
 		$this->sermons = $sermons;
@@ -201,7 +202,12 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 */
 	abstract function hooks();
 
-	/** Helper Methods  *******************************************************/
+	/** Helper Methods  ******************************************************
+	 *
+	 * @param $args
+	 *
+	 * @return
+	 */
 
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
@@ -216,6 +222,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @param  boolean $get_single_term Whether to get the first term or all of them.
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
 	 */
 	public function most_recent( $get_single_term = false ) {
 		static $terms = null;
@@ -241,6 +248,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @since  0.2.0
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
 	 */
 	public function most_recent_sermon() {
 		return $this->sermons->most_recent_with_taxonomy( $this->id );
@@ -251,10 +259,11 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args             Array of arguments (passed to get_terms).
+	 * @param  array $args Array of arguments (passed to get_terms).
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
+	 * @throws Exception
 	 */
 	public function get_many( $args = array(), $single_term_args = array() ) {
 		$args = wp_parse_args( $args, $this->term_get_many_args_defaults );
@@ -274,7 +283,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			isset( $args['augment_terms'] )
 			&& $args['augment_terms']
 			&& ! empty( $terms )
-			// Don't augment for queries w/ greater than 100 terms, for perf. reasons.
+			// Don't augment for queries w/ greater than 100 terms, for performance reasons.
 			&& 100 < count( $terms )
 		) {
 			foreach ( $terms as $key => $term ) {
@@ -290,11 +299,12 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.5
 	 *
-	 * @param  array $search_term      The search term.
-	 * @param  array $args             Array of arguments for GCS_Taxonomies_Base::get_many().
+	 * @param  array $search_term The search term.
+	 * @param  array $args Array of arguments for GCS_Taxonomies_Base::get_many().
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
+	 * @throws Exception
 	 */
 	public function search( $search_term, $args = array(), $single_term_args = array() ) {
 		$args = wp_parse_args( $args, array(
@@ -396,6 +406,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @param  bool $flush_cache Whether to get fresh results (flush cache)
 	 *
 	 * @return mixed Array of terms on success
+	 * @throws Exception
 	 */
 	protected function get_terms_in_sermon_date_order( $flush_cache = false ) {
 		$this->flush_cache = $this->flush_cache || $flush_cache;
@@ -435,8 +446,10 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since 0.1.1
 	 *
-	 * @param int    $post_id  Post ID
+	 * @param int $post_id Post ID
 	 * @param string $taxonomy Taxonomy
+	 *
+	 * @throws Exception
 	 */
 	public function trigger_cache_flush( $post_id, $taxonomy ) {
 		if (
@@ -454,6 +467,9 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * is expected as part of the arguments.
 	 *
 	 * @since  0.1.5
+	 *
+	 * @param $taxonomy
+	 * @param array $args
 	 *
 	 * @return mixed Array of terms on success
 	 */

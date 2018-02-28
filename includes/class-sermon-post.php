@@ -78,14 +78,17 @@ class GCS_Sermon_Post {
          * @var array
          */
         protected $tags = array();
-        
-        /**
-         * Constructor
-         *
-         * @since  0.1.0
-         * @param  mixed $post Post object to wrap
-         * @return void
-         */
+
+	/**
+	 * Constructor
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  mixed $post Post object to wrap
+	 *
+	 * @throws Exception
+	 * @return void
+	 */
 	public function __construct( $post ) {
             if (!($post instanceof WP_Post)) {
                 throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
@@ -101,7 +104,7 @@ class GCS_Sermon_Post {
         }
         
         /**
-         * Initate the video/audio media object
+         * Initiate the video/audio media object
          *
          * @since  0.1.0
          *
@@ -116,14 +119,16 @@ class GCS_Sermon_Post {
             $this->add_media_type('audio');
             return $this->media;
         }
-        
-        /**
-         * Add media info to the media array for $type
-         *
-         * @since 0.1.0
-         *
-         * @param string $type type of media
-         */
+
+	/**
+	 * Add media info to the media array for $type
+	 *
+	 * @since 0.1.0
+	 *
+	 * @param string $type type of media
+	 *
+	 * @return GCS_Sermon_Post
+	 */
 	protected function add_media_type( $type = 'video' ) {
             // Only audio/video allowed.
             $type = 'video' === $type ? $type : 'audio';
@@ -413,16 +418,17 @@ class GCS_Sermon_Post {
             
             return $scripture;
         }
-        
-        /**
-         * Get other sermons in the same series.
-         *
-         * @since  0.1.1
-         *
-         * @param  array $args Array of WP_Query arguments.
-         *
-         * @return mixed        WP_Query instance if successful.
-         */
+
+	/**
+	 * Get other sermons in the same series.
+	 *
+	 * @since  0.1.1
+	 *
+	 * @param  array $args Array of WP_Query arguments.
+	 *
+	 * @return mixed        WP_Query instance if successful.
+	 * @throws Exception
+	 */
 	public function get_others_in_series( $args = array() ) {
             $series = $this->get_series();
             if (!$series) {
@@ -445,16 +451,17 @@ class GCS_Sermon_Post {
             
             return gc_sermons()->sermons->get_many($args);
         }
-        
-        /**
-         * Get other sermons by the same speaker.
-         *
-         * @since  0.1.1
-         *
-         * @param  array $args Array of WP_Query arguments.
-         *
-         * @return mixed        WP_Query instance if successful.
-         */
+
+	/**
+	 * Get other sermons by the same speaker.
+	 *
+	 * @since  0.1.1
+	 *
+	 * @param  array $args Array of WP_Query arguments.
+	 *
+	 * @return mixed        WP_Query instance if successful.
+	 * @throws Exception
+	 */
 	public function get_others_by_speaker( $args = array() ) {
             $speaker = $this->get_speaker();
             if (!$speaker) {
@@ -553,7 +560,7 @@ class GCS_Sermon_Post {
         }
         
        /**
-         * Initate the taxonomy.
+         * Initiate the taxonomy.
          *
          * @since  0.1.0
          *
@@ -644,7 +651,7 @@ class GCS_Sermon_Post {
    /**
          * Allow some variations on the object __getter
          *
-         * @since  NEXXT
+         * @since  0.9.1
          *
          * @param  string $property Object property to fetch
          *

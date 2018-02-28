@@ -48,14 +48,15 @@
                 // No admin
                 'remove_description'        => true,
             );
-        
-        /**
-         * Constructor
-         *
-         * @since 0.1.3
-         *
-         * @param GCS_Sermons $sermons
-         */
+
+	    /**
+	     * Constructor
+	     *
+	     * @since 0.1.3
+	     *
+	     * @param GCS_Sermons $sermons
+	     * @param GCS_Series $series
+	     */
         public function __construct(GCS_Sermons $sermons, GCS_Series $series)
         {
             $this->series = $series;

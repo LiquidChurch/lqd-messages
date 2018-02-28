@@ -49,6 +49,7 @@ class GCSS_Related_Links_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+	 * @throws Exception
 	 */
 	public function shortcode() {
 		return gc_get_sermon_related_links( $this->get_sermon() );

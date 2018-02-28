@@ -285,15 +285,6 @@
                                 }
                             }
                         ?>
-
-                        <!--<div id="message-resources">
-                            <span style="padding-left:15px; font-weight:700;">Downloads and Other Resources:</span>
-                            <?php /*do_action('sermon_resources', array(
-                                'resource_type' => array('files', 'urls'),
-                                'resource_file_type' => array('image', 'video', 'audio', 'pdf', 'zip', 'other'),
-                                'resource_post_id' => get_the_id(),
-                            )); */ ?>
-                        </div>-->
                         
                         <?php
                             $social_share_enable

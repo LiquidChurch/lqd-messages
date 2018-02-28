@@ -8,14 +8,13 @@
 abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
 {
 
-    /**
-     * Constructor
-     *
-     * @since  0.1.0
-     * @param  object $run Main plugin object.
-     * @param  object $taxonomies GCS_Taxonomies object.
-     * @return void
-     */
+	/**
+	 * Constructor
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+	 */
     public function __construct(GCS_Shortcodes_Run_Base $run)
     {
         parent::__construct($run);

@@ -25,7 +25,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
     /**
      * Parent plugin class
      *
-     * @var class
      * @since  0.1.0
      */
     protected $plugin = null;
@@ -84,7 +83,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
         add_filter('admin_init', array($this, 'admin_hooks'));
 
         /**
-         * Enable image fallback. If Sermon does not have a feautured image, fall back
+         * Enable image fallback. If Sermon does not have a featured image, fall back
          * to the sermon series image (if it exists).
          *
          * To disable:
@@ -187,19 +186,19 @@ class GCS_Sermons extends GCS_Post_Types_Base
         }
     }
 
-    /**
-     * This provides a backup featured image for sermons by checking the sermon series
-     * for the series featured image. If a sermon has a featured image set, that will be used.
-     *
-     * @since  0.1.3
-     *
-     * @param null|array|string $value The value get_metadata() should return - a single metadata value,
-     *                                 or an array of values.
-     * @param  int $object_id Object ID.
-     * @param  string $meta_key Meta key.
-     *
-     * @return mixed Sermon featured image id, or Series image id, or nothing.
-     */
+	/**
+	 * This provides a backup featured image for sermons by checking the sermon series
+	 * for the series featured image. If a sermon has a featured image set, that will be used.
+	 *
+	 * @since  0.1.3
+	 *
+	 * @param $meta
+	 * @param  int $object_id Object ID.
+	 * @param  string $meta_key Meta key.
+	 *
+	 * @return mixed Sermon featured image id, or Series image id, or nothing.
+	 * @throws Exception
+	 */
     public function featured_image_fallback_to_series_image($meta, $object_id, $meta_key)
     {
 
@@ -380,13 +379,16 @@ class GCS_Sermons extends GCS_Post_Types_Base
         return array_merge($columns, $last);
     }
 
-    /**
-     * Handles admin column display. Hooked in via CPT_Core.
-     *
-     * @since  0.1.0
-     * @param array $column Column currently being rendered.
-     * @param int $post_id ID of post to display column for.
-     */
+	/**
+	 * Handles admin column display. Hooked in via CPT_Core.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param array $column Column currently being rendered.
+	 * @param int $post_id ID of post to display column for.
+	 *
+	 * @throws Exception
+	 */
     public function columns_display($column, $post_id)
     {
         if ('tax-' . $this->plugin->series->id === $column) {
@@ -474,13 +476,14 @@ SQL;
         GCS_Style_Loader::output_template('admin-column');
     }
 
-    /**
-     * Retrieve the most recent sermon with video media.
-     *
-     * @since  0.1.0
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve the most recent sermon with video media.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     public function most_recent_with_video()
     {
         static $sermon = null;
@@ -496,13 +499,14 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Retrieve the most recent sermon.
-     *
-     * @since  0.1.0
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve the most recent sermon.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     public function most_recent()
     {
         static $sermon = null;
@@ -518,15 +522,16 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Retrieve the most recent sermon with audio media.
-     *
-     * @since  0.1.0
-     *
-     * @param  string $type Media type (audio or video)
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve the most recent sermon with audio media.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  string $type Media type (audio or video)
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     protected function most_recent_with_media($type = 'video')
     {
         $sermon = false;
@@ -554,13 +559,14 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Retrieve the most recent sermon with audio media.
-     *
-     * @since  0.1.0
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve the most recent sermon with audio media.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     public function most_recent_with_audio()
     {
         static $sermon = null;
@@ -576,13 +582,16 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Retrieve a specific sermon.
-     *
-     * @since  0.1.0
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve a specific sermon.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param $args
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     public function get($args)
     {
         $args = wp_parse_args($args, $this->query_args);
@@ -595,13 +604,16 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Retrieve sermons.
-     *
-     * @since  0.1.0
-     *
-     * @return WP_Query WP_Query object
-     */
+	/**
+	 * Retrieve sermons.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param $args
+	 *
+	 * @return WP_Query WP_Query object
+	 * @throws Exception
+	 */
     public function get_many($args)
     {
         $defaults = $this->query_args;
@@ -627,15 +639,16 @@ SQL;
         return $sermons;
     }
 
-    /**
-     * Retrieve the most recent sermon which has terms in specified taxonomy.
-     *
-     * @since  0.1.0
-     *
-     * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Retrieve the most recent sermon which has terms in specified taxonomy.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     public function most_recent_with_taxonomy($taxonomy_id)
     {
         $sermon = $this->most_recent();
@@ -658,16 +671,17 @@ SQL;
         return $sermon;
     }
 
-    /**
-     * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
-     *
-     * @since  0.1.0
-     *
-     * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
-     * @param  array $exclude Array of excluded post IDs
-     *
-     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-     */
+	/**
+	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  array $exclude Array of excluded post IDs
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws Exception
+	 */
     protected function find_sermon_with_taxonomy($taxonomy_id, $exclude)
     {
         static $count = 0;

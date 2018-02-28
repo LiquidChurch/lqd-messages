@@ -73,7 +73,7 @@
             );
             
             $fields[] = array(
-                'name' => __( 'Number of Coloumns', 'lc-func' ),
+                'name' => __( 'Number of Columns', 'lc-func' ),
                 'desc' => __( '', 'lc-func' ),
                 'id'   => 'number_columns',
                 'type' => 'text',

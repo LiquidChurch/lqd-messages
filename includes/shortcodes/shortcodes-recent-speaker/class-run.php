@@ -29,6 +29,7 @@ class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+	 * @throws Exception
 	 */
 	public function shortcode() {
 		$content = gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );

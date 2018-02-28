@@ -41,8 +41,9 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param string         $search_query
-	 * @param GCS_Sermons    $sermons
+	 * @param string $search_query
+	 * @param $atts
+	 * @param GCS_Sermons $sermons
 	 * @param GCS_Taxonomies $taxonomies
 	 */
 	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
@@ -108,7 +109,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 *
 	 * @since  [since]
 	 *
-	 * @return [type]  [description]
+	 * @return array [type]  [description]
 	 */
 	public function get_initial_query_args() {
 		$posts_per_page = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );

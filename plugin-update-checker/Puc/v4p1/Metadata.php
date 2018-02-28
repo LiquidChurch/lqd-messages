@@ -14,8 +14,10 @@ if ( !class_exists('Puc_v4p1_Metadata', false) ):
 		 * Create an instance of this class from a JSON document.
 		 *
 		 * @abstract
+		 *
 		 * @param string $json
-		 * @return self
+		 *
+		 * @return void
 		 */
 		public static function fromJson(/** @noinspection PhpUnusedParameterInspection */ $json) {
 			throw new LogicException('The ' . __METHOD__ . ' method must be implemented by subclasses');
@@ -64,8 +66,10 @@ if ( !class_exists('Puc_v4p1_Metadata', false) ):
 		 * Create a new instance by copying the necessary fields from another object.
 		 *
 		 * @abstract
+		 *
 		 * @param StdClass|self $object The source object.
-		 * @return self The new copy.
+		 *
+		 * @return void The new copy.
 		 */
 		public static function fromObject(/** @noinspection PhpUnusedParameterInspection */ $object) {
 			throw new LogicException('The ' . __METHOD__ . ' method must be implemented by subclasses');
