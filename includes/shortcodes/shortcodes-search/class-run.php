@@ -99,7 +99,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		$args = array(
 			'search_query'  => $this->search_query,
-			'action_url'    => home_url('message-search/?sermon-search=1'),
+			'action_url'    => home_url('/messages/message-search/?sermon-search=1'),
 			'sermons_value' => $cpt_slug,
 			'sermons_label' => $this->sermons->post_type( 'singular' ),
 			'series_value'  => $series_slug,
@@ -139,6 +139,12 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 		return $content;
 	}
 
+	/**
+	 * Sermon Search Results
+	 *
+	 * @return GCSS_Sermons_Search_Run|string
+	 * @throws Exception
+	 */
 	protected function sermon_search_results() {
 		$atts = $this->atts;
 		unset( $atts['search'] );
@@ -162,6 +168,12 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 		return $search;
 	}
 
+	/**
+	 * Series Search Results
+	 *
+	 * @return string
+	 * @throws Exception
+	 */
 	protected function series_search_results() {
 		$atts = $this->atts;
 		unset( $atts['search'] );

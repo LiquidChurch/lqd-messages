@@ -25,6 +25,9 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
         add_filter("{$this->shortcode}_shortcode_fields", array($this, 'maybe_remove_recent_attribute'), 100000);
     }
 
+	/**
+	 * Enqueue JS
+	 */
     public function enqueue_js()
     {
         wp_register_script(

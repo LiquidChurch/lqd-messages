@@ -52,10 +52,15 @@
             
             return apply_filters('gc_sermon_recent_sermon_shortcode_output', $output, $this);
         }
-        
+
+	    /**
+	     *
+	     * @return string
+	     * @throws Exception
+	     */
         protected function _shortcode()
         {
-            /*
+        /*
          * Because it's possible to trigger inception, we need to keep track which
          * level we are in, and reset the shortcode object accordingly.
          *
@@ -88,7 +93,12 @@
     
             return $content;
         }
-    
+
+	    /**
+	     * Get Initial Query Arguments
+	     *
+	     * @return array
+	     */
         public function get_initial_query_args()
         {
             $posts_per_page = (int)$this->att('per_page', get_option('posts_per_page'));
@@ -100,8 +110,15 @@
         
             return compact('posts_per_page', 'paged', 'offset', 'order', 'orderby');
         }
-    
-    
+
+	    /**
+	     * Map Sermon Args
+	     *
+	     * @param $all_sermons
+	     * @param $my_level
+	     *
+	     * @return array
+	     */
         protected function map_sermon_args($all_sermons, $my_level)
         {
             global $post;
@@ -128,7 +145,14 @@
         
             return $sermons;
         }
-    
+
+	    /**
+	     * Get Pagination
+	     *
+	     * @param $total_pages
+	     *
+	     * @return array
+	     */
         protected function get_pagination($total_pages)
         {
             $nav = array('prev_link' => '', 'next_link' => '');
@@ -140,7 +164,12 @@
         
             return $nav;
         }
-    
+
+	    /**
+	     * Get Wrap Classes
+	     *
+	     * @return string
+	     */
         protected function get_wrap_classes()
         {
             $columns = absint($this->att('number_columns'));

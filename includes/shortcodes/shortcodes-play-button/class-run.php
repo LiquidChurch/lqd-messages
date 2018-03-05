@@ -66,10 +66,21 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		return $output;
 	}
 
+	/**
+	 * Get most Recent Sermon
+	 *
+	 * @return false|GCS_Sermon_Post
+	 * @throws Exception
+	 */
 	protected function most_recent_sermon() {
 		return $this->sermons->most_recent_with_video();
 	}
 
+	/**
+	 * Get inline styles
+	 *
+	 * @return array
+	 */
 	public function get_inline_styles() {
 		$style = '';
 		$has_icon_font_size = false;
@@ -91,6 +102,13 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		return array( $style, $has_icon_font_size );
 	}
 
+	/**
+	 * Get extra classes
+	 *
+	 * @param bool $has_icon_font_size
+	 *
+	 * @return string
+	 */
 	public function get_extra_classes( $has_icon_font_size = false ) {
 		$classes = ' ' . implode( ' ', array_map( 'esc_attr', explode( ' ', $this->att( 'icon_class' ) ) ) );
 
@@ -101,6 +119,9 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		return $classes;
 	}
 
+	/**
+	 * Do Scripts
+	 */
 	public function do_scripts() {
 
 		// Enqueue whatever version of fontawesome that's registered (if it is registered)
@@ -128,6 +149,11 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		);
 	}
 
+	/**
+	 * Video Modal
+	 *
+	 * @throws Exception
+	 */
 	public function video_modal() {
 		static $done;
 

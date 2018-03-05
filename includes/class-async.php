@@ -23,7 +23,10 @@ class GCS_Async extends WP_Async_Task {
 	 * Constructor
 	 *
 	 * @since  0.1.1
+	 *
 	 * @param  object $plugin Main plugin object.
+	 *
+	 * @throws Exception
 	 * @return void
 	 */
 	public function __construct( $plugin ) {

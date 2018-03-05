@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c3967b481b006edf115532ab3832b63",
+    "content-hash": "f10ea94c833e4876671e86a4ec670c7c",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -187,7 +187,7 @@
                 }
             ],
             "description": "Run asynchronous tasks for long-running operations in WordPress",
-            "time": "2016-03-10 17:37:13"
+            "time": "2016-03-10T17:37:13+00:00"
         },
         {
             "name": "tgmpa/tgm-plugin-activation",
@@ -374,7 +374,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2017-03-24 16:06:06"
+            "time": "2017-03-24T16:06:06+00:00"
         },
         {
             "name": "webdevstudios/taxonomy_core",

@@ -90,7 +90,12 @@
             
             return $fields;
         }
-        
+
+	    /**
+	     * Get thumb size list
+	     *
+	     * @return array
+	     */
         public function get_thumb_size_list() {
             $image_sizes = get_intermediate_image_sizes();
             $return = [];

@@ -35,16 +35,9 @@
      * Built using generator-plugin-wp
      */
     
-    require __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
-    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'http://team.scripterz.in/products/liquidchurch/wp-plugin/lqd-messages/meta.json',
-        __FILE__,
-        'gc-sermon'
-    );
-    
     // Use composer autoload.
     require 'vendor/autoload.php';
-    
+
     /**
      * Main initiation class
      *
@@ -190,13 +183,14 @@
         {
             flush_rewrite_rules();
         }
-        
-        /**
-         * Add hooks and filters
-         *
-         * @since  0.1.0
-         * @return void
-         */
+
+	    /**
+	     * Add hooks and filters
+	     *
+	     * @since  0.1.0
+	     * @return void
+	     * @throws Exception
+	     */
         public function hooks()
         {
             if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
@@ -206,13 +200,14 @@
                 $this->plugin_classes();
             }
         }
-        
-        /**
-         * Attach other plugin classes to the base plugin class.
-         *
-         * @since  0.1.0
-         * @return void
-         */
+
+	    /**
+	     * Attach other plugin classes to the base plugin class.
+	     *
+	     * @since  0.1.0
+	     * @return void
+	     * @throws Exception
+	     */
         public function plugin_classes()
         {
             require_once self::$path . 'functions.php';

@@ -7,7 +7,7 @@ class GCS_Speaker_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->speaker instanceof GCS_Speaker );
+		$this->assertInstanceOf( GCS_Speaker::class, gc_sermons()->speaker );
 	}
 
   function test_taxonomy_exists() {

@@ -58,7 +58,13 @@
             
             return apply_filters('gc_sermon_shortcode_output', $output, $this);
         }
-        
+
+	    /**
+	     * Shortcode
+	     *
+	     * @return string
+	     * @throws Exception
+	     */
         protected function _shortcode()
         {
             $sermon = $this->get_sermon();
@@ -94,7 +100,10 @@
             
             return $content;
         }
-        
+
+	    /**
+	     * Do Scripts
+	     */
         public function do_scripts()
         {
             
@@ -106,14 +115,27 @@
                 true
             );
         }
-        
+
+	    /**
+	     * Inline Style
+	     *
+	     * @return string
+	     */
         public function inline_style()
         {
             return '<style type="text/css">' .
                    '#single-sermon-player img {width: 100%;}' .
                    '</style>';
         }
-        
+
+	    /**
+	     * Map Sermon Args
+	     *
+	     * @param $all_sermons
+	     * @param $my_level
+	     *
+	     * @return array
+	     */
         protected function map_sermon_args($all_sermons, $my_level)
         {
             global $post;

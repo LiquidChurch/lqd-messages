@@ -33,6 +33,9 @@ abstract class GCS_Shortcodes_Base {
 		$this->hooks();
 	}
 
+	/**
+	 * Hooks
+	 */
 	public function hooks() {
 		$this->run->hooks();
 		$this->admin->hooks();

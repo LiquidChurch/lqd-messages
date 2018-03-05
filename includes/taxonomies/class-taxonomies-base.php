@@ -206,7 +206,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @param $args
 	 *
-	 * @return
+	 * @return object new_cmb2_box
 	 */
 
 	public function new_cmb2( $args ) {
@@ -486,7 +486,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Magic getter for our object. Allows getting but not setting.
+	 * Magic getter for our terms object.
 	 *
 	 * @param string $field
 	 * @throws Exception Throws an exception if the field is invalid.

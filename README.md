@@ -1,6 +1,6 @@
 # Liquid Messages WordPress Plugin #
-**Contributors:**      jtsternberg, liquid-church, davidshq, surajgupta  
-**Tags:**  
+**Contributors:**      liquid-church, jtsternberg, davidshq, surajgupta  
+**Tags:**              church, sermons, messages, library, archives  
 **Requires at least:** 4.4  
 **Tested up to:**      4.4  
 **Stable tag:**        0.9.1  

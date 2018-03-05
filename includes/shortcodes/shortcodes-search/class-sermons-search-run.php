@@ -58,6 +58,12 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		);
 	}
 
+	/**
+	 * Get Search Results
+	 *
+	 * @return mixed|string
+	 * @throws Exception
+	 */
 	public function get_search_results() {
 		add_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
 
@@ -99,17 +105,22 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		return $this->results;
 	}
 
+	/**
+	 * Filter Sermon Args
+	 *
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
 	public function filter_sermon_args( $args ) {
 		$args['s'] = sanitize_text_field( $this->search_query );
 		return $args;
 	}
 
 	/**
-	 * Make this method applicable.
+	 * Get Initial Query Args
 	 *
-	 * @since  [since]
-	 *
-	 * @return array [type]  [description]
+	 * @return array
 	 */
 	public function get_initial_query_args() {
 		$posts_per_page = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );
@@ -119,6 +130,13 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		return compact( 'posts_per_page', 'paged', 'offset' );
 	}
 
+	/**
+	 * Get Pagination
+	 *
+	 * @param $total_pages
+	 *
+	 * @return array
+	 */
 	protected function get_pagination( $total_pages ) {
 		$this->total_pages = $total_pages;
 		$nav = array( 'prev_link' => '', 'next_link' => '' );
@@ -131,6 +149,11 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		return $nav;
 	}
 
+	/**
+	 * Get Wrap Classes
+	 *
+	 * @return string
+	 */
 	protected function get_wrap_classes() {
 		return parent::get_wrap_classes() . ' gc-sermons-search-wrap';
 	}

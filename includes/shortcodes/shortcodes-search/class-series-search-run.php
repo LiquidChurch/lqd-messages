@@ -51,6 +51,12 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		);
 	}
 
+	/**
+	 * Get Search Results
+	 *
+	 * @return mixed|string
+	 * @throws Exception
+	 */
 	public function get_search_results() {
 		$args = $this->get_initial_query_args();
 
@@ -91,6 +97,11 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		return $this->results;
 	}
 
+	/**
+	 * Get Initial Query Args
+	 *
+	 * @return array
+	 */
 	public function get_initial_query_args() {
 		$number = (int) $this->att( 'per_page', get_option( 'number' ) );
 		$offset = ( ( $this->current_page - 1 ) * $number ) + $this->att( 'list_offset', 0 );
@@ -98,6 +109,13 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		return compact( 'number', 'offset' );
 	}
 
+	/**
+	 * Get Pagination
+	 *
+	 * @param $total_pages
+	 *
+	 * @return array
+	 */
 	public function get_pagination( $total_pages ) {
 		$nav = array( 'prev_link' => '', 'next_link' => '' );
 
@@ -109,10 +127,22 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		return $nav;
 	}
 
+	/**
+	 * Get Wrap Classes
+	 *
+	 * @return string
+	 */
 	public function get_wrap_classes() {
 		return parent::get_wrap_classes() . ' gc-series-search-wrap';
 	}
 
+	/**
+	 * Augment Terms
+	 *
+	 * @param $allterms
+	 *
+	 * @return mixed
+	 */
 	public function augment_terms( $allterms ) {
 		$do_thumb = ! $this->bool_att( 'remove_thumbnail' );
 		$do_desc  = ! $this->bool_att( 'remove_description' );
@@ -130,6 +160,13 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		return $allterms;
 	}
 
+	/**
+	 * Order By Post Date
+	 *
+	 * @param $allterms
+	 *
+	 * @return array
+	 */
 	public function orderby_post_date( $allterms ) {
 		$ordered = array();
 		if ( empty( $allterms ) ) {

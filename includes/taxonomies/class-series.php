@@ -35,7 +35,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 
 	/**
 	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+	 * Register Sermon Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
 	 * @param  object $sermons GCS_Sermons object.

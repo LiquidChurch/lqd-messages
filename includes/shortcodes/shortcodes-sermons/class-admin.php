@@ -156,6 +156,13 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 		return $fields;
 	}
 
+	/**
+	 * Return Taxonomy Term ID Only
+	 *
+	 * @param $updated
+	 *
+	 * @return mixed
+	 */
 	public function return_taxonomy_term_id_only( $updated ) {
 		$term_id_params = array( 'sermon_related_series', 'sermon_related_speaker' );
 		foreach ( $term_id_params as $param ) {

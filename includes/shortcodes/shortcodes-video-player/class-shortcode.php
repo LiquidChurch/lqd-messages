@@ -49,6 +49,8 @@ class GCS_Shortcodes_Video_Player_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+	 *
+	 * @throws Exception
 	 */
 	public function shortcode() {
 		return gc_get_sermon_video_player( $this->get_sermon() );

@@ -28,6 +28,12 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 		parent::__construct();
 	}
 
+	/**
+	 * Get Sermon
+	 *
+	 * @return mixed
+	 * @throws Exception
+	 */
 	protected function get_sermon() {
 		$sermon_id = $this->att( 'sermon_id' );
 
@@ -48,6 +54,12 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 		return $this->att( 'sermon' );
 	}
 
+	/**
+	 * Get most recent sermon
+	 *
+	 * @return false|GCS_Sermon_Post
+	 * @throws Exception
+	 */
 	protected function most_recent_sermon() {
 		switch ( $this->att( 'recent', 'recent' ) ) {
 			case 'audio':
@@ -60,6 +72,11 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 		return $this->sermons->most_recent();
 	}
 
+	/**
+	 * Get Inline Styles
+	 *
+	 * @return array
+	 */
 	public function get_inline_styles() {
 		$style = '';
 		$has_icon_font_size = false;

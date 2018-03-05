@@ -25,7 +25,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 
 	/**
 	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+	 * Register Speaker Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
 	 * @param  object $sermons GCS_Sermons object.
@@ -184,6 +184,14 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 		return $speaker;
 	}
 
+	/**
+	 * Maybe Use Avatar
+	 *
+	 * @param $speaker
+	 * @param array $args
+	 *
+	 * @return mixed
+	 */
 	public function maybe_use_avatar( $speaker, $args = array() ) {
 		$speaker = $this->add_image( $speaker, $args['image_size'] );
 

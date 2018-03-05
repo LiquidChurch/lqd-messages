@@ -7,7 +7,7 @@ class GCS_Sermons_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->sermons instanceof GCS_Sermons );
+		$this->assertInstanceOf( GCS_Sermons::class, gc_sermons()->sermons );
 	}
 
   function test_cpt_exists() {

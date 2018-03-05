@@ -63,10 +63,13 @@
             $this->atts_defaults['paging_init_year'] = array(date('Y', time()));
             parent::__construct($sermons);
         }
-        
-        /**
-         * Shortcode Output
-         */
+
+	    /**
+	     * Shortcode Output
+	     *
+	     * @return string
+	     * @throws Exception
+	     */
         public function shortcode()
         {
             $allterms = $this->series->get_many(array('orderby' => 'sermon_date'));
@@ -131,7 +134,12 @@
             
             return $content;
         }
-        
+
+	    /**
+	     * Get Initial Query Args
+	     *
+	     * @return array
+	     */
         public function get_initial_query_args()
         {
             $posts_per_page = (int)$this->att('per_page', get_option('posts_per_page'));
@@ -140,7 +148,12 @@
             
             return compact('posts_per_page', 'paged', 'offset');
         }
-        
+
+	    /**
+	     * Get Initial Query Args if Year
+	     *
+	     * @return array
+	     */
         public function get_initial_query_args_if_year()
         {
             $year_config = '';
@@ -165,7 +178,14 @@
     
             return compact('year_config', 'paged');
         }
-        
+
+	    /**
+	     * Add Year Index and Augment Terms
+	     *
+	     * @param $allterms
+	     *
+	     * @return array
+	     */
         public function add_year_index_and_augment_terms($allterms)
         {
             $terms = array();
@@ -186,12 +206,26 @@
             
             return $terms;
         }
-        
+
+	    /**
+	     * Get Term Data
+	     *
+	     * @param $term
+	     *
+	     * @return false|WP_Term
+	     */
         public function get_term_data($term)
         {
             return $this->series->get($term, array('image_size' => $this->att('thumbnail_size')));
         }
-        
+
+	    /**
+	     * Get Pagination
+	     *
+	     * @param $total_pages
+	     *
+	     * @return array
+	     */
         public function get_pagination($total_pages)
         {
             $nav = array('prev_link' => '', 'next_link' => '');
@@ -205,7 +239,12 @@
             
             return $nav;
         }
-        
+
+	    /**
+	     * Get Wrap Classes
+	     *
+	     * @return string
+	     */
         public function get_wrap_classes()
         {
             $columns = absint($this->att('number_columns'));

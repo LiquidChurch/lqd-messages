@@ -7,7 +7,7 @@ class GCS_Series_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->series instanceof GCS_Series );
+		$this->assertInstanceOf( GCS_Series::class, gc_sermons()->series );
 	}
 
   function test_taxonomy_exists() {

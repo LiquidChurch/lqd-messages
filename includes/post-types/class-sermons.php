@@ -253,6 +253,17 @@ class GCS_Sermons extends GCS_Post_Types_Base
         return $data;
     }
 
+	/**
+	 * Label Coming Soon
+	 *
+	 * @param $title
+	 * @param int $post_id
+	 *
+	 * @return mixed|string
+	 *
+	 * @since       0.9.0
+	 */
+
     public function label_coming_soon($title, $post_id = 0)
     {
         static $now = null;
@@ -358,6 +369,14 @@ class GCS_Sermons extends GCS_Post_Types_Base
         ));
     }
 
+	/**
+	 * Gets Excerpt for Selected Post
+	 *
+	 * @param $data
+	 * @param $post_id
+	 *
+	 * @return string
+	 */
     public function get_excerpt($data, $post_id)
     {
         return get_post_field('post_excerpt', $post_id);
@@ -442,7 +461,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
     /**
-     * Sort functionality for custom coloumns
+     * Sort functionality for custom columns
      *
      * @since  0.1.7
      *
@@ -471,6 +490,11 @@ SQL;
         return $clauses;
     }
 
+	/**
+	 * Admin Column CSS
+	 *
+	 * @throws Exception
+	 */
     public function admin_column_css()
     {
         GCS_Style_Loader::output_template('admin-column');
