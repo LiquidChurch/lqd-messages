@@ -1,17 +1,22 @@
 <?php
 
-class GCS_Async_Test extends WP_UnitTestCase {
+namespace LiquidChurch\LqdMessages {
 
-	function test_sample() {
-		// replace this with some actual testing code
-		$this->assertTrue( true );
-	}
+	use PHPUnit\Framework\TestCase;
 
-	function test_class_exists() {
-		$this->assertTrue( class_exists( 'GCS_Async') );
-	}
+	class GCS_Async_Test extends WP_UnitTestCase {
 
-	function test_class_access() {
-		$this->assertInstanceOf( GCS_Async::class, gc_sermons()->async );
+		function test_sample() {
+			// replace this with some actual testing code
+			$this->assertTrue( true );
+		}
+
+		function test_class_exists() {
+			$this->assertTrue( class_exists( 'GCS_Async') );
+		}
+
+		function test_class_access() {
+			$this->assertInstanceOf( GCS_Async::class, gc_sermons()->async );
+		}
 	}
 }

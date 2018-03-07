@@ -8,7 +8,9 @@
 	>
 	<testsuites>
 		<testsuite>
-			<directory prefix="test-" suffix=".php">./tests/</directory>
+			<testsuite name="lqd-messages">
+				<directory prefix="test-" suffix=".php">./tests/</directory>
+			</testsuite>
 		</testsuite>
 	</testsuites>
 </phpunit>

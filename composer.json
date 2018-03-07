@@ -40,6 +40,7 @@
     "jtsternberg/cmb2-related-links": "^v0.1.1",
     "jtsternberg/cmb2-term-select": "^v0.1.0",
     "webdevstudios/wds-shortcodes": "^v1.0.7",
-    "webdevstudios/cmb2-user-select": "^v0.2.0"
+    "webdevstudios/cmb2-user-select": "^v0.2.0",
+    "phpunit/phpunit": "7.0.2"
   }
 }
