@@ -1,2 +1,2 @@
-# Set the default behavior, in case people don't have core.autocrlfset.autocrlfset
+# Set the default behavior, in case people don't have core.autocrlfset set.
 * text=auto
