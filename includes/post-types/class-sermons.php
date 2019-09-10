@@ -254,9 +254,9 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * Label Coming Soon
+	 * Possibly add a "Coming Soon" prefix to future sermon titles.
 	 *
-	 * @param $title
+	 * @param string $title
 	 * @param int $post_id
 	 *
 	 * @return mixed|string
@@ -700,8 +700,8 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
-	 * @param  array $exclude Array of excluded post IDs
+	 * @param  string  $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  array   $exclude     Array of excluded post IDs
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws Exception

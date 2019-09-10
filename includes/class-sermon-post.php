@@ -369,6 +369,7 @@ class GCS_Sermon_Post {
             }
             
             if (null === $this->speaker) {
+                // GC-Sermons: $this->speaker = gc_get_speaker_object($speakers[0], $args );
                 $this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
             }
             
@@ -390,6 +391,7 @@ class GCS_Sermon_Post {
             }
             
             if (null === $this->single_series) {
+                // GC-Sermons: $this->single_series = gc_get_series_object( $series[0], $args );
                 $this->single_series = gc_sermons()->taxonomies->series->get($series[0], $args);
             }
             
@@ -424,7 +426,7 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of WP_Query arguments.
+	 * @param  array  $args Array of WP_Query arguments.
 	 *
 	 * @return mixed        WP_Query instance if successful.
 	 * @throws Exception
@@ -457,7 +459,7 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of WP_Query arguments.
+	 * @param  array  $args Array of WP_Query arguments.
 	 *
 	 * @return mixed        WP_Query instance if successful.
 	 * @throws Exception
@@ -648,7 +650,7 @@ class GCS_Sermon_Post {
                     return isset($this->post->{$property});
             }
         }
-   /**
+        /**
          * Allow some variations on the object __getter
          *
          * @since  0.9.1
