@@ -96,16 +96,16 @@
         },
         {
             "name": "jtsternberg/shortcode-button",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-                "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a"
+                "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/05e1abda5557d93e25a063123f72ece315aa2e3a",
-                "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a",
+                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
+                "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +136,7 @@
                 "shortcodes",
                 "wordpress"
             ],
-            "time": "2017-02-27T16:51:40+00:00"
+            "time": "2017-06-07T15:59:21+00:00"
         },
         {
             "name": "techcrunch/wp-async-task",
@@ -187,7 +187,7 @@
                 }
             ],
             "description": "Run asynchronous tasks for long-running operations in WordPress",
-            "time": "2016-03-10 17:37:13"
+            "time": "2016-03-10T17:37:13+00:00"
         },
         {
             "name": "tgmpa/tgm-plugin-activation",
@@ -290,22 +290,22 @@
         },
         {
             "name": "webdevstudios/cmb2-user-select",
-            "version": "v0.2.2",
+            "version": "v0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394"
+                "reference": "b5a57b91d8c5c42f2300690641b21cba6e0f75bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/de9bbc80c8d2fe03a52af1798167ecbe454fd394",
-                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/b5a57b91d8c5c42f2300690641b21cba6e0f75bb",
+                "reference": "b5a57b91d8c5c42f2300690641b21cba6e0f75bb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
-            "type": "library",
+            "type": "wordpress-plugin",
             "autoload": {
                 "files": [
                     "cmb2-user-select.php"
@@ -330,7 +330,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-10-03T20:25:58+00:00"
+            "time": "2017-06-07T15:30:01+00:00"
         },
         {
             "name": "webdevstudios/cpt-core",
@@ -338,12 +338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CPT_Core.git",
-                "reference": "1f856e619a20c96f093f6916b4e6fa522d851b7c"
+                "reference": "8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/1f856e619a20c96f093f6916b4e6fa522d851b7c",
-                "reference": "1f856e619a20c96f093f6916b4e6fa522d851b7c",
+                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5",
+                "reference": "8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5",
                 "shasum": ""
             },
             "suggest": {
@@ -374,7 +374,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2017-03-24 16:06:06"
+            "time": "2018-04-17T20:17:24+00:00"
         },
         {
             "name": "webdevstudios/taxonomy_core",
@@ -411,20 +411,20 @@
         },
         {
             "name": "webdevstudios/wds-shortcodes",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
-                "reference": "610185109847e0403615fd310338077e46342b22"
+                "reference": "69b52b65d1120790e15303fff61f9749ac151e7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/610185109847e0403615fd310338077e46342b22",
-                "reference": "610185109847e0403615fd310338077e46342b22",
+                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/69b52b65d1120790e15303fff61f9749ac151e7f",
+                "reference": "69b52b65d1120790e15303fff61f9749ac151e7f",
                 "shasum": ""
             },
             "require": {
-                "jtsternberg/shortcode-button": "^v1.0.5",
+                "jtsternberg/shortcode-button": "^v1.0.7",
                 "php": ">5.2",
                 "tgmpa/tgm-plugin-activation": "2.5.2"
             },
@@ -457,7 +457,7 @@
                 "wordpress",
                 "wp-api"
             ],
-            "time": "2016-09-13T15:49:16+00:00"
+            "time": "2017-06-07T16:02:24+00:00"
         }
     ],
     "packages-dev": [],
