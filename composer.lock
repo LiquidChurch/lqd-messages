@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c3967b481b006edf115532ab3832b63",
+    "content-hash": "7594416e2d2512a10c49ed134f4fab09",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
