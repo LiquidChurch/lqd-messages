@@ -5,7 +5,7 @@ if ( ! $_tests_dir ) {
 	$_tests_dir = '/tmp/wordpress-tests-lib';
 }
 
-require_once $_tests_dir . '/includes/functions.php';
+require_once $_tests_dir . '/functions.php';
 
 function _manually_load_plugin() {
 	require dirname( __FILE__, 3 ) . '/cmb2/init.php';
