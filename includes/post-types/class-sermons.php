@@ -16,19 +16,21 @@ class GCS_Sermons extends GCS_Post_Types_Base
      * @since  0.1.0
      */
     public $flush = false;
+
     /**
      * The identifier for this object
      *
      * @var string
      */
     protected $id = 'sermon';
+
     /**
      * Parent plugin class
      *
      * @since  0.1.0
      */
     protected $plugin = null;
-    
+
     /**
      * Default WP_Query args
      *
@@ -547,7 +549,7 @@ SQL;
     }
 
 	/**
-	 * Retrieve the most recent sermon with audio media.
+	 * Retrieve the most recent sermon with video media.
 	 *
 	 * @since  0.1.0
 	 *
