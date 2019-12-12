@@ -41,5 +41,8 @@
     "jtsternberg/cmb2-term-select": "^v0.1.0",
     "webdevstudios/wds-shortcodes": "^v1.0.4",
     "webdevstudios/cmb2-user-select": "^v0.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "8.5.x-dev"
   }
 }
