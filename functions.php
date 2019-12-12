@@ -160,6 +160,12 @@ function gc_get_sermon_related_links($sermon = 0)
     return $content;
 }
 
+/**
+ * Checks if an Array is Empty
+ *
+ * @param $InputVariable
+ * @return bool
+ */
 function is_array_empty($InputVariable)
 {
     $Result = true;
@@ -287,6 +293,13 @@ function gc__get_arg($arg, $default = null)
     return isset($_GET[$arg]) ? $_GET[$arg] : $default;
 }
 
+/**
+ * Load the LiquidChurch_Functionality options if the class exists.
+ *
+ * @param string $arg1
+ * @param string $arg2
+ * @return array|bool|mixed|void
+ */
 function get_plugin_settings_options($arg1 = '', $arg2 = '')
 {
     $plugin_option = array();
