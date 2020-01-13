@@ -43,6 +43,6 @@
     "webdevstudios/cmb2-user-select": "^v0.2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8"
+    "phpunit/phpunit": "^7"
   }
 }
