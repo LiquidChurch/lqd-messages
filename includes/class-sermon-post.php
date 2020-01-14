@@ -1,10 +1,9 @@
 <?php
-    /**
-     * GC Sermons Sermon Post
-     *
-     * @version 0.1.6
-     * @package GC Sermons
-     */
+/**
+ * GC Sermons Sermon Post
+ *
+ * @package GC Sermons
+ */
 
 class GCS_Sermon_Post {
 
@@ -83,9 +82,7 @@ class GCS_Sermon_Post {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 *
 	 * @param  mixed $post Post object to wrap
-	 *
 	 * @throws Exception
 	 * @return void
 	 */
@@ -96,7 +93,7 @@ class GCS_Sermon_Post {
 
 		$post_type = gc_sermons()->sermons->post_type();
 
-		if ($post->post_type !== $post_type) {
+		if ( $post->post_type !== $post_type ) {
 			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
 		}
 
@@ -115,8 +112,8 @@ class GCS_Sermon_Post {
 			'video' => array(),
 			'audio' => array(),
 		);
-		$this->add_media_type('video');
-		$this->add_media_type('audio');
+		$this->add_media_type( 'video' );
+		$this->add_media_type( 'audio' );
 		return $this->media;
 	}
 
@@ -125,8 +122,7 @@ class GCS_Sermon_Post {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param string $type type of media
-	 *
+	 * @param string  $type type of media
 	 * @return GCS_Sermon_Post
 	 */
 	protected function add_media_type( $type = 'video' ) {
@@ -134,26 +130,26 @@ class GCS_Sermon_Post {
 		$type = 'video' === $type ? $type : 'audio';
 		$media = false;
 
-		if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
+		if ( $media_url = get_post_meta( $this->ID, "gc_sermon_{$type}_url", 1 ) ) {
 			$media = array(
-				'type'  => 'url',
+				'type' => 'url',
 				'value' => $media_url
 			);
-		} elseif ($media_src = get_post_meta($this->ID, "gc_sermon_{$type}_src_id", 1)) {
+		} elseif ( $media_src = get_post_meta( $this->ID, "gc_sermon_{$type}_src_id", 1 ) ) {
 			$media = array(
 				'type'           => 'attachment_id',
 				'value'          => $media_src,
 				'attachment_url' => get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)
 			);
-		} elseif ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)) {
+		} elseif ( $media_url = get_post_meta( $this->ID, "gc_sermon_{$type}_src", 1 ) ) {
 			$media = array(
 				'type'  => 'url',
 				'value' => $media_url,
 			);
 		}
 
-		if ($media) {
-			$this->media[$type] = $media;
+		if ( $media ) {
+			$this->media[ $type ] = $media;
 		}
 
 		return $this;
@@ -171,20 +167,20 @@ class GCS_Sermon_Post {
 	public function get_video_player( $args = array() ) {
 		global $wp_embed;
 
-		$media = empty($this->media) ? $this->init_media() : $this->media;
-		$video = isset($media['video']) ? $media['video'] : array();
-		if (!isset($video['type'])) {
+		$media = empty( $this->media ) ? $this->init_media() : $this->media;
+		$video = isset( $media['video'] ) ? $media['video'] : array();
+		if ( ! isset( $video['type'] ) ) {
 			return '';
 		}
 
 		$video_url = '';
-		if ('url' === $video['type']) {
+		if ( 'url' === $video['type'] ) {
 			$wp_embed->post_ID = $this->ID;
-			$video_player = $wp_embed->shortcode($args, $video['value']);
-		} elseif ('attachment_id' === $video['type']) {
+			$video_player = $wp_embed->shortcode( $args, $video['value'] );
+		} elseif ( 'attachment_id' === $video['type'] ) {
 
 			$args['src'] = $video['attachment_url'];
-			if ($video_player = wp_video_shortcode($args)) {
+			if ( $video_player = wp_video_shortcode( $args ) ) {
 				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
 			}
 		}
@@ -201,23 +197,23 @@ class GCS_Sermon_Post {
 	 */
 	public function get_audio_player() {
 		// Lazy-load the media-getting
-		if (empty($this->media)) {
+		if ( empty( $this->media ) ) {
 			$this->init_media();
 		}
 
 		$audio = $this->media['audio'];
-		if (!isset($audio['type'])) {
+		if ( ! isset( $audio['type'] ) ) {
 			return '';
 		}
 
 		$audio_url = '';
-		if ('url' === $audio['type']) {
+		if ( 'url' === $audio['type'] ) {
 			$audio_url = $audio['value'];
-		} elseif ('attachment_id' === $audio['type']) {
+		} elseif ( 'attachment_id' === $audio['type'] ) {
 			$audio_url = $audio['attachment_url'];
 		}
 
-		if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
+		if ( $audio_player = wp_audio_shortcode( array( 'src' => $audio_url ) ) ) {
 			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
 		}
 
@@ -232,7 +228,7 @@ class GCS_Sermon_Post {
 	 * @return string Sermon post permalink.
 	 */
 	public function permalink() {
-		return get_permalink($this->ID);
+		return get_permalink( $this->ID );
 	}
 
 	/**
@@ -243,7 +239,7 @@ class GCS_Sermon_Post {
 	 * @return string Sermon post title.
 	 */
 	public function title() {
-		return get_the_title($this->ID);
+		return get_the_title( $this->ID );
 	}
 
 	/**
@@ -267,38 +263,38 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string|array $size     Optional. Image size to use. Accepts any valid image size, or
-	 *                                an array of width and height values in pixels (in that order).
-	 *                                Default 'full'.
-	 * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
+	 * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
+	 *	                            an array of width and height values in pixels (in that order).
+	 *	                            Default 'full'.
+	 * @param  string|array $attr Optional. Query string or array of attributes. Default empty.
 	 * @return string             The post thumbnail image tag.
 	 */
 	public function featured_image( $size = 'full', $attr = '' ) {
 		// Unique id for the passed-in attributes.
-		$id = md5($attr);
+		$id = md5( $attr );
 
 		if ( ! isset( $attr['series_image_fallback'] ) || false !== $attr['series_image_fallback'] ) {
 			$series_image_fallback = true;
-			if (isset($attr['series_image_fallback'])) {
-				unset($attr['series_image_fallback']);
+			if ( isset( $attr['series_image_fallback'] ) ) {
+				unset( $attr['series_image_fallback'] );
 			}
 		}
 
-		if (isset($this->images[$size])) {
+		if ( isset( $this->images[ $size ] ) ) {
 			// If we got it already, then send it back
-			if (isset($this->images[$size][$id])) {
-				return $this->images[$size][$id];
+			if ( isset( $this->images[ $size ][ $id ] ) ) {
+				return $this->images[ $size ][ $id ];
 			} else {
-				$this->images[$size][$id] = array();
+				$this->images[ $size ][ $id ] = array();
 			}
 		} else {
-			$this->images[$size][$id] = array();
+			$this->images[ $size ][ $id ] = array();
 		}
 
-		$img = get_the_post_thumbnail($this->ID, $size, $attr);
-		$this->images[$size][$id] = $img ? $img : $this->series_image($size, $attr);
+		$img = get_the_post_thumbnail( $this->ID, $size, $attr );
+		$this->images[ $size ][ $id ] = $img ? $img : $this->series_image( $size, $attr );
 
-		return $this->images[$size][$id];
+		return $this->images[ $size ][ $id ];
 	}
 
 	/**
@@ -309,7 +305,7 @@ class GCS_Sermon_Post {
 	 * @return string|int Post thumbnail ID or empty string.
 	 */
 	public function featured_image_id() {
-		return get_post_thumbnail_id($this->ID);
+		return get_post_thumbnail_id( $this->ID );
 	}
 
 	/**
@@ -317,15 +313,15 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string|array $size     Optional. Image size to use. Accepts any valid image size, or
-	 *                                an array of width and height values in pixels (in that order).
-	 *                                Default 'full'.
-	 * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
+	 * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
+	 *	                            an array of width and height values in pixels (in that order).
+	 *	                            Default 'full'.
+	 * @param  string|array $attr Optional. Query string or array of attributes. Default empty.
 	 * @return string             The series image tag.
 	 */
 	public function series_image( $size = 'full', $attr = '' ) {
-		$args = array('image_size' => $size);
-		$series = $this->get_series($args);
+		$args = array( 'image_size' => $size );
+		$series = $this->get_series( $args );
 
 		return $series->image;
 	}
@@ -365,11 +361,11 @@ class GCS_Sermon_Post {
 	 */
 	public function get_speaker( $args = array() ) {
 		$speakers = $this->speakers();
-		if (empty($speakers)) {
+		if ( empty( $speakers ) ) {
 			return false;
 		}
 
-		if (null === $this->speaker) {
+		if ( null === $this->speaker ) {
 			// GC-Sermons: $this->speaker = gc_get_speaker_object($speakers[0], $args );
 			$this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
 		}
@@ -388,11 +384,11 @@ class GCS_Sermon_Post {
 	 */
 	public function get_series( $args = array() ) {
 		$series = $this->series();
-		if (empty($series)) {
+		if ( empty( $series ) ) {
 			return false;
 		}
 
-		if (null === $this->single_series) {
+		if ( null === $this->single_series ) {
 			// GC-Sermons: $this->single_series = gc_get_series_object( $series[0], $args );
 			$this->single_series = gc_sermons()->taxonomies->series->get($series[0], $args);
 		}
@@ -435,15 +431,15 @@ class GCS_Sermon_Post {
 	 */
 	public function get_others_in_series( $args = array() ) {
 		$series = $this->get_series();
-		if (!$series) {
+		if ( ! $series ) {
 			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'gc-sermons' ), $this->ID );
 		}
 
-		$args = wp_parse_args($args, array(
-			'post__not_in'   => array($this->ID),
+		$args = wp_parse_args( $args, array(
+			'post__not_in'   => array( $this->ID ),
 			'posts_per_page' => 10,
 			'no_found_rows'  => true,
-		));
+		) );
 
 		$args['tax_query'] = array(
 			array(
@@ -453,7 +449,7 @@ class GCS_Sermon_Post {
 			),
 		);
 
-		return gc_sermons()->sermons->get_many($args);
+		return gc_sermons()->sermons->get_many( $args );
 	}
 
 	/**
@@ -468,15 +464,15 @@ class GCS_Sermon_Post {
 	 */
 	public function get_others_by_speaker( $args = array() ) {
 		$speaker = $this->get_speaker();
-		if (!$speaker) {
+		if ( ! $speaker ) {
 			return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'gc-sermons' ), $this->ID );
 		}
 
-		$args = wp_parse_args($args, array(
-			'post__not_in'   => array($this->ID),
+		$args = wp_parse_args( $args, array(
+			'post__not_in'   => array( $this->ID ),
 			'posts_per_page' => 10,
 			'no_found_rows'  => true,
-		));
+		) );
 
 		$args['tax_query'] = array(
 			array(
@@ -486,7 +482,7 @@ class GCS_Sermon_Post {
 			),
 		);
 
-		return gc_sermons()->sermons->get_many($args);
+		return gc_sermons()->sermons->get_many( $args );
 	}
 
 	/**
@@ -497,8 +493,8 @@ class GCS_Sermon_Post {
 	 * @return array  Array of series terms
 	 */
 	public function series() {
-		if (empty($this->series)) {
-			$this->series = $this->init_taxonomy('series');
+		if ( empty( $this->series ) ) {
+			$this->series = $this->init_taxonomy( 'series' );
 		}
 
 		return $this->series;
@@ -527,8 +523,8 @@ class GCS_Sermon_Post {
 	 * @return array  Array of speaker terms
 	 */
 	public function speakers() {
-		if (empty($this->speakers)) {
-			$this->speakers = $this->init_taxonomy('speaker');
+		if ( empty( $this->speakers ) ) {
+			$this->speakers = $this->init_taxonomy( 'speaker' );
 		}
 
 		return $this->speakers;
@@ -542,8 +538,8 @@ class GCS_Sermon_Post {
 	 * @return array  Array of topic terms
 	 */
 	public function topics() {
-		if (empty($this->topics)) {
-			$this->topics = $this->init_taxonomy('topic');
+		if ( empty( $this->topics ) ) {
+			$this->topics = $this->init_taxonomy( 'topic' );
 		}
 
 		return $this->topics;
@@ -557,8 +553,8 @@ class GCS_Sermon_Post {
 	 * @return array  Array of tag terms
 	 */
 	public function tags() {
-		if (empty($this->tags)) {
-			$this->tags = $this->init_taxonomy('tag');
+		if ( empty( $this->tags ) ) {
+			$this->tags = $this->init_taxonomy( 'tag' );
 		}
 
 		return $this->tags;
@@ -569,13 +565,13 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $taxonomy Taxonomy to initiate
+	 * @param  string  $taxonomy Taxonomy to initiate
 	 *
 	 * @return array             Array of terms for this taxonomy.
 	 */
 	protected function init_taxonomy( $taxonomy ) {
 		$tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
-		return get_the_terms($this->ID, $tax_slug);
+		return get_the_terms( $this->ID, $tax_slug );
 	}
 
 	/**
@@ -583,12 +579,12 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  string $key Meta key
+	 * @param  string  $key Meta key
 	 *
 	 * @return mixed        Value of post meta
 	 */
 	public function get_meta( $key ) {
-		return get_post_meta($this->ID, $key, 1);
+		return get_post_meta( $this->ID, $key, 1 );
 	}
 
 	/**
@@ -599,10 +595,10 @@ class GCS_Sermon_Post {
 	 * @return mixed
 	 */
 	public function __get( $property ) {
-		$property = $this->translate_property($property);
+		$property = $this->translate_property( $property );
 
 		// Automate
-		switch ($property) {
+		switch ( $property ) {
 			case 'series':
 			case 'speakers':
 			case 'topics':
@@ -612,19 +608,18 @@ class GCS_Sermon_Post {
 				return $this->{$property};
 			case 'media':
 				// Lazy-load the media-getting
-				if (empty($this->media)) {
+				if ( empty( $this->media ) ) {
 					return $this->init_media();
 				}
-
 				return $this->media;
 			default:
 				// Check post object for property
 				// In general, we'll avoid using same-named properties,
 				// so the post object properties are always available.
-				if (isset($this->post->{$property})) {
+				if ( isset( $this->post->{$property} ) ) {
 					return $this->post->{$property};
 				}
-				throw new Exception('Invalid ' . __CLASS__ . ' property: ' . $property);
+				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $property );
 		}
 	}
 
@@ -636,21 +631,21 @@ class GCS_Sermon_Post {
 	 * @return mixed
 	 */
 	public function __isset( $property ) {
-		$property = $this->translate_property($property);
+		$property = $this->translate_property( $property );
 
 		// Automate
-		switch ($property) {
+		switch ( $property ) {
 			case 'series':
 			case 'speakers':
 			case 'topics':
 			case 'tags':
 				$terms = $this->{$property}();
-				return !empty($terms);
+				return ! empty( $terms );
 			default:
 				// Check post object for property
 				// In general, we'll avoid using same-named properties,
 				// so the post object properties are always available.
-				return isset($this->post->{$property});
+				return isset( $this->post->{$property} );
 		}
 	}
 
@@ -659,13 +654,13 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.9.1
 	 *
-	 * @param  string $property Object property to fetch
+	 * @param  string  $property Object property to fetch
 	 *
 	 * @return string            Maybe-modified property name
 	 */
 	protected function translate_property( $property ) {
 		// Translate
-		switch ($property) {
+		switch ( $property ) {
 			case 'speaker':
 				$property = 'speakers';
 				break;

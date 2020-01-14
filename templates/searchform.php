@@ -1,9 +1,8 @@
-<form role="search" method="get" class="search-form gc-sermons-search"
-      action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
+<form role="search" method="get" class="search-form gc-sermons-search" action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 
-    <div class="row first-row">
-        <div class="col-md-3">
-            <label class="screen-reader-text"><?php _ex('Search for :', 'label'); ?></label>
+	<div class="row first-row">
+		<div class="col-md-3">
+			<label class="screen-reader-text"><?php _ex('Search for :', 'label'); ?></label>
         </div>
         <div class="col-md-9">
             <div class="form-inline">
@@ -19,16 +18,16 @@
         </div>
     </div>
 
-    <?php if ($this->get('show_filter')) : ?>
+	<?php if ( $this->get( 'show_filter' ) ) : ?>
         <div class="row second-row">
             <div class="col-md-3">
-                <label><?php _ex('Show search results for :', 'Search results filter', 'gc-sermons'); ?></label>
+                <label><?php _ex( 'Show search results for:', 'Search results filter', 'gc-sermons' ); ?></label>
             </div>
             <div class="col-md-9">
                 <div class="form-inline">
                     <div class="form-group">
-                        <input type="radio" class="search-field-radio" name="results-for"
-                               value="" <?php checked($this->get('show_results'), ''); ?>/>
+						<input type="radio" class="search-field-radio" name="results-for"
+							   value="" <?php checked($this->get('show_results'), ''); ?>/>
                         <span><?php _ex('Both', 'Show search results for both sermons and sermon series.', 'gc-sermons'); ?></span>
 
                         <input type="radio" class="search-field-radio" name="results-for"
@@ -42,6 +41,4 @@
             </div>
         </div>
     <?php endif; ?>
-
-
 </form>

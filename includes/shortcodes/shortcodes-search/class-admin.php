@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Search Shortcode - Admin
- * @version 0.1.6
+ *
  * @package GC Sermons
  */
 class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
@@ -25,9 +25,9 @@ class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
-	 * @param GCS_Taxonomies $taxonomies GCS_Taxonomies object.
+	 * @param  object $run        Main plugin object.
+	 * @param  object $taxonomies GCS_Taxonomies object.
+	 * @return void
 	 */
 	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;

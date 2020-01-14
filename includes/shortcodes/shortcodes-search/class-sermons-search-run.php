@@ -2,7 +2,6 @@
 /**
  * GC Sermons Search
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 
@@ -41,9 +40,9 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param string $search_query
+	 * @param string         $search_query
 	 * @param $atts
-	 * @param GCS_Sermons $sermons
+	 * @param GCS_Sermons    $sermons
 	 * @param GCS_Taxonomies $taxonomies
 	 */
 	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
@@ -62,7 +61,6 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 * Get Search Results
 	 *
 	 * @return mixed|string
-	 * @throws Exception
 	 */
 	public function get_search_results() {
 		add_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );

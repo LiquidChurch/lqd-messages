@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Shortcode Admin Base
- * @version 0.1.6
+ *
  * @package GC Sermons
  */
 
@@ -26,8 +26,8 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+	 * @param  object $run Main plugin object.
+	 * @return void
 	 */
 	public function __construct( GCS_Shortcodes_Run_Base $run ) {
 		$this->run = $run;
