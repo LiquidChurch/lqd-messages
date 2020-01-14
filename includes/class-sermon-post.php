@@ -87,7 +87,7 @@ class GCS_Sermon_Post {
 	 * @return void
 	 */
 	public function __construct( $post ) {
-		if (!($post instanceof WP_Post)) {
+		if ( ! ( $post instanceof WP_Post ) ) {
 			throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 		}
 
@@ -366,8 +366,7 @@ class GCS_Sermon_Post {
 		}
 
 		if ( null === $this->speaker ) {
-			// GC-Sermons: $this->speaker = gc_get_speaker_object($speakers[0], $args );
-			$this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
+			$this->speaker = gc_get_speaker_object($speakers[0], $args ); // Changed: 1/14/20
 		}
 
 		return $this->speaker;
@@ -389,8 +388,7 @@ class GCS_Sermon_Post {
 		}
 
 		if ( null === $this->single_series ) {
-			// GC-Sermons: $this->single_series = gc_get_series_object( $series[0], $args );
-			$this->single_series = gc_sermons()->taxonomies->series->get($series[0], $args);
+			$this->single_series = gc_get_series_object( $series[0], $args );
 		}
 
 		return $this->single_series;

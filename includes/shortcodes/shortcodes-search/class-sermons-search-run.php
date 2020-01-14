@@ -60,7 +60,10 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	/**
 	 * Get Search Results
 	 *
+	 * @param array $atts
+	 * @param string $content
 	 * @return mixed|string
+	 * @throws Exception
 	 */
 	public function get_search_results() {
 		add_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );

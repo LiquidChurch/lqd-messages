@@ -147,15 +147,14 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * This provides a backup featured image for sermons by checking the sermon series
 	 * for the series featured image. If a sermon has a featured image set, that will be used.
 	 *
-	 * @since  0.1.3
-	 *
-	 * @param null|array|string $value The value get_metadata() should return - a single metadata value,
-	 *                                 or an array of values.
-	 * @param  int    $object_id       Object ID.
-	 * @param  string $meta_key        Meta key.
+	 * @param $meta
+	 * @param int $object_id Object ID.
+	 * @param string $meta_key Meta key.
 	 *
 	 * @return mixed Sermon featured image id, or Series image id, or nothing.
 	 * @throws Exception
+	 * @since  0.1.3
+	 *
 	 */
 	public function featured_image_fallback_to_series_image( $meta, $object_id, $meta_key ) {
 
@@ -199,7 +198,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		if (
 			! isset( $postarr['ID'], $data['post_status'], $data['post_type'] )
 			|| 'future' !== $data['post_status']
-			|| 'sermonaudio' !== $data['post_type']
+			|| $this->post_type() !== $data['post_type'] // Changed 1/14/20
 		) {
 			return $data;
 		}
@@ -221,24 +220,22 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 */
 	public function label_coming_soon( $title, $post_id = 0 ) {
 		static $now = null;
-		static $done = array();
 
-		$post_id = $post_id ? $post_id : get_the_id();
+		$post = get_post( $post_id ? $post_id : get_the_ID() ); // Changed 1/14/20.
 
-		if ( isset( $done[$post_id] ) ) {
-			return $done[$post_id];
+		if ( empty( $post->post_type ) || $this->post_type() !== $post->post_type ) {
+			return $title;
 		}
 
-		$now = null === $now ? gmdate( 'Y-m-d H:i:59' ) : $now;
+		$now = null === $now ? mysql2date( 'U', gmdate( 'Y-m-d H:i:59' ), false ) : $now; // Changed 1/14/20
 
-		if ( mysql2date( 'U', get_post( $post_id )->post_date_gmt, false ) > mysql2date( 'U', $now, false ) ) {
+		if ( mysql2date( 'U', $post->post_date_gmt, false ) > $now ) {
 
-			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post_id, $this);
+			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post->ID, $this, $post );
 
-			$title = $coming_soon_prefix . $title;
+			$title = $coming_soon_prefix . $title ;
 		}
 
-		$done[$post_id] = $title;
 		return $title;
 	}
 
