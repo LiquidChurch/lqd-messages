@@ -11,7 +11,7 @@
      * Text Domain: gc-sermons
      * Domain Path: /languages
      */
-    
+
     /**
      * Copyright (c) 2016 jtsternberg (email : justin@dsgnwrks.pro)
      * Copyright (c) 2016 jtsternberg (email : suraj.gupta@scripterz.in)
@@ -30,13 +30,13 @@
      * along with this program; if not, write to the Free Software
      * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
      */
-    
+
     /**
      * Built using generator-plugin-wp
      */
-    
+
     // Use composer autoload.
-    require 'vendor/autoload.php';
+    require 'vendor/autoload_52.php';
 
     /**
      * Main initiation class
@@ -49,7 +49,7 @@
      */
     class GC_Sermons_Plugin
     {
-        
+
         /**
          * Current version
          *
@@ -57,7 +57,7 @@
          * @since  0.1.0
          */
         const VERSION = '0.9.1';
-        
+
         /**
          * URL of plugin directory
          *
@@ -65,7 +65,7 @@
          * @since  0.1.0
          */
         public static $url = '';
-        
+
         /**
          * Path of plugin directory
          *
@@ -73,7 +73,7 @@
          * @since  0.1.0
          */
         public static $path = '';
-        
+
         /**
          * Plugin basename
          *
@@ -108,7 +108,7 @@
          * @var GCS_Sermons
          */
         protected $sermons;
-        
+
         /**
          * Instance of GCS_Taxonomies
          *
@@ -116,7 +116,7 @@
          * @var GCS_Taxonomies
          */
         protected $taxonomies;
-        
+
         /**
          * Instance of GCS_Shortcodes
          *
@@ -124,7 +124,7 @@
          * @var GCS_Shortcodes
          */
         protected $shortcodes;
-        
+
         /**
          * Instance of GCS_Async
          *
@@ -132,7 +132,7 @@
          * @var GCS_Async
          */
         protected $async;
-        
+
         /**
          * Sets up our plugin
          *
@@ -144,7 +144,7 @@
             self::$url = plugin_dir_url(__FILE__);
             self::$path = plugin_dir_path(__FILE__);
         }
-        
+
         /**
          * Activate the plugin
          *
@@ -156,7 +156,7 @@
             self::get_instance();
             flush_rewrite_rules();
         }
-        
+
         /**
          * Creates or returns an instance of this class.
          *
@@ -168,10 +168,10 @@
             if (null === self::$single_instance) {
                 self::$single_instance = new self();
             }
-            
+
             return self::$single_instance;
         } // END OF PLUGIN CLASSES FUNCTION
-        
+
         /**
          * Deactivate the plugin
          * Uninstall routines should be in uninstall.php
@@ -211,20 +211,20 @@
         public function plugin_classes()
         {
             require_once self::$path . 'functions.php';
-            
+
             // Attach other plugin classes to the base plugin class.
             $this->sermons = new GCS_Sermons($this);
             $this->taxonomies = new GCS_Taxonomies($this->sermons);
             $this->async = new GCS_Async($this);
             $this->shortcodes = new GCS_Shortcodes($this);
         }
-        
+
         /**
          * Requires CMB2 to be installed
          */
         public function register_required_plugin()
         {
-            
+
             $plugins = array(
                 array(
                     'name'     => 'CMB2',
@@ -233,7 +233,7 @@
                     'version'  => '2.2.1',
                 ),
             );
-            
+
             $config = array(
                 'domain'       => 'gc-sermons',
                 'parent_slug'  => 'plugins.php',
@@ -288,10 +288,10 @@
                     // %1$s = dashboard link
                 ),
             );
-            
+
             tgmpa($plugins, $config);
         }
-        
+
         /**
          * Init hooks
          *
@@ -302,7 +302,7 @@
         {
             load_plugin_textdomain('gc-sermons', false, dirname(self::$basename) . '/languages/');
         }
-        
+
         /**
          * Magic getter for our object.
          *
@@ -330,7 +330,7 @@
             }
         }
     }
-    
+
     /**
      * Grab the GC_Sermons_Plugin object and return it.
      * Wrapper for GC_Sermons_Plugin::get_instance()
@@ -342,7 +342,7 @@
     {
         return GC_Sermons_Plugin::get_instance();
     }
-    
+
     // Kick it off.
     add_action('plugins_loaded', array(gc_sermons(), 'hooks'));
     register_activation_hook(__FILE__, array('GC_Sermons_Plugin', 'activate'));
