@@ -1,12 +1,12 @@
 <?php
     /**
-     * Plugin Name: GC Sermons
-     * Plugin URI:  http://liquidcgurch.com
+     * Plugin Name: Liquid Church
+     * Plugin URI:  http://liquidchurch.com
      * Description: Manage sermons and sermon content in WordPress
      * Version:     0.9.1
-     * Author:      jtsternberg, surajprgupta
-     * Author URI:  http://liquidcgurch.com
-     * Donate link: http://liquidcgurch.com
+     * Author:      jtsternberg, surajprgupta, davidshq, liquidchurch
+     * Author URI:  http://liquidchurch.com
+     * Donate link: http://liquidchurch.com
      * License:     GPLv2
      * Text Domain: gc-sermons
      * Domain Path: /languages
@@ -15,7 +15,8 @@
     /**
      * Copyright (c) 2016 jtsternberg (email : justin@dsgnwrks.pro)
      * Copyright (c) 2016 jtsternberg (email : suraj.gupta@scripterz.in)
-     *
+     * Copyright (c) 2016-2020 liquidchurch (email : webmaster@liquidchurch.com)
+	 *
      * This program is free software; you can redistribute it and/or modify
      * it under the terms of the GNU General Public License, version 2 or, at
      * your discretion, any later version, as published by the Free
