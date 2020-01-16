@@ -7,24 +7,26 @@
  *
  * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
- * @return false|GCS_Sermon_Post GCS_Sermon_Post object if successful
+ *
+ * @return GCS_Sermon_Post|false GCS_Sermon_Post object if successful
  * @throws Exception
  */
-function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
+function gc_get_sermon_post( $sermon = 0, $throw_on_error = false )
 {
-    if ($sermon instanceof GCS_Sermon_Post) {
+    if ( $sermon instanceof GCS_Sermon_Post ) {
         return $sermon;
     }
 
-    $sermon = $sermon ? $sermon : get_the_id();
+    // Changed: 1/16/20
+    $sermon = $sermon ? $sermon : get_the_ID();
 
     try {
 
-        $sermon = $sermon instanceof WP_Post ? $sermon : get_post($sermon);
-        $sermon = new GCS_Sermon_Post($sermon);
+        $sermon = $sermon instanceof WP_Post ? $sermon : get_post( $sermon );
+        $sermon = new GCS_Sermon_Post( $sermon );
 
-    } catch (Exception $e) {
-        if ($throw_on_error) {
+    } catch ( Exception $e ) {
+        if ( $throw_on_error ) {
             throw $e;
         }
         $sermon = false;
@@ -47,39 +49,39 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  */
 function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
 {
-    if (!($sermon = gc_get_sermon_post($sermon))) {
+    if ( ! ( $sermon = gc_get_sermon_post( $sermon ) ) ) {
         // If no sermon, bail.
         return '';
     }
 
-    $args = wp_parse_args($args, array(
-        'remove_thumbnail' => false,
+    $args = wp_parse_args( $args, array(
+        'remove_thumbnail'   => false,
         'remove_description' => true,
-        'thumbnail_size' => 'medium',
-        'wrap_classes' => '',
-    ));
+        'thumbnail_size'     => 'medium',
+        'wrap_classes'       => '',
+    ) );
 
-    $get_series_args['image_size'] = isset($get_series_args['image_size'])
+    $get_series_args['image_size'] = isset( $get_series_args['image_size'] )
         ? $get_series_args['image_size']
         : $args['thumbnail_size'];
 
-    if (!($series = $sermon->get_series($get_series_args))) {
+    if ( ! ( $series = $sermon->get_series( $get_series_args ) ) ) {
         // If no series, bail.
         return '';
     }
 
-    $series->classes = $args['wrap_classes'];
-    $series->do_image = !$args['remove_thumbnail'] && $series->image;
-    $series->do_description = !$args['remove_description'] && $series->description;
-    $series->url = $series->term_link;
-    $series->plugin_option = get_plugin_settings_options('series_view');
+    $series->classes        = $args['wrap_classes'];
+    $series->do_image       = ! $args['remove_thumbnail'] && $series->image;
+    $series->do_description = ! $args['remove_description'] && $series->description;
+    $series->url            = $series->term_link;
+    $series->plugin_option  = get_plugin_settings_options('series_view');
 
     $content = '';
-    $content .= GCS_Style_Loader::get_template('list-item-style');
-    $content .= GCS_Template_Loader::get_template('list-item-series', (array)$series);
+    $content .= GCS_Style_Loader::get_template( 'list-item-style' );
+    $content .= GCS_Template_Loader::get_template( 'list-item-series', (array) $series );
 
     // Not a list item.
-    $content = str_replace(array('<li', '</li'), array('<div', '</div'), $content);
+    $content = str_replace( array( '<li', '</li' ), array( '<div', '</div' ), $content );
 
     return $content;
 }
@@ -96,7 +98,7 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
  * @return string Sermon speaker info output.
  * @throws Exception
  */
-function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
+function gc_get_sermon_speaker_info( $sermon = 0, $args = array(), $get_speaker_args = array() )
 {
     if (!($sermon = gc_get_sermon_post($sermon))) {
         // If no sermon, bail.
