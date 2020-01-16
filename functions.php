@@ -149,7 +149,7 @@ function gc_get_sermon_related_links($sermon = 0)
     $sermon = gc_get_sermon_post($sermon);
 
     // If no sermon or no related links, bail.
-    if (!$sermon || !($links = $sermon->get_meta('gc_related_links')) || !is_array($links) || is_array_empty($links)) {
+    if (!$sermon || !($links = $sermon->get_meta('gc_related_links')) || !is_array($links) || empty($links)) {
         return '';
     }
 
@@ -159,27 +159,6 @@ function gc_get_sermon_related_links($sermon = 0)
     ));
 
     return $content;
-}
-
-/**
- * Checks if an array is empty
- *
- * @param $InputVariable
- * @return bool
- */
-function is_array_empty($InputVariable)
-{
-    $Result = true;
-
-    if (is_array($InputVariable) && count($InputVariable) > 0) {
-        foreach ($InputVariable as $Value) {
-            $Result = $Result && is_array_empty($Value);
-        }
-    } else {
-        $Result = empty($InputVariable);
-    }
-
-    return $Result;
 }
 
 /**
