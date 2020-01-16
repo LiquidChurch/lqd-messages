@@ -1,9 +1,7 @@
 <?php
-
 /**
  * GC Sermons Sermons
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 class GCS_Sermons extends GCS_Post_Types_Base
@@ -28,7 +26,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
      * @since  0.1.0
      */
     protected $plugin = null;
-    
+
     /**
      * Default WP_Query args
      *

@@ -2,7 +2,6 @@
 /**
  * GC Series Search
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 
@@ -34,10 +33,10 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param string $search_query
-	 * @param $atts
+	 * @param string      $search_query
+	 * @param             $atts
 	 * @param GCS_Sermons $sermons
-	 * @param GCS_Series $series
+	 * @param GCS_Series  $series
 	 */
 	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Series $series ) {
 		$this->search_query = $search_query;

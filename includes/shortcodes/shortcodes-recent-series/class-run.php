@@ -2,7 +2,6 @@
 /**
  * GC Sermons Recent Series Shortcode
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 
@@ -33,6 +32,7 @@ class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+     *
 	 * @throws Exception
 	 */
 	public function shortcode() {

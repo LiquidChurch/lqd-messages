@@ -1,13 +1,43 @@
 <?php
-
 /**
  * GC Sermons Shortcode - Run
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 {
+    /**
+     * The Shortcode Tag
+     * @var string
+     * @since 0.1.0
+     */
+    public $shortcode = 'gc_sermons';
+
+    /**
+     * Default attributes applied to the shortcode.
+     * @var array
+     * @since 0.1.0
+     */
+    public $atts_defaults = array(
+        'per_page'          => 10, // Will use WP's per-page option.
+        'content'           => 'excerpt',
+        'remove_thumbnail'  => false,
+        'thumbnail_size'    => 'medium',
+        'number_columns'    => 2,
+        'list_offset'       => 0,
+        'wrap_classes'      => '',
+        'remove_pagination' => false,
+        'related_speaker'   => 0,
+        'related_series'   => 0,
+    );
+
+    /**
+     * GCS_Sermons object
+     *
+     * @var   GCS_Sermons
+     * @since 0.1.0
+     */
+    public $taxonomies;
 
     /**
      * Keep track of the levels of inception.
@@ -16,36 +46,6 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
      * @since 0.1.5
      */
     protected static $inception_levels = 0;
-    /**
-     * The Shortcode Tag
-     * @var string
-     * @since 0.1.0
-     */
-    public $shortcode = 'gc_sermons';
-    /**
-     * Default attributes applied to the shortcode.
-     * @var array
-     * @since 0.1.0
-     */
-    public $atts_defaults = array(
-        'per_page' => 10, // Will use WP's per-page option.
-        'content' => 'excerpt',
-        'remove_thumbnail' => false,
-        'thumbnail_size' => 'medium',
-        'number_columns' => 2,
-        'list_offset' => 0,
-        'wrap_classes' => '',
-        'remove_pagination' => false,
-        'related_speaker' => 0,
-        'related_series' => 0,
-    );
-    /**
-     * GCS_Sermons object
-     *
-     * @var   GCS_Sermons
-     * @since 0.1.0
-     */
-    public $taxonomies;
 
     /**
      * Constructor
@@ -101,7 +101,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
             return '';
         }
 
-        $max = $sermons->max_num_pages;
+        $max     = $sermons->max_num_pages;
         $sermons = $this->map_sermon_args($sermons, $my_level);
 
         $content = '';
@@ -110,13 +110,27 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         }
 
         $args = $this->get_pagination($max);
-        $args['wrap_classes'] = $this->get_wrap_classes();
-        $args['sermons'] = $sermons;
+        $args['wrap_classes']  = $this->get_wrap_classes();
+        $args['sermons']       = $sermons;
         $args['plugin_option'] = get_plugin_settings_options('single_message_view');
 
         $content .= GCS_Template_Loader::get_template('sermons-list', $args);
 
         return $content;
+    }
+
+    /**
+     * Get Initial Query Args
+     *
+     * @return array
+     */
+    public function get_initial_query_args()
+    {
+        $posts_per_page = (int)$this->att('per_page', get_option('posts_per_page'));
+        $paged          = (int)get_query_var('paged') ? get_query_var('paged') : 1;
+        $offset         = (($paged - 1) * $posts_per_page) + $this->att('list_offset', 0);
+
+        return compact('posts_per_page', 'paged', 'offset');
     }
 
 	/**
@@ -128,11 +142,10 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 	 */
     protected function map_related_term_args($args)
     {
-
         $required = false;
-        $passes = false;
-        $keys = array(
-            'series' => 'related_series',
+        $passes   = false;
+        $keys     = array(
+            'series'  => 'related_series',
             'speaker' => 'related_speaker',
         );
 
@@ -142,8 +155,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 
                 $args['tax_query'][] = array(
                     'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
-                    'field' => 'id',
-                    'terms' => $term_id,
+                    'field'    => 'id',
+                    'terms'    => $term_id,
                 );
 
                 continue;
@@ -161,13 +174,13 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
                 $args['post__not_in'] = array($sermon->ID);
 
                 $method = 'get_' . $key;
-                $term = $sermon->$method();
+                $term   = $sermon->$method();
 
                 if (!$term) {
                     throw new Exception('No ' . $key . ' term.');
                 }
 
-            } catch (Exception $e) {
+            } catch(Exception $e) {
                 continue;
             }
 
@@ -175,8 +188,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 
             $args['tax_query'][] = array(
                 'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
-                'field' => 'id',
-                'terms' => $term->term_id,
+                'field'    => 'id',
+                'terms'    => $term->term_id,
             );
 
         }
@@ -189,18 +202,36 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         return $args;
     }
 
-	/**
-	 * Get Initial Query Args
-	 *
-	 * @return array
-	 */
-    public function get_initial_query_args()
+    /**
+     * Get Pagination
+     *
+     * @param $total_pages
+     *
+     * @return array
+     */
+    protected function get_pagination($total_pages)
     {
-        $posts_per_page = (int)$this->att('per_page', get_option('posts_per_page'));
-        $paged = (int)get_query_var('paged') ? get_query_var('paged') : 1;
-        $offset = (($paged - 1) * $posts_per_page) + $this->att('list_offset', 0);
+        $nav = array('prev_link' => '', 'next_link' => '');
 
-        return compact('posts_per_page', 'paged', 'offset');
+        if (!$this->bool_att('remove_pagination')) {
+            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'), $total_pages);
+            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'), $total_pages);
+        }
+
+        return $nav;
+    }
+
+    /**
+     * Get Wrap Classes
+     *
+     * @return string
+     */
+    protected function get_wrap_classes()
+    {
+        $columns = absint($this->att('number_columns'));
+        $columns = $columns < 1 ? 1 : $columns;
+
+        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
     }
 
 	/**
@@ -216,10 +247,10 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         global $post;
         $sermons = array();
 
-        $do_thumb = !$this->bool_att('remove_thumbnail');
-        $do_content = $this->bool_att('content');
+        $do_thumb        = !$this->bool_att('remove_thumbnail');
+        $do_content      = $this->bool_att('content');
         $type_of_content = $this->att('content');
-        $thumb_size = $this->att('thumbnail_size');
+        $thumb_size      = $this->att('thumbnail_size');
 
         while ($all_sermons->have_posts()) {
             $all_sermons->the_post();
@@ -227,11 +258,11 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
             $obj = $all_sermons->post;
 
             $sermon = array();
-            $sermon['url'] = $obj->permalink();
-            $sermon['name'] = $obj->title();
-            $sermon['image'] = $do_thumb ? $obj->featured_image($thumb_size) : '';
-            $sermon['do_image'] = (bool)$sermon['image'];
-            $sermon['description'] = '';
+            $sermon['url']            = $obj->permalink();
+            $sermon['name']           = $obj->title();
+            $sermon['image']          = $do_thumb ? $obj->featured_image($thumb_size) : '';
+            $sermon['do_image']       = (bool)$sermon['image'];
+            $sermon['description']    = '';
             $sermon['do_description'] = $do_content;
             if ($do_content) {
                 $sermon['description'] = 'excerpt' === $type_of_content
@@ -254,37 +285,4 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 
         return $sermons;
     }
-
-	/**
-	 * Get Pagination
-	 *
-	 * @param $total_pages
-	 *
-	 * @return array
-	 */
-    protected function get_pagination($total_pages)
-    {
-        $nav = array('prev_link' => '', 'next_link' => '');
-
-        if (!$this->bool_att('remove_pagination')) {
-            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'), $total_pages);
-            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'), $total_pages);
-        }
-
-        return $nav;
-    }
-
-	/**
-	 * Get Wrap Classes
-	 *
-	 * @return string
-	 */
-    protected function get_wrap_classes()
-    {
-        $columns = absint($this->att('number_columns'));
-        $columns = $columns < 1 ? 1 : $columns;
-
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
-    }
-
 }

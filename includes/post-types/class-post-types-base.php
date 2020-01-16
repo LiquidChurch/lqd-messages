@@ -2,7 +2,6 @@
 /**
  * GC Sermons Post Types Base
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 
@@ -11,6 +10,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	/**
 	 * Parent plugin class
 	 *
+	 * @var class
 	 * @since  0.1.0
 	 */
 	protected $plugin = null;

@@ -2,7 +2,6 @@
 /**
  * GC Sermons Taxonomies Base
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 
@@ -65,7 +64,6 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 *
 	 * @param  object $sermons GCS_Sermons object.
 	 * @param $args
 	 */
@@ -259,7 +257,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of arguments (passed to get_terms).
+	 * @param  array $args             Array of arguments (passed to get_terms).
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
@@ -299,8 +297,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.5
 	 *
-	 * @param  array $search_term The search term.
-	 * @param  array $args Array of arguments for GCS_Taxonomies_Base::get_many().
+	 * @param  array $search_term      The search term.
+	 * @param  array $args             Array of arguments for GCS_Taxonomies_Base::get_many().
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
@@ -446,7 +444,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since 0.1.1
 	 *
-	 * @param int $post_id Post ID
+	 * @param int    $post_id  Post ID
 	 * @param string $taxonomy Taxonomy
 	 *
 	 * @throws Exception
@@ -487,6 +485,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 
 	/**
 	 * Magic getter for our terms object.
+     *
+     * Allows getting but not setting.
 	 *
 	 * @param string $field
 	 * @throws Exception Throws an exception if the field is invalid.

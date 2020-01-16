@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Related Links Shortcode
- * @version 0.1.6
+ *
  * @package GC Sermons
  */
 
@@ -49,6 +49,7 @@ class GCSS_Related_Links_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+     *
 	 * @throws Exception
 	 */
 	public function shortcode() {

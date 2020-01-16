@@ -2,7 +2,7 @@
 
 /**
  * GC Sermons Recent Series Shortcode - Admin
- * @version 0.1.6
+ *
  * @package GC Sermons
  */
 abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
