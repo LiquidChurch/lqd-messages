@@ -1,6 +1,6 @@
 <?php
     /**
-     * Plugin Name: Liquid Church
+     * Plugin Name: Liquid Church Messages
      * Plugin URI:  http://liquidchurch.com
      * Description: Manage sermons and sermon content in WordPress
      * Version:     0.9.1

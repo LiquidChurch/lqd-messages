@@ -1,0 +1,1 @@
+[06-Jan-2020 14:28:36 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/liquidc4/public_html/wp-content/plugins/lqd-messages/vendor/techcrunch/wp-async-task/vendor/autoload.php' (include_path='.:/usr/local/php72/pear') in /home/liquidc4/public_html/wp-content/plugins/lqd-messages/vendor/techcrunch/wp-async-task/bootstrap.php.dist on line 3
