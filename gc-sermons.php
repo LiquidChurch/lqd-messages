@@ -82,13 +82,7 @@
          * @since  0.1.0
          */
         public static $basename = '';
-        /**
-         * Singleton instance of plugin
-         *
-         * @var GC_Sermons_Plugin
-         * @since  0.1.0
-         */
-        protected static $single_instance = null;
+
         /**
          * Array of plugin requirements, keyed by admin notice label.
          *
@@ -96,6 +90,7 @@
          * @since  0.1.0
          */
         protected $requirements = array();
+
         /**
          * Array of plugin requirements which are not met.
          *
@@ -103,6 +98,15 @@
          * @since  0.1.0
          */
         protected $missed_requirements = array();
+
+        /**
+         * Singleton instance of plugin
+         *
+         * @var GC_Sermons_Plugin
+         * @since  0.1.0
+         */
+        protected static $single_instance = null;
+
         /**
          * Instance of GCS_Sermons
          *
@@ -135,30 +139,6 @@
         protected $async;
 
         /**
-         * Sets up our plugin
-         *
-         * @since  0.1.0
-         */
-        protected function __construct()
-        {
-            self::$basename = plugin_basename(__FILE__);
-            self::$url = plugin_dir_url(__FILE__);
-            self::$path = plugin_dir_path(__FILE__);
-        }
-
-        /**
-         * Activate the plugin
-         *
-         * @since  0.1.0
-         * @return void
-         */
-        public static function activate()
-        {
-            self::get_instance();
-            flush_rewrite_rules();
-        }
-
-        /**
          * Creates or returns an instance of this class.
          *
          * @since  0.1.0
@@ -171,35 +151,18 @@
             }
 
             return self::$single_instance;
-        } // END OF PLUGIN CLASSES FUNCTION
-
-        /**
-         * Deactivate the plugin
-         * Uninstall routines should be in uninstall.php
-         *
-         * @since  0.1.0
-         * @return void
-         */
-        public static function deactivate()
-        {
-            flush_rewrite_rules();
         }
 
-	    /**
-	     * Add hooks and filters
-	     *
-	     * @since  0.1.0
-	     * @return void
-	     * @throws Exception
-	     */
-        public function hooks()
+        /**
+         * Sets up our plugin
+         *
+         * @since  0.1.0
+         */
+        protected function __construct()
         {
-            if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
-                add_action('tgmpa_register', array($this, 'register_required_plugin'));
-            } else {
-                add_action('init', array($this, 'init'));
-                $this->plugin_classes();
-            }
+            self::$basename = plugin_basename(__FILE__);
+            self::$url = plugin_dir_url(__FILE__);
+            self::$path = plugin_dir_path(__FILE__);
         }
 
 	    /**
@@ -218,6 +181,23 @@
             $this->taxonomies = new GCS_Taxonomies($this->sermons);
             $this->async = new GCS_Async($this);
             $this->shortcodes = new GCS_Shortcodes($this);
+	} // END OF PLUGIN CLASSES FUNCTION
+
+        /**
+         * Add hooks and filters
+         *
+         * @since  0.1.0
+         * @return void
+         * @throws Exception
+         */
+        public function hooks()
+        {
+            if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
+                add_action('tgmpa_register', array($this, 'register_required_plugin'));
+            } else {
+                add_action('init', array($this, 'init'));
+                $this->plugin_classes();
+            }
         }
 
         /**
@@ -245,13 +225,13 @@
                 'message'      => '',
                 'strings'      => array(
                     'page_title'                      => __('Install Required Plugins',
-                        'cool-shortcode'),
-                    'menu_title'                      => __('Install Plugins', 'cool-shortcode'),
+                        'gc-sermons'),
+                    'menu_title'                      => __('Install Plugins', 'gc-sermons'),
                     'installing'                      => __('Installing Plugin: %s',
-                        'cool-shortcode'),
+                        'gc-sermons'),
                     // %1$s = plugin name
                     'oops'                            => __('Something went wrong with the plugin API.',
-                        'cool-shortcode'),
+                        'gc-sermons'),
                     'notice_can_install_required'     => _n_noop('The "WDS Shortcodes" plugin requires the following plugin: %1$s.',
                         'This plugin requires the following plugins: %1$s.'),
                     // %1$s = plugin name(s)
@@ -281,16 +261,40 @@
                     'activate_link'                   => _n_noop('Activate installed plugin',
                         'Activate installed plugins'),
                     'return'                          => __('Return to Required Plugins Installer',
-                        'cool-shortcode'),
+                        'gc-sermons'),
                     'plugin_activated'                => __('Plugin activated successfully.',
-                        'cool-shortcode'),
+                        'gc-sermons'),
                     'complete'                        => __('All plugins installed and activated successfully. %s',
-                        'cool-shortcode'),
+                        'gc-sermons'),
                     // %1$s = dashboard link
                 ),
             );
 
             tgmpa($plugins, $config);
+        }
+
+        /**
+         * Activate the plugin
+         *
+         * @since  0.1.0
+         * @return void
+         */
+        public static function activate()
+        {
+            self::get_instance();
+            flush_rewrite_rules();
+        }
+
+        /**
+         * Deactivate the plugin
+         * Uninstall routines should be in uninstall.php
+         *
+         * @since  0.1.0
+         * @return void
+         */
+        public static function deactivate()
+        {
+            flush_rewrite_rules();
         }
 
         /**
