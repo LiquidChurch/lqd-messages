@@ -5,8 +5,8 @@
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  bool $throw_on_error Use if you have exception handling in place.
+ * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
+ * @param  bool  $throw_on_error Use if you have exception handling in place.
  * @return false|GCS_Sermon_Post GCS_Sermon_Post object if successful
  * @throws Exception
  */
@@ -38,8 +38,8 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param array $args Args array
+ * @param  mixed $sermon          Post object or ID or (GCS_Sermon_Post object).
+ * @param array  $args            Args array
  * @param  array $get_series_args Args for GCS_Sermon_Post::get_series()
  *
  * @return string Sermon series info output.
@@ -89,9 +89,9 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  array $args
- * @param  array $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
+ * @param  mixed   $sermon           Post object or ID or (GCS_Sermon_Post object).
+ * @param  array   $args             Args array
+ * @param  array   $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
  *
  * @return string Sermon speaker info output.
  * @throws Exception
@@ -138,7 +138,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed   $sermon Post object or ID or (GCS_Sermon_Post object).
  *
  * @return string Sermon related links output.
  * @throws Exception
@@ -187,7 +187,7 @@ function is_array_empty($InputVariable)
  * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args Arguments passed to GCS_Sermon_Post::get_video_player().
+ * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_video_player().
  *
  * @return string Sermon video player output.
  * @throws Exception
@@ -210,7 +210,7 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
  * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args Arguments passed to GCS_Sermon_Post::get_audio_player().
+ * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_audio_player().
  *
  * @return string Sermon audio player output.
  * @throws Exception
@@ -283,8 +283,8 @@ function gc_search_get_previous_results_link()
  *
  * @since  0.1.5
  *
- * @param  string $arg Query arg to check
- * @param  mixed $default Optional default value. Defaults to null.
+ * @param  string  $arg     Query arg to check
+ * @param  mixed  $default  Optional default value. Defaults to null.
  *
  * @return mixed            Result of query var or default.
  */
