@@ -92,7 +92,7 @@ class GCS_Template_Loader {
 
 		// No template found.
 		if ( ! $template ) {
-			return;
+			return null;
 		}
 
 		// Filter args before outputting template.
@@ -115,6 +115,8 @@ class GCS_Template_Loader {
 		}
 
 		echo $content;
+
+		return null;
 	}
 
 	/**
@@ -202,6 +204,8 @@ class GCS_Template_Loader {
 		$val = $this->get( $arg, $default );
 
 		echo $esc_cb ? $esc_cb( $val ) : $val;
+
+		return null;
 	}
 
 	/**

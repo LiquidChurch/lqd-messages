@@ -188,6 +188,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		}
 
 		echo $retval;
+
+		return null;
 	}
 
 	/** Required by Extended Classes  *****************************************/

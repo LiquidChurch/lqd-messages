@@ -88,6 +88,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 
 		echo $content;
 
+		return null;
 	}
 
 	/**

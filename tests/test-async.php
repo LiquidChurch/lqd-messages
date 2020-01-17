@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class GCS_Async_Test
+ */
 class GCS_Async_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
