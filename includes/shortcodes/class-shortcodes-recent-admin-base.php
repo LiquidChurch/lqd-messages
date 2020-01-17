@@ -1,5 +1,4 @@
 <?php
-
 /**
  * GC Sermons Recent Series Shortcode - Admin
  *

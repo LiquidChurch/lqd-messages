@@ -26,8 +26,9 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 * @param object $run        Main plugin object.
-	 * @param object $taxonomies GCS_Taxonomies object.
+	 * @param  object $run        Main plugin object.
+	 * @param  object $taxonomies GCS_Taxonomies object.
+	 * @return void
 	 */
 	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;

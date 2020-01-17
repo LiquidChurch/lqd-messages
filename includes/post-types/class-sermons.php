@@ -6,26 +6,28 @@
  */
 class GCS_Sermons extends GCS_Post_Types_Base
 {
-
-    /**
-     * Bypass temp. cache
-     *
-     * @var boolean
-     * @since  0.1.0
-     */
-    public $flush = false;
     /**
      * The identifier for this object
      *
      * @var string
      */
     protected $id = 'sermon';
+
     /**
      * Parent plugin class
      *
+     * @var    class
      * @since  0.1.0
      */
     protected $plugin = null;
+
+    /**
+     * Bypass temp. cache
+     *
+     * @var    boolean
+     * @since  0.1.0
+     */
+    public $flush = false;
 
     /**
      * Default WP_Query args
@@ -34,10 +36,10 @@ class GCS_Sermons extends GCS_Post_Types_Base
      * @since 0.1.0
      */
     protected $query_args = array(
-        'post_type' => 'THIS(REPLACE)',
-        'post_status' => 'publish',
+        'post_type'      => 'THIS(REPLACE)',
+        'post_status'    => 'publish',
         'posts_per_page' => 1,
-        'no_found_rows' => true,
+        'no_found_rows'  => true,
     );
 
     /**
@@ -88,7 +90,8 @@ class GCS_Sermons extends GCS_Post_Types_Base
          *    add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );
          *
          */
-        if (apply_filters('gc_do_sermon_series_fallback_image', true)) {
+        if (apply_filters('gc_do_sermon_series_fallback_image', true))
+        {
             add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
         }
 
@@ -126,48 +129,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
     /**
-     * check duplicate post with same video meta url
-     *
-     * @since  0.1.7
-     *
-     */
-    public function check_sermon_duplicate_video()
-    {
-        $response = array();
-        $response['success'] = true;
-        $nonce_verify = wp_verify_nonce($_POST['nonce'], 'scripterz-nonce');
-
-        if (!empty($_POST['video_url']) && $nonce_verify == true) {
-
-            $the_query = new WP_Query(
-                array(
-                    'post_type' => 'gc-sermons',
-                    'meta_key' => 'gc_sermon_video_url',
-                    'meta_value' => $_POST['video_url'],
-                    'order' => 'ASC',
-                    'post__not_in' => array($_POST['curr_post_id']),
-                )
-            );
-
-
-            if ($the_query->have_posts()) {
-                $response['success'] = false;
-                $response['data'] = __('<div class="gc-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'gc-sermons');
-                while ($the_query->have_posts()) {
-                    $the_query->the_post();
-                    $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';
-                }
-                $response['data'] .= "</p></div>";
-
-                wp_reset_postdata();
-            }
-        }
-
-        echo json_encode($response);
-        die();
-    }
-
-    /**
      * Remove default excerpt/feat-image metaboxes for Sermons
      *
      * @since  0.1.3
@@ -190,9 +151,9 @@ class GCS_Sermons extends GCS_Post_Types_Base
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param $meta
-	 * @param  int $object_id Object ID.
-	 * @param  string $meta_key Meta key.
+	 * @param         $meta
+	 * @param  int    $object_id  Object ID.
+	 * @param  string $meta_key   Meta key.
 	 *
 	 * @return mixed Sermon featured image id, or Series image id, or nothing.
 	 * @throws Exception
@@ -231,7 +192,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
      *
      * @since  0.1.3
      *
-     * @param  array $data Array of post data for update.
+     * @param  array $data    Array of post data for update.
      * @param  array $postarr Full array of post data.
      *
      * @return array           Modified post data array.
@@ -241,7 +202,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
         if (
             !isset($postarr['ID'], $data['post_status'], $data['post_type'])
             || 'future' !== $data['post_status']
-            || 'sermonaudio' !== $data['post_type']
+            || $this->post_type() !== $data['post_type'] // Changed: 1/17/19
         ) {
             return $data;
         }
@@ -252,22 +213,21 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * Label Coming Soon
+	 * Possibly add a "Coming Soon" prefix to future sermon titles.
 	 *
-	 * @param $title
-	 * @param int $post_id
+     * @since  0.2.1
+     *
+	 * @param string $title
+	 * @param int    $post_id
 	 *
 	 * @return mixed|string
-	 *
-	 * @since       0.9.0
 	 */
-
     public function label_coming_soon($title, $post_id = 0)
     {
         static $now = null;
         static $done = array();
 
-        $post_id = $post_id ? $post_id : get_the_id();
+        $post_id = $post_id ? $post_id : get_the_ID();
 
         if (isset($done[$post_id])) {
             return $done[$post_id];
@@ -296,72 +256,72 @@ class GCS_Sermons extends GCS_Post_Types_Base
     {
         $fields = array(
             'gc_sermon_video_url' => array(
-                'id' => 'gc_sermon_video_url',
+                'id'   => 'gc_sermon_video_url',
                 'name' => __('Video URL', 'gc-sermons'),
                 'desc' => __('Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'gc-sermons'),
                 'type' => 'oembed',
             ),
             'gc_sermon_video_src' => array(
-                'id' => 'gc_sermon_video_src',
-                'name' => __('Video File', 'gc-sermons'),
-                'desc' => __('Alternatively upload/select video from your media library.', 'gc-sermons'),
-                'type' => 'file',
+                'id'      => 'gc_sermon_video_src',
+                'name'    => __('Video File', 'gc-sermons'),
+                'desc'    => __('Alternatively upload/select video from your media library.', 'gc-sermons'),
+                'type'    => 'file',
                 'options' => array('url' => false),
             ),
             'gc_sermon_audio_url' => array(
-                'id' => 'gc_sermon_audio_url',
+                'id'   => 'gc_sermon_audio_url',
                 'name' => __('Audio URL', 'gc-sermons'),
                 'desc' => __('Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'gc-sermons'),
                 'type' => 'oembed',
             ),
             'gc_sermon_audio_src' => array(
-                'id' => 'gc_sermon_audio_src',
-                'name' => __('Audio File', 'gc-sermons'),
-                'desc' => __('Alternatively upload/select audio from your media library.', 'gc-sermons'),
-                'type' => 'file',
+                'id'      => 'gc_sermon_audio_src',
+                'name'    => __('Audio File', 'gc-sermons'),
+                'desc'    => __('Alternatively upload/select audio from your media library.', 'gc-sermons'),
+                'type'    => 'file',
                 'options' => array('url' => false),
             ),
             'excerpt' => array(
-                'id' => 'excerpt',
-                'name' => __('Excerpt', 'gc-sermons'),
-                'desc' => __('Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>'),
-                'type' => 'textarea',
+                'id'        => 'excerpt',
+                'name'      => __('Excerpt', 'gc-sermons'),
+                'desc'      => __('Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>'),
+                'type'      => 'textarea',
                 'escape_cb' => false,
             ),
             '_thumbnail' => array(
-                'id' => '_thumbnail',
+                'id'   => '_thumbnail',
                 'name' => __('Image', 'gc-staff'),
                 'desc' => __('Select an image if you want to override the series image for this sermon.', 'gc-sermons'),
                 'type' => 'file',
             ),
             'gc_sermon_notes' => array(
-                'id' => 'gc_sermon_notes',
+                'id'   => 'gc_sermon_notes',
                 'name' => __('Sermon Notes', 'gc-sermons'),
                 'type' => 'wysiwyg',
             ),
         );
 
         $this->new_cmb2(array(
-            'id' => 'gc_sermon_metabox',
-            'title' => __('Sermon Details', 'gc-sermons'),
+            'id'           => 'gc_sermon_metabox',
+            'title'        => __('Sermon Details', 'gc-sermons'),
             'object_types' => array($this->post_type()),
-            'fields' => $fields,
+            'fields'       => $fields,
         ));
 
         $this->new_cmb2(array(
-            'id' => 'gc_related_links_metabox',
-            'title' => __('Related Links', 'gc-sermons'),
+            'id'           => 'gc_related_links_metabox',
+            'title'        => __('Related Links', 'gc-sermons'),
             'object_types' => array($this->post_type()),
-            'closed' => true,
-            'context' => 'side',
-            'priority' => 'core',
-            'fields' => array(
+            'closed'       => true,
+            'context'      => 'side',
+            'priority'     => 'core',
+            'fields'       => array(
                 cmb2_related_links_field(array('id' => 'gc_related_links'), array(
                     'description' => __('Add links, or select from related content by clicking the search icon.', 'gc-sermons'),
                     'group_title' => __('Link {#}', 'gc-sermons'),
-                    'link_title' => __('Title', 'gc-sermons'),
-                    'link_url' => __('URL', 'gc-sermons'),
-                    'find_text' => __('Find/Select related content', 'gc-sermons'),
+                    'link_title'  => __('Title', 'gc-sermons'),
+                    'link_url'    => __('URL', 'gc-sermons'),
+                    'find_text'   => __('Find/Select related content', 'gc-sermons'),
                 )),
             ),
         ));
@@ -401,8 +361,8 @@ class GCS_Sermons extends GCS_Post_Types_Base
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param array $column Column currently being rendered.
-	 * @param int $post_id ID of post to display column for.
+	 * @param array $column  Column currently being rendered.
+	 * @param int   $post_id ID of post to display column for.
 	 *
 	 * @throws Exception
 	 */
@@ -522,66 +482,6 @@ SQL;
     }
 
 	/**
-	 * Retrieve the most recent sermon.
-	 *
-	 * @since  0.1.0
-	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
-	 */
-    public function most_recent()
-    {
-        static $sermon = null;
-
-        if (null === $sermon || $this->flush) {
-            $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
-            $sermon = false;
-            if ($sermons->have_posts()) {
-                $sermon = new GCS_Sermon_Post($sermons->post);
-            }
-        }
-
-        return $sermon;
-    }
-
-	/**
-	 * Retrieve the most recent sermon with audio media.
-	 *
-	 * @since  0.1.0
-	 *
-	 * @param  string $type Media type (audio or video)
-	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
-	 */
-    protected function most_recent_with_media($type = 'video')
-    {
-        $sermon = false;
-
-        // Only audio/video allowed.
-        $type = 'video' === $type ? $type : 'audio';
-
-        $args = $this->query_args;
-        $args['meta_query'] = array(
-            'relation' => 'OR',
-            array(
-                'key' => "gc_sermon_{$type}_url",
-            ),
-            array(
-                'key' => "gc_sermon_{$type}_src",
-            ),
-        );
-
-        $sermons = new WP_Query(apply_filters("gcs_recent_sermon_with_{$type}_args", $args));
-
-        if ($sermons->have_posts()) {
-            $sermon = new GCS_Sermon_Post($sermons->post);
-        }
-
-        return $sermon;
-    }
-
-	/**
 	 * Retrieve the most recent sermon with audio media.
 	 *
 	 * @since  0.1.0
@@ -598,6 +498,29 @@ SQL;
 
             if (empty($sermon->media['audio'])) {
                 $sermon = $this->most_recent_with_media('audio');
+            }
+        }
+
+        return $sermon;
+    }
+
+    /**
+     * Retrieve the most recent sermon.
+     *
+     * @since  0.1.0
+     *
+     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @throws Exception
+     */
+    public function most_recent()
+    {
+        static $sermon = null;
+
+        if (null === $sermon || $this->flush) {
+            $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
+            $sermon = false;
+            if ($sermons->have_posts()) {
+                $sermon = new GCS_Sermon_Post($sermons->post);
             }
         }
 
@@ -661,6 +584,43 @@ SQL;
         return $sermons;
     }
 
+    /**
+     * Retrieve the most recent sermon with audio media.
+     *
+     * @since  0.1.0
+     *
+     * @param  string $type Media type (audio or video)
+     *
+     * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @throws Exception
+     */
+    protected function most_recent_with_media($type = 'video')
+    {
+        $sermon = false;
+
+        // Only audio/video allowed.
+        $type = 'video' === $type ? $type : 'audio';
+
+        $args = $this->query_args;
+        $args['meta_query'] = array(
+            'relation' => 'OR',
+            array(
+                'key' => "gc_sermon_{$type}_url",
+            ),
+            array(
+                'key' => "gc_sermon_{$type}_src",
+            ),
+        );
+
+        $sermons = new WP_Query(apply_filters("gcs_recent_sermon_with_{$type}_args", $args));
+
+        if ($sermons->have_posts()) {
+            $sermon = new GCS_Sermon_Post($sermons->post);
+        }
+
+        return $sermon;
+    }
+
 	/**
 	 * Retrieve the most recent sermon which has terms in specified taxonomy.
 	 *
@@ -698,8 +658,8 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
-	 * @param  array $exclude Array of excluded post IDs
+	 * @param  string  $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  array   $exclude     Array of excluded post IDs
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws Exception
@@ -735,5 +695,46 @@ SQL;
         return $sermon;
     }
 
+    /**
+     * check duplicate post with same video meta url
+     *
+     * @since  0.1.7
+     *
+     */
+    public function check_sermon_duplicate_video()
+    {
+        $response = array();
+        $response['success'] = true;
+        $nonce_verify = wp_verify_nonce($_POST['nonce'], 'scripterz-nonce');
+
+        if (!empty($_POST['video_url']) && $nonce_verify == true) {
+
+            $the_query = new WP_Query(
+                array(
+                    'post_type' => 'gc-sermons',
+                    'meta_key' => 'gc_sermon_video_url',
+                    'meta_value' => $_POST['video_url'],
+                    'order' => 'ASC',
+                    'post__not_in' => array($_POST['curr_post_id']),
+                )
+            );
+
+
+            if ($the_query->have_posts()) {
+                $response['success'] = false;
+                $response['data'] = __('<div class="gc-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'gc-sermons');
+                while ($the_query->have_posts()) {
+                    $the_query->the_post();
+                    $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';
+                }
+                $response['data'] .= "</p></div>";
+
+                wp_reset_postdata();
+            }
+        }
+
+        echo json_encode($response);
+        die();
+    }
 
 }

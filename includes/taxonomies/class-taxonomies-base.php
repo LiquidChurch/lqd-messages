@@ -65,7 +65,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since 0.1.0
 	 * @param  object $sermons GCS_Sermons object.
-	 * @param $args
+	 * @return void
 	 */
 	public function __construct( $sermons, $args ) {
 		$this->sermons = $sermons;

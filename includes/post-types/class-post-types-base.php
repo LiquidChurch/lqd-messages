@@ -31,7 +31,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * @since 0.1.0
 	 *
 	 * @param  object $plugin Main plugin object.
-	 * @param $args
+	 * @return void
 	 */
 	public function __construct( $plugin, $args ) {
 		$this->plugin = $plugin;
@@ -47,6 +47,9 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
 	}
 
+    /**
+     * Filter Values
+     */
 	public function filter_values() {
 		if ( $this->overrides_processed ) {
 			return;
