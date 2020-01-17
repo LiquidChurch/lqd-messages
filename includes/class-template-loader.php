@@ -105,7 +105,7 @@ class GCS_Template_Loader {
 			// grab the data from the output buffer and add it to our $content variable
 			$content = ob_get_clean();
 		} catch ( Exception $e ) {
-			wpdie( $e->getMessage() );
+			wp_die( $e->getMessage() );
 		}
 
 		$content = apply_filters( "template_output_for_{$this->template}", $content, $this );

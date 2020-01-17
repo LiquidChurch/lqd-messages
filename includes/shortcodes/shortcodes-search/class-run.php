@@ -163,8 +163,6 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 				esc_html( $this->search_query )
 			),
 		) );
-
-		return $search;
 	}
 
 	/**
