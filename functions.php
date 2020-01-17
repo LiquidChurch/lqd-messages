@@ -39,9 +39,9 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon          Post object or ID or (GCS_Sermon_Post object).
- * @param array  $args            Args array
- * @param  array $get_series_args Args for GCS_Sermon_Post::get_series()
+ * @param  mixed  $sermon          Post object or ID or (GCS_Sermon_Post object).
+ * @param  array  $args            Args array
+ * @param  array  $get_series_args Args for GCS_Sermon_Post::get_series()
  *
  * @return string Sermon series info output.
  * @throws Exception
@@ -105,9 +105,9 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
     }
 
     $args = wp_parse_args($args, array(
-        'remove_thumbnail' => false,
-        'thumbnail_size' => 'medium',
-        'wrap_classes' => '',
+        'remove_thumbnail'  => false,
+        'thumbnail_size'    => 'medium',
+        'wrap_classes'      => '',
     ));
 
     $get_speaker_args['image_size'] = isset($get_speaker_args['image_size'])
@@ -126,7 +126,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
         return '';
     }
 
-    $speaker->image = !$args['remove_thumbnail'] ? $speaker->image : '';
+    $speaker->image = ! $args['remove_thumbnail'] ? $speaker->image : '';
     $speaker->classes = $args['wrap_classes'];
 
     $content = GCS_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);

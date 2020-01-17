@@ -220,7 +220,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
 	 * @param string $title
 	 * @param int    $post_id
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
     public function label_coming_soon($title, $post_id = 0)
     {

@@ -161,8 +161,8 @@
         protected function __construct()
         {
             self::$basename = plugin_basename(__FILE__);
-            self::$url = plugin_dir_url(__FILE__);
-            self::$path = plugin_dir_path(__FILE__);
+            self::$url      = plugin_dir_url(__FILE__);
+            self::$path     = plugin_dir_path(__FILE__);
         }
 
 	    /**

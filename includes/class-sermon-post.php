@@ -95,7 +95,7 @@ class GCS_Sermon_Post {
             $post_type = gc_sermons()->sermons->post_type();
 
             if ($post->post_type !== $post_type) {
-			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
+                throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
             }
 
             $this->post = $post;
@@ -197,7 +197,7 @@ class GCS_Sermon_Post {
          *
          * @return mixed The audio player if successful.
          */
-	public function get_audio_player() {
+		public function get_audio_player() {
             // Lazy-load the media-getting
             if (empty($this->media)) {
                 $this->init_media();
@@ -265,11 +265,11 @@ class GCS_Sermon_Post {
          *
          * @since  0.1.0
          *
-         * @param  string|array $size     Optional. Image size to use. Accepts any valid image size, or
+         * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
          *                                an array of width and height values in pixels (in that order).
          *                                Default 'full'.
-         * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
-         * @return string             The post thumbnail image tag.
+         * @param  string|array $attr  Optional. Query string or array of attributes. Default empty.
+         * @return string              The post thumbnail image tag.
          */
 	public function featured_image( $size = 'full', $attr = '' ) {
             // Unique id for the passed-in attributes.
@@ -309,16 +309,17 @@ class GCS_Sermon_Post {
 	public function featured_image_id() {
             return get_post_thumbnail_id($this->ID);
         }
-		/**
+
+a		/**
          * Get the series image.
          *
          * @since  0.1.0
          *
-         * @param  string|array $size     Optional. Image size to use. Accepts any valid image size, or
+         * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
          *                                an array of width and height values in pixels (in that order).
          *                                Default 'full'.
-         * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
-         * @return string             The series image tag.
+         * @param  string|array $attr  Optional. Query string or array of attributes. Default empty.
+         * @return string              The series image tag.
          */
 	public function series_image( $size = 'full', $attr = '' ) {
             $args = array('image_size' => $size);
@@ -372,6 +373,7 @@ class GCS_Sermon_Post {
 
             return $this->speaker;
         }
+
         /**
          * Get single series for this sermon
          *
@@ -455,9 +457,9 @@ class GCS_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of WP_Query arguments.
+	 * @param  array    $args  Array of WP_Query arguments.
 	 *
-	 * @return mixed        WP_Query instance if successful.
+	 * @return mixed           WP_Query instance if successful.
 	 * @throws Exception
 	 */
 	public function get_others_by_speaker( $args = array() ) {
@@ -497,6 +499,7 @@ class GCS_Sermon_Post {
 
             return $this->series;
         }
+
          /**
          * Wrapper for get_the_terms for the scripture taxonomy
          *
@@ -512,7 +515,7 @@ class GCS_Sermon_Post {
             return $this->scripture;
         }
 
-       /**
+        /**
          * Wrapper for get_the_terms for the speaker taxonomy
          *
          * @since  0.1.0
@@ -570,14 +573,15 @@ class GCS_Sermon_Post {
             $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
             return get_the_terms($this->ID, $tax_slug);
         }
+
         /**
          * Wrapper for get_post_meta
          *
          * @since  0.1.1
          *
-         * @param  string $key Meta key
+         * @param  string  $key  Meta key
          *
-         * @return mixed        Value of post meta
+         * @return mixed         Value of post meta
          */
 	public function get_meta( $key ) {
             return get_post_meta($this->ID, $key, 1);
@@ -586,8 +590,9 @@ class GCS_Sermon_Post {
         /**
          * Magic getter for our object.
          *
-         * @param string $property
-         * @throws Exception Throws an exception if the field is invalid.
+         * @param  string  $property
+         *
+         * @throws Exception  Throws an exception if the field is invalid.
          * @return mixed
          */
 	public function __get( $property ) {
@@ -619,8 +624,6 @@ class GCS_Sermon_Post {
             }
         }
 
-
-
         /**
          * Magic isset checker for our object.
          *
@@ -646,6 +649,7 @@ class GCS_Sermon_Post {
                     return isset($this->post->{$property});
             }
         }
+
    /**
          * Allow some variations on the object __getter
          *
