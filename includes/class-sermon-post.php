@@ -310,7 +310,7 @@ class GCS_Sermon_Post {
             return get_post_thumbnail_id($this->ID);
         }
 
-a		/**
+		/**
          * Get the series image.
          *
          * @since  0.1.0
