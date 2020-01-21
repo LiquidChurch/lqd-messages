@@ -335,7 +335,7 @@ class GCS_Sermon_Post {
          *
          * @param  array         Args to pass to GCS_Taxonomies_Base::get()
          *
-         * @return WP_Term|false Speaker term object.
+         * @return array|false|WP_Term Speaker term object.
          */
 	public function get_speakers( $args = array() ) {
             $speakers = $this->speakers();
