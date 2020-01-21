@@ -135,33 +135,6 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
 }
 
 /**
- * Get's related links output for the sermon.
- *
- * @since  0.1.3
- *
- * @param  mixed   $sermon Post object or ID or (GCS_Sermon_Post object).
- *
- * @return string Sermon related links output.
- * @throws Exception
- */
-function gc_get_sermon_related_links($sermon = 0)
-{
-    $sermon = gc_get_sermon_post($sermon);
-
-    // If no sermon or no related links, bail.
-    if (!$sermon || !($links = $sermon->get_meta('gc_related_links')) || !is_array($links) || empty($links)) {
-        return '';
-    }
-
-    $content = GCS_Template_Loader::get_template('related-links', array(
-        'title' => __('Related Links', 'gc-sermons'),
-        'links' => $links,
-    ));
-
-    return $content;
-}
-
-/**
  * Get's video player for the sermon.
  *
  * @since  0.1.3
@@ -176,7 +149,7 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
 {
     $sermon = gc_get_sermon_post($sermon);
 
-    // If no sermon or no related links, bail.
+    // If no sermon or no video, bail.
     if (!$sermon || !($video_player = $sermon->get_video_player($args))) {
         return '';
     }

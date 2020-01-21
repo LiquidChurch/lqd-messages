@@ -40,14 +40,6 @@ class GCS_Shortcodes {
 	protected $recent_speaker;
 
 	/**
-	 * Instance of GCS_Shortcodes_Related_Links
-	 *
-	 * @var GCS_Shortcodes_Related_Links
-	 * @since 0.1.4
-	 */
-	protected $related_links;
-
-	/**
 	 * Instance of GCS_Shortcodes_Video_Player
 	 *
 	 * @var GCS_Shortcodes_Video_Player
@@ -84,7 +76,6 @@ class GCS_Shortcodes {
 		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
 		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
 		$this->series         = new GCS_Shortcodes_Series( $plugin );
-		$this->related_links  = new GCS_Shortcodes_Related_Links( $plugin );
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
 		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );

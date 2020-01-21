@@ -13,11 +13,6 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: functions.php:148 includes/post-types/class-sermons.php:288
-#: templates/related-links.php:2
-msgid "Related Links"
-msgstr ""
-
 #: functions.php:215 includes/shortcodes/shortcodes-series/class-run.php:101
 #: includes/shortcodes/shortcodes-sermons/class-run.php:186
 msgid "Older <span>&rarr;</span>"
@@ -287,7 +282,6 @@ msgstr ""
 #: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:99
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:43
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:43
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:99
 #: includes/shortcodes/shortcodes-video-player/class-shortcode.php:99
 msgid "Sermon ID"
 msgstr ""
@@ -355,7 +349,6 @@ msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:54
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:54
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:110
 msgid "Filter Most Recent Sermon By:"
 msgstr ""
 
@@ -367,19 +360,16 @@ msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:61
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:61
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:117
 msgid "Most Recent"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:62
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:62
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:118
 msgid "Most Recent with Audio"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:63
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:63
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:119
 msgid "Most Recent with Video"
 msgstr ""
 
@@ -403,7 +393,6 @@ msgid "GC Recent Speaker"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:44
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:100
 msgid ""
 "Blank, \"recent\", or \"0\" will get the most recent sermon's speaker info. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
@@ -414,21 +403,6 @@ msgstr ""
 msgid ""
 "If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
 "determines which type of most recent sermon to get the speaker info for."
-msgstr ""
-
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:81
-msgid "GC Sermon Links"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:82
-msgid "GC Sermon Related Links"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:111
-msgid ""
-"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
-"determines which type of most recent sermon to get the related links info "
-"for."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-search/class-admin.php:44
