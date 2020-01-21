@@ -2,9 +2,10 @@
 /**
  * GC Sermons Recent Speaker Shortcode
  *
+ * @property string $shortcode     The shortcode tag (gc_recent_speaker)
+ * @property array  $atts_defaults Shortcode default arguments
  * @package GC Sermons
  */
-
 class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 
 	/**

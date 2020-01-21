@@ -1,13 +1,13 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Recent Sermon Admin
+     *  GC Sermons Recent Sermon Shortcodes Admin
      *
      * @since   0.10.0
      * @package  GC Sermons
      */
-    
+
     /**
-     *  GC Sermons Shortcodes Recent Sermon Admin.
+     *  GC Sermons  Recent Sermon Shortcodes Admin.
      *
      * @since 0.10.0
      */
@@ -27,7 +27,7 @@
                 // 'mceView'        => true, // The future
             );
         }
-        
+
         /**
          * Adds fields to the button modal using CMB2
          *
@@ -53,7 +53,7 @@
                 'sanitization_cb' => 'absint',
                 'escape_cb'       => 'absint',
             );
-            
+
             $fields[] = array(
                 'name' => 'Remove Pagination',
                 'desc' => '',
@@ -61,7 +61,7 @@
                 'type' => 'checkbox',
                 'default' => false,
             );
-    
+
             $fields[] = array(
                 'name'             => 'Thumbnail Size',
                 'desc'             => '',
@@ -71,7 +71,7 @@
                 'default'          => 'thumbnail',
                 'options'          => $this->get_thumb_size_list(),
             );
-            
+
             $fields[] = array(
                 'name' => __( 'Number of Columns', 'lc-func' ),
                 'desc' => __( '', 'lc-func' ),
@@ -87,7 +87,7 @@
                 'sanitization_cb' => 'absint',
                 'escape_cb'       => 'absint',
             );
-            
+
             return $fields;
         }
 

@@ -2,9 +2,10 @@
 /**
  * GC Sermons Recent Speaker Shortcode - Admin
  *
+ * @property string $prefix Shortcode prefix for field ids (speaker_).
+ *
  * @package GC Sermons
  */
-
 class GCSS_Recent_Speaker_Admin extends GCSS_Recent_Admin_Base {
 
 	/**
