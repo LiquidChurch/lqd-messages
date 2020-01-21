@@ -1,16 +1,11 @@
 <?php
 /**
- * GC Sermons Scripture References
- *
- * @package GC Sermons
- */
-
-/**
  * Scriptures Taxonomy
  *
  * @property string $id
  *
  * @since 0.1.3
+ * @package GC Sermons
  */
 class GCS_Scripture extends GCS_Taxonomies_Base {
 

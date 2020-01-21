@@ -1,9 +1,20 @@
 <?php
-    /**
-     * GC Sermons Sermon Post
-     *
-     * @package GC Sermons
-     */
+/**
+ * GC Sermons Sermon Post
+ *
+ * @property WP_Post $post          Post object to wrap
+ * @property array   $media         Media data
+ * @property array   $images        Image data
+ * @property array   $series        Series terms
+ * @property array   $scripture     Scripture terms
+ * @property array   $single_series Single series term
+ * @property array   $speakers      Speaker terms
+ * @property array   $speaker       Single speaker term
+ * @property array   $topics        Topic terms
+ * @property array   $tags          Tag terms
+ *
+ * @package GC Sermons
+ */
 
 class GCS_Sermon_Post {
 
@@ -111,14 +122,14 @@ class GCS_Sermon_Post {
      * @return array Array of video/audio media info.
      */
 	protected function init_media() {
-            $this->media = array(
-                'video' => array(),
-                'audio' => array(),
-            );
-            $this->add_media_type('video');
-            $this->add_media_type('audio');
-            return $this->media;
-        }
+	    $this->media = array(
+	        'video' => array(),
+            'audio' => array(),
+        );
+	    $this->add_media_type('video');
+	    $this->add_media_type('audio');
+	    return $this->media;
+	}
 
 	/**
 	 * Add media info to the media array for $type
@@ -130,71 +141,71 @@ class GCS_Sermon_Post {
 	 * @return GCS_Sermon_Post
 	 */
 	protected function add_media_type( $type = 'video' ) {
-            // Only audio/video allowed. TODO: Is this what we want to happen?
-            $type = 'video' === $type ? $type : 'audio';
-            $media = false;
+	    // Only audio/video allowed. TODO: Is this what we want to happen?
+        $type = 'video' === $type ? $type : 'audio';
+        $media = false;
 
-            if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
-                $media = array(
-                    'type'  => 'url',
-                    'value' => $media_url
-                );
-            } elseif ($media_src = get_post_meta($this->ID, "gc_sermon_{$type}_src_id", 1)) {
-                $media = array(
-                    'type'           => 'attachment_id',
-                    'value'          => $media_src,
-                    'attachment_url' => get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)
-                );
-            } elseif ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)) {
-                $media = array(
-                    'type'  => 'url',
-                    'value' => $media_url,
-                );
-            }
-
-            if ($media) {
-                $this->media[$type] = $media;
-            }
-
-            return $this;
+        if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
+            $media = array(
+                'type'  => 'url',
+                'value' => $media_url
+            );
+        } elseif ($media_src = get_post_meta($this->ID, "gc_sermon_{$type}_src_id", 1)) {
+            $media = array(
+                'type'           => 'attachment_id',
+                'value'          => $media_src,
+                'attachment_url' => get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)
+            );
+        } elseif ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)) {
+            $media = array(
+                'type'  => 'url',
+                'value' => $media_url,
+            );
         }
 
-        /**
-         * Get Message Video Player
-         *
-         * Wrapper for wp_oembed_get/wp_video_shortcode
-         *
-         * @since  0.1.1
-         *
-         * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
-         *                     or wp_video_shortcode.
-         * @return mixed       The video player if successful.
-         */
-        public function get_video_player( $args = array() ) {
-            global $wp_embed;
+        if ($media) {
+            $this->media[$type] = $media;
+        }
 
-            $media = empty($this->media) ? $this->init_media() : $this->media;
-            $video = isset($media['video']) ? $media['video'] : array();
-            if (!isset($video['type'])) {
-                return '';
-            }
+        return $this;
+	}
 
-            $video_url = '';
-            $video_player = '';
+	/**
+     * Get Message Video Player
+     *
+     * Wrapper for wp_oembed_get/wp_video_shortcode
+     *
+     * @since  0.1.1
+     *
+     * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
+     *                     or wp_video_shortcode.
+     * @return mixed       The video player if successful.
+     */
+	public function get_video_player( $args = array() ) {
+	    global $wp_embed;
 
-            if ('url' === $video['type']) {
-                $wp_embed->post_ID = $this->ID;
-                $video_player = $wp_embed->shortcode($args, $video['value']);
-            } elseif ('attachment_id' === $video['type']) {
+	    $media = empty($this->media) ? $this->init_media() : $this->media;
+	    $video = isset($media['video']) ? $media['video'] : array();
+	    if (!isset($video['type'])) {
+	        return '';
+	    }
 
-                $args['src'] = $video['attachment_url'];
-                if ($video_player = wp_video_shortcode($args)) {
+	    $video_url = '';
+	    $video_player = '';
+
+	    if ('url' === $video['type']) {
+	        $wp_embed->post_ID = $this->ID;
+	        $video_player = $wp_embed->shortcode($args, $video['value']);
+	    } elseif ('attachment_id' === $video['type']) {
+
+	        $args['src'] = $video['attachment_url'];
+	        if ($video_player = wp_video_shortcode($args)) {
 				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
-                }
-            }
+	        }
+	    }
 
-            return $video_player;
-        }
+	    return $video_player;
+	}
 
     /**
      * Get Message Audio Player

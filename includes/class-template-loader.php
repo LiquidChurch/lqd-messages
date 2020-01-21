@@ -1,15 +1,9 @@
 <?php
 /**
- * GC Sermons Template Loader
- *
- * @since 0.1.3
- * @package GC Sermons
- */
-
-/**
  * GC Sermons Template Loader.
  *
  * @since 0.1.3
+ * @package GC Sermons
  */
 class GCS_Template_Loader {
 
