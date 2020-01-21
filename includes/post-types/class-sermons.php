@@ -16,7 +16,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
     /**
      * Parent plugin class
      *
-     * @var    class
      * @since  0.1.0
      */
     protected $plugin = null;

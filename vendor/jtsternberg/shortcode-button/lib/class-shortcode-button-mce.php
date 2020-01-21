@@ -16,7 +16,7 @@ class Shortcode_Button_Exception extends Exception {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param strin $message Exception message.
+	 * @param string $message Exception message.
 	 * @param mixed $data    Additional data.
 	 * @param int   $code    Exception code.
 	 */
