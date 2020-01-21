@@ -2,6 +2,13 @@
 /**
  * GC Sermons Taxonomies Base
  *
+ * @property string $id
+ * @property object $sermons
+ * @property string $image_meta_key
+ * @property array  $term_get_args_default
+ * @property array  $term_get_many_args_defaults
+ * @property string $img_col_title
+ *
  * @package GC Sermons
  */
 
@@ -68,9 +75,11 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return void
 	 */
 	public function __construct( $sermons, $args ) {
+	    // GCS_Taxonomies_Base->sermons holds the GCS_Sermons object.
 		$this->sermons = $sermons;
 		$this->hooks();
 
+		// TODO: Understand how this works.
 		$this->flush_cache = isset( $_GET['flush_cache'] ) && date( 'Y-m-d' ) === $_GET['flush_cache'];
 
 		/*
@@ -115,7 +124,11 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		}
 	}
 
-	/** Columns ***************************************************************/
+    /**
+     * Columns
+     *
+     * The below code relates to the the admin columns for taxonomies.
+     */
 
 	/**
 	 * Register image columns for $this->taxonomy().
@@ -169,6 +182,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			return;
 		}
 
+		// &#8212 is the Unicode decimal code for a dash.
 		$retval = '&#8212;';
 
 		// Get the term data.
@@ -202,20 +216,22 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 */
 	abstract function hooks();
 
-	/** Helper Methods  ******************************************************
-	 *
-	 * @param $args
-	 *
-	 * @return object new_cmb2_box
-	 */
+	/** Helper Methods  ******************************************************/
 
+    /**
+     * New Custom Meta Box (CMB2)
+     *
+     * @param $args
+     *
+     * @return CMB2
+     */
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
 		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
 	}
 
 	/**
-	 * Retrieve the terms for the most recent post which has this taxonomy set.
+	 * Retrieve the terms for the most recent post which has $this taxonomy set.
 	 *
 	 * @since  0.1.0
 	 *
@@ -236,6 +252,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			}
 
 			$terms = $sermon->{$this->id};
+			// If $terms is a single term, pop it off the array and return the value as $terms, others
+            // return all $terms.
 			$terms = $terms && $get_single_term && is_array( $terms ) ? array_shift( $terms ) : $terms;
 		}
 
@@ -243,7 +261,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Retrieve the most recent sermon which has terms in this taxonomy.
+	 * Retrieve the most recent message which has terms in this taxonomy.
 	 *
 	 * @since  0.2.0
 	 *
@@ -255,6 +273,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
+     * Get Many Terms from Given Taxonomy
+     *
 	 * Wrapper for get_terms
 	 *
 	 * @since  0.1.1
@@ -275,6 +295,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			$terms = self::get_terms( $this->taxonomy(), $args );
 		}
 
+		// If we don't have any terms or if we have generated an error return false.
 		if ( ! $terms || is_wp_error( $terms ) ) {
 			return false;
 		}
@@ -295,6 +316,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
+     * Search Terms Using a Wildcard Name
+     *
 	 * Wrapper for get_terms that allows searching using a wildcard name.
 	 *
 	 * @since  0.1.5
@@ -399,7 +422,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Gets terms in the sermon date order. Result is cached for a max. of a day.
+	 * Gets terms in the message date order. Result is cached for a maximum of one day.
 	 *
 	 * @since  0.1.1
 	 *
@@ -442,6 +465,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
+     * Flush the Cache
+     *
 	 * Hooks into the wp_async_set_sermon_terms action, which is triggered when a post is saved.
 	 *
 	 * @since 0.1.1
@@ -463,6 +488,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
+     * Get the Terms
+     *
 	 * Wrapper for `get_terms` to account for changes in WP 4.5 where taxonomy
 	 * is expected as part of the arguments.
 	 *

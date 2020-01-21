@@ -6,7 +6,10 @@
  */
 
 /**
- * GCS_Scripture
+ * Scriptures Taxonomy
+ *
+ * @property string $id
+ *
  * @since 0.1.3
  */
 class GCS_Scripture extends GCS_Taxonomies_Base {

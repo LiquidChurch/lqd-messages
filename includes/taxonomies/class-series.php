@@ -2,6 +2,10 @@
 /**
  * GC Sermons Sermon Series
  *
+ * @property string $id
+ * @property string $image_meta_key
+ * @property array  $term_get_args_defaults
+ *
  * @package GC Sermons
  */
 
@@ -23,7 +27,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	protected $image_meta_key = 'gc_sermon_series_image';
 
 	/**
-	 * The default args array for self::get()
+	 * The default arguments array for self::get()
 	 *
 	 * @var array
 	 * @since  0.1.1
@@ -34,6 +38,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 
 	/**
 	 * Constructor
+     *
 	 * Register Sermon Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
