@@ -21,11 +21,16 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 */
 	protected $id = '';
 
+    /**
+     * Whether overrides for this CPT have been processed
+     *
+     * @var bool
+     */
 	protected $overrides_processed = false;
 
 	/**
 	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+	 * Register Custom Post Type. See documentation in CPT_Core, and in wp-includes/post.php
 	 *
 	 * @since 0.1.0
 	 *
@@ -78,7 +83,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * Provides access to protected class properties.
 	 * @since  0.2.0
 	 *
-	 * @param string $key Specific CPT parameter to return
+	 * @param string  $key  Specific CPT parameter to return
 	 *
 	 * @return mixed        Specific CPT parameter or array of singular, plural and registered name
 	 */

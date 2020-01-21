@@ -31,6 +31,8 @@ class GCS_Sermons extends GCS_Post_Types_Base
     /**
      * Default WP_Query args
      *
+     * post_type is updated when the CPT is created, value goes from THIS(REPLACE) to (in our case) gc-sermons.
+     *
      * @var   array
      * @since 0.1.0
      */
@@ -76,14 +78,19 @@ class GCS_Sermons extends GCS_Post_Types_Base
      */
     public function hooks()
     {
-        add_action('cmb2_admin_init', array($this, 'fields'));
+        add_action('cmb2_admin_init', array($this, 'fields')); // $this is GCS_Sermons.
+        // Overrides the default WP excerpt field with a CMB2 field.
+        // See: CMB2-Snippet-Library/misc/replace-wp-excerpt-with-cmb2-field.php
         add_filter('cmb2_override_excerpt_meta_value', array($this, 'get_excerpt'), 10, 2);
+        // Let WP handle saving, don't force save.
         add_filter('cmb2_override_excerpt_meta_save', '__return_true');
         add_filter('admin_init', array($this, 'admin_hooks'));
 
         /**
-         * Enable image fallback. If Sermon does not have a featured image, fall back
-         * to the sermon series image (if it exists).
+         * Enable image fallback.
+         *
+         * If message does not have a featured image, fall back
+         * to the message series image (if it exists).
          *
          * To disable:
          *    add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );
@@ -95,9 +102,11 @@ class GCS_Sermons extends GCS_Post_Types_Base
         }
 
         /**
-         * Enable future posts to be displayed.
+         * Enable future messages to be displayed.
          *
          * If false, future posts will be 'scheduled', WordPress' default behavior.
+         *
+         * TODO: Correct spelling from sermsons to sermons
          *
          * To disable:
          *    add_filter( 'gc_display_future_sermsons', '__return_false' );
@@ -106,6 +115,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
         if (apply_filters('gc_display_future_sermsons', true)) {
             add_filter('wp_insert_post_data', array($this, 'save_future_as_published'), 10, 2);
             if (!is_admin()) {
+                // If we aren't an admin, don't use the series fallback image.
                 add_filter('the_title', array($this, 'label_coming_soon'), 10, 2);
             }
         }
@@ -119,16 +129,21 @@ class GCS_Sermons extends GCS_Post_Types_Base
      */
     public function admin_hooks()
     {
+        // TODO: Replace dbx_post_advanced (deprecated) with add_meta_boxes.
         add_action('dbx_post_advanced', array($this, 'remove_default_boxes_for_sermons'));
+        // Use our GCS_Sermons->columns method.
         add_filter("manage_edit-{$this->post_type()}_columns", array($this, 'columns'));
+        // Use our GCS_Sermons->columns_sortable method.
         add_filter("manage_edit-{$this->post_type()}_sortable_columns", array($this, 'columns_sortable'), 10, 1);
+        // Use our GCS_Sermons->columns_sort_func method.
         add_filter('posts_clauses', array($this, 'columns_sort_func'), 10, 2);
+        // Checking for duplicate videos. TODO: Remove?
         add_action('wp_ajax_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
         add_action('wp_ajax_nopriv_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
     }
 
     /**
-     * Remove default excerpt/feat-image metaboxes for Sermons
+     * Remove default excerpt/featured image metaboxes for messages
      *
      * @since  0.1.3
      *
@@ -145,8 +160,9 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * This provides a backup featured image for sermons by checking the sermon series
-	 * for the series featured image. If a sermon has a featured image set, that will be used.
+     * Use Series Image if Message Image Not Available
+     *
+	 * If a message has a featured image set, that will be used. Otherwise, one can fallback to the series image.
 	 *
 	 * @since  0.1.3
 	 *
@@ -163,7 +179,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
         // Override thumbnail_id check and get the series image id as a fallback.
         if ('_thumbnail_id' === $meta_key && $this->post_type() === get_post_type($object_id)) {
 
-            // Have to remove this filter to get the actual value to see if we need to do the work.
+            // Have to remove this filter to get the actual value to see if we need to do the work. (TODO: ??)
             remove_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
             $id = get_post_thumbnail_id($object_id);
             add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
@@ -187,7 +203,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * When a scheduled message post is saved, change the status back to 'publish'.
-     * This allows the future-date sermons to show on the front-end.
+     * This allows yet future messages to show on the front-end.
      *
      * @since  0.1.3
      *
@@ -206,13 +222,14 @@ class GCS_Sermons extends GCS_Post_Types_Base
             return $data;
         }
 
+        // Change posts set as future to publish.
         $data['post_status'] = 'publish';
 
         return $data;
     }
 
 	/**
-	 * Possibly add a "Coming Soon" prefix to future sermon titles.
+	 * Possibly add a "Coming Soon" prefix to future message titles.
 	 *
      * @since  0.2.1
      *
@@ -232,6 +249,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             return $done[$post_id];
         }
 
+        // Resets $now to null, then gets the current date?
         $now = null === $now ? gmdate('Y-m-d H:i:59') : $now;
 
         if (mysql2date('U', get_post($post_id)->post_date_gmt, false) > mysql2date('U', $now, false)) {
@@ -247,6 +265,10 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * Add custom fields to the CPT
+     *
+     * TODO: Change to add_fields
+     * TODO: Remove audio, can be added with additional resources?
+     * TODO: Remove sermon notes? We don't use.
      *
      * @since  0.1.0
      * @return void
@@ -307,6 +329,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'fields'       => $fields,
         ));
 
+        // TODO: Remove this, we use additional resources.
         $this->new_cmb2(array(
             'id'           => 'gc_related_links_metabox',
             'title'        => __('Related Links', 'gc-sermons'),
