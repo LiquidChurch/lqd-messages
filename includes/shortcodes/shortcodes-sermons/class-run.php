@@ -2,6 +2,11 @@
 /**
  * GC Sermons Shortcode - Run
  *
+ * @property string $shortcode          Shortcode tag (gc_sermons)
+ * @property array $atts_defaults       Default attributes of shortcode
+ * @property GCS_Taxonomies $taxonomies GCS_Taxonomies object
+ * @proeprty string $inception_levels Keep track of the levels of inception
+ *
  * @package GC Sermons
  */
 class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
@@ -32,9 +37,9 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
     );
 
     /**
-     * GCS_Sermons object
+     * GCS_Taxonomies object
      *
-     * @var   GCS_Sermons
+     * @var   GCS_Taxonomies
      * @since 0.1.0
      */
     public $taxonomies;

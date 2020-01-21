@@ -2,6 +2,9 @@
 /**
  * GC Sermons Search Shortcode - Admin
  *
+ * @property string                $prefix Shortcode prefix for field ids (gc_search_)
+ * @property GCS_Taxonomies|object $taxonomies
+ *
  * @package GC Sermons
  */
 class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
@@ -14,21 +17,20 @@ class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
 	 */
 	protected $prefix = 'gc_search_';
 
-	/**
-	 * GCS_Taxonomies
-	 *
-	 * @var GCS_Taxonomies
-	 */
+    /**
+     * GCS_Taxonomies object
+     * @var GCS_Taxonomies|object
+     */
 	protected $taxonomies;
 
-	/**
-	 * Constructor
-	 *
-	 * @since  0.1.0
-	 * @param  object $run        Main plugin object.
-	 * @param  object $taxonomies GCS_Taxonomies object.
-	 * @return void
-	 */
+    /**
+     * Constructor
+     *
+     * @param GCS_Shortcodes_Run_Base $run        Main plugin object.
+     * @param GCS_Taxonomies          $taxonomies GCS_Taxonomies object.
+     *
+     * @since  0.1.0
+     */
 	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $run );

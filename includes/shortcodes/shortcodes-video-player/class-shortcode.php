@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCS_Shortcodes_Video_Player extends GCS_Shortcodes_Base {
 
 	/**
@@ -24,7 +23,10 @@ class GCS_Shortcodes_Video_Player extends GCS_Shortcodes_Base {
 }
 
 /**
- * GC Sermons Video Player Shortcode
+ * GC Sermons Video Player Shortcode - Run
+ *
+ * @property string $shortcode Shortcode tag (gc_video_player)
+ * @property array  $atts_defaults Default attributes of shortcode
  *
  * @version 0.1.3
  * @package GC Sermons
@@ -60,6 +62,9 @@ class GCS_Shortcodes_Video_Player_Run extends GCS_Shortcodes_Run_Base {
 
 /**
  * GC Sermons Video Player Shortcode - Admin
+ *
+ * @property string $prefix Shortcode prefix for field ids (gc_vidplayer)
+ *
  * @version 0.1.3
  * @package GC Sermons
  */

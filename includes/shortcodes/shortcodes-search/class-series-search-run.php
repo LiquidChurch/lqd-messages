@@ -1,6 +1,10 @@
 <?php
 /**
- * GC Series Search
+ * GC Series Search Shortcode - Run
+ *
+ * @property string $search_query Current search query
+ * @property int    $current_page Current search results page
+ * @property mixed  $results      Results of call to shortcode_callback.
  *
  * @package GC Sermons
  */
@@ -97,7 +101,7 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 	}
 
 	/**
-	 * Get Initial Query Args
+	 * Get Initial Query Arguments
 	 *
 	 * @return array
 	 */

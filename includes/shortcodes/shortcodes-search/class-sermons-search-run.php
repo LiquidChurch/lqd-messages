@@ -2,6 +2,11 @@
 /**
  * GC Sermons Search
  *
+ * @property string $search_query Current search query
+ * @property int    $current_page Current results page number
+ * @property int    $total_pages  Total pages returned by query
+ * @property mixed  $results      Results of call to shortcode_callback
+ *
  * @package GC Sermons
  */
 
@@ -105,7 +110,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	}
 
 	/**
-	 * Filter Sermon Args
+	 * Filter Sermon Arguments
 	 *
 	 * @param $args
 	 *
@@ -117,7 +122,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	}
 
 	/**
-	 * Get Initial Query Args
+	 * Get Initial Query Arguments
 	 *
 	 * @return array
 	 */
@@ -149,7 +154,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	}
 
 	/**
-	 * Get Wrap Classes
+	 * Get CSS Wrap Classes
 	 *
 	 * @return string
 	 */

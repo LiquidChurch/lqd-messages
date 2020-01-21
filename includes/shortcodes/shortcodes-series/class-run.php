@@ -2,6 +2,10 @@
     /**
      * GC Sermons Series Shortcode - Run
      *
+     * @property string     $shortcode    Shortcode tag (gc_series)
+     * @property GCS_Series $series       Series object
+     * @property array      $att_defaults Default shortcode arguments
+     *
      * @package GC Sermons
      */
     class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
@@ -132,7 +136,7 @@
         }
 
 	    /**
-	     * Get Initial Query Args
+	     * Get Initial Query Arguments
 	     *
 	     * @return array
 	     */
@@ -146,7 +150,7 @@
         }
 
 	    /**
-	     * Get Initial Query Args if Year
+	     * Get Initial Query Arguments if Year
 	     *
 	     * @return array
 	     */

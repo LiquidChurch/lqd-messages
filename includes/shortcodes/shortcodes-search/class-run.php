@@ -2,7 +2,11 @@
 /**
  * GC Sermons Search Shortcode
  *
- * @todo Use Javascript/Ajax pagination/filtering.
+ * @todo Use Javascript/Ajax pagination/filtering. Do we?
+ *
+ * @property string $shortcode     The shortcode tag (gc_sermons_search)
+ * @property array  $atts_defaults Default attributes of shortcode
+ * @property string $search_query  Current search query
  *
  * @package GC Sermons
  */
@@ -10,6 +14,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
+     *
 	 * @var string
 	 * @since 0.1.0
 	 */
@@ -17,6 +22,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Default attributes applied to the shortcode.
+     *
 	 * @var array
 	 * @since 0.1.0
 	 */
@@ -69,7 +75,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param GCS_Sermons $sermons
+	 * @param GCS_Sermons    $sermons
 	 * @param GCS_Taxonomies $taxonomies
 	 */
 	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
