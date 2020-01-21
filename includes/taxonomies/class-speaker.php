@@ -2,6 +2,9 @@
 /**
  * GC Sermons Speaker
  *
+ * @property string $id
+ * @property string $image_meta_key
+ *
  * @package GC Sermons
  */
 
@@ -60,7 +63,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 		$fields = array(
 			$this->image_meta_key => array(
 				'name' => __( 'Speaker Avatar', 'gc-sermons' ),
-				'desc' => __( 'Select the speaker\'s avatar. Will only show if "Connected User" is not chosen, or if the "Connected User" does not have an avatar.', 'gc-sermons' ),
+				'desc' => __( 'Select the speaker\'s avatar.', 'gc-sermons' ),
 				'id'   => $this->image_meta_key,
 				'type' => 'file'
 			),

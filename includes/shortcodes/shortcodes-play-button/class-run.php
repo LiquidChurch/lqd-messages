@@ -5,6 +5,9 @@
  * @todo Add overlay/video popup JS, etc
  * @todo Use dashicons as fallback.
  *
+ * @property string $shortcode     The name of the shortcode (sermon_play_button)
+ * @property array  $atts_defaults Default attributes applied to the shortcode
+ *
  * @package GC Sermons
  */
 
@@ -120,6 +123,8 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Do Scripts
+     *
+     * Enqueues fontawesome, jquery.fitvids, gc-sermons-videos.js
 	 */
 	public function do_scripts() {
 

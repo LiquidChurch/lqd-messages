@@ -2,6 +2,8 @@
 /**
  * GC Sermons Recent Series Shortcode - Admin
  *
+ * @property string $prefix Shortcode prefix for field ids (rcnt_series_)
+ *
  * @package GC Sermons
  */
 
@@ -24,8 +26,7 @@ class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 		return array(
 			'qt_button_text' => __( 'GC Recent Series', 'gc-sermons' ),
 			'button_tooltip' => __( 'GC Recent Series', 'gc-sermons' ),
-			'icon'           => 'dashicons-images-alt',
-			// 'mceView'        => true, // The future
+			'icon'           => 'dashicons-images-alt'
 		);
 	}
 

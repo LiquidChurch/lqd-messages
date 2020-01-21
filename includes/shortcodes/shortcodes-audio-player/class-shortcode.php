@@ -23,7 +23,10 @@ class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {
 }
 
 /**
- * GC Sermons Audio Player Shortcode
+ * GC Sermons Audio Player Shortcode [gc_audio_player sermon_id='']
+ *
+ * @property string $shortcode
+ * @property array  $atts_defaults
  *
  * @version 0.1.3
  * @package GC Sermons
@@ -60,6 +63,9 @@ class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
 
 /**
  * GC Sermons Audio Player Shortcode - Admin
+ *
+ * @property string $prefix
+ *
  * @version 0.1.3
  * @package GC Sermons
  */

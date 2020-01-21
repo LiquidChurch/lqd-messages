@@ -2,6 +2,9 @@
 /**
  * GC Sermons Async
  *
+ * @property object|null $plugin
+ * @property string      $action
+ *
  * @package GC Sermons
  */
 
@@ -11,10 +14,14 @@ class GCS_Async extends WP_Async_Task {
 	 * Parent plugin class
      *
 	 * @since 0.1.1
-	 */
+     *
+     * @var object|null
+     */
 	protected $plugin = null;
 
 	/**
+     * Action to Take Asynchronously
+     *
 	 * @var string
 	 */
 	protected $action = 'set_object_terms';

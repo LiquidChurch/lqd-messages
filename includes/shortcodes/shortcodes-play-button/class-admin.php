@@ -2,6 +2,8 @@
 /**
  * GC Sermons Play Button Shortcode - Admin
  *
+ * @property string $prefix Shortcode prefix for field ids.
+ *
  * @package GC Sermons
  */
 

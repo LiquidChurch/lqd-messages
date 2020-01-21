@@ -2,6 +2,12 @@
 /**
  * GC Sermons Taxonomies
  *
+ * @property object $series
+ * @property object $speaker
+ * @property object $topic
+ * @property object $tag
+ * @property object $scripture
+ *
  * @package GC Sermons
  */
 

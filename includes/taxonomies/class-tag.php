@@ -2,6 +2,8 @@
 /**
  * GC Sermons Tag
  *
+ * @property string $id
+ *
  * @package GC Sermons
  */
 

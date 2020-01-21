@@ -2,6 +2,9 @@
 /**
  * GC Sermons Recent Series Shortcode
  *
+ * @property string $shortcode     The shortcode tag (gc_recent_series)
+ * @property array  $atts_defaults Default attributes of shortcode
+ *
  * @package GC Sermons
  */
 
