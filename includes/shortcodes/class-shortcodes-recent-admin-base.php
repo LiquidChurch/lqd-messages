@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Recent Series Shortcode - Admin
+ * GC Sermons Recent Shortcode - Admin
  *
  * @package GC Sermons
  */

@@ -1,6 +1,8 @@
 <?php
 /**
- * GC Sermons Shortcode Base
+ * GC Sermons Shortcode Base - Run
+ *
+ * @property GCS_Sermons $sermons
  *
  * @package GC Sermons
  */

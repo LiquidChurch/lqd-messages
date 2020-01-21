@@ -2,6 +2,9 @@
 /**
  * GC Sermons Shortcode Admin Base
  *
+ * @property GCS_Shortcodes_Run_Base $run    Parent plugin class
+ * @property string                  $prefix Shortcode prefix for field ids
+ *
  * @package GC Sermons
  */
 

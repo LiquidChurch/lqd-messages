@@ -2,6 +2,14 @@
 /**
  * GC Sermons Shortcodes
  *
+ * @property GCS_Shortcodes_Play_Button    $play_button
+ * @property GCS_Shortcodes_Sermons        $sermons
+ * @property GCS_Shortcodes_Recent_Series  $recent_series
+ * @property GCS_Shortcodes_Recent_Speaker $recent_speaker
+ * @property GCS_Shortcodes_Video_Player   $video_player
+ * @property GCS_Shortcodes_Audio_Player   $audio_player
+ * @property GCS_Shortcodes_Sermon_Search  $search
+ *
  * @package GC Sermons
  */
 

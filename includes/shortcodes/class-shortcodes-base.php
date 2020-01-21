@@ -2,6 +2,9 @@
 /**
  * GC Sermons Shortcode Base
  *
+ * @property GCS_Shortcodes_Run_Base    $run
+ * @property  GCS_Shortcodes_Admin_Base $admin
+ *
  * @package GC Sermons
  */
 
