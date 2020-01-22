@@ -9,6 +9,7 @@
  * @property GCS_Shortcodes_Video_Player   $video_player
  * @property GCS_Shortcodes_Audio_Player   $audio_player
  * @property GCS_Shortcodes_Sermon_Search  $search
+ * @property GCS_Shortcodes_Resources      $resources
  *
  * @package GC Sermons
  */
@@ -71,6 +72,13 @@ class GCS_Shortcodes {
 	 */
 	protected $search;
 
+    /**
+     * Instance of GCS_Shortcodes_Resources
+     *
+     * @var GCS_Shortcodes_Resources
+     */
+    protected $resources;
+
 	/**
 	 * Constructor
 	 *
@@ -87,6 +95,7 @@ class GCS_Shortcodes {
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
 		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );
+		$this->resources      = new GCS_Shortcodes_Resources( $plugin );
 	}
 
 	/**
@@ -99,4 +108,5 @@ class GCS_Shortcodes {
 	public function __get( $field ) {
 		return $this->{$field};
 	}
+
 }
