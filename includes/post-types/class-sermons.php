@@ -632,7 +632,7 @@ SQL;
 	 *
 	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return false|WP_Error|GCS_Sermon_Post  GC Sermon post object if successful.
 	 * @throws Exception
 	 */
     public function most_recent_with_taxonomy($taxonomy_id)

@@ -322,7 +322,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.5
 	 *
-	 * @param  array $search_term      The search term.
+	 * @param  array|string $search_term      The search term.
 	 * @param  array $args             Array of arguments for GCS_Taxonomies_Base::get_many().
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class GCS_Shortcodes_Test
+ */
 class GCS_Shortcodes_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {

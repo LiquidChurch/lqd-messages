@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class GCS_Sermon_Post_Test
+ */
 class GCS_Sermon_Post_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {

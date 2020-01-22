@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class BaseTest
+ */
 class BaseTest extends WP_UnitTestCase {
 
 	function test_class_exists() {

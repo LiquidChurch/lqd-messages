@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class GCS_Speaker_Test
+ */
 class GCS_Speaker_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {

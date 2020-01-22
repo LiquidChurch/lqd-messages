@@ -389,7 +389,7 @@ class GCS_Sermon_Post {
      *
      * @param  array         Args to pass to GCS_Taxonomies_Base::get()
      *
-     * @return WP_Term|false Speaker term object.
+     * @return false|WP_Term Speaker term object.
      */
 	public function get_speaker( $args = array() ) {
 	    $speakers = $this->speakers();
@@ -411,7 +411,7 @@ class GCS_Sermon_Post {
      *
      * @param  array         Args to pass to GCS_Taxonomies_Base::get()
      *
-     * @return WP_Term|false Series term object.
+     * @return false|WP_Term Series term object.
      */
 	public function get_series( $args = array() ) {
 	    $series = $this->series();
@@ -433,7 +433,7 @@ class GCS_Sermon_Post {
      *
      * @param  array         Args to pass to GCS_Taxonomies_Base::get()
      *
-     * @return WP_Term|false scripture term object.
+     * @return false|WP_Term scripture term object.
      */
 	public function get_scriptures( $args = array() ) {
 	    $scriptures = $this->scripture();
