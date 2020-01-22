@@ -2,6 +2,10 @@
 /**
  * GC Sermons Style Loader.
  *
+ * @property string $extension Template file extension (.css)
+ * @property bool   $force     Whether to force loading of already-loaded template.
+ * @property array  $done      Keep CSS templates from loading more than once per page.
+ *
  * @since 0.1.3
  * @package GC-Sermons
  */

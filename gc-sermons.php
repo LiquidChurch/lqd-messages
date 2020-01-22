@@ -40,7 +40,7 @@
     require 'vendor/autoload.php';
 
     /**
-     * Main initiation class
+     * Main initiation class (GC_Sermons_Plugin)
      *
      * @since  0.1.0
      * @var  string $version  Plugin version

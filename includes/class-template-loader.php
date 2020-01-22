@@ -2,6 +2,12 @@
 /**
  * GC Sermons Template Loader.
  *
+ * @property array $args       Array of arguments for template
+ * @property array $templates  Template names array
+ * @property string $template  Individual template name
+ * @property string $extension Template file extension
+ *
+ *
  * @since 0.1.3
  * @package GC Sermons
  */
