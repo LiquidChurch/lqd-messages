@@ -247,7 +247,7 @@ function gc__get_arg($arg, $default = null)
 }
 
 /**
- * Load the LiquidChurch_Functionality options if class exists.
+ * Load the GC Sermons options if class exists.
  * @param string $arg1
  * @param string $arg2
  * @return array|bool|mixed|void
@@ -256,9 +256,7 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
 {
     $plugin_option = array();
 
-    if (class_exists('LiquidChurch_Functionality')) {
-        $plugin_option = LiquidChurch_Functionality::get_plugin_settings_options($arg1, $arg2);
-    }
+        $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options($arg1, $arg2);
 
     if (empty($plugin_option)) {
         return array();

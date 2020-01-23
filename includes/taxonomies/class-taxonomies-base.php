@@ -66,14 +66,15 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 */
 	protected $img_col_title = '';
 
-	/**
-	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
-	 *
-	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
-	 * @return void
-	 */
+    /**
+     * Constructor
+     * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+     *
+     * @param object $sermons GCS_Sermons object.
+     * @param $args
+     *
+     * @since 0.1.0
+     */
 	public function __construct( $sermons, $args ) {
 	    // GCS_Taxonomies_Base->sermons holds the GCS_Sermons object.
 		$this->sermons = $sermons;

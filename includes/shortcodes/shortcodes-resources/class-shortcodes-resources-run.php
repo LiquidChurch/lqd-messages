@@ -6,7 +6,7 @@
  *
  * @package LiquidChurch Functionality
  */
-class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
+class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
 
 	/**
 	 * The Shortcode Tag
@@ -33,7 +33,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
     /**
      * Additional Resources meta id.
      *
-     * @see  LCF_Metaboxes::$resources_meta_id
+     * @see  GCS_Metaboxes::$resources_meta_id
      * @var   string
      */
     protected $meta_id = '';
@@ -55,7 +55,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
 	 */
     public function init($meta_id)
     {
-        $this->atts_defaults['resource_lang'] = array_keys(LCF_Metaboxes::get_lng_fld_option());
+        $this->atts_defaults['resource_lang'] = array_keys(GCS_Metaboxes::get_lng_fld_option());
 		$this->meta_id = $meta_id;
 	}
 
@@ -78,10 +78,10 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
     protected function _shortcode()
     {
         $data_type = $this->att('data_type');
-        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id);
+        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id);
 
 		if ( 'this' === $post_id ) {
-            $post_id = $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id;
+            $post_id = $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id;
 		}
 
 		if ( ! $post_id ) {
@@ -104,7 +104,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
 			$args[ $key ] = $this->att( $key );
 		}
 
-        $args['lang_plugin_option'] = LCF_Metaboxes::get_lng_fld_option();
+        $args['lang_plugin_option'] = GCS_Metaboxes::get_lng_fld_option();
 
 		return LCF_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
 	}
@@ -218,7 +218,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
                     'src' => $resource['file']
                 );
             }
-//            $resource['item'] = LCF_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
+
             $resource['item'] = LCF_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;

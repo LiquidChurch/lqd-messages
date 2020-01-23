@@ -6,11 +6,11 @@
  *
  * @package LiquidChurch Functionality
  */
-class LCF_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
+class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 	/**
 	 * Shortcode Run object
 	 *
-	 * @var   LCF_Shortcodes_Resources_Run
+	 * @var   GCS_Shortcodes_Resources_Run
 	 * @since 0.1.0
 	 */
 	protected $run;
@@ -18,16 +18,17 @@ class LCF_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
+	 * @param GCS_Shortcodes_Resources_Run $run LCF_Shortcodes_Resources_Run object.
 	 *
-	 * @param LCF_Shortcodes_Resources_Run $run LCF_Shortcodes_Resources_Run object.
+	 *@since  0.1.0
+	 *
 	 */
-	public function __construct( LCF_Shortcodes_Resources_Run $run ) {
+	public function __construct( GCS_Shortcodes_Resources_Run $run ) {
 		$this->run = $run;
 
 		parent::__construct(
 			$this->run->shortcode,
-			LiquidChurch_Functionality::VERSION,
+            GC_Sermons_Plugin::VERSION,
 			$this->run->atts_defaults
 		);
 	}
@@ -119,8 +120,8 @@ class LCF_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 			'desc'    => __( 'Please select the resource language', 'lc-func' ),
 			'type'    => 'multicheck_inline',
 			'id'      => 'resource_lang',
-			'default' => array_keys(LCF_Metaboxes::get_lng_fld_option()),
-			'options' => LCF_Metaboxes::get_lng_fld_option(),
+			'default' => array_keys(GCS_Metaboxes::get_lng_fld_option()),
+			'options' => GCS_Metaboxes::get_lng_fld_option(),
 		);
 
 		return $fields;
