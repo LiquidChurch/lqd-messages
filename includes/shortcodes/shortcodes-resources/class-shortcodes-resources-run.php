@@ -106,7 +106,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
 
         $args['lang_plugin_option'] = LCF_Metaboxes::get_lng_fld_option();
 
-		return LCF_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
+		return GCS_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
 	}
 
 	/**
@@ -218,12 +218,12 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
                     'src' => $resource['file']
                 );
             }
-//            $resource['item'] = LCF_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
-            $resource['item'] = LCF_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
+//            $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
+            $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;
 
-            $items[$resource['lang']][] = LCF_Template_Loader::get_template('sermon-resources-shortcode-li', $resource);
+            $items[$resource['lang']][] = GCS_Template_Loader::get_template('sermon-resources-shortcode-li', $resource);
         }
 
         return $items;

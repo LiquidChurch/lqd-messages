@@ -65,7 +65,7 @@ class LCF_Config_Page
         $arg = array(
             'items' => $items
         );
-        $view = LCF_Template_Loader::get_template('pages/sermon-message-config-page', $arg);
+        $view = GCS_Template_Loader::get_template('pages/sermon-message-config-page', $arg);
 
         $this->enqueu_css();
         $this->enqueu_js();
@@ -93,7 +93,7 @@ class LCF_Config_Page
                 'series_title' => $custom_term->name,
                 'items' => $item
             );
-            $items .= LCF_Template_Loader::get_template('pages/sermon-message-config-page-li', $series_resource);
+            $items .= GCS_Template_Loader::get_template('pages/sermon-message-config-page-li', $series_resource);
         }
         return $items;
     }
@@ -133,7 +133,7 @@ class LCF_Config_Page
                     'display_order' => get_post_meta(get_the_ID(), 'gc_display_order', true),
                     'display_ordr_meta_id' => $this->plugin->metaboxes->display_ordr_meta_id,
                 );
-                $item .= LCF_Template_Loader::get_template('pages/sermon-message-config-page-li-li', $message_resource);
+                $item .= GCS_Template_Loader::get_template('pages/sermon-message-config-page-li-li', $message_resource);
             endwhile;
         }
         return $item;

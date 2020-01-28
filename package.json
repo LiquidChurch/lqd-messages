@@ -9,7 +9,7 @@
   },
   "author": {
     "name": "liquidchurch",
-    "url":  "https://liquidchurch.com/"
+    "url": "https://liquidchurch.com/"
   },
   "contributors": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "name": "davidshq",
-      "url":  "https://davemackey.net/"
+      "url": "https://davemackey.net/"
     },
     {
       "name": "surajprgupta",
@@ -28,11 +28,12 @@
   "license": "GPL-2.0",
   "devDependencies": {
     "grunt": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-wp-i18n": "latest",
     "grunt-contrib-compress": "~0.11.0",
+    "grunt-contrib-watch": "latest",
     "grunt-githooks": "~0.3.1",
     "grunt-text-replace": "latest",
+    "grunt-wp-i18n": "latest",
+    "jshint": "^2.11.0",
     "load-grunt-tasks": "latest"
   }
 }

@@ -29,7 +29,7 @@ class LCF_Shortcodes_Resources {
 	 */
 	public function __construct( $plugin ) {
 		$this->run = new LCF_Shortcodes_Resources_Run();
-		//$this->run->init( $plugin->metaboxes->resources_meta_id );
+		$this->run->init( $plugin->metaboxes->resources_meta_id );
 		$this->run->hooks();
 
 		if ( is_admin() ) {

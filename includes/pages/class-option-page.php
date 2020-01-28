@@ -345,7 +345,7 @@ class LCF_Option_Page
             'sections_config_arr' => $this->sections_config_arr
         );
 
-        $view = LCF_Template_Loader::get_template('pages/sermon-plugin-option-page', $arg);
+        $view = GCS_Template_Loader::get_template('pages/sermon-plugin-option-page', $arg);
         echo $view;
     }
 
