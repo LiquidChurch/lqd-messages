@@ -3,7 +3,7 @@
     $series = $sermon->get_series();
     $atts = $this->get('atts');
     $plugin_option = $this->get('plugin_option');
-    
+
     $this->output('inline_style');
 ?>
 <article id="post-<?php echo $sermon->post->ID; ?>" <?php post_class('', $sermon->post->ID); ?>>
@@ -44,7 +44,7 @@
                 <div class="row" style="padding-left:55px;padding-right:55px;">
 
                     <div id="single-sermon-content" class="col-md-12">
-                        
+
                         <?php
                             if ($atts['show_title'] == 'true') {
                                 ?>
@@ -56,7 +56,7 @@
                                             ?>
                                         </h1>
                                     </header><!-- .entry-header -->
-                                    
+
                                     <?php
                                         if ($atts['show_image'] == 'series_image') {
                                             $image_id = $sermon->series_image('thumbnail', '',
@@ -64,7 +64,7 @@
                                         } else {
                                             $image_id = $sermon->featured_image_id();
                                         }
-                                        
+
                                         if (!empty($image_id)) {
                                             ?>
                                             <div class="col-sm-5 gc-right-col">
@@ -82,7 +82,7 @@
                                 <?php
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_series'] == 'true' && !empty($series)) {
                                 ?>
@@ -100,7 +100,7 @@
                                 <?php
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_speakers'] == 'true') {
                                 $speakers = $sermon->get_speakers();
@@ -117,7 +117,7 @@
                                                     $speaker[] = $val->name;
                                                 }
                                                 echo implode(', ', $speaker);
-                                                
+
                                                 /* TODO: Link the name of the speaker.
                                                 echo $speaker_url->slug; */
                                             ?>
@@ -127,7 +127,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_part_of_series'] == 'true') {
                                 $display_order = $sermon->get_meta('gc_display_order');
@@ -147,7 +147,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_scripture_references'] == 'true') {
                                 $scriptures = $sermon->get_scriptures();
@@ -171,7 +171,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_topics'] == 'true') {
                                 $topics = $sermon->topics();
@@ -195,7 +195,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_tags'] == 'true') {
                                 $tags = $sermon->tags();
@@ -219,7 +219,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_content'] == 'true') {
                                 $content = strip_tags($sermon->post->post_content);
@@ -239,7 +239,7 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_date_published'] == 'true') {
                                 if (!empty($sermon->post->post_date)) {
@@ -259,14 +259,14 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             if ($atts['show_additional_resource'] == 'true') {
                                 $addtl_resources
                                     = do_shortcode('[sermon_resources resource_post_id="' .
                                                    $sermon->post->ID .
                                                    '" resource_display_name="true"]');
-                                
+
                                 if (!empty($addtl_resources) &&
                                     ($addtl_resources != '<!-- no resources found -->')
                                 ) {
@@ -285,10 +285,10 @@
                                 }
                             }
                         ?>
-                        
+
                         <?php
                             $social_share_enable
-                                = LiquidChurch_Functionality::get_plugin_settings_options('social_option',
+                                = GC_Sermons_Plugin::get_plugin_settings_options('social_option',
                                 'social_share');
                             if ($social_share_enable == 'yes') {
                                 echo '<div class="addthis_sharing_toolbox"></div>';

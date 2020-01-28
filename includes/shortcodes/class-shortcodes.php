@@ -71,6 +71,13 @@ class GCS_Shortcodes {
 	 */
 	protected $search;
 
+    /**
+     * Instance of LCF_Shortcodes_Resources
+     *
+     * @var LCF_Shortcodes_Resources
+     */
+    protected $resources;
+
 	/**
 	 * Constructor
 	 *
@@ -88,6 +95,7 @@ class GCS_Shortcodes {
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
 		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );
+		$this->resources      = new LCF_Shortcodes_Resources( $plugin );
 	}
 
 	/**

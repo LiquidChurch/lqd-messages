@@ -125,19 +125,14 @@ install_test_suite() {
 }
 
 install_required_plugins() {
-	WDS_SHORTCODES="$WP_CORE_DIR/wp-content/plugins/wds-shortcodes"
-	CMB2="$WP_CORE_DIR/wp-content/plugins/cmb2"
-
-	if [ ! -d ../wds_shortcodes ]; then
-		mkdir -p ../wds_shortcodes
+	if [ ! -d ../wds-shortcodes ]; then
 		download https://raw.githubusercontent.com/WebDevStudios/WDS-Shortcodes/master/wds-shortcodes.zip /tmp/wds-shortcodes.zip
-		unzip /tmp/wds-shortcodes.zip -d ../wds_shortcodes
+		unzip /tmp/wds-shortcodes.zip -d ../
 	fi
 
 	if [ ! -d ../cmb2 ]; then
-		mkdir -p ../cmb2
 		download https://downloads.wordpress.org/plugin/cmb2.zip /tmp/cmb2.zip
-		unzip /tmp/cmb2.zip -d ../cmb2
+		unzip /tmp/cmb2.zip -d ../
 	fi
 }
 

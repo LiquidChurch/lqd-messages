@@ -37,7 +37,7 @@
      */
 
     // Use composer autoload.
-    require 'vendor/autoload_52.php';
+    require 'vendor/autoload.php';
 
     /**
      * Main initiation class
@@ -139,6 +139,75 @@
         protected $async;
 
         /**
+         * Plugin Options Settings Key
+         *
+         * @var string
+         */
+        public static $plugin_option_key = 'lc-plugin-settings';
+
+        /**
+         * Instance of LCF_Metaboxes
+         *
+         * @var LCF_Metaboxes
+         */
+        protected $metaboxes;
+
+        /**
+         * Instance of LCF_Shortcodes
+         *
+         * @var GCS_Shortcodes
+         */
+        protected $lcf_shortcodes;
+
+        /**
+         * Instance of LCF_Config_Page
+         *
+         * @var LCF_Config_Page
+         */
+        protected $config_page;
+
+        /**
+         * Instance of LCF_Option_Page
+         *
+         * @var LCF_Option_Page
+         */
+        protected $option_page;
+
+        /**
+         * Get Plugin Settings Options
+         *
+         * @param string $arg
+         * @param string $sub_arg
+         *
+         * @return bool|mixed|void
+         */
+        public static function get_plugin_settings_options($arg = '', $sub_arg = '')
+        {
+            $options = get_option(self::$plugin_option_key);
+            if (empty($options)) {
+                return false;
+            }
+
+            if (!empty($arg)) {
+                if (!isset($options[$arg])) {
+                    return false;
+                }
+
+                if (!empty($sub_arg)) {
+                    if (!isset($options[$arg][$sub_arg])) {
+                        return false;
+                    }
+
+                    return $options[$arg][$sub_arg];
+                }
+
+                return $options[$arg];
+            }
+
+            return $options;
+        }
+
+        /**
          * Creates or returns an instance of this class.
          *
          * @since  0.1.0
@@ -160,9 +229,9 @@
          */
         protected function __construct()
         {
-            self::$basename = plugin_basename(__FILE__);
-            self::$url      = plugin_dir_url(__FILE__);
-            self::$path     = plugin_dir_path(__FILE__);
+            self::$basename = plugin_basename(__FILE__); // lqd-messages/gc-sermons.php
+            self::$url      = plugin_dir_url(__FILE__); // https://one.wordpress.test/wp-content/plugins/lqd-messages
+            self::$path     = plugin_dir_path(__FILE__); // /srv/www/wordpress-one/public_html/wp-content/plugins/lqd-messages/
         }
 
 	    /**
@@ -181,6 +250,30 @@
             $this->taxonomies = new GCS_Taxonomies($this->sermons);
             $this->async = new GCS_Async($this);
             $this->shortcodes = new GCS_Shortcodes($this);
+
+            // Only create the full metabox object if in the admin.
+            if (is_admin()) {
+                $this->metaboxes = new LCF_Metaboxes($this);
+                $this->metaboxes->hooks();
+            } else {
+                $this->metaboxes = (object)array();
+            }
+
+            // Set these properties either way.
+            $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
+            $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
+            $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
+            $this->metaboxes->display_ordr_meta_id = 'gc_display_order';
+            $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
+            $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
+
+            //$this->lcf_shortcodes = new GCS_Shortcodes($this);
+
+            $this->config_page = new LCF_Config_Page($this);
+            $this->config_page->hooks();
+
+            $this->option_page = new LCF_Option_Page($this);
+            $this->option_page->hooks();
 	} // END OF PLUGIN CLASSES FUNCTION
 
         /**
@@ -321,9 +414,12 @@
             switch ($field) {
                 case 'version':
                     return self::VERSION;
+                case 'metaboxes':
                 case 'sermons':
                 case 'taxonomies':
+                case 'plugin_option_key':
                 case 'shortcodes':
+                case 'async':
                     return $this->{$field};
                 case 'series':
                 case 'speaker':

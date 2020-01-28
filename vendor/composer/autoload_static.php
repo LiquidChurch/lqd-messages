@@ -22,16 +22,6 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
         '0fcca7ec588c8cf31dfdf472442badcb' => __DIR__ . '/..' . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
     );
 
-    public static $prefixesPsr0 = array (
-        'x' => 
-        array (
-            'xrstf\\Composer52' => 
-            array (
-                0 => __DIR__ . '/..' . '/xrstf/composer-php52/lib',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'CPT_Core' => __DIR__ . '/..' . '/webdevstudios/cpt-core/CPT_Core.php',
         'GCSS_Play_Button_Admin' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-play-button/class-admin.php',
@@ -88,6 +78,13 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
         'GCS_Template_Loader' => __DIR__ . '/../..' . '/includes/class-template-loader.php',
         'GCS_Topic' => __DIR__ . '/../..' . '/includes/taxonomies/class-topic.php',
         'GC_Sermons_Plugin' => __DIR__ . '/../..' . '/gc-sermons.php',
+        'LCF_Config_Page' => __DIR__ . '/../..' . '/includes/pages/class-config-page.php',
+        'LCF_Metaboxes' => __DIR__ . '/../..' . '/includes/class-metaboxes.php',
+        'LCF_Option_Page' => __DIR__ . '/../..' . '/includes/pages/class-option-page.php',
+        'LCF_Shortcodes_Resources' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources.php',
+        'LCF_Shortcodes_Resources_Admin' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-admin.php',
+        'LCF_Shortcodes_Resources_Run' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-run.php',
+        'LCF_Template_Loader' => __DIR__ . '/../..' . '/includes/class-lcf-template-loader.php',
         'Shortcode_Button_107' => __DIR__ . '/..' . '/jtsternberg/shortcode-button/shortcode-button.php',
         'TGMPA_Bulk_Installer' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
         'TGMPA_Bulk_Installer_Skin' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
@@ -108,7 +105,6 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7::$classMap;
 
         }, null, ClassLoader::class);

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class BaseTest
+ */
 class BaseTest extends WP_UnitTestCase {
 
 	function test_class_exists() {
@@ -7,6 +10,6 @@ class BaseTest extends WP_UnitTestCase {
 	}
 
 	function test_get_instance() {
-		$this->assertTrue( gc_sermons() instanceof GC_Sermons_Plugin );
+		$this->assertInstanceOf( GC_Sermons_Plugin::class, gc_sermons() );
 	}
 }
