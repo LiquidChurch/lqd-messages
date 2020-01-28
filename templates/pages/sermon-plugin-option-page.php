@@ -3,8 +3,8 @@ $sections_config_arr = $this->get('sections_config_arr');
 ?>
 
 <div class="wrap gc-sermon-message-config-wrap">
-    <h2><?php echo __('Plugin Options', 'lc-func') ?></h2>
-    <p> <?php echo __('Options related to the Plugin.', 'lc-func') ?></p>
+    <h2><?php echo __('Plugin Options', 'gc-sermons') ?></h2>
+    <p> <?php echo __('Options related to the Plugin.', 'gc-sermons') ?></p>
     <div id="tabs">
         <ul>
             <?php

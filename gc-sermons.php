@@ -148,7 +148,7 @@
         /**
          * Instance of LCF_Metaboxes
          *
-         * @var LCF_Metaboxes
+         * @var GCS_Metaboxes
          */
         protected $metaboxes;
 
@@ -162,14 +162,14 @@
         /**
          * Instance of LCF_Config_Page
          *
-         * @var LCF_Config_Page
+         * @var GCS_Config_Page
          */
         protected $config_page;
 
         /**
          * Instance of LCF_Option_Page
          *
-         * @var LCF_Option_Page
+         * @var GCS_Option_Page
          */
         protected $option_page;
 
@@ -253,7 +253,7 @@
 
             // Only create the full metabox object if in the admin.
             if (is_admin()) {
-                $this->metaboxes = new LCF_Metaboxes($this);
+                $this->metaboxes = new GCS_Metaboxes($this);
                 $this->metaboxes->hooks();
             } else {
                 $this->metaboxes = (object)array();
@@ -269,10 +269,10 @@
 
             //$this->lcf_shortcodes = new GCS_Shortcodes($this);
 
-            $this->config_page = new LCF_Config_Page($this);
+            $this->config_page = new GCS_Config_Page($this);
             $this->config_page->hooks();
 
-            $this->option_page = new LCF_Option_Page($this);
+            $this->option_page = new GCS_Option_Page($this);
             $this->option_page->hooks();
 	} // END OF PLUGIN CLASSES FUNCTION
 

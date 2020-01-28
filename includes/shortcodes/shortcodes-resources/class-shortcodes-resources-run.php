@@ -6,7 +6,7 @@
  *
  * @package GC-Sermons
  */
-class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
+class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
 
 	/**
 	 * The Shortcode Tag
@@ -33,7 +33,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
     /**
      * Additional Resources meta id.
      *
-     * @see  LCF_Metaboxes::$resources_meta_id
+     * @see  GCS_Metaboxes::$resources_meta_id
      * @var   string
      */
     protected $meta_id = '';
@@ -55,7 +55,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
 	 */
     public function init($meta_id)
     {
-        $this->atts_defaults['resource_lang'] = array_keys(LCF_Metaboxes::get_lng_fld_option());
+        $this->atts_defaults['resource_lang'] = array_keys(GCS_Metaboxes::get_lng_fld_option());
 		$this->meta_id = $meta_id;
 	}
 
@@ -104,7 +104,7 @@ class LCF_Shortcodes_Resources_Run extends WDS_Shortcodes {
 			$args[ $key ] = $this->att( $key );
 		}
 
-        $args['lang_plugin_option'] = LCF_Metaboxes::get_lng_fld_option();
+        $args['lang_plugin_option'] = GCS_Metaboxes::get_lng_fld_option();
 
 		return GCS_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
 	}

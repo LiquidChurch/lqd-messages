@@ -6,9 +6,9 @@
             <?php $this->output('items') ?>
         </ul>
 		<div class="config-section">
-			<button type="button" class="single sort-btn"><?php echo __('Auto Sort', 'lc-func') ?></button>
-			<button type="submit" class="single update-btn"><?php echo __('Update', 'lc-func') ?></button>
-			<button type="reset" class="single reset-btn"><?php echo __('Reset', 'lc-func') ?></button>
+			<button type="button" class="single sort-btn"><?php echo __('Auto Sort', 'gc-sermons') ?></button>
+			<button type="submit" class="single update-btn"><?php echo __('Update', 'gc-sermons') ?></button>
+			<button type="reset" class="single reset-btn"><?php echo __('Reset', 'gc-sermons') ?></button>
 		</div>
     </form>
 </li>

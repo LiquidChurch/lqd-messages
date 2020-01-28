@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Class LCF_Config_Page
+ * Class GCS_Config_Page
  *
  * @package GC-Sermons
  */
-class LCF_Config_Page
+class GCS_Config_Page
 {
     /**
      * Parent plugin class
@@ -51,7 +51,7 @@ class LCF_Config_Page
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Messages Config', 'lc-func'), __('Messages Config', 'lc-func'), 'manage_options', 'sermon-message-config', array($this, 'config_page_view'));
+        add_submenu_page('edit.php?post_type=gc-sermons', __('Messages Config', 'gc-sermons'), __('Messages Config', 'gc-sermons'), 'manage_options', 'sermon-message-config', array($this, 'config_page_view'));
     }
 
 	/**
@@ -163,8 +163,8 @@ class LCF_Config_Page
 
         wp_localize_script('lc-func-admin-message-config', 'LiquidChurchAdmin', array(
             'path' => GC_Sermons_Plugin::$url,
-            'blockui_message' => __('Please wait...', 'lc-func'),
-            'required_message' => __('Please fill all the required values', 'lc-func'),
+            'blockui_message' => __('Please wait...', 'gc-sermons'),
+            'required_message' => __('Please fill all the required values', 'gc-sermons'),
             'ajax_nonce' => wp_create_nonce('sermon_message_config_page'),
         ));
     }
@@ -199,7 +199,7 @@ class LCF_Config_Page
                 if (empty($val[$meta_key])) continue;
                 $reponse[$key] = array(
                     'status' => update_post_meta($key, $meta_key, $val[$meta_key]),
-                    'message' => __('Successfully updated', 'lc-func')
+                    'message' => __('Successfully updated', 'gc-sermons')
                 );
             }
         }
@@ -225,7 +225,7 @@ class LCF_Config_Page
                     if (empty($fval[$meta_key])) continue;
                     $reponse[$formData['series_id']][$fkey] = array(
                         'status' => update_post_meta($fkey, $meta_key, $fval[$meta_key]),
-                        'message' => __('Successfully updated', 'lc-func')
+                        'message' => __('Successfully updated', 'gc-sermons')
                     );
                 }
             }

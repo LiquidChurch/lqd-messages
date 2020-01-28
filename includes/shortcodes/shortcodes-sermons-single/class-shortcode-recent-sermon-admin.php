@@ -5,7 +5,7 @@
      * @since   0.11.0
      * @package  GC Sermons
      */
-    
+
     /**
      *  GC Sermons Shortcodes Sermon Admin.
      *
@@ -21,13 +21,13 @@
         function js_button_data()
         {
             return array(
-                'qt_button_text' => __('GC Sermon Single', 'lc-func'),
-                'button_tooltip' => __('GC Sermon Single', 'lc-func'),
+                'qt_button_text' => __('GC Sermon Single', 'gc-sermons'),
+                'button_tooltip' => __('GC Sermon Single', 'gc-sermons'),
                 'icon'           => 'dashicons-media-interactive',
                 // 'mceView'        => true, // The future
             );
         }
-        
+
         /**
          * Adds fields to the button modal using CMB2
          *
@@ -47,7 +47,7 @@
                 'select_type'     => 'radio',
                 'select_behavior' => 'replace',
             );
-            
+
             $fields[] = array(
                 'name' => 'Show Title',
                 'desc' => '',
@@ -55,7 +55,7 @@
                 'type' => 'checkbox',
                 'default' => true
             );
-            
+
             $fields[] = array(
                 'name' => 'Show Content',
                 'desc' => '',
@@ -63,7 +63,7 @@
                 'type' => 'checkbox',
                 'default' => true
             );
-    
+
             $fields[] = array(
                 'name' => 'Image to display',
                 'desc' => '',
@@ -75,7 +75,7 @@
                 ),
                 'default' => 'featured_image'
             );
-            
+
             $fields[] = array(
                 'name' => 'Header Media',
                 'desc' => '',
@@ -89,71 +89,71 @@
                 ),
                 'default' => 'video_player'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_series',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Part of Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_part_of_series',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Speaker',
                 'desc' => '',
                 'id' => $this->prefix . 'show_speakers',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Others in Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_others_in_series',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Topics',
                 'desc' => '',
                 'id' => $this->prefix . 'show_topics',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Tags',
                 'desc' => '',
                 'id' => $this->prefix . 'show_tags',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Date Published',
                 'desc' => '',
                 'id' => $this->prefix . 'show_date_published',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Additional Resource',
                 'desc' => '',
                 'id' => $this->prefix . 'show_additional_resource',
                 'type' => 'checkbox'
             );
-    
+
             $fields[] = array(
                 'name' => 'Show Scripture References',
                 'desc' => '',
                 'id' => $this->prefix . 'show_scripture_references',
                 'type' => 'checkbox'
             );
-            
+
             return $fields;
         }
-        
+
     }

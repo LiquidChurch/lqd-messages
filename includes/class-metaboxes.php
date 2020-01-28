@@ -4,7 +4,7 @@
  *
  * @package GC-Sermons
  */
-class LCF_Metaboxes
+class GCS_Metaboxes
 {
 	/**
 	 * Additional Resources CMB2 id.
@@ -80,8 +80,8 @@ class LCF_Metaboxes
 		$cmb = new_cmb2_box( $args );
 
 		$cmb->add_field( array(
-			'name' => __( 'Display Order', 'lc-func' ),
-			'desc' => __( 'Post will appear in the series based on this order', 'lc-func' ),
+			'name' => __( 'Display Order', 'gc-sermons' ),
+			'desc' => __( 'Post will appear in the series based on this order', 'gc-sermons' ),
 			'id'   => $this->display_ordr_meta_id,
 			'type' => 'text_number',
             'attributes'  => array(
@@ -90,20 +90,20 @@ class LCF_Metaboxes
 		) );
 
         $cmb->add_field(array(
-            'name' => __('Exclude as Message', 'lc-func'),
-            'desc' => __('If selected the post will not appear as message in the message listing', 'lc-func'),
+            'name' => __('Exclude as Message', 'gc-sermons'),
+            'desc' => __('If selected the post will not appear as message in the message listing', 'gc-sermons'),
             'id' => $this->exclude_msg_meta_id,
             'type' => 'checkbox',
         ));
 
         $cmb->add_field(array(
-            'name' => __('Position in Message Archive Page', 'lc-func'),
-            'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'lc-func'),
+            'name' => __('Position in Message Archive Page', 'gc-sermons'),
+            'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'gc-sermons'),
             'id' => $this->video_msg_appear_pos,
             'type' => 'radio',
             'options' => array(
-                'top' => __('First', 'lc-func'),
-                'bottom' => __('Last', 'lc-func'),
+                'top' => __('First', 'gc-sermons'),
+                'bottom' => __('Last', 'gc-sermons'),
             ),
         ));
 
@@ -119,9 +119,9 @@ class LCF_Metaboxes
 			'id'      => $this->resources_meta_id,
 			'type'    => 'group',
 			'options' => array(
-				'group_title'   => __( 'Resource {#}', 'lc-func' ), // {#} gets replaced by row number
-				'add_button'    => __( 'Add Another Resource', 'lc-func' ),
-				'remove_button' => __( 'Remove Resource', 'lc-func' ),
+				'group_title'   => __( 'Resource {#}', 'gc-sermons' ), // {#} gets replaced by row number
+				'add_button'    => __( 'Add Another Resource', 'gc-sermons' ),
+				'remove_button' => __( 'Remove Resource', 'gc-sermons' ),
 				'sortable'      => true,
 			),
 			'after_group' => array( $this, 'enqueu_box_js' ),
@@ -129,34 +129,34 @@ class LCF_Metaboxes
 
 		$sub_fields = array(
 			array(
-				'name' => __( 'Resource Name', 'lc-func' ),
-				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'lc-func' ),
+				'name' => __( 'Resource Name', 'gc-sermons' ),
+				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'gc-sermons' ),
 				'id'   => 'name',
 				'type' => 'text',
 			),
             array(
-                'name' => __('Resource Language', 'lc-func'),
-                'desc' => __('Please select the resource language', 'lc-func'),
+                'name' => __('Resource Language', 'gc-sermons'),
+                'desc' => __('Please select the resource language', 'gc-sermons'),
                 'id' => 'lang',
                 'type' => 'select',
                 'options' => $this->get_lng_fld_option()
             ),
 			array(
-				'name'    => __( 'Display Name', 'lc-func' ),
-				'desc'    => __( 'e.g., "Download Audio"', 'lc-func' ),
+				'name'    => __( 'Display Name', 'gc-sermons' ),
+				'desc'    => __( 'e.g., "Download Audio"', 'gc-sermons' ),
 				'id'      => 'display_name',
                 'type' => 'select',
                 'options' => $this->get_disp_name_fld_option()
 			),
 			array(
-				'name' => __( 'URL or File', 'lc-func' ),
-				'desc' => __( 'Link to OR upload OR select resource"', 'lc-func' ),
+				'name' => __( 'URL or File', 'gc-sermons' ),
+				'desc' => __( 'Link to OR upload OR select resource"', 'gc-sermons' ),
 				'id'   => 'file',
 				'type' => 'file',
 			),
 			array(
-				'name' => __( 'Type of Resource', 'lc-func' ),
-				'desc' => __( 'e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate if selecting media. Leave blank if adding a URL instead of a file.', 'lc-func' ),
+				'name' => __( 'Type of Resource', 'gc-sermons' ),
+				'desc' => __( 'e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate if selecting media. Leave blank if adding a URL instead of a file.', 'gc-sermons' ),
 				'id'   => 'type',
 				'type' => 'text',
             )

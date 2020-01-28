@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Class LCF_Option_Page
+ * Class GCS_Option_Page
  *
  * @package GC-Sermons
  */
-class LCF_Option_Page
+class GCS_Option_Page
 {
     /**
      * Parent plugin class
@@ -42,255 +42,255 @@ class LCF_Option_Page
     {
         return array(
             'series_view' => array(
-                'title' => __('Series List View', 'lc-func'),
+                'title' => __('Series List View', 'gc-sermons'),
                 'page' => 'series_view',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Display the Title of the Series Over the Series Featured Image', 'lc-func'),
+                        'title' => __('Display the Title of the Series Over the Series Featured Image', 'gc-sermons'),
                         'name' => 'title_over_series_featured_img',
                         'type' => 'select',
                         'value' => array(
                             '' => 'Select',
-                            'always_show' => __('Always Show', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            'always_show' => __('Always Show', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('How Do You Want Each Series Image to Look', 'lc-func'),
+                        'title' => __('How Do You Want Each Series Image to Look', 'gc-sermons'),
                         'name' => 'series_img_type',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'no_overlay' => __('No Overlay', 'lc-func'),
-                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lc-func'),
-                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'no_overlay' => __('No Overlay', 'gc-sermons'),
+                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'gc-sermons'),
+                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('Fit Entire Year of Series On One Page', 'lc-func'),
+                        'title' => __('Fit Entire Year of Series On One Page', 'gc-sermons'),
                         'name' => 'entire_year_series_one_page',
                         'type' => 'select',
                         'value' => array(
                             '' => 'Select',
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     )
                 )
             ),
             'search_view' => array(
-                'title' => __('Search Results View', 'lc-func'),
+                'title' => __('Search Results View', 'gc-sermons'),
                 'page' => 'search_view',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Display the Title of the Series Over the Series Featured Image', 'lc-func'),
+                        'title' => __('Display the Title of the Series Over the Series Featured Image', 'gc-sermons'),
                         'name' => 'title_over_series_featured_img',
                         'type' => 'select',
                         'value' => array(
                             '' => 'Select',
-                            'always_show' => __('Always Show', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            'always_show' => __('Always Show', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('How Do You Want Each Series Image to Look', 'lc-func'),
+                        'title' => __('How Do You Want Each Series Image to Look', 'gc-sermons'),
                         'name' => 'series_img_type',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'no_overlay' => __('No Overlay', 'lc-func'),
-                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lc-func'),
-                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'no_overlay' => __('No Overlay', 'gc-sermons'),
+                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'gc-sermons'),
+                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('Display the Title of the Message Over the Message Featured Image', 'lc-func'),
+                        'title' => __('Display the Title of the Message Over the Message Featured Image', 'gc-sermons'),
                         'name' => 'title_over_message_featured_img',
                         'type' => 'select',
                         'value' => array(
                             '' => 'Select',
-                            'always_show' => __('Always Show', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            'always_show' => __('Always Show', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('How Do You Want Each Message Feature Image to Look', 'lc-func'),
+                        'title' => __('How Do You Want Each Message Feature Image to Look', 'gc-sermons'),
                         'name' => 'message_img_type',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'no_overlay' => __('No Overlay', 'lc-func'),
-                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lc-func'),
-                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'no_overlay' => __('No Overlay', 'gc-sermons'),
+                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'gc-sermons'),
+                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'gc-sermons')
                         )
                     )
                 )
             ),
             'single_series_view' => array(
-                'title' => __('Individual Series View', 'lc-func'),
+                'title' => __('Individual Series View', 'gc-sermons'),
                 'page' => 'single_series_view',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Series Fields to Display on Front End', 'lc-func'),
+                        'title' => __('Series Fields to Display on Front End', 'gc-sermons'),
                         'name' => 'series_field_to_display',
                         'type' => 'checkbox',
                         'value' => array(
-                            'series_image' => __('Series Image', 'lc-func'),
-                            'title' => __('Title', 'lc-func'),
-                            'description' => __('Description', 'lc-func'),
+                            'series_image' => __('Series Image', 'gc-sermons'),
+                            'title' => __('Title', 'gc-sermons'),
+                            'description' => __('Description', 'gc-sermons'),
                         )
                     ),
                     array(
-                        'title' => __('Message Fields to Display on Front End', 'lc-func'),
+                        'title' => __('Message Fields to Display on Front End', 'gc-sermons'),
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
                         'value' => array(
-                            'sermon_image' => __('Sermon Image', 'lc-func'),
-                            'title' => __('Title', 'lc-func'),
-                            'speakers' => __('Speaker(s)', 'lc-func'),
-                            'date' => __('Date', 'lc-func'),
-                            'part_of_series' => __('Part of Series', 'lc-func'),
-                            'description' => __('Description', 'lc-func'),
-                            'topics' => __('Topics', 'lc-func'),
-                            'tags' => __('Tags', 'lc-func'),
-                            'scripture_reference' => __('Scripture References', 'lc-func'),
+                            'sermon_image' => __('Sermon Image', 'gc-sermons'),
+                            'title' => __('Title', 'gc-sermons'),
+                            'speakers' => __('Speaker(s)', 'gc-sermons'),
+                            'date' => __('Date', 'gc-sermons'),
+                            'part_of_series' => __('Part of Series', 'gc-sermons'),
+                            'description' => __('Description', 'gc-sermons'),
+                            'topics' => __('Topics', 'gc-sermons'),
+                            'tags' => __('Tags', 'gc-sermons'),
+                            'scripture_reference' => __('Scripture References', 'gc-sermons'),
                         )
                     ),
                     array(
-                        'title' => __('Which Image Should be Displayed for Each Individual Message in the Series', 'lc-func'),
+                        'title' => __('Which Image Should be Displayed for Each Individual Message in the Series', 'gc-sermons'),
                         'name' => 'choose_image_type_to_display',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'series_featured_image' => __('Series Featured Image', 'lc-func'),
-                            'message_featured_image' => __('Message Featured Image', 'lc-func'),
+                            '' => __('Select', 'gc-sermons'),
+                            'series_featured_image' => __('Series Featured Image', 'gc-sermons'),
+                            'message_featured_image' => __('Message Featured Image', 'gc-sermons'),
                         )
                     ),
                     array(
-                        'title' => __('Previous Resource(s) Minimize When One Moves to Create Another Resource.', 'lc-func'),
+                        'title' => __('Previous Resource(s) Minimize When One Moves to Create Another Resource.', 'gc-sermons'),
                         'name' => 'minimize_previous_resource',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     )
                 )
             ),
             'single_message_view' => array(
-                'title' => __('Individual Message View', 'lc-func'),
+                'title' => __('Individual Message View', 'gc-sermons'),
                 'page' => 'single_message_view',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Message Fields to Display on Front End', 'lc-func'),
+                        'title' => __('Message Fields to Display on Front End', 'gc-sermons'),
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
                         'value' => array(
-                            'sermon_image' => __('Sermon Image', 'lc-func'),
-                            'title' => __('Title', 'lc-func'),
-                            'speakers' => __('Speaker(s)', 'lc-func'),
-                            'series' => __('Series(s)', 'lc-func'),
-                            'date' => __('Date', 'lc-func'),
-                            'part_of_series' => __('Part of Series', 'lc-func'),
-                            'description' => __('Description', 'lc-func'),
-                            'topics' => __('Topics', 'lc-func'),
-                            'tags' => __('Tags', 'lc-func'),
-                            'scripture_reference' => __('Scripture References', 'lc-func'),
-                            'additional_resource' => __('Additional Resources', 'lc-func'),
+                            'sermon_image' => __('Sermon Image', 'gc-sermons'),
+                            'title' => __('Title', 'gc-sermons'),
+                            'speakers' => __('Speaker(s)', 'gc-sermons'),
+                            'series' => __('Series(s)', 'gc-sermons'),
+                            'date' => __('Date', 'gc-sermons'),
+                            'part_of_series' => __('Part of Series', 'gc-sermons'),
+                            'description' => __('Description', 'gc-sermons'),
+                            'topics' => __('Topics', 'gc-sermons'),
+                            'tags' => __('Tags', 'gc-sermons'),
+                            'scripture_reference' => __('Scripture References', 'gc-sermons'),
+                            'additional_resource' => __('Additional Resources', 'gc-sermons'),
                         )
                     ),
                     array(
-                        'title' => __('Display the Title of the Message Over the Message Featured Image for Related Messages', 'lc-func'),
+                        'title' => __('Display the Title of the Message Over the Message Featured Image for Related Messages', 'gc-sermons'),
                         'name' => 'title_over_message_featured_img',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'always_show' => __('Always Show', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'always_show' => __('Always Show', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('How Do You Want Each Message Image to Look', 'lc-func'),
+                        'title' => __('How Do You Want Each Message Image to Look', 'gc-sermons'),
                         'name' => 'message_img_type',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'no_overlay' => __('No Overlay', 'lc-func'),
-                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lc-func'),
-                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'no_overlay' => __('No Overlay', 'gc-sermons'),
+                            'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'gc-sermons'),
+                            'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'gc-sermons')
                         )
                     )
                 )
             ),
             'addtnl_rsrc_option' => array(
-                'title' => __('Additional Resource\'s Option', 'lc-func'),
+                'title' => __('Additional Resource\'s Option', 'gc-sermons'),
                 'page' => 'addtnl_rsrc_option',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Display Name Field Value', 'lc-func'),
+                        'title' => __('Display Name Field Value', 'gc-sermons'),
                         'name' => 'display_name_fld_val',
                         'type' => 'textarea',
-                        'placeholder' => __('Enter value like - Video, Audio, Notes, Group Guide', 'lc-func'),
+                        'placeholder' => __('Enter value like - Video, Audio, Notes, Group Guide', 'gc-sermons'),
                         'default' => "Video, \r\nAudio, \r\nNotes, \r\nGroup Guide",
                     ),
                     array(
-                        'title' => __('Language Option', 'lc-func'),
+                        'title' => __('Language Option', 'gc-sermons'),
                         'name' => 'addtnl_rsrc_lng_optn',
                         'type' => 'textarea',
-                        'placeholder' => __('Enter value like - eng:English, spa:Spanish', 'lc-func'),
+                        'placeholder' => __('Enter value like - eng:English, spa:Spanish', 'gc-sermons'),
                         'default' => "eng:English, \r\nspa:Spanish",
                     )
                 )
             ),
             'search_criteria' => array(
-                'title' => __('Search Criteria', 'lc-func'),
+                'title' => __('Search Criteria', 'gc-sermons'),
                 'page' => 'search_criteria',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Front-end Search Keys', 'lc-func'),
+                        'title' => __('Front-end Search Keys', 'gc-sermons'),
                         'name' => 'front_end_search_keys',
                         'type' => 'checkbox',
                         'value' => array(
-                            'title' => __('Title', 'lc-func'),
-                            'author' => __('Author', 'lc-func'),
-                            'topic' => __('Topic', 'lc-func'),
-                            'tag' => __('Tag', 'lc-func'),
-                            'summary' => __('Summary', 'lc-func'),
-                            'video' => __('Video', 'lc-func'),
-                            'image' => __('Image', 'lc-func'),
-                            'scripture_references' => __('Scripture References', 'lc-func'),
+                            'title' => __('Title', 'gc-sermons'),
+                            'author' => __('Author', 'gc-sermons'),
+                            'topic' => __('Topic', 'gc-sermons'),
+                            'tag' => __('Tag', 'gc-sermons'),
+                            'summary' => __('Summary', 'gc-sermons'),
+                            'video' => __('Video', 'gc-sermons'),
+                            'image' => __('Image', 'gc-sermons'),
+                            'scripture_references' => __('Scripture References', 'gc-sermons'),
                         )
                     )
                 )
             ),
             'social_option' => array(
-                'title' => __('Social Options', 'lc-func'),
+                'title' => __('Social Options', 'gc-sermons'),
                 'page' => 'social_option',
-                'desc' => __('', 'lc-func'),
+                'desc' => __('', 'gc-sermons'),
                 'fields' => array(
                     array(
-                        'title' => __('Enable Social Share', 'lc-func'),
+                        'title' => __('Enable Social Share', 'gc-sermons'),
                         'name' => 'social_share',
                         'type' => 'select',
                         'value' => array(
-                            '' => __('Select', 'lc-func'),
-                            'yes' => __('Yes', 'lc-func'),
-                            'no' => __('No', 'lc-func')
+                            '' => __('Select', 'gc-sermons'),
+                            'yes' => __('Yes', 'gc-sermons'),
+                            'no' => __('No', 'gc-sermons')
                         )
                     ),
                     array(
-                        'title' => __('AddThis Script', 'lc-func'),
+                        'title' => __('AddThis Script', 'gc-sermons'),
                         'name' => 'addthis_script',
                         'type' => 'textarea'
                     )
@@ -327,7 +327,7 @@ class LCF_Option_Page
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Plugin Options', 'lc-func'), __('Plugin Options', 'lc-func'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
+        add_submenu_page('edit.php?post_type=gc-sermons', __('Plugin Options', 'gc-sermons'), __('Plugin Options', 'gc-sermons'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
     }
 
 	/**
@@ -457,11 +457,11 @@ class LCF_Option_Page
                     foreach ($val as $k => $v) {
                         if (!empty($v)) {
                             $type = 'updated';
-                            $message = __('Successfully saved', 'lc-func');
+                            $message = __('Successfully saved', 'gc-sermons');
                             $prev_val[$key][$k] = $v;
                         } else {
                             $type = 'error';
-                            $message = __('Data can not be empty', 'lc-func');
+                            $message = __('Data can not be empty', 'gc-sermons');
                         }
 
                         add_settings_error(
@@ -473,19 +473,19 @@ class LCF_Option_Page
                     }
                 } else {
                     $type = 'error';
-                    $message = __('Data can not be empty', 'lc-func');
+                    $message = __('Data can not be empty', 'gc-sermons');
                     $run_external_setting_err = true;
                 }
             }
         } else {
             $type = 'error';
-            $message = __('Data can not be empty', 'lc-func');
+            $message = __('Data can not be empty', 'gc-sermons');
             $run_external_setting_err = true;
         }
 
         if (empty($input['single_series_view']['series_field_to_display'])) {
             $type = 'error';
-            $message = __('Data can not be empty', 'lc-func');
+            $message = __('Data can not be empty', 'gc-sermons');
             add_settings_error(
                 esc_attr('single_series_view_series_field_to_display'),
                 esc_attr('single_series_view_series_field_to_display'),
@@ -496,7 +496,7 @@ class LCF_Option_Page
 
         if (empty($input['single_series_view']['message_field_to_display'])) {
             $type = 'error';
-            $message = __('Data can not be empty', 'lc-func');
+            $message = __('Data can not be empty', 'gc-sermons');
             add_settings_error(
                 esc_attr('single_series_view_message_field_to_display'),
                 esc_attr('single_series_view_message_field_to_display'),
@@ -507,7 +507,7 @@ class LCF_Option_Page
 
         if (empty($input['single_message_view']['message_field_to_display'])) {
             $type = 'error';
-            $message = __('Data can not be empty', 'lc-func');
+            $message = __('Data can not be empty', 'gc-sermons');
             add_settings_error(
                 esc_attr('single_message_view_message_field_to_display'),
                 esc_attr('single_message_view_message_field_to_display'),
@@ -518,7 +518,7 @@ class LCF_Option_Page
 
         if (empty($input['search_criteria']['front_end_search_keys'])) {
             $type = 'error';
-            $message = __('Data can not be empty', 'lc-func');
+            $message = __('Data can not be empty', 'gc-sermons');
             add_settings_error(
                 esc_attr('search_criteria_front_end_search_keys'),
                 esc_attr('search_criteria_front_end_search_keys'),

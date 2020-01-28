@@ -5,7 +5,7 @@
      * @since   0.10.0
      * @package  GC Sermons
      */
-    
+
     /**
      *  GC Sermons Shortcodes Recent Sermon Admin.
      *
@@ -21,13 +21,13 @@
         function js_button_data()
         {
             return array(
-                'qt_button_text' => __('GC Recent Sermon', 'lc-func'),
-                'button_tooltip' => __('GC Recent Sermon', 'lc-func'),
+                'qt_button_text' => __('GC Recent Sermon', 'gc-sermons'),
+                'button_tooltip' => __('GC Recent Sermon', 'gc-sermons'),
                 'icon'           => 'dashicons-media-interactive',
                 // 'mceView'        => true, // The future
             );
         }
-        
+
         /**
          * Adds fields to the button modal using CMB2
          *
@@ -39,8 +39,8 @@
         function fields($fields, $button_data)
         {
             $fields[] = array(
-                'name' => __( 'Per Page', 'lc-func' ),
-                'desc' => __( '', 'lc-func' ),
+                'name' => __( 'Per Page', 'gc-sermons' ),
+                'desc' => __( '', 'gc-sermons' ),
                 'id'   => 'per_page',
                 'type' => 'text',
                 'default' => '10',
@@ -53,7 +53,7 @@
                 'sanitization_cb' => 'absint',
                 'escape_cb'       => 'absint',
             );
-            
+
             $fields[] = array(
                 'name' => 'Remove Pagination',
                 'desc' => '',
@@ -61,7 +61,7 @@
                 'type' => 'checkbox',
                 'default' => false,
             );
-    
+
             $fields[] = array(
                 'name'             => 'Thumbnail Size',
                 'desc'             => '',
@@ -71,10 +71,10 @@
                 'default'          => 'thumbnail',
                 'options'          => $this->get_thumb_size_list(),
             );
-            
+
             $fields[] = array(
-                'name' => __( 'Number of Columns', 'lc-func' ),
-                'desc' => __( '', 'lc-func' ),
+                'name' => __( 'Number of Columns', 'gc-sermons' ),
+                'desc' => __( '', 'gc-sermons' ),
                 'id'   => 'number_columns',
                 'type' => 'text',
                 'default' => '2',
@@ -87,7 +87,7 @@
                 'sanitization_cb' => 'absint',
                 'escape_cb'       => 'absint',
             );
-            
+
             return $fields;
         }
 
