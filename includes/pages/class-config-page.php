@@ -1,9 +1,11 @@
 <?php
 
 /**
- * Class GCS_Config_Page
+ * Configure Message Order Page
  *
- * @package GC-Sermons
+ * Allows one to reorder message pages in bulk.
+ *
+ * @package GC Sermons
  */
 class GCS_Config_Page
 {
@@ -47,7 +49,7 @@ class GCS_Config_Page
     }
 
 	/**
-	 * Add Page
+	 * Add Messages Config to Liquid Messages Admin Menu
 	 */
     public function add_page()
     {

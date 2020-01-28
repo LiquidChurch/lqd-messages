@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCS_Async extends WP_Async_Task {
 
 	/**

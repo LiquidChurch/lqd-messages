@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class GCS_Option_Page
+ * Liquid Messages Admin Options Page
  *
- * @package GC-Sermons
+ * @package GC Sermons
  */
 class GCS_Option_Page
 {
@@ -14,8 +14,18 @@ class GCS_Option_Page
      */
     protected $plugin = null;
 
+    /**
+     * Array for Sections Config
+     *
+     * @var array
+     */
     protected $sections_config_arr = array();
 
+    /**
+     * Option Key for Plugin
+     *
+     * @var string
+     */
     protected $plugin_option_key = '';
 
     /**
@@ -323,7 +333,9 @@ class GCS_Option_Page
     }
 
 	/**
-	 * Add Page
+	 * Add Liquid Messages Plugin Admin Configuration Page
+     *
+     * Allows one to customize how the Liquid Messages plugin works.
 	 */
     public function add_page()
     {
@@ -451,6 +463,7 @@ class GCS_Option_Page
         $prev_val = get_option($this->plugin_option_key);
         $run_external_setting_err = false;
 
+        $type = '';
         if (is_array($input) && !empty($input)) {
             foreach ($input as $key => $val) {
                 if (is_array($val) && !empty($val)) {
@@ -607,6 +620,8 @@ class GCS_Option_Page
 
 	/**
 	 * Get Form Select Element
+     *
+     * TODO: This and other element functions may be consolidated into a single function?
 	 *
 	 * @param $arg
 	 * @param $db_val

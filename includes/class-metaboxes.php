@@ -2,7 +2,7 @@
 /**
  * LiquidChurch Functionality Metaboxes
  *
- * @package GC-Sermons
+ * @package GC Sermons
  */
 class GCS_Metaboxes
 {
@@ -35,6 +35,7 @@ class GCS_Metaboxes
 	public $display_ordr_meta_id = '';
     public $exclude_msg_meta_id = '';
     public $video_msg_appear_pos = '';
+
     /**
      * Parent plugin class
      *
@@ -107,7 +108,7 @@ class GCS_Metaboxes
             ),
         ));
 
-		//additional resources fields
+		// Additional Resources Fields
 
 		$args = array(
 			'id'           => $this->resources_box_id,
@@ -169,7 +170,7 @@ class GCS_Metaboxes
 		}
 
 
-		// Include the same field for sermon series.
+		// Include the same fields for sermon series.
 
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->resources_box_id . '_series',

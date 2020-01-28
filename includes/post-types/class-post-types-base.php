@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 abstract class GCS_Post_Types_Base extends CPT_Core {
 
 	/**
@@ -21,11 +20,17 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 */
 	protected $id = '';
 
+    /**
+     * Have Overrides Been Processed?
+     *
+     * @var bool
+     */
 	protected $overrides_processed = false;
 
     /**
      * Constructor
-     * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+     *
+     * Register CPT. See documentation in CPT_Core
      *
      * @param object $plugin Main plugin object.
      * @param $args
@@ -36,7 +41,6 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	public function __construct( $plugin, $args ) {
 		$this->plugin = $plugin;
 
-		// Register this cpt
 		// First parameter should be an array with Singular, Plural, and Registered name.
 		parent::__construct(
 			$args['labels'],

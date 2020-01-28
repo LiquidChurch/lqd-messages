@@ -21,7 +21,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     protected $plugin = null;
 
     /**
-     * Bypass temp. cache
+     * Bypass temporary cache
      *
      * @var    boolean
      * @since  0.1.0
@@ -51,7 +51,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
      */
     public function __construct($plugin)
     {
-        // Register this cpt
         // First parameter should be an array with Singular, Plural, and Registered name.
         parent::__construct($plugin, array(
             'labels' => array(__('Sermon', 'gc-sermons'), __('Sermons', 'gc-sermons'), 'gc-sermons'),
@@ -128,7 +127,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
     /**
-     * Remove default excerpt/feat-image metaboxes for Sermons
+     * Remove default excerpt and featured image metaboxes for Sermons
      *
      * @since  0.1.3
      *
@@ -168,7 +167,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             $id = get_post_thumbnail_id($object_id);
             add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
 
-            // Ok, no feat img id.
+            // If no featured image exists...
             if (!$id || !get_post($id)) {
 
                 // Get sermon.
@@ -187,7 +186,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * When a scheduled message post is saved, change the status back to 'publish'.
-     * This allows the future-date sermons to show on the front-end.
+     * This allows the future-date messages to show on the front-end.
      *
      * @since  0.1.3
      *
@@ -212,7 +211,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * Possibly add a "Coming Soon" prefix to future sermon titles.
+	 * Possibly add a "Coming Soon" prefix to future message titles.
 	 *
      * @since  0.2.1
      *
@@ -349,7 +348,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     {
         $last = array_splice($columns, 2);
         $columns['thumb-' . $this->post_type()] = __('Message Feature', 'gc-sermons');
-        $columns['tax-' . $this->plugin->series->id] = $this->plugin->series->taxonomy('singular');
+        $columns['tax-' . $this->plugin->series->id] = $this->plugin->series->taxonomy('singular'); // TODO: Why is this?
 
         // placeholder
         return array_merge($columns, $last);
@@ -419,6 +418,8 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * Sort functionality for custom columns
+     *
+     * TODO: Do we need to use raw SQL here?
      *
      * @since  0.1.7
      *
@@ -627,7 +628,7 @@ SQL;
 	 *
 	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return GCS_Sermon_Post|false|WP_Error  GC Sermon post object if successful.
 	 * @throws Exception
 	 */
     public function most_recent_with_taxonomy($taxonomy_id)
