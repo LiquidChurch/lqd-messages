@@ -237,14 +237,14 @@
             $this->sermons = new GCS_Sermons($this);
             $this->taxonomies = new GCS_Taxonomies($this->sermons);
             $this->async = new GCS_Async($this);
-            $this->shortcodes = new GCS_Shortcodes($this);
+
 
             // Only create the full metabox object if in the admin.
             if (is_admin()) {
                 $this->metaboxes = new GCS_Metaboxes($this);
                 $this->metaboxes->hooks();
             } else {
-                $this->metaboxes = (object)array();
+                $this->metaboxes = (object) array();
             }
 
             // Set these properties either way.
@@ -255,6 +255,7 @@
             $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
             $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
 
+            $this->shortcodes = new GCS_Shortcodes($this);
 
             $this->config_page = new GCS_Config_Page($this);
             $this->config_page->hooks();
