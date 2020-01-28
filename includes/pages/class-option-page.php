@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Liquid Messages Admin Options Page
  *
@@ -339,7 +338,14 @@ class GCS_Option_Page
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Plugin Options', 'gc-sermons'), __('Plugin Options', 'gc-sermons'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
+        add_submenu_page(
+            'edit.php?post_type=gc-sermons',
+            __('Plugin Options', 'gc-sermons'),
+            __('Plugin Options', 'gc-sermons'),
+            'manage_options',
+            'lc-plugin-option',
+            array($this, 'plugin_option_page_view')
+        );
     }
 
 	/**

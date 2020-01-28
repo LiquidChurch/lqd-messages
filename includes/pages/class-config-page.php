@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Configure Message Order Page
  *
@@ -53,7 +52,14 @@ class GCS_Config_Page
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Messages Config', 'gc-sermons'), __('Messages Config', 'gc-sermons'), 'manage_options', 'sermon-message-config', array($this, 'config_page_view'));
+        add_submenu_page(
+            'edit.php?post_type=gc-sermons',
+            __('Messages Config', 'gc-sermons'),
+            __('Messages Config', 'gc-sermons'),
+            'manage_options',
+            'sermon-message-config',
+            array($this, 'config_page_view')
+        );
     }
 
 	/**
@@ -158,7 +164,7 @@ class GCS_Config_Page
 
         wp_enqueue_script(
             'block-ui',
-            GC_Sermons_Plugin::$url . 'assets/node_modules/block-ui/jquery.blockUI{$min}.js',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js',
             array('jquery'),
             GC_Sermons_Plugin::VERSION
         );
