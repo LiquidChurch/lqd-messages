@@ -84,7 +84,6 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
         'LCF_Shortcodes_Resources' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources.php',
         'LCF_Shortcodes_Resources_Admin' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-admin.php',
         'LCF_Shortcodes_Resources_Run' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-run.php',
-        'LCF_Template_Loader' => __DIR__ . '/../..' . '/includes/class-lcf-template-loader.php',
         'Shortcode_Button_107' => __DIR__ . '/..' . '/jtsternberg/shortcode-button/shortcode-button.php',
         'TGMPA_Bulk_Installer' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
         'TGMPA_Bulk_Installer_Skin' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',

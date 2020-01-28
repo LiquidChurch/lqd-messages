@@ -67,7 +67,6 @@ return array(
     'LCF_Shortcodes_Resources' => $baseDir . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources.php',
     'LCF_Shortcodes_Resources_Admin' => $baseDir . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-admin.php',
     'LCF_Shortcodes_Resources_Run' => $baseDir . '/includes/shortcodes/shortcodes-resources/class-shortcodes-resources-run.php',
-    'LCF_Template_Loader' => $baseDir . '/includes/class-lcf-template-loader.php',
     'Shortcode_Button_107' => $vendorDir . '/jtsternberg/shortcode-button/shortcode-button.php',
     'TGMPA_Bulk_Installer' => $vendorDir . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
     'TGMPA_Bulk_Installer_Skin' => $vendorDir . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',

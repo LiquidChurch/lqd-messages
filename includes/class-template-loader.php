@@ -1,15 +1,9 @@
 <?php
 /**
- * GC Sermons Template Loader
- *
- * @since 0.1.3
- * @package GC Sermons
- */
-
-/**
  * GC Sermons Template Loader.
  *
  * @since 0.1.3
+ * @package GC Sermons
  */
 class GCS_Template_Loader {
 
@@ -159,6 +153,8 @@ class GCS_Template_Loader {
 			GC_Sermons_Plugin::$path . 'templates/',
 			GC_Sermons_Plugin::$path . 'templates/assets/css/'
 		), $this );
+
+		$locations = array_reverse( $locations );
 
 		$located = '';
 		foreach ( $locations as $location ) {
