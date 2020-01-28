@@ -4,7 +4,7 @@
  *
  * @since 0.1.0
  *
- * @package GC-Sermons
+ * @package GC Sermons
  */
 class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 	/**
@@ -90,13 +90,6 @@ class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 			'id'   => 'resource_display_name',
 			'type' => 'checkbox',
 		);
-
-		 /*$fields[] = array(
-		 	'name' => __( 'Sermon ID', 'gc-sermons' ),
-		 	'desc' => __( 'By default, will use the current ID.', 'gc-sermons' ),
-		 	'id'   => 'resource_post_id',
-		 	'type' => 'text_small',
-		 );*/
 
 		$fields[] = array(
 			'name'            => __( 'Sermon ID', 'gc-sermons' ),

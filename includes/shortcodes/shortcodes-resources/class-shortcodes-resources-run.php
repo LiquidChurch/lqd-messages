@@ -4,7 +4,7 @@
  *
  * @since 0.1.0
  *
- * @package GC-Sermons
+ * @package GC Sermons
  */
 class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
 
@@ -218,7 +218,7 @@ class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
                     'src' => $resource['file']
                 );
             }
-//            $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
+            // $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
             $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;

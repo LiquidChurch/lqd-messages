@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 
 	/**

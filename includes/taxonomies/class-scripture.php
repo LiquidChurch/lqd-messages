@@ -1,13 +1,9 @@
 <?php
 /**
- * GC Sermons Scripture References
+ * Liquid Messages Scripture References Taxonomy
  *
- * @package GC Sermons
- */
-
-/**
- * GCS_Scripture
  * @since 0.1.3
+ * @package GC Sermons
  */
 class GCS_Scripture extends GCS_Taxonomies_Base {
 

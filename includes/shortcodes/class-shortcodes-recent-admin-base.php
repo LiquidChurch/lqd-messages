@@ -57,7 +57,6 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
      */
     public function maybe_remove_recent_attribute($updated)
     {
-
         // If recent is set, but shouldn't be, let's remove it.
         if (isset($updated['recent'], $updated['sermon_id'])) {
             if ($updated['sermon_id'] && '0' !== $updated['sermon_id'] && 0 !== $updated['sermon_id'] && 'recent' !== $updated['sermon_id']) {

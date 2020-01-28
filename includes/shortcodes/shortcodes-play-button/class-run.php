@@ -7,7 +7,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 	/**

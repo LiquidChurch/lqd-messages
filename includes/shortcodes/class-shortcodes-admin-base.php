@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**
 	 * Parent plugin class

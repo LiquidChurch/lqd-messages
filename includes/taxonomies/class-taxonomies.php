@@ -1,10 +1,9 @@
 <?php
 /**
- * GC Sermons Taxonomies
+ * Liquid Messages Taxonomies
  *
  * @package GC Sermons
  */
-
 class GCS_Taxonomies {
 
 	/**

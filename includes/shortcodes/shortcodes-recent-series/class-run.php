@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
 
 	/**

@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Series_Search_Run extends GCSS_Series_Run {
 
 	/**
@@ -66,7 +65,7 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		$args['number'] = 1000;
 		$args['offset'] = 0;
 		$args['hide_empty'] = true;
-		$allterms = $this->series->search( sanitize_text_field( $this->search_query ), $args );
+		$allterms = $this->series->search( sanitize_text_field( $this->search_query ), $args ); // TODO: Extract
 		$allterms = $this->orderby_post_date( $allterms );
 
 		if ( empty( $allterms ) ) {

@@ -1,33 +1,26 @@
 <?php
+/**
+ *  GC Sermons Shortcodes Recent Sermon.
+ *
+ * @since 0.10.0
+ * @package GC Sermons
+ */
+class GCS_Shortcodes_Recent_Sermon extends GCS_Shortcodes_Base
+{
     /**
-     *  GC Sermons Shortcodes Recent Sermon
+     * Constructor
      *
-     * @since   0.10.0
-     * @package  GC Sermons
+     * @since  0.10.0
+     * @param  object $plugin Main plugin object.
+     * @return void
      */
-    
-    /**
-     *  GC Sermons Shortcodes Recent Sermon.
-     *
-     * @since 0.10.0
-     */
-    class GCS_Shortcodes_Recent_Sermon extends GCS_Shortcodes_Base
+    public function __construct($plugin)
     {
-        
-        /**
-         * Constructor
-         *
-         * @since  0.10.0
-         * @param  object $plugin Main plugin object.
-         * @return void
-         */
-        public function __construct($plugin)
-        {
-            $this->run   = new GCS_Shortcodes_Recent_Sermon_Run( $plugin->sermons );
-            $this->admin = new GCS_Shortcodes_Recent_Sermon_Admin( $this->run );
-    
-            parent::hooks();
-            
-        }
-        
+        $this->run   = new GCS_Shortcodes_Recent_Sermon_Run( $plugin->sermons );
+        $this->admin = new GCS_Shortcodes_Recent_Sermon_Admin( $this->run );
+
+        parent::hooks();
+
     }
+
+}

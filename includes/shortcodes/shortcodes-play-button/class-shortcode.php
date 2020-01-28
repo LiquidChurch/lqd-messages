@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCS_Shortcodes_Play_Button extends GCS_Shortcodes_Base {
 
 	/**

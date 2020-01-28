@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Topic
+ * Liquid Messages Topics Taxonomy
  *
  * @package GC Sermons
  */

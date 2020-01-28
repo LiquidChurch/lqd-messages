@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
@@ -20,7 +19,7 @@ class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'        => 0, // 'Blank, "recent", or "0" will play the most recent video.
+		'sermon_id'        => 0, // Blank, 'recent', or '0' will play the most recent video.
 		'recent'           => 'recent', // Options: 'recent', 'audio', 'video'
 		'remove_thumbnail' => false,
 		'thumbnail_size'   => 'medium',

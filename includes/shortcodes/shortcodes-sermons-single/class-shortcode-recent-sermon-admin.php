@@ -1,15 +1,9 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Sermon Admin
-     *
-     * @since   0.11.0
-     * @package  GC Sermons
-     */
-
-    /**
      *  GC Sermons Shortcodes Sermon Admin.
      *
      * @since 0.11.0
+     * @package GC Sermons
      */
     class GCS_Shortcodes_Sermon_Admin extends GCS_Shortcodes_Admin_Base
     {

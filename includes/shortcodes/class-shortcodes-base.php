@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 abstract class GCS_Shortcodes_Base {
 
 	/**

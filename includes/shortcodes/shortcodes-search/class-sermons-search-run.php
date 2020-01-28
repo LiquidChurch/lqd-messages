@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
 	/**

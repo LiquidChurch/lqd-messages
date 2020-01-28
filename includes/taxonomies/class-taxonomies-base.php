@@ -1,10 +1,9 @@
 <?php
 /**
- * GC Sermons Taxonomies Base
+ * Liquid Messages Taxonomies Base
  *
  * @package GC Sermons
  */
-
 abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 
 	/**
@@ -75,7 +74,6 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		$this->flush_cache = isset( $_GET['flush_cache'] ) && date( 'Y-m-d' ) === $_GET['flush_cache'];
 
 		/*
-		 * Register this taxonomy
 		 * First parameter should be an array with Singular, Plural, and Registered name
 		 * Second parameter is the register taxonomy arguments
 		 * Third parameter is post types to attach to.

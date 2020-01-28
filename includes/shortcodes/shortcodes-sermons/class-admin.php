@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 
 	/**

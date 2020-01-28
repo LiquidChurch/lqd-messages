@@ -4,7 +4,6 @@
  *
  * @package GC Sermons
  */
-
 class GCS_Shortcodes_Series extends GCS_Shortcodes_Base {
 	/**
 	 * Constructor

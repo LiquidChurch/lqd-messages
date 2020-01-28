@@ -1,15 +1,9 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Sermon Run
-     *
-     * @since    0.11.0
-     * @package  GC Sermons
-     */
-    
-    /**
      *  GC Sermons Shortcodes Sermon Run.
      *
      * @since 0.11.0
+     * @package GC Sermons
      */
     class GCS_Shortcodes_Sermon_Run extends GCS_Shortcodes_Run_Base
     {
@@ -20,7 +14,7 @@
          * @since 0.11.0
          */
         public $shortcode = 'gc_sermon';
-        
+
         /**
          * Default attributes applied to the shortcode.
          *
@@ -43,19 +37,19 @@
                 'show_date_published'       => false,
                 'show_additional_resource'  => false,
                 'show_scripture_references' => false,
-                
-                
+
+
                 // no admin
                 'do_scripts'                => true,
             );
-        
+
         /**
          * Shortcode Output
          */
         public function shortcode()
         {
             $output = $this->_shortcode();
-            
+
             return apply_filters('gc_sermon_shortcode_output', $output, $this);
         }
 
@@ -68,15 +62,15 @@
         protected function _shortcode()
         {
             $sermon = $this->get_sermon();
-            
+
             if (empty($sermon)) {
                 return '';
             }
-            
+
             if ($this->att('do_scripts')) {
                 $this->do_scripts();
             }
-            
+
             $args['sermon'] = $sermon;
             $args['atts'] = [
                 'show_title'                => $this->atts['show_title'],
@@ -95,9 +89,9 @@
             ];
             $args['plugin_option'] = get_plugin_settings_options('single_message_view');
             $args['inline_style'] = $this->inline_style();
-            
+
             $content = GCS_Template_Loader::get_template('sermons-single', $args);
-            
+
             return $content;
         }
 
@@ -106,7 +100,7 @@
 	     */
         public function do_scripts()
         {
-            
+
             wp_enqueue_script(
                 'fitvids',
                 GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
@@ -140,28 +134,28 @@
         {
             global $post;
             $sermons = array();
-            
+
             $thumb_size = $this->att('thumbnail_size');
-            
+
             while ($all_sermons->have_posts()) {
                 $all_sermons->the_post();
-                
+
                 $obj = $all_sermons->post;
-                
+
                 $sermon = array();
                 $sermon['url'] = $obj->permalink();
                 $sermon['name'] = $obj->title();
                 $sermon['image'] = $obj->featured_image($thumb_size);
                 $sermon['do_image'] = (bool)$sermon['image'];
                 $sermon['description'] = '';
-                
+
                 $sermons[] = $sermon;
             }
-            
+
             wp_reset_postdata();
-            
+
             return $sermons;
         }
-        
-        
+
+
     }
