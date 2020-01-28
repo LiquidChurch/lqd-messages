@@ -17,7 +17,6 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
         return $sermon;
     }
 
-    // Changed: 1/16/20
     $sermon = $sermon ? $sermon : get_the_ID();
 
     try {
@@ -130,33 +129,6 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
     $speaker->classes = $args['wrap_classes'];
 
     $content = GCS_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);
-
-    return $content;
-}
-
-/**
- * Get's related links output for the sermon.
- *
- * @since  0.1.3
- *
- * @param  mixed   $sermon Post object or ID or (GCS_Sermon_Post object).
- *
- * @return string Sermon related links output.
- * @throws Exception
- */
-function gc_get_sermon_related_links($sermon = 0)
-{
-    $sermon = gc_get_sermon_post($sermon);
-
-    // If no sermon or no related links, bail.
-    if (!$sermon || !($links = $sermon->get_meta('gc_related_links')) || !is_array($links) || empty($links)) {
-        return '';
-    }
-
-    $content = GCS_Template_Loader::get_template('related-links', array(
-        'title' => __('Related Links', 'gc-sermons'),
-        'links' => $links,
-    ));
 
     return $content;
 }

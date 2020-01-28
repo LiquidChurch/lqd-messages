@@ -78,10 +78,10 @@ class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
     protected function _shortcode()
     {
         $data_type = $this->att('data_type');
-        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id);
+        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id);
 
 		if ( 'this' === $post_id ) {
-            $post_id = $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id;
+            $post_id = $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id;
 		}
 
 		if ( ! $post_id ) {

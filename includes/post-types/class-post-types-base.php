@@ -23,15 +23,16 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 
 	protected $overrides_processed = false;
 
-	/**
-	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
-	 *
-	 * @since 0.1.0
-	 *
-	 * @param  object $plugin Main plugin object.
-	 * @return void
-	 */
+    /**
+     * Constructor
+     * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+     *
+     * @param object $plugin Main plugin object.
+     * @param $args
+     *
+     * @since 0.1.0
+     *
+     */
 	public function __construct( $plugin, $args ) {
 		$this->plugin = $plugin;
 

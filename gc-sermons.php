@@ -1,12 +1,12 @@
 <?php
     /**
      * Plugin Name: Liquid Church Messages
-     * Plugin URI:  http://liquidchurch.com
+     * Plugin URI:  https://liquidchurch.com
      * Description: Manage sermons and sermon content in WordPress
      * Version:     0.9.1
      * Author:      jtsternberg, surajprgupta, davidshq, liquidchurch
-     * Author URI:  http://liquidchurch.com
-     * Donate link: http://liquidchurch.com
+     * Author URI:  https://liquidchurch.com
+     * Donate link: https://liquidchurch.com
      * License:     GPLv2
      * Text Domain: gc-sermons
      * Domain Path: /languages
@@ -32,10 +32,6 @@
      * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
      */
 
-    /**
-     * Built using generator-plugin-wp
-     */
-
     // Use composer autoload.
     require 'vendor/autoload.php';
 
@@ -43,7 +39,6 @@
      * Main initiation class
      *
      * @since  0.1.0
-     * @var  string $version  Plugin version
      * @var  string $basename Plugin basename
      * @var  string $url      Plugin URL
      * @var  string $path     Plugin Path
@@ -146,35 +141,28 @@
         public static $plugin_option_key = 'lc-plugin-settings';
 
         /**
-         * Instance of LCF_Metaboxes
+         * Instance of GCS_Metaboxes
          *
          * @var GCS_Metaboxes
          */
         protected $metaboxes;
 
         /**
-         * Instance of LCF_Shortcodes
-         *
-         * @var GCS_Shortcodes
-         */
-        protected $lcf_shortcodes;
-
-        /**
-         * Instance of LCF_Config_Page
+         * Instance of GCS_Config_Page
          *
          * @var GCS_Config_Page
          */
         protected $config_page;
 
         /**
-         * Instance of LCF_Option_Page
+         * Instance of GCS_Option_Page
          *
          * @var GCS_Option_Page
          */
         protected $option_page;
 
         /**
-         * Get Plugin Settings Options
+         * Get Plugin Settings
          *
          * @param string $arg
          * @param string $sub_arg
@@ -267,14 +255,13 @@
             $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
             $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
 
-            //$this->lcf_shortcodes = new GCS_Shortcodes($this);
 
             $this->config_page = new GCS_Config_Page($this);
             $this->config_page->hooks();
 
             $this->option_page = new GCS_Option_Page($this);
             $this->option_page->hooks();
-	} // END OF PLUGIN CLASSES FUNCTION
+	}
 
         /**
          * Add hooks and filters
@@ -380,6 +367,7 @@
 
         /**
          * Deactivate the plugin
+         *
          * Uninstall routines should be in uninstall.php
          *
          * @since  0.1.0
@@ -393,6 +381,7 @@
         /**
          * Init hooks
          *
+         * In our case, load the textdomain.
          * @since  0.1.0
          * @return void
          */

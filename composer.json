@@ -31,7 +31,7 @@
     ]
   },
   "require": {
-    "php": ">=5.2",
+    "php": ">5.2",
     "techcrunch/wp-async-task": "dev-master",
     "tgmpa/tgm-plugin-activation": "^2.5.2",
     "webdevstudios/cpt-core": "dev-master",

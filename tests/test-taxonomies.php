@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class GCS_Taxonomies_Test
+ */
 class GCS_Taxonomies_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {

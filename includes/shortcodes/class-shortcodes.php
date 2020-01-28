@@ -78,6 +78,13 @@ class GCS_Shortcodes {
      */
     protected $resources;
 
+    /**
+     * Instances of GCS_Shortcodes_Series
+     *
+     * @var GCS_Shortcodes_Series
+     */
+    protected $series;
+
 	/**
 	 * Constructor
 	 *

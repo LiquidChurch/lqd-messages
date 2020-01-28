@@ -1,15 +1,9 @@
 <?php
 /**
- * GC Sermons Style Loader
- *
- * @since 0.1.3
- * @package GC Sermons
- */
-
-/**
  * GC Sermons Style Loader.
  *
  * @since 0.1.3
+ * @package GC Sermons
  */
 class GCS_Style_Loader extends GCS_Template_Loader {
 

@@ -145,7 +145,6 @@ class GCS_Template_Loader {
 	 * @return string $located
 	 */
 	protected function _locate( $template ) {
-		$theme_file_path = '/gc-sermons/' . $template;
 
 		$locations = apply_filters( "template_locations_for_{$this->template}", array(
 			STYLESHEETPATH . '/gc-sermons/assets/css/',
