@@ -41,7 +41,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Custom field for CMB2 which adds a releated links repeatable group field.",
+            "description": "Custom field for CMB2 which adds a related links repeatable group field.",
             "homepage": "https://github.com/jtsternberg/CMB2-Related-Links",
             "keywords": [
                 "CMB2",

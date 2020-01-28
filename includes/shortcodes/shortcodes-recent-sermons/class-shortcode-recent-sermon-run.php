@@ -150,8 +150,8 @@ class GCS_Shortcodes_Recent_Sermon_Run extends GCS_Shortcodes_Run_Base
         $nav = array('prev_link' => '', 'next_link' => '');
 
         if (!$this->bool_att('remove_pagination')) {
-            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'), $total_pages);
-            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'), $total_pages);
+            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'));
+            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'));
             }
 
         return $nav;
