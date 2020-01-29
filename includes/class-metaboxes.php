@@ -1,6 +1,6 @@
 <?php
 /**
- * LiquidChurch Functionality Metaboxes
+ * Liquid Messages Metaboxes
  *
  * @package GC Sermons
  */

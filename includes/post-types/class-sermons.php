@@ -305,24 +305,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'object_types' => array($this->post_type()),
             'fields'       => $fields,
         ));
-
-        $this->new_cmb2(array(
-            'id'           => 'gc_related_links_metabox',
-            'title'        => __('Related Links', 'gc-sermons'),
-            'object_types' => array($this->post_type()),
-            'closed'       => true,
-            'context'      => 'side',
-            'priority'     => 'core',
-            'fields'       => array(
-                cmb2_related_links_field(array('id' => 'gc_related_links'), array(
-                    'description' => __('Add links, or select from related content by clicking the search icon.', 'gc-sermons'),
-                    'group_title' => __('Link {#}', 'gc-sermons'),
-                    'link_title'  => __('Title', 'gc-sermons'),
-                    'link_url'    => __('URL', 'gc-sermons'),
-                    'find_text'   => __('Find/Select related content', 'gc-sermons'),
-                )),
-            ),
-        ));
     }
 
 	/**

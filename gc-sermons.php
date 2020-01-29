@@ -404,11 +404,14 @@
             switch ($field) {
                 case 'version':
                     return self::VERSION;
+                case 'basename':
+                case 'url':
+                case 'path':
                 case 'metaboxes':
                 case 'sermons':
                 case 'taxonomies':
-                case 'plugin_option_key':
                 case 'shortcodes':
+                case 'plugin_option_key':
                 case 'async':
                     return $this->{$field};
                 case 'series':

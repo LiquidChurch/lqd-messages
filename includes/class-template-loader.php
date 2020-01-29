@@ -24,7 +24,7 @@ class GCS_Template_Loader {
 	public $templates = array();
 
 	/**
-	 * Template name
+	 * Template Name
 	 *
 	 * @var string
 	 * @since 0.1.3
