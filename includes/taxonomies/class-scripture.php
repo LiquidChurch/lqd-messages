@@ -2,7 +2,6 @@
 /**
  * Liquid Messages Scripture References Taxonomy
  *
- * @since 0.1.3
  * @package GC Sermons
  */
 class GCS_Scripture extends GCS_Taxonomies_Base {
