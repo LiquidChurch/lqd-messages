@@ -14,6 +14,10 @@
     padding-left: 20px;
 }
 
+.scb-form-wrap {
+    display: block !important;
+}
+
 .gc-sermon-message-config-wrap input.error {
     color: red;
     border: 1px solid red;

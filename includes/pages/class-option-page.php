@@ -383,7 +383,7 @@ class GCS_Option_Page
 
         wp_enqueue_style(
             'lc-style-admin',
-            GC_Sermons_Plugin::$url . 'assets/css/liquidchurch-style-admin{$min}.css',
+            GC_Sermons_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
             array(),
 	        GC_Sermons_Plugin::VERSION
         );
@@ -405,7 +405,7 @@ class GCS_Option_Page
 
         wp_enqueue_script(
             'lc-func-admin-option-page',
-            GC_Sermons_Plugin::$url . 'assets/js/liquidchurch-page-option{$min}.js',
+            GC_Sermons_Plugin::$url . "assets/js/liquidchurch-page-option{$min}.js",
             array('jquery', 'lc-jquery-ui-js'),
 	        GC_Sermons_Plugin::VERSION
         );

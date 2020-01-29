@@ -8,7 +8,6 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
 {
     public static $files = array (
         'a5f882d89ab791a139cd2d37e50cdd80' => __DIR__ . '/..' . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
-        '3f2a1a25a18492e505a95e07a6fe4a2a' => __DIR__ . '/..' . '/jtsternberg/cmb2-related-links/cmb2-related-links.php',
         '973188771bff4e99932e41fa6bf78e96' => __DIR__ . '/..' . '/jtsternberg/cmb2-term-select/cmb2-term-select.php',
         '90c7ecedda3d4ffc2ea2846d48066bcc' => __DIR__ . '/..' . '/webdevstudios/cmb2-user-select/cmb2-user-select.php',
         'ce20db008ec08ec1de765a16020c5985' => __DIR__ . '/..' . '/webdevstudios/cpt-core/CPT_Core.php',
@@ -16,7 +15,6 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
         '4cfe55868654b2ea9298a46af9d2b853' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/shortcode-button.php',
         '011307536f36031dc10e4920f2e278f0' => __DIR__ . '/..' . '/webdevstudios/cmb2-user-select/cmb2-user-select.php',
         'f4fd5935d2e3466f9c09d04981104877' => __DIR__ . '/..' . '/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php',
-        'c2e6a6337a51dcc61716a9c43a591c67' => __DIR__ . '/..' . '/jtsternberg/cmb2-related-links/cmb2-related-links.php',
         '02186376c6e1b78752be4f8fe3f8f4d7' => __DIR__ . '/..' . '/jtsternberg/cmb2-term-select/cmb2-term-select.php',
         '4e70e048c2e61bd04d0a7165fa55868a' => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/wds-shortcodes.php',
         '0fcca7ec588c8cf31dfdf472442badcb' => __DIR__ . '/..' . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',

@@ -50,16 +50,20 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
 
-		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', GCS_Template_Loader::get_template(
-			'play-button-shortcode',
-			array(
-				// Get our extra_class attribute
-				'extra_classes' => $this->get_extra_classes( $has_icon_font_size ),
-				'sermon_id'    => $sermon->ID,
-				'style'         => $style,
-				'video_url'     => get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 ),
-			)
-		), $this );
+		$output .= apply_filters(
+			'gcs_sermon_play_button_shortcode_output',
+			GCS_Template_Loader::get_template(
+				'play-button-shortcode',
+				array(
+					// Get our extra_class attribute
+					'extra_classes' => $this->get_extra_classes( $has_icon_font_size ),
+					'sermon_id'     => $sermon->ID,
+					'style'         => $style,
+					'video_url'     => get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 ),
+				)
+			),
+			$this
+		);
 
 		return $output;
 	}
@@ -80,7 +84,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 	 * @return array
 	 */
 	public function get_inline_styles() {
-		$style = '';
+		$style              = '';
 		$has_icon_font_size = false;
 
 		if ( $this->att( 'icon_color' ) || $this->att( 'icon_size' ) ) {
@@ -88,11 +92,11 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 			// Get/check our text_color attribute
 			if ( $this->att( 'icon_color' ) ) {
 				$text_color = sanitize_text_field( $this->att( 'icon_color' ) );
-				$style .= 'color: ' . $text_color .';';
+				$style     .= 'color: ' . $text_color . ';';
 			}
 			if ( is_numeric( $this->att( 'icon_size' ) ) ) {
 				$has_icon_font_size = absint( $this->att( 'icon_size' ) );
-				$style .= 'font-size: ' . $has_icon_font_size .'em;';
+				$style             .= 'font-size: ' . $has_icon_font_size . 'em;';
 			}
 			$style .= '"';
 		}
@@ -125,8 +129,8 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		// Enqueue whatever version of fontawesome that's registered (if it is registered)
 		wp_enqueue_style( 'qode_font_awesome-css' );
 		wp_enqueue_style( 'font_awesome' );
-		wp_enqueue_style( 'font-awesome' );
-		wp_enqueue_style( 'fontawesome' );
+		// wp_enqueue_style( 'font-awesome' );
+		// wp_enqueue_style( 'fontawesome' );
 
 		add_action( 'wp_footer', array( $this, 'video_modal' ) );
 
@@ -179,9 +183,12 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		}
 
 		if ( ! empty( $videos ) ) {
-			echo new GCS_Template_Loader( 'play-button-shortcode-modal-videos', array(
-				'videos' => $videos,
-			) );
+			echo new GCS_Template_Loader(
+				'play-button-shortcode-modal-videos',
+				array(
+					'videos' => $videos,
+				)
+			);
 		}
 
 		$done = true;
