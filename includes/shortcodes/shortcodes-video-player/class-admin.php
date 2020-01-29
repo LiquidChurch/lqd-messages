@@ -1,7 +1,9 @@
 <?php
 /**
- * GC Sermons Video Player Shortcode - Admin
+ * Liquid Messages Video Player Admin Shortcodes.
+ *
  * @version 0.1.3
+ *
  * @package GC Sermons
  */
 class GCS_Shortcodes_Video_Player_Admin extends GCSS_Recent_Admin_Base {

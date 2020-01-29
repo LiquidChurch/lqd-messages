@@ -1,6 +1,6 @@
 <?php
 /**
- * LiquidChurch Functionality Shortcodes Resources Run.
+ * Liquid Messages Shortcodes Resources Run.
  *
  * @since 0.1.0
  *

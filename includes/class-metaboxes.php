@@ -246,7 +246,7 @@ class GCS_Metaboxes
 
 		wp_enqueue_script(
 			'lc-func-admin',
-			GC_Sermons_Plugin::$url . 'assets/js/liquidchurch-functionality-admin{$min}.js',
+			GC_Sermons_Plugin::$url . "assets/js/liquidchurch-functionality-admin[$min}.js",
 			array( 'cmb2-scripts' ),
 			GC_Sermons_Plugin::VERSION,
 			1

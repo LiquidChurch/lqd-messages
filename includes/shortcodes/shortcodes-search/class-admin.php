@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Search Shortcode - Admin
+ * Liquid Messages Search Admin Shortcodes.
  *
  * @package GC Sermons
  */

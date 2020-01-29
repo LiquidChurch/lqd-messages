@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Play Button Shortcode - Run
+ * Liquid Messages Play Button Shortcodes Run.
  *
  * @todo Add overlay/video popup JS, etc
  * @todo Use dashicons as fallback.

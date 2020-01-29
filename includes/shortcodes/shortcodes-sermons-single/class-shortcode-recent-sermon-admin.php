@@ -1,8 +1,9 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Sermon Admin.
+     *  Liquid Messages Message Admin Shortcodes.
      *
      * @since 0.11.0
+     *
      * @package GC Sermons
      */
     class GCS_Shortcodes_Sermon_Admin extends GCS_Shortcodes_Admin_Base

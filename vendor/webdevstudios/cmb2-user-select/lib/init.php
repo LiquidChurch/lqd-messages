@@ -68,7 +68,7 @@ class WDS_CMB2_User_Select {
 
 		self::$script_data[] = array(
 			'id'    => $field->args( 'id' ),
-			'roles' => implode(',', $this->get_user_roles( $field )),
+			'level' => $this->get_minimum_user_level( $field ),
 		);
 
 		if ( ! self::$script_added ) {
@@ -102,7 +102,7 @@ class WDS_CMB2_User_Select {
 					.appendTo( ul );
 			};
 
-			var setupAutocomplete = function( field_id, roles ) {
+			var setupAutocomplete = function( field_id, level ) {
 				var $field = $( document.getElementById( field_id + '_name' ) );
 				if ( ! $field.length ) {
 					return console.warn( 'Missing field input for ' + field_id );
@@ -115,7 +115,7 @@ class WDS_CMB2_User_Select {
 							dataType : 'json',
 							data     : {
 								action : 'get_users_for_user_select_field',
-								roles  : roles,
+								level  : level,
 								q      : request.term
 							},
 							success : function( response ) {
@@ -138,7 +138,7 @@ class WDS_CMB2_User_Select {
 			};
 
 			for ( var i = l10n.field_ids.length - 1; i >= 0; i-- ) {
-				setupAutocomplete( l10n.field_ids[i].id, l10n.field_ids[i].roles );
+				setupAutocomplete( l10n.field_ids[i].id, l10n.field_ids[i].level );
 			}
 
 		});
@@ -153,10 +153,9 @@ class WDS_CMB2_User_Select {
 	 *
 	 * @return int Numeric min. user level.
 	 */
-	public function get_user_roles( CMB2_Field $field ) {
-		$roles = $field->options( 'user_roles' );
-
-		return is_array($roles) ? $roles : array();
+	public function get_minimum_user_level( CMB2_Field $field ) {
+		$level = $field->options( 'minimum_user_level' );
+		return is_numeric( $level ) ? absint( $level ) : 2;
 	}
 
 	/**
@@ -175,10 +174,10 @@ class WDS_CMB2_User_Select {
 		if ( ! empty( $value['name'] ) ) {
 
 			// Get field min. user level
-			$roles = $this->get_user_roles( $sanitizer->field );
+			$level = $this->get_minimum_user_level( $sanitizer->field );
 
 			// Check if name matches a user search
-			$users = $this->users_search_by_role( $value['name'], $roles );
+			$users = $this->users_search_by_level( $value['name'], $level );
 
 			// If not, clear the value.
 			if ( empty( $users ) ) {
@@ -211,16 +210,16 @@ class WDS_CMB2_User_Select {
 	 */
 	public function get_users_for_ajax_search() {
 		$search_query = isset( $_REQUEST['q'] ) ? $_REQUEST['q'] : '';
-		$roles = !empty( $_REQUEST['roles'] )
-			? explode(',', sanitize_text_field($_REQUEST['roles']) )
-			: array();
+		$user_level = isset( $_REQUEST['level'] ) && is_numeric( $_REQUEST['level'] )
+			? absint( $_REQUEST['level'] )
+			: '2';
 
 		if ( empty( $search_query ) ) {
 			wp_send_json_error( 'No search query' );
 		}
 
 
-		$users = $this->users_search_by_role( $search_query, $roles );
+		$users = $this->users_search_by_level( $search_query, $user_level );
 		wp_send_json_success( $users );
 	}
 
@@ -228,18 +227,23 @@ class WDS_CMB2_User_Select {
 	 * Gets the users based on the search string, and the user level provided.
 	 * @todo wp_user_level is way-deprecated. Use capabilities instead.
 	 */
-	public function users_search_by_role( $search_query, $roles = array() ) {
+	public function users_search_by_level( $search_query, $user_level = '2' ) {
 		if ( empty( $search_query ) ) {
 			return false;
 		}
 
 		$user_args = array(
 			'search' 		=> sanitize_text_field( $search_query . '*' ),
-			'fields' 		=> array( 'display_name', 'ID' )
+			'fields' 		=> array( 'display_name', 'ID' ),
+			'meta_query' 	=> array(
+				array(
+					'key' => 'wp_user_level',
+					'value' => (string) $user_level,
+					'compare' => '>=',
+					'type' => 'NUMERIC'
+				)
+			)
 		);
-		if(!empty($roles)){
-			$user_args['role__in'] = $roles;
-		}
 
 		$user_args = apply_filters( 'wds_cmb2_user_select_search_args', $user_args, $this );
 		return get_users( $user_args );
