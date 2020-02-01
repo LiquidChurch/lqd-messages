@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Play Button Shortcode
+ * Liquid Messages Play Button Shortcode
  *
  * @package GC Sermons
  */

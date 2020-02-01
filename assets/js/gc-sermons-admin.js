@@ -3,15 +3,15 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 ( function( window, document, $, app, undefined ) {
 	'use strict';
 
-	var methodBackup = null;
-
 	app.cache = function() {
 		app.$ = {};
 	};
 
+	// Initialization Function
 	app.init = function() {
 		app.cache();
 
+		// Take action on events...
 		$( document.body )
 			.on( 'keyup change', '.check-if-recent input[type="text"]', app.maybeToggle )
 			.on( 'change', '#gc_sermon_video_url', app.checkDupVideo )
@@ -19,6 +19,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 		$( app.expandTaxonomy );
 	};
 
+	// maybeToggle Function
 	app.maybeToggle = function( evt ) {
 		var $this = $( evt.target );
 		var value = $this.val();

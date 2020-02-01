@@ -1,6 +1,6 @@
 <?php
 /**
- * Liquid Messages Search Admin Shortcodes.
+ * Liquid Messages Search Shortcode Button/Modal.
  *
  * @package GC Sermons
  */
@@ -43,13 +43,12 @@ class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
 		return array(
 			'qt_button_text' => __( 'GC Sermons Search', 'gc-sermons' ),
 			'button_tooltip' => __( 'GC Sermons Search', 'gc-sermons' ),
-			'icon'           => 'dashicons-search',
-			// 'mceView'        => true, // The future
+			'icon'           => 'dashicons-search'
 		);
 	}
 
 	/**
-	 * Adds fields to the button modal using CMB2
+	 * Defines fields for Shortcode Modal
 	 *
 	 * @param $fields
 	 * @param $button_data

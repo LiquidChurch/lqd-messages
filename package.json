@@ -34,6 +34,7 @@
     "grunt-text-replace": "latest",
     "grunt-wp-i18n": "latest",
     "jshint": "^2.11.0",
-    "load-grunt-tasks": "latest"
+    "load-grunt-tasks": "latest",
+    "stylelint-config-recommended": "^3.0.0"
   }
 }

@@ -199,7 +199,7 @@ class GCS_Metaboxes
 	 */
     public static function get_disp_name_fld_option()
     {
-        $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
+        $plugin_option = gc_sermons()->get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
         if (empty($plugin_option)) {
             return array('Video' => 'Video', 'Audio' => 'Audio', 'Notes' => 'Notes', 'Group Guide' => 'Group Guide');
         } else {
@@ -219,16 +219,22 @@ class GCS_Metaboxes
 	 */
     public static function get_lng_fld_option()
     {
-        $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
+        $plugin_option = gc_sermons()->get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
         if (empty($plugin_option)) {
             return array(
                 'eng' => 'English',
                 'spa' => 'Spanish'
             );
         } else {
-            $plugin_option_arr = array_map('trim', explode(',', $plugin_option));
+            // We set $plugin_option_array equal to the results in $plugin_option, once parsed into an array.
+            $plugin_option_arr = array_map('trim', explode(',', $plugin_option)); // "eng:English, \r\nspa:Spanish,\r\nspa:Espanol" w/tilde before $plugin_opt_arr
+            // becomes 0 = "eng:English", 1 = "spa:Spanish", 2="spa:Espanol" once mapped into arr
+            // Create an empty array
             $lng_option = array();
+            // Iterate through our newly created $plugin_option_arr
             foreach ($plugin_option_arr as $item) {
+                // We now create an array from the individual item in $plugin_option_arr, consists of for ex, eng:English, now eng, English
+
                 $lng_arr = array_map('trim', explode(':', $item));
                 $lng_option[$lng_arr[0]] = $lng_arr[1];
             }
@@ -246,7 +252,7 @@ class GCS_Metaboxes
 
 		wp_enqueue_script(
 			'lc-func-admin',
-			GC_Sermons_Plugin::$url . "assets/js/liquidchurch-functionality-admin[$min}.js",
+			GC_Sermons_Plugin::$url . "assets/js/liquidchurch-functionality-admin{$min}.js",
 			array( 'cmb2-scripts' ),
 			GC_Sermons_Plugin::VERSION,
 			1

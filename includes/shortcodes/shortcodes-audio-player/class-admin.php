@@ -1,6 +1,6 @@
 <?php
 /**
- * Liquid Messages Audio Player Admin Shortcodes
+ * Liquid Messages Audio Player Shortcode Button
  *
  * @version 0.1.3
  *
@@ -17,7 +17,7 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
     protected $prefix = 'gc_audplayer_';
 
     /**
-     * Sets up the button
+     * Sets up the TinyMCE/Quicktags Button
      *
      * @return array
      */
@@ -25,8 +25,7 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
         return array(
             'qt_button_text' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
             'button_tooltip' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
-            'icon'           => 'dashicons-format-audio',
-            // 'mceView'        => true, // The future
+            'icon'           => 'dashicons-format-audio'
         );
     }
 

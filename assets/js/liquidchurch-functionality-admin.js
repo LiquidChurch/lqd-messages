@@ -1,18 +1,50 @@
 /**
- * LiquidChurch Admin Functionality
+ * Liquid Messages General Admin Functionality
  *
  * Licensed under the GPLv2+ license.
  */
 
 window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
 
+// We pass in our cmb and plugin objects.
 ( function( window, document, $, cmb, plugin ) {
+	'use strict';
 
+	plugin.cache = function() {
+		plugin.$ = {};
+	};
+
+	// Initialization Function
 	plugin.init = function() {
+		plugin.cache();
+
+		// Take action on events...
+		$( document.body )
+			.on( 'keyup change', '.check-if-recent input[type="text"]', plugin.maybeToggle )
+			.on( 'change', '#gc_sermon_video_url', plugin.checkDupVideo )
+			.on( 'shortcode_button:open', plugin.showNotRecent );
+		$( plugin.expandTaxonomy );
+
 		var media = cmb.media;
-		var box = document.getElementById( plugin.id + '_repeat' );
+		var box = document.getElementById( plugin.id + '_repeat' ); // Look for repeating fields?
 		var $group;
 
+		// maybeToggle Function
+		plugin.maybeToggle = function( evt ){
+			var $this = $(evt.target);
+			var value = $this.val();
+			if (!value || '0' === value || 0 === value || 'recent' === value ) {
+				$this.parents( '.cmb2-metabox').find( '.hide-if-not-recent').show();
+			} else {
+				$this.parents( '.cmb2-metabox' ).find( '.hide-if-not-recent' ).hide();
+			}
+		};
+
+		plugin.showNotRecent = function() {
+			$( '.scb-form-wrap .hide-if-not-recent' ).show();
+		};
+
+		// Select File
 		plugin.selectFile = function() {
 			var selection = media.frames[ media.field ].state().get( 'selection' );
 			var attachment = selection.first().toJSON();
@@ -32,6 +64,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
 			$group.find( '.cmb-type-text' ).last().find( '.regular-text' ).val( type );
 		};
 
+		// Setup Type Listener
 		plugin.setupTypeListener = function( $row ) {
 			var frameID = $row.find( '.cmb2-upload-file' ).attr( 'id' );
 
@@ -47,12 +80,14 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
 			}, 500 );
 		};
 
+		// Click Button
 		plugin.clickButton = function() {
 			if ( $.contains( box, this ) ) {
 				plugin.setupTypeListener( $( this ).closest( '.cmb-td' ) );
 			}
 		};
 
+		// Metabox
 		cmb.metabox().on( 'click', '.cmb2-upload-button', plugin.clickButton );
 	};
 

@@ -1,8 +1,6 @@
 <?php
 /**
- * GC Sermons Search Shortcode
- *
- * @todo Use Javascript/Ajax pagination/filtering.
+ * Liquid Messages Search Shortcode Button/Modal.
  *
  * @package GC Sermons
  */
@@ -49,12 +47,12 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 		'separate_results' => false,
 	);
 
-	/**
-	 * GCS_Sermons object
-	 *
-	 * @var   GCS_Sermons
-	 * @since 0.1.0
-	 */
+    /**
+     * Taxonomies Object
+     *
+     * @var GCS_Taxonomies
+     * @since 0.1.0
+     */
 	public $taxonomies;
 
 	/**

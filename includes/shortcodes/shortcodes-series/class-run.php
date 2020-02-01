@@ -43,7 +43,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
       * @var array
       * @since 0.1.0
       */
-     public $atts_defaults = array(
+     public $atts_defaults = array( /* TODO: Move above construct */
          'per_page'           => 10, // Will use WP's per-page option.
          'remove_dates'       => false,
          'remove_thumbnail'   => false,

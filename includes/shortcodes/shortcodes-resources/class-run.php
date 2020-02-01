@@ -1,12 +1,12 @@
 <?php
 /**
- * Liquid Messages Shortcodes Resources Run.
+ * Liquid Messages Resources Shortcode - Run.
  *
  * @since 0.1.0
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
+class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -36,7 +36,7 @@ class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
      * @see  GCS_Metaboxes::$resources_meta_id
      * @var   string
      */
-    protected $meta_id = '';
+    public $meta_id = '';
 
     /**
      * Additional Resources default language
@@ -45,18 +45,18 @@ class GCS_Shortcodes_Resources_Run extends WDS_Shortcodes {
      */
     protected $default_lang = 'eng';
 
-	/**
-	 * Constructor replacement. (Can't use __construct as it does not match
-	 * the abstract WDS_Shortcodes constructor signature)
-	 *
-	 * @param  string $meta_id Resource meta id
-	 *
-	 * @return void
-	 */
-    public function init($meta_id)
+    /**
+     * Constructor
+     *
+     * @param GCS_Sermons $sermons
+     * @param string $meta_id Resource meta id
+     *
+     */
+    public function __construct(GCS_Sermons $sermons, $meta_id)
     {
-        $this->atts_defaults['resource_lang'] = array_keys(GCS_Metaboxes::get_lng_fld_option());
 		$this->meta_id = $meta_id;
+        $this->atts_defaults['resource_lang'] = array_keys(GCS_Metaboxes::get_lng_fld_option());
+        parent::__construct($sermons);
 	}
 
 	/**

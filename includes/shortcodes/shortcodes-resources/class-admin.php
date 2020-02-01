@@ -1,19 +1,14 @@
 <?php
 /**
- * Liquid Messages Resources Admin Shortcodes.
+ * Liquid Messages Resources Shortcode Button/Modal.
  *
  * @since 0.1.0
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
-	/**
-	 * Shortcode Run object
-	 *
-	 * @var   GCS_Shortcodes_Resources_Run
-	 * @since 0.1.0
-	 */
-	protected $run;
+class GCS_Shortcodes_Resources_Admin extends GCS_Shortcodes_Admin_Base {
+
+    // TODO: Add a $prefix
 
 	/**
 	 * Constructor
@@ -24,17 +19,11 @@ class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 	 *
 	 */
 	public function __construct( GCS_Shortcodes_Resources_Run $run ) {
-		$this->run = $run;
-
-		parent::__construct(
-			$this->run->shortcode,
-			GC_Sermons_Plugin::VERSION,
-			$this->run->atts_defaults
-		);
+		parent::__construct($run);
 	}
 
 	/**
-	 * Sets up the button
+	 * Defines the Shortcode Button
 	 *
 	 * @return array
 	 */
@@ -42,13 +31,12 @@ class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 		return array(
 			'qt_button_text' => __( 'Sermon Resources', 'gc-sermons' ),
 			'button_tooltip' => __( 'Sermon Resources', 'gc-sermons' ),
-			'icon'           => 'dashicons-media-interactive',
-			// 'mceView'        => true, // The future
+			'icon'           => 'dashicons-media-interactive'
 		);
 	}
 
 	/**
-	 * Adds fields to the button modal using CMB2
+	 * Defines fields for Shortcode Modal
 	 *
 	 * @param $fields
 	 * @param $button_data
@@ -96,7 +84,7 @@ class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 			'desc'            => __( 'If nothing is selected, it will use <code>get_the_id()</code>', 'gc-sermons' ),
 			'id'              => 'resource_post_id',
 			'type'            => 'post_search_text',
-			'post_type'       => gc_sermons()->sermons->post_type(),
+			'post_type'       => $this->run->sermons->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 		);
@@ -113,8 +101,8 @@ class GCS_Shortcodes_Resources_Admin extends WDS_Shortcode_Admin {
 			'desc'    => __( 'Please select the resource language', 'gc-sermons' ),
 			'type'    => 'multicheck_inline',
 			'id'      => 'resource_lang',
-			'default' => array_keys(GCS_Metaboxes::get_lng_fld_option()),
-			'options' => GCS_Metaboxes::get_lng_fld_option(),
+			'default' => array_keys( gc_sermons()->metaboxes->get_lng_fld_option()),
+			'options' => gc_sermons()->metaboxes->get_lng_fld_option(),
 		);
 
 		return $fields;

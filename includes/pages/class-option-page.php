@@ -376,7 +376,7 @@ class GCS_Option_Page
 
         wp_enqueue_style(
             'lc-jquery-ui-css',
-            '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui' . $min . '.css',
+            "//code.jquery.com/ui/1.12.0/themes/base/jquery-ui{$min}.css",
             array(),
             GC_Sermons_Plugin::VERSION
         );
@@ -398,7 +398,7 @@ class GCS_Option_Page
 
         wp_enqueue_script(
             'lc-jquery-ui-js',
-            '//code.jquery.com/ui/1.12.0/jquery-ui' . $min . '.js',
+            "//code.jquery.com/ui/1.12.0/jquery-ui{$min}.js",
             array('jquery'),
 	        GC_Sermons_Plugin::VERSION
         );

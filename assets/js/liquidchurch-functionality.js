@@ -7,7 +7,7 @@
 window.LiquidChurchFunctionality = window.LiquidChurchFunctionality || {};
 
 ( function( window, document, $, plugin ) {
-	var $c = {};
+	var $c = {}; // Empty array
 
 	plugin.init = function() {
 		plugin.cache();

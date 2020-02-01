@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Shortcodes
+ * Liquid Messages Shortcodes
  *
  * @package GC Sermons
  */
