@@ -1,5 +1,50 @@
 # Changelog for TGM Plugin Activation library
 
+## 2.6.1 (2016-05-19)
+
+* Fix a string replacement issue in the plugin action links. Thanks [Nilambar Sharma] for reporting. [#587], [#588]
+
+## 2.6.0 (2016-05-14)
+
+Since mid-February we offer a _"Custom TGMPA Generator"_. From now on, that is the preferred way for downloading your copy of TGMPA for use in a theme or plugin.
+If you download TGMPA using the _Custom TGMPA Generator_ and indicate that it is for a theme which will be published on wordpress.org, you will receive a copy which will pass the Theme Check review.
+
+You can find the _Custom TGMPA Generator_ on the [download] page of the website. For more information, read the [related blog post].
+
+* **Bug fixes**:
+  - Fixed minor/low-impact security vulnerability. Thanks [Mohamed A. Baset] for reporting. If *you* find a security vulnerability, please disclose responsibly! [#487], [#505]
+  - Fixed a bug where action links on the WP native plugins page would not be properly filtered. [#458], [#459]
+  - Fixed a bug where TGMPA when included within a plugin would be recognized as the plugin instead of the *real* plugin. Thanks [weavertheme] and [Mika Epstein] for reporting. [#499], [#500], [#558]
+  - Fixed an install error when trying to bulk-install an already installed plugin. Thanks [Ahmad Awais] for reporting. [#496], [#504]
+  - Fixed an update error when trying to bulk-update a plugin which is not installed. Thanks [Gary Jones] for reporting. [#442], [#508]
+  - Fixed admin notices display class. Props [Ninos Ego] and [Primoz Cigler]. [#478], [#495], [#509]
+  - Fixed an issue resulting in notices about installed/updated plugins on the bulk install/update pages being displayed at the top of the page instead of inline. [#510], [#511]
+
+* **Enhancements**:
+  - The full admin notice is now only displayed to users who can install/update/activate plugins. A limited _"Contact the site admin."_ notice is shown to select users if it pertains to _required_ plugins. The selection of which users get to see this last message is based on the `publish_posts` (=Author) capability. This capability is however filterable using the new `tgmpa_show_admin_notice_capability` filter. Thanks [Stanislav Khromov], [Gary Jones], [Mickey Kay], [Ollie Treend] for suggesting. [#190], [#414], [#489], [#507]
+  - The example file now shows examples of different ways for including TGMPA based on the context in which you are using it. Props [Emil Uzelac] for the suggestion. [#469], [#503]
+  - Force deactivated plugins will now show in the 'recently active' plugins list. [#577]
+
+* **I18N improvements**:
+  - Improved some text strings and translator messages. Props [Rami]. [#516]
+  - Added translator messages for all strings with variable replacement.[#563]
+  - Added `load_textdomain()` calls. [#521]
+  - Added translations for Brazilian Portuguese, Croatian, Czech, Dutch, French, German, Russian and Swedish [#450], [#574], [#570], [#465], [#524], [#528], [#543], [#561] with grateful thanks to [Elvis Henrique Pereira], [Denis Žoljom], [Karolína Vyskočilová], [geoclaps], [Hedi Chaibi], [Marciel Bartzik], [Vladislav Burlak] and [Lewis Porter].
+    Additionally translations for Australian English, Canadian English, British English, Esperanto, Spanish, Hebrew, Italian, Romanian and Serbian were added based on existing translations available in GlotPress. [#564]
+
+    Altogether, this means that for the first version of TGMPA which ships with translation files, we're covering 17 locales, which is awesome!
+    More translations are of course welcome, so please send the .po file(s) in as a pull request.
+
+    _Please note: If you download TGMPA using the custom generator and indicate it's for a theme to be hosted on wordpress.org, you will receive a version without the `load_textdomain()` calls or the translation files.
+    Theme check rules dictate that you should only use one textdomain in your theme and the localization calls will be adjusted to use your theme's textdomain.
+	As most TGMPA strings have a lot of translations available in GlotPress already, this should not cause any real issues._
+
+* **Housekeeping**:
+  - Various other minor improvements and keeping things in line with WP core. [#512], [#513], [#514], [#532] - thanks [Utkarsh Patel], [#562], [#571]
+  - Updated the included example plugin to comply to the latest standards. [#557]
+  - Regenerated .pot file.
+
+
 ## 2.5.2 (2015-07-15)
 * Hot Fix: fixes potential `Fatal error: Call to protected TGM_Plugin_Activation::__construct()` error and other compatibility issues when both TGMPA 2.5+ as well as TGMPA 2.3.6- would be loaded by different themes and plugins.
 

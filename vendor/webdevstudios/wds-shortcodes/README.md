@@ -36,6 +36,9 @@ To see a demo plugin, check out "[Cool Shortcode](https://github.com/jtsternberg
 
 ## Changelog ##
 
+### 1.0.7 ###
+* Update for new version of shortcode button, where `ajax_parse_shortcode` is now an object method (vs class method).
+
 ### 1.0.6 ###
 * Update shortcode-button dependency. [See changelog](https://github.com/jtsternberg/Shortcode_Button#changelog).
 

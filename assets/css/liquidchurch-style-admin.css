@@ -180,3 +180,7 @@ h2.series-name {
 .gc-sermon-message-config-wrap .config-section button {
     padding: 5px 8px;
 }
+
+.cmb2-wrap .cmb-multicheck-toggle {
+    margin-top: 0em !important;
+}

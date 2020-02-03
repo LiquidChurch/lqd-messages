@@ -134,12 +134,12 @@ msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
 #: includes/shortcode-admin.php:62
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:52
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
 msgid "Cancel"
 msgstr ""
 
 #: includes/shortcode-admin.php:63
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:53
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
 msgid "Insert Shortcode"
 msgstr ""
 
@@ -163,24 +163,24 @@ msgstr ""
 msgid "Text Box on Right"
 msgstr ""
 
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:54
-msgid "Update Shortcode"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:55
-msgid "Shortcode Contents"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:341
-msgid "failed verification"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button2/lib/class-shortcode-button.php:440
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button-mce.php:102
 msgid "No items found."
 msgstr ""
 
-#: vendor/jtsternberg/shortcode-button2/templates/modal.php:7
-#: vendor/jtsternberg/shortcode-button2/templates/modal.php:10
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
+msgid "Update Shortcode"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:56
+msgid "Shortcode Contents"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:342
+msgid "failed verification"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/templates/modal.php:7
+#: vendor/jtsternberg/shortcode-button/templates/modal.php:10
 msgid "Close"
 msgstr ""
 

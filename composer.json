@@ -11,6 +11,12 @@
       "email": "justin@dsgnwrks.pro",
       "homepage": "http://dsgnwrks.pro",
       "role": "Developer"
+    },
+    {
+      "name": "davidshq",
+      "email": "dave@davemackey.net",
+      "homepage": "http://dsgnwrks.pro",
+      "role": "Developer"
     }
   ],
   "minimum-stability": "dev",
@@ -22,7 +28,6 @@
       "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"
     ],
     "files": [
-      "vendor/webdevstudios/cmb2-user-select/cmb2-user-select.php",
       "vendor/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php",
       "vendor/jtsternberg/cmb2-term-select/cmb2-term-select.php",
       "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
@@ -32,11 +37,10 @@
   "require": {
     "php": ">5.2",
     "techcrunch/wp-async-task": "dev-master",
-    "tgmpa/tgm-plugin-activation": "^2.5.2",
+    "tgmpa/tgm-plugin-activation": "^2.6.1",
     "webdevstudios/cpt-core": "dev-master",
     "webdevstudios/taxonomy_core": "^0.2.4",
     "webdevstudios/cmb2-post-search-field": "^v0.2.5",
-    "jtsternberg/cmb2-term-select": "^v0.1.0",
-    "webdevstudios/cmb2-user-select": "^v0.2.0"
+    "jtsternberg/cmb2-term-select": "^v0.1.0"
   }
 }
