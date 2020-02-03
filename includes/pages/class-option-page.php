@@ -282,29 +282,7 @@ class GCS_Option_Page
                         )
                     )
                 )
-            ),
-            'social_option' => array(
-                'title' => __('Social Options', 'gc-sermons'),
-                'page' => 'social_option',
-                'desc' => __('', 'gc-sermons'),
-                'fields' => array(
-                    array(
-                        'title' => __('Enable Social Share', 'gc-sermons'),
-                        'name' => 'social_share',
-                        'type' => 'select',
-                        'value' => array(
-                            '' => __('Select', 'gc-sermons'),
-                            'yes' => __('Yes', 'gc-sermons'),
-                            'no' => __('No', 'gc-sermons')
-                        )
-                    ),
-                    array(
-                        'title' => __('AddThis Script', 'gc-sermons'),
-                        'name' => 'addthis_script',
-                        'type' => 'textarea'
-                    )
-                )
-            ),
+            )
         );
     }
 
@@ -315,23 +293,9 @@ class GCS_Option_Page
     {
         add_action('admin_menu', array($this, 'add_page'));
         add_action('admin_init', array($this, 'plugin_settings'));
-
-        $social_share_enable = GC_Sermons_Plugin::get_plugin_settings_options('social_option', 'social_share');
-        if ($social_share_enable == 'yes') {
-            add_action('wp_footer', array($this, 'add_social_script_wp_footer'));
-        }
     }
 
-	/**
-	 * Add Social Script WP Footer
-	 */
-    public function add_social_script_wp_footer()
-    {
-        $social_share_script = GC_Sermons_Plugin::get_plugin_settings_options('social_option', 'addthis_script');
-        echo $social_share_script;
-    }
-
-	/**
+    /**
 	 * Add Liquid Messages Plugin Admin Configuration Page
      *
      * Allows one to customize how the Liquid Messages plugin works.

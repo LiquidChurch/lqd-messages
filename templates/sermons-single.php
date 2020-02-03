@@ -286,15 +286,6 @@
                             }
                         ?>
 
-                        <?php
-                            $social_share_enable
-                                = GC_Sermons_Plugin::get_plugin_settings_options('social_option',
-                                'social_share');
-                            if ($social_share_enable == 'yes') {
-                                echo '<div class="addthis_sharing_toolbox"></div>';
-                            }
-                        ?>
-
                     </div>
                 </div>
             </div>
