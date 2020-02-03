@@ -1,6 +1,6 @@
 <?php
 /**
- * Liquid Messages Search Shortcode Button/Modal.
+ * Liquid Messages Search Shortcode - Run.
  *
  * @package GC Sermons
  */

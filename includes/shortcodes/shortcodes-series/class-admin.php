@@ -118,7 +118,7 @@ class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
             'desc'    => __( 'This is only applicable if `show_num_years_first_page` is empty or 0', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'paging_init_year',
-			'default' => array(date('Y', time())),
+			'default' => date('Y', time()), // TODO: Need to look at this further.
 		);
 
 		return $fields;
