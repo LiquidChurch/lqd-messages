@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'a5f882d89ab791a139cd2d37e50cdd80' => $vendorDir . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
-    '4cfe55868654b2ea9298a46af9d2b853' => $vendorDir . '/jtsternberg/shortcode-button/shortcode-button.php',
 );
