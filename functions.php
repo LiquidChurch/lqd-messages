@@ -3,6 +3,9 @@
 /**
  * Gets a Message Post object from a post object or ID.
  *
+ * TODO: Is there a reason we want to offer these functions which aren't part of a class? Is there an advantage
+ * to calling `gc_get_sermon_post()` over...?
+ *
  * @param  mixed $sermon         Post object or ID or (LqdM_Message_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
  *
@@ -35,6 +38,8 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
 
 /**
  * Get's info for a series attached to the sermon.
+ *
+ * TODO: Here we are offering gc_get_sermon_series_info() and then under the hood using $sermon->get_series, why?
  *
  * @since  0.1.3
  *
@@ -246,7 +251,8 @@ function gc__get_arg($arg, $default = null)
 }
 
 /**
- * Load the LiquidChurch_Functionality options if class exists.
+ * Load our plugin's settings.
+ *
  * @param string $arg1
  * @param string $arg2
  * @return array|bool|mixed|void
