@@ -5,7 +5,7 @@
      * @since 0.11.0
      * @package GC Sermons
      */
-    class GCS_Shortcodes_Sermon_Run extends GCS_Shortcodes_Run_Base
+    class LqdM_Shortcodes_Sermon_Run extends LqdM_Shortcodes_Run_Base
     {
         /**
          * The Shortcode Tag
@@ -90,7 +90,7 @@
             $args['plugin_option'] = get_plugin_settings_options('single_message_view');
             $args['inline_style'] = $this->inline_style();
 
-            $content = GCS_Template_Loader::get_template('sermons-single', $args);
+            $content = LqdM_Template_Loader::get_template('sermons-single', $args);
 
             return $content;
         }
@@ -103,7 +103,7 @@
 
             wp_enqueue_script(
                 'fitvids',
-                GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
+                Lqd_Messages_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
                 array('jquery'),
                 '1.1',
                 true

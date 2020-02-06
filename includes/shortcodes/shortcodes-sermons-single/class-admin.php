@@ -6,7 +6,7 @@
      *
      * @package GC Sermons
      */
-    class GCS_Shortcodes_Sermon_Admin extends GCS_Shortcodes_Admin_Base
+    class LqdM_Shortcodes_Sermon_Admin extends LqdM_Shortcodes_Admin_Base
     {
         /**
          * Sets up the button
@@ -16,8 +16,8 @@
         function js_button_data()
         {
             return array(
-                'qt_button_text' => __('GC Sermon Single', 'gc-sermons'),
-                'button_tooltip' => __('GC Sermon Single', 'gc-sermons'),
+                'qt_button_text' => __('GC Sermon Single', 'lqdm'),
+                'button_tooltip' => __('GC Sermon Single', 'lqdm'),
                 'icon'           => 'dashicons-media-interactive',
                 // 'mceView'        => true, // The future
             );
@@ -34,8 +34,8 @@
         function fields($fields, $button_data)
         {
             $fields[] = array(
-                'name'            => __( 'Sermon to show', 'gc-sermons' ),
-                'desc'            => __( 'Blank, "recent", or "0" will display the most recent sermon. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+                'name'            => __( 'Sermon to show', 'lqdm' ),
+                'desc'            => __( 'Blank, "recent", or "0" will display the most recent sermon. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
                 'id'              => $this->prefix . 'sermon_id',
                 'type'            => 'post_search_text',
                 'post_type'       => $this->run->sermons->post_type(),
@@ -65,8 +65,8 @@
                 'id' => $this->prefix . 'show_image',
                 'type'    => 'radio_inline',
                 'options' => array(
-                    'featured_image' => __( 'Featured Image', 'gc-sermons' ),
-                    'series_image'   => __( 'Series Image', 'gc-sermons' ),
+                    'featured_image' => __( 'Featured Image', 'lqdm' ),
+                    'series_image'   => __( 'Series Image', 'lqdm' ),
                 ),
                 'default' => 'featured_image'
             );
@@ -77,10 +77,10 @@
                 'id' => $this->prefix . 'show_media',
                 'type'    => 'radio_inline',
                 'options' => array(
-                    'video_player'   => __( 'Video Player', 'gc-sermons' ),
-                    'audio_player' => __( 'Audio Player', 'gc-sermons' ),
-                    'featured_image' => __( 'Featured Image', 'gc-sermons' ),
-                    'series_image' => __( 'Series Image', 'gc-sermons' ),
+                    'video_player'   => __( 'Video Player', 'lqdm' ),
+                    'audio_player' => __( 'Audio Player', 'lqdm' ),
+                    'featured_image' => __( 'Featured Image', 'lqdm' ),
+                    'series_image' => __( 'Series Image', 'lqdm' ),
                 ),
                 'default' => 'video_player'
             );
