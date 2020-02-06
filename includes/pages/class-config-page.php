@@ -6,7 +6,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Config_Page
+class LqdM_Config_Page
 {
     /**
      * Parent plugin class
@@ -54,8 +54,8 @@ class GCS_Config_Page
     {
         add_submenu_page(
             'edit.php?post_type=gc-sermons',
-            __('Messages Config', 'gc-sermons'),
-            __('Messages Config', 'gc-sermons'),
+            __('Messages Config', 'lqdm'),
+            __('Messages Config', 'lqdm'),
             'manage_options',
             'sermon-message-config',
             array($this, 'config_page_view')
@@ -73,7 +73,7 @@ class GCS_Config_Page
         $arg = array(
             'items' => $items
         );
-        $view = GCS_Template_Loader::get_template('pages/sermon-message-config-page', $arg);
+        $view = LqdM_Template_Loader::get_template('pages/sermon-message-config-page', $arg);
 
         $this->enqueu_css();
         $this->enqueu_js();
@@ -101,7 +101,7 @@ class GCS_Config_Page
                 'series_title' => $custom_term->name,
                 'items' => $item
             );
-            $items .= GCS_Template_Loader::get_template('pages/sermon-message-config-page-li', $series_resource);
+            $items .= LqdM_Template_Loader::get_template('pages/sermon-message-config-page-li', $series_resource);
         }
         return $items;
     }
@@ -141,7 +141,7 @@ class GCS_Config_Page
                     'display_order' => get_post_meta(get_the_ID(), 'gc_display_order', true),
                     'display_ordr_meta_id' => $this->plugin->metaboxes->display_ordr_meta_id,
                 );
-                $item .= GCS_Template_Loader::get_template('pages/sermon-message-config-page-li-li', $message_resource);
+                $item .= LqdM_Template_Loader::get_template('pages/sermon-message-config-page-li-li', $message_resource);
             endwhile;
         }
         return $item;
@@ -157,22 +157,22 @@ class GCS_Config_Page
 
         wp_enqueue_script(
             'lc-func-admin-message-config',
-            GC_Sermons_Plugin::$url . "assets/js/liquidchurch-page-message-config{$min}.js",
+            Lqd_Messages_Plugin::$url . "assets/js/liquidchurch-page-message-config{$min}.js",
             array(),
-            GC_Sermons_Plugin::VERSION
+            Lqd_Messages_Plugin::VERSION
         );
 
         wp_enqueue_script(
             'block-ui',
             '//cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js',
             array('jquery'),
-            GC_Sermons_Plugin::VERSION
+            Lqd_Messages_Plugin::VERSION
         );
 
         wp_localize_script('lc-func-admin-message-config', 'LiquidChurchAdmin', array(
-            'path' => GC_Sermons_Plugin::$url,
-            'blockui_message' => __('Please wait...', 'gc-sermons'),
-            'required_message' => __('Please fill all the required values', 'gc-sermons'),
+            'path' => Lqd_Messages_Plugin::$url,
+            'blockui_message' => __('Please wait...', 'lqdm'),
+            'required_message' => __('Please fill all the required values', 'lqdm'),
             'ajax_nonce' => wp_create_nonce('sermon_message_config_page'),
         ));
     }
@@ -186,9 +186,9 @@ class GCS_Config_Page
 
         wp_enqueue_style(
             'lc-style-admin',
-            GC_Sermons_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
+            Lqd_Messages_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
             array(),
-            GC_Sermons_Plugin::VERSION
+            Lqd_Messages_Plugin::VERSION
         );
     }
 
@@ -207,7 +207,7 @@ class GCS_Config_Page
                 if (empty($val[$meta_key])) continue;
                 $reponse[$key] = array(
                     'status' => update_post_meta($key, $meta_key, $val[$meta_key]),
-                    'message' => __('Successfully updated', 'gc-sermons')
+                    'message' => __('Successfully updated', 'lqdm')
                 );
             }
         }
@@ -233,7 +233,7 @@ class GCS_Config_Page
                     if (empty($fval[$meta_key])) continue;
                     $reponse[$formData['series_id']][$fkey] = array(
                         'status' => update_post_meta($fkey, $meta_key, $fval[$meta_key]),
-                        'message' => __('Successfully updated', 'gc-sermons')
+                        'message' => __('Successfully updated', 'lqdm')
                     );
                 }
             }
