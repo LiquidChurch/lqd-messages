@@ -76,7 +76,7 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
         'LqdM_Taxonomies_Base'                => __DIR__ . '/../..' . '/includes/taxonomies/class-taxonomies-base.php',
         'LqdM_Template_Loader'                => __DIR__ . '/../..' . '/includes/class-template-loader.php',
         'LqdM_Topic'                          => __DIR__ . '/../..' . '/includes/taxonomies/class-topic.php',
-        'Lqd_Messages_Plugin'                 => __DIR__ . '/../..' . '/gc-sermons.php',
+        'Lqd_Messages_Plugin'                 => __DIR__ . '/../..',
         'TGMPA_Bulk_Installer'                => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
         'TGMPA_Bulk_Installer_Skin'           => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
         'TGMPA_List_Table'                    => __DIR__ . '/..' . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',

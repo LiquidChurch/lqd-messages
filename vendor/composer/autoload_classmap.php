@@ -63,7 +63,7 @@ return array(
     'LqdM_Taxonomies_Base'                => $baseDir . '/includes/taxonomies/class-taxonomies-base.php',
     'LqdM_Template_Loader'                => $baseDir . '/includes/class-template-loader.php',
     'LqdM_Topic'                          => $baseDir . '/includes/taxonomies/class-topic.php',
-    'Lqd_Messages_Plugin'                 => $baseDir . '/gc-sermons.php',
+    'Lqd_Messages_Plugin'                 => $baseDir . '/lqd-messages.php',
     'TGMPA_Bulk_Installer'                => $vendorDir . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
     'TGMPA_Bulk_Installer_Skin'           => $vendorDir . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
     'TGMPA_List_Table'                    => $vendorDir . '/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',

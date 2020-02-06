@@ -217,7 +217,7 @@
          */
         protected function __construct()
         {
-            self::$basename = plugin_basename(__FILE__); // lqd-messages/gc-sermons.php
+            self::$basename = plugin_basename(__FILE__); // lqd-messages/lqd-messages.php
             self::$url      = plugin_dir_url(__FILE__); // https://one.wordpress.test/wp-content/plugins/lqd-messages
             self::$path     = plugin_dir_path(__FILE__); // /srv/www/wordpress-one/public_html/wp-content/plugins/lqd-messages/
         }
