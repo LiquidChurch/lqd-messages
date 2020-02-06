@@ -3,7 +3,7 @@
 /**
  * Class GCS_Shortcodes_Test
  */
-class GCS_Shortcodes_Test extends WP_UnitTestCase {
+class LqdM_Shortcodes_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
 		$this->assertTrue( class_exists( 'LqdM_Shortcodes' ) );

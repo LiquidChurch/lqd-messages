@@ -3,7 +3,7 @@
 /**
  * Class GCS_Sermons_Test
  */
-class GCS_Sermons_Test extends WP_UnitTestCase {
+class LqdM_Sermons_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
 		$this->assertTrue( class_exists( 'LqdM_Messages' ) );

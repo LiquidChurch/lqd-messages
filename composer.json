@@ -2,7 +2,7 @@
   "name": "liquidchurch/liquid-messages",
   "type": "wordpress-plugin",
   "description": "Manage messages (sermons) and message content in WordPress",
-  "keywords": ["wordpress", "plugin", "generator-plugin-wp", "sermons", "messages", "church"],
+  "keywords": ["wordpress", "plugin", "sermons", "messages", "church"],
   "homepage": "https://github.com/liquidchurch/lqd-messages/",
   "license": "GPLv2",
   "authors": [
@@ -17,12 +17,22 @@
       "email": "dave@davemackey.net",
       "homepage": "http://dsgnwrks.pro",
       "role": "Developer"
+    },
+    {
+      "name": "surajprgupta",
+      "role": "Developer"
+    },
+    {
+      "name": "liquidchurch",
+      "email": "webmaster@liquidchurch.com",
+      "homepage": "https://liquidchurch.com/",
+      "role": "Developer"
     }
   ],
   "minimum-stability": "dev",
   "autoload": {
     "classmap": [
-      "liquid-messages.php",
+      "lqd-messages.php",
       "includes/",
       "vendor/webdevstudios/cpt-core/CPT_Core.php",
       "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"

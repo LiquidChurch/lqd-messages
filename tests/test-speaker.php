@@ -3,7 +3,7 @@
 /**
  * Class GCS_Speaker_Test
  */
-class GCS_Speaker_Test extends WP_UnitTestCase {
+class LqdM_Speaker_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
 		$this->assertTrue( class_exists( 'LqdM_Speaker' ) );

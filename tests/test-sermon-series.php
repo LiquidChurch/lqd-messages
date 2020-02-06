@@ -3,7 +3,7 @@
 /**
  * Class GCS_Series_Test
  */
-class GCS_Series_Test extends WP_UnitTestCase {
+class LqdM_Series_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
 		$this->assertTrue( class_exists( 'LqdM_Series' ) );

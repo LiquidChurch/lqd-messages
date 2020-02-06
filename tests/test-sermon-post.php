@@ -3,7 +3,7 @@
 /**
  * Class GCS_Sermon_Post_Test
  */
-class GCS_Sermon_Post_Test extends WP_UnitTestCase {
+class LqdM_Sermon_Post_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
 		$this->assertTrue( class_exists( 'LqdM_Message_Post' ) );

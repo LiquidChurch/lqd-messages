@@ -3,7 +3,7 @@
 /**
  * Class GCS_Metaboxes_Test
  */
-class GCS_Metaboxes_Test extends WP_UnitTestCase {
+class LqdM_Metaboxes_Test extends WP_UnitTestCase {
 
 	function test_sample() {
 		// replace this with some actual testing code

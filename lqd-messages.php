@@ -14,7 +14,7 @@
 
     /**
      * Copyright (c) 2016 jtsternberg (email : justin@dsgnwrks.pro)
-     * Copyright (c) 2016 jtsternberg (email : suraj.gupta@scripterz.in)
+     * Copyright (c) 2016 surajprgupta (email : suraj.gupta@scripterz.in)
      * Copyright (c) 2016-2020 liquidchurch (email : webmaster@liquidchurch.com)
 	 *
      * This program is free software; you can redistribute it and/or modify

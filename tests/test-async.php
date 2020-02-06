@@ -1,6 +1,6 @@
 <?php
 /**
- * Class GCS_Async_Test
+ * Tests Liquid Messages Async Test
  *
  * @package Lqd-Messages
  */
@@ -8,7 +8,7 @@
 /**
  * Test Case.
  */
-class GCS_Async_Test extends WP_UnitTestCase {
+class LqdM_Async_Test extends WP_UnitTestCase {
 
     /**
      * Test class exists.
