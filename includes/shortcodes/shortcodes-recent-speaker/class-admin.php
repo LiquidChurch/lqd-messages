@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Recent_Speaker_Admin extends GCSS_Recent_Admin_Base {
+class LqdM_Recent_Speaker_Admin extends LqdM_Recent_Admin_Base {
 
 	/**
 	 * Shortcode prefix for field ids.
@@ -21,8 +21,8 @@ class GCSS_Recent_Speaker_Admin extends GCSS_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Recent Speaker', 'gc-sermons' ),
-			'button_tooltip' => __( 'GC Recent Speaker', 'gc-sermons' ),
+			'qt_button_text' => __( 'GC Recent Speaker', 'lqdm' ),
+			'button_tooltip' => __( 'GC Recent Speaker', 'lqdm' ),
 			'icon'           => 'dashicons-businessman',
 			// 'mceView'        => true, // The future
 		);
@@ -39,8 +39,8 @@ class GCSS_Recent_Speaker_Admin extends GCSS_Recent_Admin_Base {
 	function fields( $fields, $button_data ) {
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'gc-sermons' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+			'name'            => __( 'Sermon ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
@@ -50,28 +50,28 @@ class GCSS_Recent_Speaker_Admin extends GCSS_Recent_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Filter Most Recent Sermon By:', 'gc-sermons' ),
-			'desc'    => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the speaker info for.', 'gc-sermons' ),
+			'name'    => __( 'Filter Most Recent Sermon By:', 'lqdm' ),
+			'desc'    => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the speaker info for.', 'lqdm' ),
 			'type'    => 'select',
 			'id'      => $this->prefix . 'recent',
 			'default' => $this->atts_defaults['recent'],
 			'row_classes' => 'hide-if-not-recent',
 			'options' => array(
-				'recent' => __( 'Most Recent', 'gc-sermons' ),
-				'audio' => __( 'Most Recent with Audio', 'gc-sermons' ),
-				'video' => __( 'Most Recent with Video', 'gc-sermons' ),
+				'recent' => __( 'Most Recent', 'lqdm' ),
+				'audio' => __( 'Most Recent with Audio', 'lqdm' ),
+				'video' => __( 'Most Recent with Video', 'lqdm' ),
 			),
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Remove Thumbnail', 'gc-sermons' ),
+			'name'    => __( 'Remove Thumbnail', 'lqdm' ),
 			'type'    => 'checkbox',
 			'id'      => $this->prefix . 'remove_thumbnail',
 			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Thumbnail Size (if included)', 'gc-sermons' ),
+			'name'    => __( 'Thumbnail Size (if included)', 'lqdm' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'thumbnail_size',
 			'default' => $this->atts_defaults['thumbnail_size'],
