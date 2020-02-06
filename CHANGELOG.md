@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## NEXT
+* Merged LiquidChurch-Functionality plugin into Liquid Messages plugin.
+* Refactored naming throughout of files, classes, etc.
+* Removed related links functionality as it duplicates additional resources.
+* Removed integration with GC-Staff as this is not used.
+* Added docs folder with significant documentation on plugin end user usage and development.
+
 ## 0.9.1 - 2017-07-10
 ### Added
 * Recent sermon shortcode
