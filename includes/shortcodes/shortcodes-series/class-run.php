@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
+class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
 {
      /**
       * The Shortcode Tag
@@ -17,7 +17,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
      /**
       * GCS_Series object
       *
-      * @var   GCS_Series
+      * @var   LqdM_Series
       * @since 0.1.0
       */
      public $series;
@@ -25,12 +25,13 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
      /**
       * Constructor
       *
+      * @param LqdM_Messages $sermons
+      * @param LqdM_Series $series
+      *
       * @since 0.1.3
       *
-      * @param GCS_Sermons $sermons
-      * @param GCS_Series $series
       */
-     public function __construct(GCS_Sermons $sermons, GCS_Series $series)
+     public function __construct(LqdM_Messages $sermons, LqdM_Series $series)
      {
          $this->series = $series;
          $this->atts_defaults['paging_init_year'] = array(date('Y', time()));
@@ -122,8 +123,8 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
          $args['plugin_option'] = get_plugin_settings_options('series_view');
 
          $content = '';
-         $content .= GCS_Style_Loader::get_template('list-item-style');
-         $content .= GCS_Template_Loader::get_template('series-list', $args);
+         $content .= LqdM_Style_Loader::get_template('list-item-style');
+         $content .= LqdM_Template_Loader::get_template('series-list', $args);
 
          return $content;
      }
@@ -224,8 +225,8 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
          $nav = array('prev_link' => '', 'next_link' => '');
 
          if (!$this->bool_att('remove_pagination')) {
-             $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'));
-             $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'));
+             $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
+             $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'lqdm'));
          }
 
          return $nav;

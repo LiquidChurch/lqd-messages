@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Series extends GCS_Shortcodes_Base {
+class LqdM_Shortcodes_Series extends LqdM_Shortcodes_Base {
 	/**
 	 * Constructor
 	 *
@@ -13,8 +13,8 @@ class GCS_Shortcodes_Series extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCSS_Series_Run( $plugin->sermons, $plugin->series );
-		$this->admin = new GCSS_Series_Admin( $this->run );
+		$this->run   = new LqdM_Series_Run( $plugin->sermons, $plugin->series );
+		$this->admin = new LqdM_Series_Admin( $this->run );
 
 		parent::hooks();
 	}
