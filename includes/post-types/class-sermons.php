@@ -53,7 +53,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     {
         // First parameter should be an array with Singular, Plural, and Registered name.
         parent::__construct($plugin, array(
-            'labels' => array(__('Sermon', 'lqdm'), __('Sermons', 'lqdm'), 'lqdm'),
+            'labels' => array(__('Sermon', 'lqdm'), __('Sermons', 'lqdm'), 'gc-sermons'),
             'args' => array(
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'menu_icon' => 'dashicons-playlist-video',

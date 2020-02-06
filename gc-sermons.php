@@ -103,14 +103,14 @@
         protected static $single_instance = null;
 
         /**
-         * Instance of GCS_Sermons
+         * Instance of LqdM_Messages
          *
          * @var LqdM_Messages
          */
         protected $sermons;
 
         /**
-         * Instance of GCS_Taxonomies
+         * Instance of LqdM_Taxonomies
          *
          * @since 0.1.0
          * @var LqdM_Taxonomies
@@ -118,7 +118,7 @@
         protected $taxonomies;
 
         /**
-         * Instance of GCS_Shortcodes
+         * Instance of LqdM_Shortcodes
          *
          * @since 0.1.0
          * @var LqdM_Shortcodes
@@ -126,7 +126,7 @@
         protected $shortcodes;
 
         /**
-         * Instance of GCS_Async
+         * Instance of LqdM_Async
          *
          * @since 0.1.1
          * @var LqdM_Async
@@ -141,21 +141,21 @@
         public static $plugin_option_key = 'lc-plugin-settings';
 
         /**
-         * Instance of GCS_Metaboxes
+         * Instance of LqdM_Metaboxes
          *
          * @var LqdM_Metaboxes
          */
         protected $metaboxes;
 
         /**
-         * Instance of GCS_Config_Page
+         * Instance of LqdM_Config_Page
          *
          * @var LqdM_Config_Page
          */
         protected $config_page;
 
         /**
-         * Instance of GCS_Option_Page
+         * Instance of LqdM_Option_Page
          *
          * @var LqdM_Option_Page
          */
@@ -305,14 +305,11 @@
                 'is_automatic' => true,
                 'message'      => '',
                 'strings'      => array(
-                    'page_title'                      => __('Install Required Plugins',
-                        'lqdm'),
+                    'page_title'                      => __('Install Required Plugins', 'lqdm'),
                     'menu_title'                      => __('Install Plugins', 'lqdm'),
-                    'installing'                      => __('Installing Plugin: %s',
-                        'lqdm'),
+                    'installing'                      => __('Installing Plugin: %s', 'lqdm'),
                     // %1$s = plugin name
-                    'oops'                            => __('Something went wrong with the plugin API.',
-                        'lqdm'),
+                    'oops'                            => __('Something went wrong with the plugin API.', 'lqdm'),
                     'notice_can_install_required'     => _n_noop('The "WDS Shortcodes" plugin requires the following plugin: %1$s.',
                         'This plugin requires the following plugins: %1$s.'),
                     // %1$s = plugin name(s)
@@ -341,12 +338,9 @@
                         'Begin installing plugins'),
                     'activate_link'                   => _n_noop('Activate installed plugin',
                         'Activate installed plugins'),
-                    'return'                          => __('Return to Required Plugins Installer',
-                        'lqdm'),
-                    'plugin_activated'                => __('Plugin activated successfully.',
-                        'lqdm'),
-                    'complete'                        => __('All plugins installed and activated successfully. %s',
-                        'lqdm'),
+                    'return'                          => __('Return to Required Plugins Installer', 'lqdm'),
+                    'plugin_activated'                => __('Plugin activated successfully.', 'lqdm'),
+                    'complete'                        => __('All plugins installed and activated successfully. %s', 'lqdm'),
                     // %1$s = dashboard link
                 ),
             );

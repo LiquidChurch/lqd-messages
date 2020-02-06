@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gets a GCS_Sermon_Post object from a post object or ID.
+ * Gets a Message Post object from a post object or ID.
  *
- * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed $sermon         Post object or ID or (LqdM_Message_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
  *
- * @return LqdM_Message_Post|false GCS_Sermon_Post object if successful
+ * @return LqdM_Message_Post|false LqdM_Message_Post object if successful
  * @throws Exception
  *@since  0.1.3
  *
