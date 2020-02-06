@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-abstract class GCS_Post_Types_Base extends CPT_Core {
+abstract class LqdM_Post_Types_Base extends CPT_Core {
 
 	/**
 	 * Parent plugin class

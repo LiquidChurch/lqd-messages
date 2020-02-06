@@ -5,7 +5,7 @@
  * @version 0.1.3
  * @package GC Sermons
  */
-class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
+class LqdM_Shortcodes_Audio_Player_Run extends LqdM_Shortcodes_Run_Base {
 
     /**
      * The Shortcode Tag
