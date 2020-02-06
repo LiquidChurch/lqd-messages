@@ -3,17 +3,17 @@
 /**
  * Gets a GCS_Sermon_Post object from a post object or ID.
  *
- * @since  0.1.3
- *
  * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
  *
- * @return GCS_Sermon_Post|false GCS_Sermon_Post object if successful
+ * @return LqdM_Message_Post|false GCS_Sermon_Post object if successful
  * @throws Exception
+ *@since  0.1.3
+ *
  */
 function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
 {
-    if ($sermon instanceof GCS_Sermon_Post) {
+    if ($sermon instanceof LqdM_Message_Post ) {
         return $sermon;
     }
 
@@ -21,7 +21,7 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
 
     try {
         $sermon = $sermon instanceof WP_Post ? $sermon : get_post($sermon);
-        $sermon = new GCS_Sermon_Post($sermon);
+        $sermon = new LqdM_Message_Post($sermon);
 
     } catch (Exception $e) {
         if ($throw_on_error) {
@@ -75,8 +75,8 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
     $series->plugin_option  = get_plugin_settings_options('series_view');
 
     $content = '';
-    $content .= GCS_Style_Loader::get_template('list-item-style');
-    $content .= GCS_Template_Loader::get_template('list-item-series', (array) $series);
+    $content .= LqdM_Style_Loader::get_template('list-item-style');
+    $content .= LqdM_Template_Loader::get_template('list-item-series', (array) $series);
 
     // Not a list item.
     $content = str_replace(array('<li', '</li'), array('<div', '</div'), $content);
@@ -128,7 +128,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
     $speaker->image = ! $args['remove_thumbnail'] ? $speaker->image : '';
     $speaker->classes = $args['wrap_classes'];
 
-    $content = GCS_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);
+    $content = LqdM_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);
 
     return $content;
 }
@@ -198,7 +198,7 @@ function gc_search_get_next_results_link($total_pages)
             '<a href="%s" %s>%s</a>',
             esc_url(add_query_arg('results-page', $page)),
             apply_filters('gc_next_results_page_link_attributes', ''),
-            __('Older <span>&rarr;</span>', 'gc-sermons')
+            __('Older <span>&rarr;</span>', 'lqdm')
         );
     }
 
@@ -223,7 +223,7 @@ function gc_search_get_previous_results_link()
             '<a href="%s" %s>%s</a>',
             esc_url($url),
             apply_filters('gc_previous_results_page_link_attributes', ''),
-            __('<span>&larr;</span> Newer', 'gc-sermons')
+            __('<span>&larr;</span> Newer', 'lqdm')
         );
     }
 
@@ -253,7 +253,7 @@ function gc__get_arg($arg, $default = null)
  */
 function get_plugin_settings_options($arg1 = '', $arg2 = '')
 {
-    $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options($arg1, $arg2);
+    $plugin_option = Lqd_Messages_Plugin::get_plugin_settings_options($arg1, $arg2);
 
     if (empty($plugin_option)) {
         return array();

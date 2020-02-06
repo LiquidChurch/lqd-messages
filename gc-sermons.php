@@ -43,7 +43,7 @@
      * @var  string $url      Plugin URL
      * @var  string $path     Plugin Path
      */
-    class GC_Sermons_Plugin
+    class Lqd_Messages_Plugin
     {
 
         /**
@@ -97,7 +97,7 @@
         /**
          * Singleton instance of plugin
          *
-         * @var GC_Sermons_Plugin
+         * @var Lqd_Messages_Plugin
          * @since  0.1.0
          */
         protected static $single_instance = null;
@@ -105,7 +105,7 @@
         /**
          * Instance of GCS_Sermons
          *
-         * @var GCS_Sermons
+         * @var LqdM_Messages
          */
         protected $sermons;
 
@@ -113,7 +113,7 @@
          * Instance of GCS_Taxonomies
          *
          * @since 0.1.0
-         * @var GCS_Taxonomies
+         * @var LqdM_Taxonomies
          */
         protected $taxonomies;
 
@@ -121,7 +121,7 @@
          * Instance of GCS_Shortcodes
          *
          * @since 0.1.0
-         * @var GCS_Shortcodes
+         * @var LqdM_Shortcodes
          */
         protected $shortcodes;
 
@@ -129,7 +129,7 @@
          * Instance of GCS_Async
          *
          * @since 0.1.1
-         * @var GCS_Async
+         * @var LqdM_Async
          */
         protected $async;
 
@@ -143,21 +143,21 @@
         /**
          * Instance of GCS_Metaboxes
          *
-         * @var GCS_Metaboxes
+         * @var LqdM_Metaboxes
          */
         protected $metaboxes;
 
         /**
          * Instance of GCS_Config_Page
          *
-         * @var GCS_Config_Page
+         * @var LqdM_Config_Page
          */
         protected $config_page;
 
         /**
          * Instance of GCS_Option_Page
          *
-         * @var GCS_Option_Page
+         * @var LqdM_Option_Page
          */
         protected $option_page;
 
@@ -198,8 +198,8 @@
         /**
          * Creates or returns an instance of this class.
          *
-         * @since  0.1.0
-         * @return GC_Sermons_Plugin A single instance of this class.
+         * @return Lqd_Messages_Plugin A single instance of this class.
+         *@since  0.1.0
          */
         public static function get_instance()
         {
@@ -234,14 +234,14 @@
             require_once self::$path . 'functions.php';
 
             // Attach other plugin classes to the base plugin class.
-            $this->sermons = new GCS_Sermons($this);
-            $this->taxonomies = new GCS_Taxonomies($this->sermons);
-            $this->async = new GCS_Async($this);
+            $this->sermons = new LqdM_Messages($this);
+            $this->taxonomies = new LqdM_Taxonomies($this->sermons);
+            $this->async = new LqdM_Async($this);
 
 
             // Only create the full metabox object if in the admin.
             if (is_admin()) {
-                $this->metaboxes = new GCS_Metaboxes($this);
+                $this->metaboxes = new LqdM_Metaboxes($this);
                 $this->metaboxes->hooks();
             } else {
                 $this->metaboxes = (object) array();
@@ -255,12 +255,12 @@
             $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
             $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
 
-            $this->shortcodes = new GCS_Shortcodes($this);
+            $this->shortcodes = new LqdM_Shortcodes($this);
 
-            $this->config_page = new GCS_Config_Page($this);
+            $this->config_page = new LqdM_Config_Page($this);
             $this->config_page->hooks();
 
-            $this->option_page = new GCS_Option_Page($this);
+            $this->option_page = new LqdM_Option_Page($this);
             $this->option_page->hooks();
 	}
 
@@ -297,7 +297,7 @@
             );
 
             $config = array(
-                'domain'       => 'gc-sermons',
+                'domain'       => 'lqdm',
                 'parent_slug'  => 'plugins.php',
                 'capability'   => 'install_plugins',
                 'menu'         => 'install-required-plugins',
@@ -306,13 +306,13 @@
                 'message'      => '',
                 'strings'      => array(
                     'page_title'                      => __('Install Required Plugins',
-                        'gc-sermons'),
-                    'menu_title'                      => __('Install Plugins', 'gc-sermons'),
+                        'lqdm'),
+                    'menu_title'                      => __('Install Plugins', 'lqdm'),
                     'installing'                      => __('Installing Plugin: %s',
-                        'gc-sermons'),
+                        'lqdm'),
                     // %1$s = plugin name
                     'oops'                            => __('Something went wrong with the plugin API.',
-                        'gc-sermons'),
+                        'lqdm'),
                     'notice_can_install_required'     => _n_noop('The "WDS Shortcodes" plugin requires the following plugin: %1$s.',
                         'This plugin requires the following plugins: %1$s.'),
                     // %1$s = plugin name(s)
@@ -342,11 +342,11 @@
                     'activate_link'                   => _n_noop('Activate installed plugin',
                         'Activate installed plugins'),
                     'return'                          => __('Return to Required Plugins Installer',
-                        'gc-sermons'),
+                        'lqdm'),
                     'plugin_activated'                => __('Plugin activated successfully.',
-                        'gc-sermons'),
+                        'lqdm'),
                     'complete'                        => __('All plugins installed and activated successfully. %s',
-                        'gc-sermons'),
+                        'lqdm'),
                     // %1$s = dashboard link
                 ),
             );
@@ -388,7 +388,7 @@
          */
         public function init()
         {
-            load_plugin_textdomain('gc-sermons', false, dirname(self::$basename) . '/languages/');
+            load_plugin_textdomain('lqdm', false, dirname(self::$basename) . '/languages/');
         }
 
         /**
@@ -429,16 +429,16 @@
      * Grab the GC_Sermons_Plugin object and return it.
      * Wrapper for GC_Sermons_Plugin::get_instance()
      *
-     * @since  0.1.0
-     * @return GC_Sermons_Plugin  Singleton instance of plugin class.
+     * @return Lqd_Messages_Plugin  Singleton instance of plugin class.
+     *@since  0.1.0
      */
-    function gc_sermons()
+    function lqd_messages()
     {
-        return GC_Sermons_Plugin::get_instance();
+        return Lqd_Messages_Plugin::get_instance();
     }
 
     // Kick it off.
-    add_action('plugins_loaded', array(gc_sermons(), 'hooks'));
-    register_activation_hook(__FILE__, array('GC_Sermons_Plugin', 'activate'));
-    register_deactivation_hook(__FILE__, array('GC_Sermons_Plugin', 'deactivate'));
+    add_action('plugins_loaded', array(lqd_messages(), 'hooks'));
+    register_activation_hook(__FILE__, array('Lqd_Messages_Plugin', 'activate'));
+    register_deactivation_hook(__FILE__, array('Lqd_Messages_Plugin', 'deactivate'));
 
