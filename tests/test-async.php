@@ -14,13 +14,13 @@ class GCS_Async_Test extends WP_UnitTestCase {
      * Test class exists.
      */
 	function test_class_exists() {
-		$this->assertTrue( class_exists( 'GCS_Async') );
+		$this->assertTrue( class_exists( 'LqdM_Async' ) );
 	}
 
     /**
      * Test class access.
      */
 	function test_class_access() {
-		$this->assertInstanceOf( GCS_Async::class, gc_sermons()->async );
+		$this->assertInstanceOf( LqdM_Async::class, lqd_messages()->async );
 	}
 }

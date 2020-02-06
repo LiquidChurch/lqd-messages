@@ -6,11 +6,11 @@
 class GCS_Speaker_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
-		$this->assertTrue( class_exists( 'GCS_Speaker') );
+		$this->assertTrue( class_exists( 'LqdM_Speaker' ) );
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->speaker instanceof GCS_Speaker );
+		$this->assertTrue( lqd_messages()->speaker instanceof LqdM_Speaker );
 	}
 
   function test_taxonomy_exists() {

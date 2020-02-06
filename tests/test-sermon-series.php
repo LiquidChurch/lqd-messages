@@ -6,11 +6,11 @@
 class GCS_Series_Test extends WP_UnitTestCase {
 
 	function test_class_exists() {
-		$this->assertTrue( class_exists( 'GCS_Series') );
+		$this->assertTrue( class_exists( 'LqdM_Series' ) );
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->series instanceof GCS_Series );
+		$this->assertTrue( lqd_messages()->series instanceof LqdM_Series );
 	}
 
   function test_taxonomy_exists() {

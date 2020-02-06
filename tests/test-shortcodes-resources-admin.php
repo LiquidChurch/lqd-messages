@@ -11,7 +11,7 @@ class GCS_Shortcodes_Resources_Admin_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_exists() {
-		$this->assertTrue( class_exists( 'GCS_Shortcodes_Resources_Admin' ) );
+		$this->assertTrue( class_exists( 'LqdM_Shortcodes_Resources_Admin' ) );
 	}
 
 }
