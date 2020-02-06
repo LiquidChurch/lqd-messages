@@ -5,7 +5,7 @@
  * @since 0.1.3
  * @package GC Sermons
  */
-class GCS_Style_Loader extends GCS_Template_Loader {
+class LqdM_Style_Loader extends LqdM_Template_Loader {
 
 	/**
 	 * Template file extension

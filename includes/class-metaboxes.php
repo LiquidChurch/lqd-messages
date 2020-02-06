@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Metaboxes
+class LqdM_Metaboxes
 {
 	/**
 	 * Additional Resources CMB2 id.
@@ -74,15 +74,15 @@ class GCS_Metaboxes
 
 		$args = array(
 			'id'           => $this->display_ordr_box_id,
-			'title'        => __( 'Display Conditions', 'gc-sermons' ),
-			'object_types' => array( gc_sermons()->sermons->post_type() ),
+			'title'        => __( 'Display Conditions', 'lqdm' ),
+			'object_types' => array( lqd_messages()->sermons->post_type() ),
 		);
 
 		$cmb = new_cmb2_box( $args );
 
 		$cmb->add_field( array(
-			'name' => __( 'Display Order', 'gc-sermons' ),
-			'desc' => __( 'Post will appear in the series based on this order', 'gc-sermons' ),
+			'name' => __( 'Display Order', 'lqdm' ),
+			'desc' => __( 'Post will appear in the series based on this order', 'lqdm' ),
 			'id'   => $this->display_ordr_meta_id,
 			'type' => 'text_number',
             'attributes'  => array(
@@ -91,20 +91,20 @@ class GCS_Metaboxes
 		) );
 
         $cmb->add_field(array(
-            'name' => __('Exclude as Message', 'gc-sermons'),
-            'desc' => __('If selected the post will not appear as message in the message listing', 'gc-sermons'),
+            'name' => __('Exclude as Message', 'lqdm'),
+            'desc' => __('If selected the post will not appear as message in the message listing', 'lqdm'),
             'id' => $this->exclude_msg_meta_id,
             'type' => 'checkbox',
         ));
 
         $cmb->add_field(array(
-            'name' => __('Position in Message Archive Page', 'gc-sermons'),
-            'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'gc-sermons'),
+            'name' => __('Position in Message Archive Page', 'lqdm'),
+            'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'lqdm'),
             'id' => $this->video_msg_appear_pos,
             'type' => 'radio',
             'options' => array(
-                'top' => __('First', 'gc-sermons'),
-                'bottom' => __('Last', 'gc-sermons'),
+                'top' => __('First', 'lqdm'),
+                'bottom' => __('Last', 'lqdm'),
             ),
         ));
 
@@ -112,17 +112,17 @@ class GCS_Metaboxes
 
 		$args = array(
 			'id'           => $this->resources_box_id,
-			'title'        => __( 'Additional Resources', 'gc-sermons' ),
-			'object_types' => array( gc_sermons()->sermons->post_type() ),
+			'title'        => __( 'Additional Resources', 'lqdm' ),
+			'object_types' => array( lqd_messages()->sermons->post_type() ),
 		);
 
 		$field_group_args = array(
 			'id'      => $this->resources_meta_id,
 			'type'    => 'group',
 			'options' => array(
-				'group_title'   => __( 'Resource {#}', 'gc-sermons' ), // {#} gets replaced by row number
-				'add_button'    => __( 'Add Another Resource', 'gc-sermons' ),
-				'remove_button' => __( 'Remove Resource', 'gc-sermons' ),
+				'group_title'   => __( 'Resource {#}', 'lqdm' ), // {#} gets replaced by row number
+				'add_button'    => __( 'Add Another Resource', 'lqdm' ),
+				'remove_button' => __( 'Remove Resource', 'lqdm' ),
 				'sortable'      => true,
 			),
 			'after_group' => array( $this, 'enqueu_box_js' ),
@@ -130,34 +130,34 @@ class GCS_Metaboxes
 
 		$sub_fields = array(
 			array(
-				'name' => __( 'Resource Name', 'gc-sermons' ),
-				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'gc-sermons' ),
+				'name' => __( 'Resource Name', 'lqdm' ),
+				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'lqdm' ),
 				'id'   => 'name',
 				'type' => 'text',
 			),
             array(
-                'name' => __('Resource Language', 'gc-sermons'),
-                'desc' => __('Please select the resource language', 'gc-sermons'),
+                'name' => __('Resource Language', 'lqdm'),
+                'desc' => __('Please select the resource language', 'lqdm'),
                 'id' => 'lang',
                 'type' => 'select',
                 'options' => $this->get_lng_fld_option()
             ),
 			array(
-				'name'    => __( 'Display Name', 'gc-sermons' ),
-				'desc'    => __( 'e.g., "Download Audio"', 'gc-sermons' ),
+				'name'    => __( 'Display Name', 'lqdm' ),
+				'desc'    => __( 'e.g., "Download Audio"', 'lqdm' ),
 				'id'      => 'display_name',
                 'type' => 'select',
                 'options' => $this->get_disp_name_fld_option()
 			),
 			array(
-				'name' => __( 'URL or File', 'gc-sermons' ),
-				'desc' => __( 'Link to OR upload OR select resource"', 'gc-sermons' ),
+				'name' => __( 'URL or File', 'lqdm' ),
+				'desc' => __( 'Link to OR upload OR select resource"', 'lqdm' ),
 				'id'   => 'file',
 				'type' => 'file',
 			),
 			array(
-				'name' => __( 'Type of Resource', 'gc-sermons' ),
-				'desc' => __( 'e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate if selecting media. Leave blank if adding a URL instead of a file.', 'gc-sermons' ),
+				'name' => __( 'Type of Resource', 'lqdm' ),
+				'desc' => __( 'e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate if selecting media. Leave blank if adding a URL instead of a file.', 'lqdm' ),
 				'id'   => 'type',
 				'type' => 'text',
             )
@@ -175,7 +175,7 @@ class GCS_Metaboxes
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->resources_box_id . '_series',
 			'object_types' => array( 'term' ),
-			'taxonomies'   => array( gc_sermons()->taxonomies->series->taxonomy() ),
+			'taxonomies'   => array( lqd_messages()->taxonomies->series->taxonomy() ),
 		) );
 
 		$cmb->add_field( array(
@@ -199,7 +199,7 @@ class GCS_Metaboxes
 	 */
     public static function get_disp_name_fld_option()
     {
-        $plugin_option = gc_sermons()->get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
+        $plugin_option = lqd_messages()->get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
         if (empty($plugin_option)) {
             return array('Video' => 'Video', 'Audio' => 'Audio', 'Notes' => 'Notes', 'Group Guide' => 'Group Guide');
         } else {
@@ -219,7 +219,7 @@ class GCS_Metaboxes
 	 */
     public static function get_lng_fld_option()
     {
-        $plugin_option = gc_sermons()->get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
+        $plugin_option = lqd_messages()->get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
         if (empty($plugin_option)) {
             return array(
                 'eng' => 'English',
@@ -252,9 +252,9 @@ class GCS_Metaboxes
 
 		wp_enqueue_script(
 			'lc-func-admin',
-			GC_Sermons_Plugin::$url . "assets/js/liquidchurch-functionality-admin{$min}.js",
+            Lqd_Messages_Plugin::$url . "assets/js/liquidchurch-functionality-admin{$min}.js",
 			array( 'cmb2-scripts' ),
-			GC_Sermons_Plugin::VERSION,
+			Lqd_Messages_Plugin::VERSION,
 			1
 		);
 

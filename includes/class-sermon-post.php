@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Sermon_Post {
+class LqdM_Message_Post {
 
     /**
      * Post object to wrap
@@ -91,7 +91,7 @@ class GCS_Sermon_Post {
 	        throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 	    }
 
-	    $post_type = gc_sermons()->sermons->post_type();
+	    $post_type = lqd_messages()->sermons->post_type();
 
 	    if ($post->post_type !== $post_type) {
 	        throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
@@ -120,11 +120,11 @@ class GCS_Sermon_Post {
 	/**
 	 * Add media info to the media array for $type
 	 *
-	 * @since 0.1.0
-	 *
 	 * @param string $type type of media
 	 *
-	 * @return GCS_Sermon_Post
+	 * @return LqdM_Message_Post
+	 *@since 0.1.0
+     *
 	 */
 	protected function add_media_type( $type = 'video' ) {
 	    // Only audio/video allowed.
@@ -344,7 +344,7 @@ class GCS_Sermon_Post {
 
 	    $speaker = array();
 	    foreach ($speakers as $key => $val) {
-	        $speaker[] = gc_sermons()->taxonomies->speaker->get($val, $args);
+	        $speaker[] = lqd_messages()->taxonomies->speaker->get($val, $args);
 	    }
 
 	    return $speaker;
@@ -367,7 +367,7 @@ class GCS_Sermon_Post {
 	    }
 
 	    if (null === $this->speaker) {
-	        $this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
+	        $this->speaker = lqd_messages()->taxonomies->speaker->get($speakers[0], $args);
 	    }
 
 	    return $this->speaker;
@@ -389,7 +389,7 @@ class GCS_Sermon_Post {
 	    }
 
 	    if (null === $this->single_series) {
-	        $this->single_series = gc_sermons()->taxonomies->series->get($series[0], $args);
+	        $this->single_series = lqd_messages()->taxonomies->series->get($series[0], $args);
 	    }
 
 	    return $this->single_series;
@@ -412,7 +412,7 @@ class GCS_Sermon_Post {
 
 	    $scripture = array();
 	    foreach ($scriptures as $key => $val) {
-	        $scripture[] = gc_sermons()->taxonomies->scripture->get($val, $args);
+	        $scripture[] = lqd_messages()->taxonomies->scripture->get($val, $args);
 	    }
 
 	    return $scripture;
@@ -431,7 +431,7 @@ class GCS_Sermon_Post {
 	public function get_others_in_series( $args = array() ) {
 	    $series = $this->get_series();
 	    if (!$series) {
-			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'gc-sermons' ), $this->ID );
+			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -448,7 +448,7 @@ class GCS_Sermon_Post {
             ),
         );
 
-	    return gc_sermons()->sermons->get_many($args);
+	    return lqd_messages()->sermons->get_many($args);
 	}
 
 	/**
@@ -464,7 +464,7 @@ class GCS_Sermon_Post {
 	public function get_others_by_speaker( $args = array() ) {
 	    $speaker = $this->get_speaker();
 	    if (!$speaker) {
-	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'gc-sermons' ), $this->ID );
+	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -481,7 +481,7 @@ class GCS_Sermon_Post {
             ),
         );
 
-	    return gc_sermons()->sermons->get_many($args);
+	    return lqd_messages()->sermons->get_many($args);
 	}
 
 	/**
@@ -569,7 +569,7 @@ class GCS_Sermon_Post {
      * @return array             Array of terms for this taxonomy.
      */
 	protected function init_taxonomy( $taxonomy ) {
-	    $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
+	    $tax_slug = lqd_messages()->taxonomies->{$taxonomy}->taxonomy();
 	    return get_the_terms($this->ID, $tax_slug);
 	}
 

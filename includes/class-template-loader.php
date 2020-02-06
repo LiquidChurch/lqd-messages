@@ -5,7 +5,7 @@
  * @since 0.1.3
  * @package GC Sermons
  */
-class GCS_Template_Loader {
+class LqdM_Template_Loader {
 
 	/**
 	 * Array of arguments for template
@@ -149,8 +149,8 @@ class GCS_Template_Loader {
 		$locations = apply_filters( "template_locations_for_{$this->template}", array(
 			STYLESHEETPATH . '/gc-sermons/assets/css/',
 			TEMPLATEPATH . '/gc-sermons/',
-			GC_Sermons_Plugin::$path . 'templates/',
-			GC_Sermons_Plugin::$path . 'templates/assets/css/'
+            Lqd_Messages_Plugin::$path . 'templates/',
+            Lqd_Messages_Plugin::$path . 'templates/assets/css/'
 		), $this );
 
 		$locations = array_reverse( $locations );

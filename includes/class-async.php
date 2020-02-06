@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Async extends WP_Async_Task {
+class LqdM_Async extends WP_Async_Task {
 
 	/**
 	 * Parent plugin class
