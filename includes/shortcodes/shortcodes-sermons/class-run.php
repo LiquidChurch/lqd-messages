@@ -232,7 +232,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-sermons-wrap';
     }
 
 	/**

@@ -182,7 +182,7 @@ class LqdM_Message_Post {
 
 	        $args['src'] = $video['attachment_url'];
 	        if ($video_player = wp_video_shortcode($args)) {
-				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
+				$video_player = '<div class="lqdm-video-wrap">' . $video_player . '</div><!-- .lqdm-video-wrap -->';
 	        }
 	    }
 
@@ -215,7 +215,7 @@ class LqdM_Message_Post {
         }
 
         if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
-			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
+			$audio_player = '<div class="lqdm-audio-wrap">' . $audio_player . '</div><!-- .lqdm-audio-wrap -->';
         }
 
         return $audio_player;

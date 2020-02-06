@@ -32,18 +32,18 @@ abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
     {
         wp_register_script(
             'gc-sermons-admin',
-            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermons-admin.js',
+            Lqd_Messages_Plugin::$url . 'assets/js/lqdm-messages-admin.js',
             array('jquery'),
             Lqd_Messages_Plugin::VERSION,
             true
         );
-        wp_localize_script('gc-sermons-admin', 'php_vars', array(
+        wp_localize_script('lqdm-messages-admin', 'php_vars', array(
                 'postID' => $_GET['post'],
                 'nonce' => wp_create_nonce('scripterz-nonce')
             )
         );
         wp_enqueue_script(
-            'gc-sermons-admin'
+            'lqdm-messages-admin'
         );
     }
 

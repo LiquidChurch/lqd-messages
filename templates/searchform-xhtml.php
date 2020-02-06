@@ -1,7 +1,7 @@
-<form role="search" method="get" id="searchform" class="searchform gc-sermons-search" action="<?php $this->output( 'action_url', 'esc_url' ); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
+<form role="search" method="get" id="searchform" class="searchform lqdm-sermons-search" action="<?php $this->output( 'action_url', 'esc_url' ); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 	<div>
 		<?php if ( $this->get( 'show_filter' ) ) : ?>
-		<div class="gc-search-results-filter">
+		<div class="lqdm-search-results-filter">
 			<span><?php _ex( 'Show search results for:', 'Search results filter', 'lqdm' ); ?></span>
 			<input type="radio" class="search-field-radio" id="results-for-both" name="results-for" value="" <?php checked( $this->get( 'show_results' ), '' ); ?>/> <label for="results-for-both"><?php _ex( 'Both', 'Show search results for both sermons and sermon series.', 'lqdm' ); ?></label>
 			<input type="radio" class="search-field-radio" id="results-for-sermons" name="results-for" value="<?php $this->output( 'sermons_value', 'esc_attr' ); ?>" <?php checked( $this->get( 'show_results' ), $this->get( 'sermons_value', 'esc_attr' ) ); ?>/> <label for="results-for-sermons"><?php $this->output( 'sermons_label', 'esc_attr' ); ?></label>

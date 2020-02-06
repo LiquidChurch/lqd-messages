@@ -139,8 +139,8 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 		);
 
 		wp_enqueue_script(
-			'gc-sermon-videos',
-            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermon-videos.js',
+			'lqdm-message-videos',
+            Lqd_Messages_Plugin::$url . 'assets/js/lqdm-message-videos.js',
 			array( 'fitvids' ),
 			Lqd_Messages_Plugin::VERSION,
 			true

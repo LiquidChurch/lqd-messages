@@ -14,10 +14,6 @@ A message/sermon plugin for WordPress.
 
 Documentation for this plugin can be found in the [docs folder](https://github.com/LiquidChurch/lqd-messages/tree/mergefns-012720/docs).
 
-[Check out the GC-Sermons wiki](https://github.com/jtsternberg/GC-Sermons/wiki) for usage till we get ours up and running.
-
-
-
 ### Dependency Fragility
 Unfortunately, some of the dependencies of Liquid Messages have not aged particularly well. Because of this issue we are committing working versions of these dependencies with the plugin and we do not recommend running composer at this time due to the likelihood it will break one or more dependencies.
 

@@ -50,7 +50,7 @@
                                 ?>
                                 <div class="row single-sermon-title">
                                     <header class="entry-header col-sm-7" style="margin-top: 20px;">
-                                        <h1 class="gc-sermon-title">
+                                        <h1 class="lqdm-message-title">
                                             <?php
                                                 echo $sermon->post->post_title;
                                             ?>
@@ -67,10 +67,10 @@
 
                                         if (!empty($image_id)) {
                                             ?>
-                                            <div class="col-sm-5 gc-right-col">
+                                            <div class="col-sm-5 lqdm-right-col">
                                                 <?php echo wp_get_attachment_image($image_id,
                                                     'full', false, array(
-                                                        'class' => 'gc-series-list-sermons-img',
+                                                        'class' => 'lqdm-series-list-sermons-img',
                                                         'style' => 'width:100%;',
                                                     )); ?>
                                             </div>
@@ -297,8 +297,8 @@
                                        '" thumbnail_size="medium" number_columns="4"]');
                     if (!empty($other_msg)) {
                         ?>
-                        <div id="message-others" class="row gc-individual-sermon-list">
-                            <h1 class="gc-sermon-title other-msg-title"
+                        <div id="message-others" class="row lqdm-individual-sermon-list">
+                            <h1 class="lqdm-message-title other-msg-title"
                                 style="padding-left: 8px !important;">Other Messages in
                                 This
                                 Series</h1>

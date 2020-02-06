@@ -13,7 +13,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
     var $sort_btn = $(".sort-btn"),
         $update_btn = $(".update-btn"),
         $reset_btn = $(".reset-btn"),
-        $sermon_message_config_page_wrap = $(".gc-sermon-message-config-wrap"),
+        $sermon_message_config_page_wrap = $(".lqdm-message-config-wrap"),
         $message_config_form = $(".message-config-form");
 
 

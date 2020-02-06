@@ -288,7 +288,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
             ),
             '_thumbnail' => array(
                 'id'   => '_thumbnail',
-                'name' => __('Image', 'gc-staff'),
+                'name' => __('Image', 'lqdm'),
                 'desc' => __('Select an image if you want to override the series image for this sermon.', 'lqdm'),
                 'type' => 'file',
             ),
@@ -704,7 +704,7 @@ SQL;
 
             if ($the_query->have_posts()) {
                 $response['success'] = false;
-                $response['data'] = __('<div class="gc-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
+                $response['data'] = __('<div class="lqdm-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
                 while ($the_query->have_posts()) {
                     $the_query->the_post();
                     $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';

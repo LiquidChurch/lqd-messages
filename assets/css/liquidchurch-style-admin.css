@@ -14,24 +14,24 @@
     padding-left: 20px;
 }
 
-.gc-sermon-message-config-wrap input.error {
+.lqdm-message-config-wrap input.error {
     color: red;
     border: 1px solid red;
 }
 
-.gc-sermon-message-config-wrap input.error::-webkit-input-placeholder {
+.lqdm-message-config-wrap input.error::-webkit-input-placeholder {
     color: red;
 }
 
-.gc-sermon-message-config-wrap input.success {
+.lqdm-message-config-wrap input.success {
     border: 1px solid green;
 }
 
-.gc-sermon-message-config-wrap label.error {
+.lqdm-message-config-wrap label.error {
     color: red;
 }
 
-.gc-sermon-message-config-wrap label.success {
+.lqdm-message-config-wrap label.success {
     color: green;
 }
 
@@ -87,31 +87,31 @@
     margin-bottom: 10px !important;
 }
 
-.lc-form-group {
+.lqdm-form-group {
     padding: 5px;
     display: inline-block;
 }
 
-.lc-form-group input {
+.lqdm-form-group input {
     margin-left: 10px;
 }
 
-.lc-notice {
+.lqdm-notice {
 
 }
-.lc-notice .success {
+.lqdm-notice .success {
     color: #2db065;
 }
-.lc-notice .error {
+.lqdm-notice .error {
     color: #E83737;
 }
 
 /*********** Admin new style ***********/
-.gc-sermon-message-config-wrap {
+.lqdm-message-config-wrap {
     margin-top: 20px;
 }
 
-.gc-sermon-message-config-wrap {
+.lqdm-message-config-wrap {
     margin-top: 20px;
 }
 
@@ -163,7 +163,7 @@ h2.series-name {
     width: 80%;
 }
 
-.gc-sermon-message-config-wrap button {
+.lqdm-message-config-wrap button {
     padding: 5px 14px;
     background: rgba(236, 236, 236, 1);
     background: -moz-linear-gradient(top, rgba(236, 236, 236, 1) 0%, rgba(185, 185, 185, 1) 100%);
@@ -177,10 +177,10 @@ h2.series-name {
     margin-right: 10px;
 }
 
-.gc-sermon-message-config-wrap .config-section button {
+.lqdm-message-config-wrap .config-section button {
     padding: 5px 8px;
 }
 
 .cmb2-wrap .cmb-multicheck-toggle {
-    margin-top: 0em !important;
+    margin-top: 0 !important;
 }

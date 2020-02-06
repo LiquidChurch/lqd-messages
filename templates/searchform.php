@@ -1,4 +1,4 @@
-<form role="search" method="get" class="search-form gc-sermons-search"
+<form role="search" method="get" class="search-form lqdm-sermons-search"
       action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 
     <div class="row first-row">

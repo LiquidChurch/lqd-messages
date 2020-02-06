@@ -132,7 +132,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 * @return string
 	 */
 	public function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-series-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-series-search-wrap';
 	}
 
 	/**

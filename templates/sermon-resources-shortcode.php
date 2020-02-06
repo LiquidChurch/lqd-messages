@@ -1,5 +1,5 @@
-<div class="gc-sermon-resources-wrap <?php $this->output( 'resource_extra_classes', 'esc_attr' ); ?>">
-	<ul class="gc-sermon-resources-list">
+<div class="lqdm-sermon-resources-wrap <?php $this->output( 'resource_extra_classes', 'esc_attr' ); ?>">
+	<ul class="lqdm-sermon-resources-list">
         <?php
         $items = $this->get('items');
         $lc_list_style = '1' == count($items) ? 'width: 100%;' : '';

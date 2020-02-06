@@ -154,7 +154,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 * @return string
 	 */
 	protected function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-sermons-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-sermons-search-wrap';
 	}
 
 }

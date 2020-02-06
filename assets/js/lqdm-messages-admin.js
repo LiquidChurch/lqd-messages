@@ -58,7 +58,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 			data: data,
 			dataType: 'json'
 		}).done(function(resp) {
-			$(".gc-sermon-duplicate-notice").remove();
+			$(".lqdm-sermon-duplicate-notice").remove();
 			if(resp.success == false) {
 				$(".cmb2-metabox-description").after(resp.data);
 			}

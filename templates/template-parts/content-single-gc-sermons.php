@@ -60,7 +60,7 @@ $sermon = gc_get_sermon_post();
                                 <header class="entry-header col-sm-7" style="margin-top: 20px;">
 
                                     <?php
-                                    the_title('<h1 class="gc-sermon-title">', '</h1>');
+                                    the_title( '<h1 class="lqdm-message-title">', '</h1>');
                                     ?>
 
                                 </header><!-- .entry-header -->
@@ -68,9 +68,9 @@ $sermon = gc_get_sermon_post();
                                 <?php
                                 if (in_array('sermon_image', $message_field_to_display)) {
                                     ?>
-                                    <div class="col-sm-5 gc-right-col">
+                                    <div class="col-sm-5 lqdm-right-col">
                                         <?php echo wp_get_attachment_image($sermon->featured_image_id(), 'full', false, array(
-                                            'class' => 'gc-series-list-sermons-img',
+                                            'class' => 'lqdm-series-list-sermons-img',
                                             'style' => 'width:100%;',
                                         )); ?>
                                     </div>
@@ -149,22 +149,6 @@ $sermon = gc_get_sermon_post();
                         }
                         ?>
 
-                        <!--<div id="message-resources">
-                            <span style="padding-left:15px; font-weight:700;">Downloads and Other Resources:</span>
-                            <?php /*do_action('sermon_resources', array(
-                                'resource_type' => array('files', 'urls'),
-                                'resource_file_type' => array('image', 'video', 'audio', 'pdf', 'zip', 'other'),
-                                'resource_post_id' => get_the_id(),
-                            )); */ ?>
-                        </div>-->
-
-                        <?php
-                        $social_share_enable = Lqd_Messages_Plugin::get_plugin_settings_options('social_option', 'social_share');
-                        if ($social_share_enable == 'yes') {
-                            echo '<div class="addthis_sharing_toolbox"></div>';
-                        }
-                        ?>
-
                     </div>
                 </div>
             </div>
@@ -172,8 +156,8 @@ $sermon = gc_get_sermon_post();
             $other_msg = do_shortcode('[gc_sermons per_page="5" related_series="this" thumbnail_size="medium" number_columns="4"]');
             if (!empty($other_msg)) {
                 ?>
-                <div id="message-others" class="row gc-individual-sermon-list">
-                    <h1 class="gc-sermon-title other-msg-title" style="padding-left: 8px !important;">Other Messages in
+                <div id="message-others" class="row lqdm-individual-sermon-list">
+                    <h1 class="lqdm-message-title other-msg-title" style="padding-left: 8px !important;">Other Messages in
                         This
                         Series</h1>
                     <?php

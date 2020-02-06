@@ -1,20 +1,20 @@
-.gc-sermons-play-button {
+.lqdm-messages-play-button {
     padding: 1em;
 }
 
-.gc-sermons-play-button.icon-size-large {
+.lqdm-messages-play-button.icon-size-large {
     font-size: 2em;
 }
 
-.gc-sermons-play-button.icon-size-medium {
+.lqdm-messages-play-button.icon-size-medium {
     font-size: 1em;
 }
 
-.gc-sermons-play-button.icon-size-small {
+.lqdm-messages-play-button.icon-size-small {
     font-size: .5em;
 }
 
-#gc-video-overlay {
+#lqdm-video-overlay {
     display: block;
     width: 100%;
     position: fixed;
@@ -25,7 +25,7 @@
     z-index: 9999998;
 }
 
-.gc-sermons-modal {
+.lqdm-messages-modal {
     position: absolute;
     display: block;
     top: 50%;
@@ -34,6 +34,6 @@
     margin-left: 5%;
 }
 
-.gcinvisible {
+.lqdm-invisible {
     visibility: hidden;
 }

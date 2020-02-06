@@ -620,9 +620,9 @@ class LqdM_Option_Page
         $error = get_settings_errors($id);
         if (!empty($error[0])) {
             if ($error[0]['type'] == 'updated') {
-                printf('<div class="lc-notice"><p class="success">%s</p></div>', $error[0]['message']);
+                printf( '<div class="lqdm-notice"><p class="success">%s</p></div>', $error[0]['message']);
             } else {
-                printf('<div class="lc-notice"><p class="error">%s</p></div>', $error[0]['message']);
+                printf( '<div class="lqdm-notice"><p class="error">%s</p></div>', $error[0]['message']);
             }
         }
     }
@@ -640,7 +640,7 @@ class LqdM_Option_Page
         $name = $this->plugin_option_key . '[' . $arg['key'] . '][' . $arg['name'] . ']';
         foreach ($arg['value'] as $key => $val) {
             $matched = in_array($key, $saved_db_val) ? 'checked' : '';
-            printf('<div class="lc-form-group">');
+            printf( '<div class="lqdm-form-group">' );
             printf('<label for="%s">%s</label>', $id, $val);
             printf('<input type="checkbox" id="%s" name="%s[]" value="%s" %s />', $id, $name, $key, $matched);
             printf('</div>');
