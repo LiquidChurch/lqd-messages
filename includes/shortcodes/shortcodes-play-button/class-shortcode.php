@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Play_Button extends GCS_Shortcodes_Base {
+class LqdM_Shortcodes_Play_Button extends LqdM_Shortcodes_Base {
 
 	/**
 	 * Constructor
@@ -14,8 +14,8 @@ class GCS_Shortcodes_Play_Button extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run = new GCSS_Play_Button_Run( $plugin->sermons );
-		$this->admin = new GCSS_Play_Button_Admin( $this->run );
+		$this->run = new LqdM_Play_Button_Run( $plugin->sermons );
+		$this->admin = new LqdM_Play_Button_Admin( $this->run );
 
 		parent::hooks();
 	}

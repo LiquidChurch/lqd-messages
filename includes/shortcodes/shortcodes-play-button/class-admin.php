@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
+class LqdM_Play_Button_Admin extends LqdM_Shortcodes_Admin_Base {
 
 	/**
 	 * Shortcode prefix for field ids.
@@ -21,8 +21,8 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermon Play', 'gc-sermons' ),
-			'button_tooltip' => __( 'GC Sermon Play Button', 'gc-sermons' ),
+			'qt_button_text' => __( 'GC Sermon Play', 'lqdm' ),
+			'button_tooltip' => __( 'GC Sermon Play Button', 'lqdm' ),
 			'icon'           => 'dashicons-controls-play',
 			'mceView'        => true, // The future
 		);
@@ -38,8 +38,8 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 	 */
 	function fields( $fields, $button_data ) {
 		$fields[] = array(
-			'name'            => __( 'Sermon to play', 'gc-sermons' ),
-			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+			'name'            => __( 'Sermon to play', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
@@ -48,23 +48,23 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Icon Color', 'gc-sermons' ),
+			'name'    => __( 'Icon Color', 'lqdm' ),
 			'type'    => 'colorpicker',
 			'id'      => $this->prefix . 'icon_color',
 			'default' => $this->atts_defaults['icon_color'],
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Icon Size', 'gc-sermons' ),
-			'desc'    => __( 'Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "medium", "large", or "small".', 'gc-sermons' ),
+			'name'    => __( 'Icon Size', 'lqdm' ),
+			'desc'    => __( 'Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "medium", "large", or "small".', 'lqdm' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'icon_size',
 			'default' => $this->atts_defaults['icon_size'],
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Extra CSS Classes', 'gc-sermons' ),
-			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'gc-sermons' ),
+			'name'    => __( 'Extra CSS Classes', 'lqdm' ),
+			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'lqdm' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'icon_class',
 			'default' => $this->atts_defaults['icon_class'],

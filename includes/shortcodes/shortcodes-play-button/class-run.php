@@ -7,7 +7,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
+class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -39,18 +39,18 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		$sermon = $this->get_sermon();
 
 		if ( ! $sermon || ! isset( $sermon->ID ) ) {
-			return apply_filters( 'gcs_sermon_play_button_shortcode_output', GCS_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
+			return apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
 		}
 
 		if ( $this->att( 'do_scripts' ) ) {
 			$this->do_scripts();
 		}
 
-		$output = GCS_Style_Loader::get_template( 'play-button-shortcode-style' );
+		$output = LqdM_Style_Loader::get_template( 'play-button-shortcode-style' );
 
 		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
 
-		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', GCS_Template_Loader::get_template(
+		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template(
 			'play-button-shortcode',
 			array(
 				// Get our extra_class attribute
@@ -67,7 +67,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Get most Recent Sermon
 	 *
-	 * @return false|GCS_Sermon_Post
+	 * @return false|LqdM_Message_Post
 	 * @throws Exception
 	 */
 	protected function most_recent_sermon() {
@@ -132,7 +132,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 		wp_enqueue_script(
 			'fitvids',
-			GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
+            Lqd_Messages_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
 			array( 'jquery' ),
 			'1.1',
 			true
@@ -140,9 +140,9 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 
 		wp_enqueue_script(
 			'gc-sermon-videos',
-			GC_Sermons_Plugin::$url . 'assets/js/gc-sermon-videos.js',
+            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermon-videos.js',
 			array( 'fitvids' ),
-			GC_Sermons_Plugin::VERSION,
+			Lqd_Messages_Plugin::VERSION,
 			true
 		);
 	}
@@ -179,7 +179,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Run_Base {
 		}
 
 		if ( ! empty( $videos ) ) {
-			echo new GCS_Template_Loader( 'play-button-shortcode-modal-videos', array(
+			echo new LqdM_Template_Loader( 'play-button-shortcode-modal-videos', array(
 				'videos' => $videos,
 			) );
 		}
