@@ -4,19 +4,19 @@
  *
  * @package GC Sermons
  */
-abstract class GCS_Shortcodes_Base {
+abstract class LqdM_Shortcodes_Base {
 
 	/**
 	 * Instance of GCS_Shortcodes_Run_Base
 	 *
-	 * @var GCS_Shortcodes_Run_Base
+	 * @var LqdM_Shortcodes_Run_Base
 	 */
 	public $run;
 
 	/**
 	 * Instance of GCS_Shortcodes_Admin_Base
 	 *
-	 * @var GCS_Shortcodes_Admin_Base
+	 * @var LqdM_Shortcodes_Admin_Base
 	 */
 	public $admin;
 

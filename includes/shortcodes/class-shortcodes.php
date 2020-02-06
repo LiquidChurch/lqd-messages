@@ -4,12 +4,12 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes {
+class LqdM_Shortcodes {
 
 	/**
 	 * Instance of GCS_Shortcodes_Play_Button
 	 *
-	 * @var GCS_Shortcodes_Play_Button
+	 * @var LqdM_Shortcodes_Play_Button
 	 * @since 0.1.0
 	 */
 	protected $play_button;
@@ -17,7 +17,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Sermons
 	 *
-	 * @var GCS_Shortcodes_Sermons
+	 * @var LqdM_Shortcodes_Sermons
 	 * @since 0.1.4
 	 */
 	protected $sermons;
@@ -25,7 +25,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Recent_Series
 	 *
-	 * @var GCS_Shortcodes_Recent_Series
+	 * @var LqdM_Shortcodes_Recent_Series
 	 * @since 0.1.4
 	 */
 	protected $recent_series;
@@ -33,7 +33,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Recent_Speaker
 	 *
-	 * @var GCS_Shortcodes_Recent_Speaker
+	 * @var LqdM_Shortcodes_Recent_Speaker
 	 * @since 0.1.4
 	 */
 	protected $recent_speaker;
@@ -41,7 +41,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Video_Player
 	 *
-	 * @var GCS_Shortcodes_Video_Player
+	 * @var LqdM_Shortcodes_Video_Player
 	 * @since 0.1.4
 	 */
 	protected $video_player;
@@ -49,7 +49,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Audio_Player
 	 *
-	 * @var GCS_Shortcodes_Audio_Player
+	 * @var LqdM_Shortcodes_Audio_Player
 	 * @since 0.1.4
 	 */
 	protected $audio_player;
@@ -57,7 +57,7 @@ class GCS_Shortcodes {
 	/**
 	 * Instance of GCS_Shortcodes_Sermon_Search
 	 *
-	 * @var GCS_Shortcodes_Sermon_Search
+	 * @var LqdM_Shortcodes_Sermon_Search
 	 * @since 0.1.5
 	 */
 	protected $search;
@@ -65,14 +65,14 @@ class GCS_Shortcodes {
     /**
      * Instance of GCS_Shortcodes_Resources
      *
-     * @var GCS_Shortcodes_Resources
+     * @var LqdM_Shortcodes_Resources
      */
     protected $resources;
 
     /**
      * Instances of GCS_Shortcodes_Series
      *
-     * @var GCS_Shortcodes_Series
+     * @var LqdM_Shortcodes_Series
      */
     protected $series;
 
@@ -84,15 +84,15 @@ class GCS_Shortcodes {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->play_button    = new GCS_Shortcodes_Play_Button( $plugin );
-		$this->sermons        = new GCS_Shortcodes_Sermons( $plugin );
-		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
-		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
-		$this->series         = new GCS_Shortcodes_Series( $plugin );
-		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
-		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
-		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );
-		$this->resources      = new GCS_Shortcodes_Resources( $plugin );
+		$this->play_button    = new LqdM_Shortcodes_Play_Button( $plugin );
+		$this->sermons        = new LqdM_Shortcodes_Sermons( $plugin );
+		$this->recent_series  = new LqdM_Shortcodes_Recent_Series( $plugin );
+		$this->recent_speaker = new LqdM_Shortcodes_Recent_Speaker( $plugin );
+		$this->series         = new LqdM_Shortcodes_Series( $plugin );
+		$this->video_player   = new LqdM_Shortcodes_Video_Player( $plugin );
+		$this->audio_player   = new LqdM_Shortcodes_Audio_Player( $plugin );
+		$this->search         = new LqdM_Shortcodes_Sermon_Search( $plugin );
+		$this->resources      = new LqdM_Shortcodes_Resources( $plugin );
 	}
 
 	/**

@@ -4,17 +4,18 @@
  *
  * @package GC Sermons
  */
-abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
+abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
 {
 
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
+	 * @param LqdM_Shortcodes_Run_Base $run Main plugin object.
 	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+	 *@since  0.1.0
+	 *
 	 */
-    public function __construct(GCS_Shortcodes_Run_Base $run)
+    public function __construct( LqdM_Shortcodes_Run_Base $run)
     {
         parent::__construct($run);
 
@@ -31,9 +32,9 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
     {
         wp_register_script(
             'gc-sermons-admin',
-            GC_Sermons_Plugin::$url . 'assets/js/gc-sermons-admin.js',
+            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermons-admin.js',
             array('jquery'),
-            GC_Sermons_Plugin::VERSION,
+            Lqd_Messages_Plugin::VERSION,
             true
         );
         wp_localize_script('gc-sermons-admin', 'php_vars', array(

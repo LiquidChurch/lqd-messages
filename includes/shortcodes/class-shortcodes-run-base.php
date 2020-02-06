@@ -4,12 +4,12 @@
  *
  * @package GC Sermons
  */
-abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
+abstract class LqdM_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 	/**
 	 * GCS_Sermons object
 	 *
-	 * @var   GCS_Sermons
+	 * @var   LqdM_Messages
 	 * @since 0.1.0
 	 */
 	public $sermons;
@@ -17,11 +17,12 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
+	 * @param LqdM_Messages $sermons
+     *
+     * @since 0.1.3
 	 *
-	 * @param GCS_Sermons $sermons
 	 */
-	public function __construct( GCS_Sermons $sermons ) {
+	public function __construct( LqdM_Messages $sermons ) {
 		$this->sermons = $sermons;
 		parent::__construct();
 	}
@@ -55,7 +56,7 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 	/**
 	 * Get most recent sermon
 	 *
-	 * @return false|GCS_Sermon_Post
+	 * @return false|LqdM_Message_Post
 	 * @throws Exception
 	 */
 	protected function most_recent_sermon() {

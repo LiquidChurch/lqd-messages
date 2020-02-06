@@ -4,11 +4,11 @@
  *
  * @package GC Sermons
  */
-abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
+abstract class LqdM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**
 	 * Parent plugin class
 	 *
-	 * @var   GCS_Shortcodes_Run_Base
+	 * @var   LqdM_Shortcodes_Run_Base
 	 * @since 0.1.0
 	 */
 	protected $run;
@@ -24,16 +24,16 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
     /**
      * Constructor
      *
-     * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+     * @param LqdM_Shortcodes_Run_Base $run Main plugin object.
      *
      * @since   0.1.0
      */
-	public function __construct( GCS_Shortcodes_Run_Base $run ) {
+	public function __construct( LqdM_Shortcodes_Run_Base $run ) {
 		$this->run = $run;
 
 		parent::__construct(
 			$this->run->shortcode,
-			GC_Sermons_Plugin::VERSION,
+			Lqd_Messages_Plugin::VERSION,
 			$this->run->atts_defaults
 		);
 
