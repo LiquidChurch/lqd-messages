@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Series_Search_Run extends GCSS_Series_Run {
+class LqdM_Series_Search_Run extends LqdM_Series_Run {
 
 	/**
 	 * The current search query.
@@ -30,14 +30,15 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
-	 *
 	 * @param string      $search_query
 	 * @param             $atts
-	 * @param GCS_Sermons $sermons
-	 * @param GCS_Series  $series
+	 * @param LqdM_Messages $sermons
+	 * @param LqdM_Series  $series
+     *
+     * @since 0.1.3
+	 *
 	 */
-	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Series $series ) {
+	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Series $series ) {
 		$this->search_query = $search_query;
 		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
 
@@ -89,8 +90,8 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 		$args['plugin_option'] = get_plugin_settings_options('search_view');
 
 		$this->results = '';
-		$this->results .= GCS_Style_Loader::get_template( 'list-item-style' );
-		$this->results .= GCS_Template_Loader::get_template( 'series-list', $args );
+		$this->results .= LqdM_Style_Loader::get_template( 'list-item-style' );
+		$this->results .= LqdM_Template_Loader::get_template( 'series-list', $args );
 
 		return $this->results;
 	}

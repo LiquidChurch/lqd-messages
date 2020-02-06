@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
+class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -50,7 +50,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
     /**
      * Taxonomies Object
      *
-     * @var GCS_Taxonomies
+     * @var LqdM_Taxonomies
      * @since 0.1.0
      */
 	public $taxonomies;
@@ -65,12 +65,13 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
+	 * @param LqdM_Messages $sermons
+	 * @param LqdM_Taxonomies $taxonomies
+     *
+     * @since 0.1.3
 	 *
-	 * @param GCS_Sermons $sermons
-	 * @param GCS_Taxonomies $taxonomies
 	 */
-	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+	public function __construct( LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
 
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $sermons );
@@ -106,14 +107,14 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 			'separate_results'  => $separate_results,
 		);
 
-		$content = GCS_Template_Loader::get_template( $template, $args );
+		$content = LqdM_Template_Loader::get_template( $template, $args );
 
 		// If a search was performed, let's get the results.
 		if ( $this->search_query ) {
 
 			if ( strlen( $this->search_query ) < 3 ) {
 				// Uh-oh, we need at least 3 characters.
-				$content .= GCS_Template_Loader::get_template( 'search-query-error' );
+				$content .= LqdM_Template_Loader::get_template( 'search-query-error' );
 			} else {
 
 				$show_sermon_results = ! $show_results || $cpt_slug === $show_results;
@@ -139,7 +140,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Sermon Search Results
 	 *
-	 * @return GCSS_Sermons_Search_Run|string
+	 * @return LqdM_Sermons_Search_Run|string
 	 * @throws Exception
 	 */
 	protected function sermon_search_results() {
@@ -149,14 +150,14 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		$atts = wp_parse_args( $atts, $this->att( 'sermon_search_args', array() ) );
 
-		$search = new GCSS_Sermons_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies );
+		$search = new LqdM_Sermons_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies );
 		$search->get_search_results( );
 
-		return GCS_Template_Loader::get_template( 'sermon-search-results', array(
+		return LqdM_Template_Loader::get_template( 'sermon-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
-				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
+				__( '%s search results for: <em>%s</em>', 'lqdm' ),
 				$this->sermons->post_type( 'singular' ),
 				esc_html( $this->search_query )
 			),
@@ -176,14 +177,14 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		$atts = wp_parse_args( $atts, $this->att( 'series_search_args', array() ) );
 
-		$search = new GCSS_Series_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies->series );
+		$search = new LqdM_Series_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies->series );
 		$search->get_search_results();
 
-		return GCS_Template_Loader::get_template( 'series-search-results', array(
+		return LqdM_Template_Loader::get_template( 'series-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
-				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
+				__( '%s search results for: <em>%s</em>', 'lqdm' ),
 				$this->taxonomies->series->taxonomy( 'singular' ),
 				esc_html( $this->search_query )
 			),

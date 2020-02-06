@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
+class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 
 	/**
 	 * The current search query.
@@ -37,14 +37,15 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
-	 *
 	 * @param string         $search_query
 	 * @param $atts
-	 * @param GCS_Sermons    $sermons
-	 * @param GCS_Taxonomies $taxonomies
+	 * @param LqdM_Messages    $sermons
+	 * @param LqdM_Taxonomies $taxonomies
+     *
+     * @since 0.1.3
+	 *
 	 */
-	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
 		$this->search_query = $search_query;
 		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
 
@@ -88,7 +89,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
 		$this->results = '';
 		if ( 0 === $my_level ) {
-			$this->results .= GCS_Style_Loader::get_template( 'list-item-style' );
+			$this->results .= LqdM_Style_Loader::get_template( 'list-item-style' );
 		}
 
 		$args = $this->get_pagination( $max );
@@ -96,7 +97,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		$args['sermons']      = $sermons;
 		$args['plugin_option'] = get_plugin_settings_options('search_view');
 
-		$this->results .= GCS_Template_Loader::get_template( 'sermons-list', $args );
+		$this->results .= LqdM_Template_Loader::get_template( 'sermons-list', $args );
 
 		remove_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
 
