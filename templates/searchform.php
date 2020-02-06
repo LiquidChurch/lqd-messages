@@ -22,14 +22,14 @@
     <?php if ($this->get('show_filter')) : ?>
         <div class="row second-row">
             <div class="col-md-3">
-                <label><?php _ex('Show search results for :', 'Search results filter', 'gc-sermons'); ?></label>
+                <label><?php _ex('Show search results for :', 'Search results filter', 'lqdm'); ?></label>
             </div>
             <div class="col-md-9">
                 <div class="form-inline">
                     <div class="form-group">
                         <input type="radio" class="search-field-radio" name="results-for"
                                value="" <?php checked($this->get('show_results'), ''); ?>/>
-                        <span><?php _ex('Both', 'Show search results for both sermons and sermon series.', 'gc-sermons'); ?></span>
+                        <span><?php _ex('Both', 'Show search results for both sermons and sermon series.', 'lqdm'); ?></span>
 
                         <input type="radio" class="search-field-radio" name="results-for"
                                value="<?php $this->output('sermons_value', 'esc_attr'); ?>" <?php checked($this->get('show_results'), $this->get('sermons_value', 'esc_attr')); ?>/>
