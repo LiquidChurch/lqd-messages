@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Series extends GCS_Taxonomies_Base {
+class LqdM_Series extends LqdM_Taxonomies_Base {
 
 	/**
 	 * The identifier for this object
@@ -41,7 +41,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Sermon Series', 'gc-sermons' ), __( 'Sermon Series', 'gc-sermons' ), 'gc-sermon-series' ),
+			'labels' => array( __( 'Sermon Series', 'lqdm' ), __( 'Sermon Series', 'lqdm' ), 'gc-sermon-series' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,
@@ -77,14 +77,14 @@ class GCS_Series extends GCS_Taxonomies_Base {
 			'object_types' => array( 'term' ),
 			'fields'       => array(
 				$this->image_meta_key => array(
-					'name' => __( 'Sermon Series Image', 'gc-sermons' ),
-					'desc' => __( 'Select the series\' branding image', 'gc-sermons' ),
+					'name' => __( 'Sermon Series Image', 'lqdm' ),
+					'desc' => __( 'Select the series\' branding image', 'lqdm' ),
 					'id'   => $this->image_meta_key,
 					'type' => 'file'
 				),
 			),
 		) );
 
-		$this->add_image_column( __( 'Series Image', 'gc-sermons' ) );
+		$this->add_image_column( __( 'Series Image', 'lqdm' ) );
 	}
 }

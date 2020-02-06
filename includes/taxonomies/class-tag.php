@@ -5,7 +5,7 @@
  * @package GC Sermons
  */
 
-class GCS_Tag extends GCS_Taxonomies_Base {
+class LqdM_Tag extends LqdM_Taxonomies_Base {
 
 	/**
 	 * The identifier for this object
@@ -24,7 +24,7 @@ class GCS_Tag extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Tag', 'gc-sermons' ), __( 'Tags', 'gc-sermons' ), 'gcs-tag' ),
+			'labels' => array( __( 'Tag', 'lqdm' ), __( 'Tags', 'lqdm' ), 'gcs-tag' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'rewrite' => array( 'slug' => 'sermon-tag' ),

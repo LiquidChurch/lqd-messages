@@ -4,40 +4,40 @@
  *
  * @package GC Sermons
  */
-class GCS_Taxonomies {
+class LqdM_Taxonomies {
 
 	/**
 	 * Instance of GCS_Series
 	 *
-	 * @var GCS_Series
+	 * @var LqdM_Series
 	 */
 	protected $series;
 
 	/**
 	 * Instance of GCS_Speaker
 	 *
-	 * @var GCS_Speaker
+	 * @var LqdM_Speaker
 	 */
 	protected $speaker;
 
 	/**
 	 * Instance of GCS_Topic
 	 *
-	 * @var GCS_Topic
+	 * @var LqdM_Topic
 	 */
 	protected $topic;
 
 	/**
 	 * Instance of GCS_Tag
 	 *
-	 * @var GCS_Tag
+	 * @var LqdM_Tag
 	 */
 	protected $tag;
 
 	/**
 	 * Instance of GCS_Scripture
 	 *
-	 * @var GCS_Scripture
+	 * @var LqdM_Scripture
 	 */
 	protected $scripture;
 
@@ -49,11 +49,11 @@ class GCS_Taxonomies {
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		$this->series    = new GCS_Series( $sermons );
-		$this->speaker   = new GCS_Speaker( $sermons );
-		$this->topic     = new GCS_Topic( $sermons );
-		$this->tag       = new GCS_Tag( $sermons );
-		$this->scripture = new GCS_Scripture( $sermons );
+		$this->series    = new LqdM_Series( $sermons );
+		$this->speaker   = new LqdM_Speaker( $sermons );
+		$this->topic     = new LqdM_Topic( $sermons );
+		$this->tag       = new LqdM_Tag( $sermons );
+		$this->scripture = new LqdM_Scripture( $sermons );
 	}
 
 	/**

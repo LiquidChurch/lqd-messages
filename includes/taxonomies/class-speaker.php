@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Speaker extends GCS_Taxonomies_Base {
+class LqdM_Speaker extends LqdM_Taxonomies_Base {
 
 	/**
 	 * The identifier for this object
@@ -31,7 +31,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Speaker', 'gc-sermons' ), __( 'Speakers', 'gc-sermons' ), 'gcs-speaker' ),
+			'labels' => array( __( 'Speaker', 'lqdm' ), __( 'Speakers', 'lqdm' ), 'gcs-speaker' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'rewrite' => array( 'slug' => 'speaker' ),
@@ -58,14 +58,14 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	public function fields() {
 		$fields = array(
 			$this->image_meta_key => array(
-				'name' => __( 'Speaker Avatar', 'gc-sermons' ),
-				'desc' => __( 'Select the speaker\'s avatar. Will only show if "Connected User" is not chosen, or if the "Connected User" does not have an avatar.', 'gc-sermons' ),
+				'name' => __( 'Speaker Avatar', 'lqdm' ),
+				'desc' => __( 'Select the speaker\'s avatar. Will only show if "Connected User" is not chosen, or if the "Connected User" does not have an avatar.', 'lqdm' ),
 				'id'   => $this->image_meta_key,
 				'type' => 'file'
 			),
 		);
 
-		$this->add_image_column( __( 'Speaker Avatar', 'gc-sermons' ) );
+		$this->add_image_column( __( 'Speaker Avatar', 'lqdm' ) );
 
 		$cmb = $this->new_cmb2( array(
 			'id'           => 'gc_sermon_speaker_metabox',

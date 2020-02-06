@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Scripture extends GCS_Taxonomies_Base {
+class LqdM_Scripture extends LqdM_Taxonomies_Base {
 
 	/**
 	 * The identifier for this object
@@ -23,7 +23,7 @@ class GCS_Scripture extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Scripture Reference', 'gc-sermons' ), __( 'Scripture References', 'gc-sermons' ), 'gcs-scripture' ),
+			'labels' => array( __( 'Scripture Reference', 'lqdm' ), __( 'Scripture References', 'lqdm' ), 'gcs-scripture' ),
 			'args' => array(
 				'rewrite' => array( 'slug' => 'scripture-reference' ),
 			),

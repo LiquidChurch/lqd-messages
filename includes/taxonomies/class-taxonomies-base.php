@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
+abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 
 	/**
 	 * The identifier for this object
@@ -16,7 +16,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * GCS_Sermons object
 	 *
-	 * @var GCS_Sermons
+	 * @var LqdM_Messages
 	 * @since  0.1.0
 	 */
 	protected $sermons = null;
@@ -127,7 +127,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @param string  $img_col_title The title for the Image column.
 	 */
 	protected function add_image_column( $img_col_title ) {
-		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'gc-sermons' );
+		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'lqdm' );
 
 		$tax = $this->taxonomy();
 
@@ -216,12 +216,12 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Retrieve the terms for the most recent post which has this taxonomy set.
 	 *
-	 * @since  0.1.0
-	 *
 	 * @param  boolean $get_single_term Whether to get the first term or all of them.
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
 	 * @throws Exception
+	 *@since  0.1.0
+	 *
 	 */
 	public function most_recent( $get_single_term = false ) {
 		static $terms = null;
@@ -244,10 +244,10 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Retrieve the most recent sermon which has terms in this taxonomy.
 	 *
-	 * @since  0.2.0
-	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
 	 * @throws Exception
+	 *@since  0.2.0
+	 *
 	 */
 	public function most_recent_sermon() {
 		return $this->sermons->most_recent_with_taxonomy( $this->id );
