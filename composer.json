@@ -22,7 +22,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "classmap": [
-      "gc-sermons.php",
+      "liquid-messages.php",
       "includes/",
       "vendor/webdevstudios/cpt-core/CPT_Core.php",
       "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"

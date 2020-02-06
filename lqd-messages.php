@@ -2,13 +2,13 @@
     /**
      * Plugin Name: Liquid Church Messages
      * Plugin URI:  https://liquidchurch.com
-     * Description: Manage sermons and sermon content in WordPress
+     * Description: Manage messages and message content in WordPress
      * Version:     0.9.1
      * Author:      jtsternberg, surajprgupta, davidshq, liquidchurch
      * Author URI:  https://liquidchurch.com
      * Donate link: https://liquidchurch.com
      * License:     GPLv2
-     * Text Domain: gc-sermons
+     * Text Domain: lqdm
      * Domain Path: /languages
      */
 
@@ -79,7 +79,7 @@
         public static $basename = '';
 
         /**
-         * Array of plugin requirements, keyed by admin notice label.
+         * Array of plugin requirements.
          *
          * @var array
          * @since  0.1.0
@@ -103,14 +103,14 @@
         protected static $single_instance = null;
 
         /**
-         * Instance of LqdM_Messages
+         * Instance of Messages Post Type
          *
          * @var LqdM_Messages
          */
         protected $sermons;
 
         /**
-         * Instance of LqdM_Taxonomies
+         * Instance of Messages Taxonomies
          *
          * @since 0.1.0
          * @var LqdM_Taxonomies
@@ -118,7 +118,7 @@
         protected $taxonomies;
 
         /**
-         * Instance of LqdM_Shortcodes
+         * Instance of Messages Shortcodes
          *
          * @since 0.1.0
          * @var LqdM_Shortcodes
@@ -126,7 +126,7 @@
         protected $shortcodes;
 
         /**
-         * Instance of LqdM_Async
+         * Instance of Messages Async
          *
          * @since 0.1.1
          * @var LqdM_Async
@@ -134,28 +134,28 @@
         protected $async;
 
         /**
-         * Plugin Options Settings Key
+         * Messages Options Settings Key
          *
          * @var string
          */
         public static $plugin_option_key = 'lc-plugin-settings';
 
         /**
-         * Instance of LqdM_Metaboxes
+         * Instance of Messages Metaboxes
          *
          * @var LqdM_Metaboxes
          */
         protected $metaboxes;
 
         /**
-         * Instance of LqdM_Config_Page
+         * Instance of Messages Config Page
          *
          * @var LqdM_Config_Page
          */
         protected $config_page;
 
         /**
-         * Instance of LqdM_Option_Page
+         * Instance of Messages Option Page
          *
          * @var LqdM_Option_Page
          */
@@ -196,10 +196,10 @@
         }
 
         /**
-         * Creates or returns an instance of this class.
+         * Creates or returns an instance of the Lqd_Messages_Plugin class.
          *
          * @return Lqd_Messages_Plugin A single instance of this class.
-         *@since  0.1.0
+         * @since  0.1.0
          */
         public static function get_instance()
         {
@@ -217,9 +217,9 @@
          */
         protected function __construct()
         {
-            self::$basename = plugin_basename(__FILE__); // lqd-messages/lqd-messages.php
-            self::$url      = plugin_dir_url(__FILE__); // https://one.wordpress.test/wp-content/plugins/lqd-messages
-            self::$path     = plugin_dir_path(__FILE__); // /srv/www/wordpress-one/public_html/wp-content/plugins/lqd-messages/
+            self::$basename = plugin_basename(__FILE__);
+            self::$url      = plugin_dir_url(__FILE__);
+            self::$path     = plugin_dir_path(__FILE__);
         }
 
 	    /**
@@ -233,13 +233,12 @@
         {
             require_once self::$path . 'functions.php';
 
-            // Attach other plugin classes to the base plugin class.
             $this->sermons = new LqdM_Messages($this);
             $this->taxonomies = new LqdM_Taxonomies($this->sermons);
             $this->async = new LqdM_Async($this);
 
 
-            // Only create the full metabox object if in the admin.
+            // Only create the full metabox object if user is in admin.
             if (is_admin()) {
                 $this->metaboxes = new LqdM_Metaboxes($this);
                 $this->metaboxes->hooks();
@@ -247,7 +246,7 @@
                 $this->metaboxes = (object) array();
             }
 
-            // Set these properties either way.
+            // Set these properties for metaboxes, no matter what.
             $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
             $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
             $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
@@ -282,7 +281,7 @@
         }
 
         /**
-         * Requires CMB2 to be installed
+         * Require CMB2 to be installed
          */
         public function register_required_plugin()
         {
@@ -349,7 +348,7 @@
         }
 
         /**
-         * Activate the plugin
+         * Activate Liquid Messages Plugin
          *
          * @since  0.1.0
          * @return void
@@ -361,9 +360,9 @@
         }
 
         /**
-         * Deactivate the plugin
+         * Deactivate Liquid Messages Plugin
          *
-         * Uninstall routines should be in uninstall.php
+         * If uninstall routines are added, they should go in uninstall.php
          *
          * @since  0.1.0
          * @return void
@@ -377,6 +376,7 @@
          * Init hooks
          *
          * In our case, load the textdomain.
+         *
          * @since  0.1.0
          * @return void
          */
@@ -420,11 +420,11 @@
     }
 
     /**
-     * Grab the GC_Sermons_Plugin object and return it.
-     * Wrapper for GC_Sermons_Plugin::get_instance()
+     * Grab the Liquid_Messages_Plugin object and return it.
+     * Wrapper for Liquid_Messages_Plugin::get_instance()
      *
      * @return Lqd_Messages_Plugin  Singleton instance of plugin class.
-     *@since  0.1.0
+     * @since  0.1.0
      */
     function lqd_messages()
     {

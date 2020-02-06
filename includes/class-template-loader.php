@@ -147,8 +147,8 @@ class LqdM_Template_Loader {
 	protected function _locate( $template ) {
 
 		$locations = apply_filters( "template_locations_for_{$this->template}", array(
-			STYLESHEETPATH . '/gc-sermons/assets/css/',
-			TEMPLATEPATH . '/gc-sermons/',
+			STYLESHEETPATH . '/lqd-messages/assets/css/',
+			TEMPLATEPATH . '/lqd-messages/',
             Lqd_Messages_Plugin::$path . 'templates/',
             Lqd_Messages_Plugin::$path . 'templates/assets/css/'
 		), $this );
