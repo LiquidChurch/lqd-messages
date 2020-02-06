@@ -6,7 +6,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Video_Player_Admin extends GCSS_Recent_Admin_Base {
+class LqdM_Shortcodes_Video_Player_Admin extends LqdM_Recent_Admin_Base {
 
     /**
      * Shortcode prefix for field ids.
@@ -23,8 +23,8 @@ class GCS_Shortcodes_Video_Player_Admin extends GCSS_Recent_Admin_Base {
      */
     function js_button_data() {
         return array(
-            'qt_button_text' => __( 'GC Sermon Video Player', 'gc-sermons' ),
-            'button_tooltip' => __( 'GC Sermon Video Player', 'gc-sermons' ),
+            'qt_button_text' => __( 'GC Sermon Video Player', 'lqdm' ),
+            'button_tooltip' => __( 'GC Sermon Video Player', 'lqdm' ),
             'icon'           => 'dashicons-format-video',
             // 'mceView'        => true, // The future
         );
@@ -41,8 +41,8 @@ class GCS_Shortcodes_Video_Player_Admin extends GCSS_Recent_Admin_Base {
     function fields( $fields, $button_data ) {
 
         $fields[] = array(
-            'name'            => __( 'Sermon ID', 'gc-sermons' ),
-            'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s video player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+            'name'            => __( 'Sermon ID', 'lqdm' ),
+            'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s video player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
             'id'              => $this->prefix . 'sermon_id',
             'type'            => 'post_search_text',
             'post_type'       => $this->run->sermons->post_type(),

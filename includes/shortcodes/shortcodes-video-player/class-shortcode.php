@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Video_Player extends GCS_Shortcodes_Base {
+class LqdM_Shortcodes_Video_Player extends LqdM_Shortcodes_Base {
 
 	/**
 	 * Constructor
@@ -14,8 +14,8 @@ class GCS_Shortcodes_Video_Player extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCS_Shortcodes_Video_Player_Run( $plugin->sermons );
-		$this->admin = new GCS_Shortcodes_Video_Player_Admin( $this->run );
+		$this->run   = new LqdM_Shortcodes_Video_Player_Run( $plugin->sermons );
+		$this->admin = new LqdM_Shortcodes_Video_Player_Admin( $this->run );
 
 		parent::hooks();
 	}
