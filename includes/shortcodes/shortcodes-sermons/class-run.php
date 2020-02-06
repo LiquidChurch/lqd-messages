@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
+class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
 {
     /**
      * The Shortcode Tag
@@ -34,7 +34,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
     /**
      * GCS_Taxonomies object
      *
-     * @var   GCS_Taxonomies
+     * @var   LqdM_Taxonomies
      * @since 0.1.0
      */
     public $taxonomies;
@@ -50,12 +50,13 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
     /**
      * Constructor
      *
+     * @param LqdM_Messages $sermons
+     * @param LqdM_Taxonomies $taxonomies
+     *
      * @since 0.1.3
      *
-     * @param GCS_Sermons $sermons
-     * @param GCS_Taxonomies $taxonomies
      */
-    public function __construct(GCS_Sermons $sermons, GCS_Taxonomies $taxonomies)
+    public function __construct(LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies)
     {
         $this->taxonomies = $taxonomies;
         parent::__construct($sermons);
@@ -106,7 +107,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 
         $content = '';
         if (0 === $my_level) {
-            $content .= GCS_Style_Loader::get_template('list-item-style');
+            $content .= LqdM_Style_Loader::get_template('list-item-style');
         }
 
         $args = $this->get_pagination($max);
@@ -114,7 +115,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $args['sermons']       = $sermons;
         $args['plugin_option'] = get_plugin_settings_options('single_message_view');
 
-        $content .= GCS_Template_Loader::get_template('sermons-list', $args);
+        $content .= LqdM_Template_Loader::get_template('sermons-list', $args);
 
         return $content;
     }
@@ -214,8 +215,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $nav = array('prev_link' => '', 'next_link' => '');
 
         if (!$this->bool_att('remove_pagination')) {
-            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'));
-            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'));
+            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
+            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'lqdm'));
         }
 
         return $nav;
