@@ -4,7 +4,7 @@
  *
  * @package GC Sermons
  */
-class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
+class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag

@@ -6,7 +6,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Recent_Sermon_Admin extends GCSS_Recent_Admin_Base
+class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
 {
     /**
      * Sets up the button
@@ -16,8 +16,8 @@ class GCS_Shortcodes_Recent_Sermon_Admin extends GCSS_Recent_Admin_Base
     function js_button_data()
     {
         return array(
-            'qt_button_text' => __('GC Recent Sermon', 'gc-sermons'),
-            'button_tooltip' => __('GC Recent Sermon', 'gc-sermons'),
+            'qt_button_text' => __('GC Recent Sermon', 'lqdm'),
+            'button_tooltip' => __('GC Recent Sermon', 'lqdm'),
             'icon'           => 'dashicons-media-interactive'
         );
     }
@@ -33,8 +33,8 @@ class GCS_Shortcodes_Recent_Sermon_Admin extends GCSS_Recent_Admin_Base
     function fields($fields, $button_data)
     {
         $fields[] = array(
-            'name' => __( 'Per Page', 'gc-sermons' ),
-            'desc' => __( '', 'gc-sermons' ),
+            'name' => __( 'Per Page', 'lqdm' ),
+            'desc' => __( '', 'lqdm' ),
             'id'   => 'per_page',
             'type' => 'text',
             'default' => '10',
@@ -67,8 +67,8 @@ class GCS_Shortcodes_Recent_Sermon_Admin extends GCSS_Recent_Admin_Base
         );
 
         $fields[] = array(
-            'name' => __( 'Number of Columns', 'gc-sermons' ),
-            'desc' => __( '', 'gc-sermons' ),
+            'name' => __( 'Number of Columns', 'lqdm' ),
+            'desc' => __( '', 'lqdm' ),
             'id'   => 'number_columns',
             'type' => 'text',
             'default' => '2',

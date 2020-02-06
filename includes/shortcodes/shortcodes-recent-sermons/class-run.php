@@ -5,7 +5,7 @@
  * @since 0.10.0
  * @package GC Sermons
  */
-class GCS_Shortcodes_Recent_Sermon_Run extends GCS_Shortcodes_Run_Base
+class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
 {
     /**
      * Keep track of the levels of inception.
@@ -75,7 +75,7 @@ class GCS_Shortcodes_Recent_Sermon_Run extends GCS_Shortcodes_Run_Base
 
         $content = '';
         if (0 === $my_level) {
-            $content .= GCS_Style_Loader::get_template('list-item-style');
+            $content .= LqdM_Style_Loader::get_template('list-item-style');
         }
 
         $args = $this->get_pagination($max);
@@ -83,7 +83,7 @@ class GCS_Shortcodes_Recent_Sermon_Run extends GCS_Shortcodes_Run_Base
         $args['sermons'] = $sermons;
         $args['plugin_option'] = get_plugin_settings_options('single_message_view');
 
-        $content .= GCS_Template_Loader::get_template('sermons-list', $args);
+        $content .= LqdM_Template_Loader::get_template('sermons-list', $args);
 
         return $content;
     }
@@ -150,8 +150,8 @@ class GCS_Shortcodes_Recent_Sermon_Run extends GCS_Shortcodes_Run_Base
         $nav = array('prev_link' => '', 'next_link' => '');
 
         if (!$this->bool_att('remove_pagination')) {
-            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'gc-sermons'));
-            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'gc-sermons'));
+            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
+            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'lqdm'));
             }
 
         return $nav;
