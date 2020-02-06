@@ -6,7 +6,7 @@
  *
  * @package GC Sermons
  */
-class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
+class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -33,7 +33,7 @@ class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
     /**
      * Additional Resources meta id.
      *
-     * @see  GCS_Metaboxes::$resources_meta_id
+     * @see  LqdM_Metaboxes::$resources_meta_id
      * @var   string
      */
     public $meta_id = '';
@@ -48,14 +48,14 @@ class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
     /**
      * Constructor
      *
-     * @param GCS_Sermons $sermons
+     * @param LqdM_Messages $sermons
      * @param string $meta_id Resource meta id
      *
      */
-    public function __construct(GCS_Sermons $sermons, $meta_id)
+    public function __construct(LqdM_Messages $sermons, $meta_id)
     {
 		$this->meta_id = $meta_id;
-        $this->atts_defaults['resource_lang'] = array_keys(GCS_Metaboxes::get_lng_fld_option());
+        $this->atts_defaults['resource_lang'] = array_keys(LqdM_Metaboxes::get_lng_fld_option());
         parent::__construct($sermons);
 	}
 
@@ -105,9 +105,9 @@ class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
 			$args[ $key ] = $this->att( $key );
 		}
 
-        $args['lang_plugin_option'] = GCS_Metaboxes::get_lng_fld_option();
+        $args['lang_plugin_option'] = LqdM_Metaboxes::get_lng_fld_option();
 
-		return GCS_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
+		return LqdM_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
 	}
 
 	/**
@@ -220,11 +220,11 @@ class GCS_Shortcodes_Resources_Run extends GCS_Shortcodes_Run_Base {
                 );
             }
             // $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
-            $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
+            $resource['item'] = LqdM_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;
 
-            $items[$resource['lang']][] = GCS_Template_Loader::get_template('sermon-resources-shortcode-li', $resource);
+            $items[$resource['lang']][] = LqdM_Template_Loader::get_template('sermon-resources-shortcode-li', $resource);
         }
 
         return $items;
