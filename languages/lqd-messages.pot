@@ -1,0 +1,1951 @@
+# Copyright (C) 2020 jtsternberg, surajprgupta, davidshq, liquidchurch
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Liquid Church Messages 0.9.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lqd-messages\n"
+"POT-Creation-Date: 2020-02-06 22:09:46+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: functions.php:206
+#: includes/shortcodes/shortcodes-recent-sermons/class-run.php:154
+#: includes/shortcodes/shortcodes-series/class-run.php:229
+#: includes/shortcodes/shortcodes-sermons/class-run.php:219
+msgid "Older <span>&rarr;</span>"
+msgstr ""
+
+#: functions.php:231
+#: includes/shortcodes/shortcodes-recent-sermons/class-run.php:153
+#: includes/shortcodes/shortcodes-series/class-run.php:228
+#: includes/shortcodes/shortcodes-sermons/class-run.php:218
+msgid "<span>&larr;</span> Newer"
+msgstr ""
+
+#: includes/class-metaboxes.php:77
+msgid "Display Conditions"
+msgstr ""
+
+#: includes/class-metaboxes.php:84
+msgid "Display Order"
+msgstr ""
+
+#: includes/class-metaboxes.php:85
+msgid "Post will appear in the series based on this order"
+msgstr ""
+
+#: includes/class-metaboxes.php:94
+msgid "Exclude as Message"
+msgstr ""
+
+#: includes/class-metaboxes.php:95
+msgid "If selected the post will not appear as message in the message listing"
+msgstr ""
+
+#: includes/class-metaboxes.php:101
+msgid "Position in Message Archive Page"
+msgstr ""
+
+#: includes/class-metaboxes.php:102
+msgid ""
+"Based on this value, videos will appear above/below the normal messages "
+"listing"
+msgstr ""
+
+#: includes/class-metaboxes.php:106
+msgid "First"
+msgstr ""
+
+#: includes/class-metaboxes.php:107
+msgid "Last"
+msgstr ""
+
+#: includes/class-metaboxes.php:115 includes/pages/class-option-page.php:216
+msgid "Additional Resources"
+msgstr ""
+
+#: includes/class-metaboxes.php:123
+msgid "Resource {#}"
+msgstr ""
+
+#: includes/class-metaboxes.php:124
+msgid "Add Another Resource"
+msgstr ""
+
+#: includes/class-metaboxes.php:125
+msgid "Remove Resource"
+msgstr ""
+
+#: includes/class-metaboxes.php:133
+msgid "Resource Name"
+msgstr ""
+
+#: includes/class-metaboxes.php:134
+msgid "e.g., \"Audio for Faces of Grace Sermon\""
+msgstr ""
+
+#: includes/class-metaboxes.php:139
+#: includes/shortcodes/shortcodes-resources/class-admin.php:100
+msgid "Resource Language"
+msgstr ""
+
+#: includes/class-metaboxes.php:140
+#: includes/shortcodes/shortcodes-resources/class-admin.php:101
+msgid "Please select the resource language"
+msgstr ""
+
+#: includes/class-metaboxes.php:146
+msgid "Display Name"
+msgstr ""
+
+#: includes/class-metaboxes.php:147
+msgid "e.g., \"Download Audio\""
+msgstr ""
+
+#: includes/class-metaboxes.php:153
+msgid "URL or File"
+msgstr ""
+
+#: includes/class-metaboxes.php:154
+msgid "Link to OR upload OR select resource\""
+msgstr ""
+
+#: includes/class-metaboxes.php:159
+msgid "Type of Resource"
+msgstr ""
+
+#: includes/class-metaboxes.php:160
+msgid ""
+"e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate "
+"if selecting media. Leave blank if adding a URL instead of a file."
+msgstr ""
+
+#: includes/class-sermon-post.php:434
+msgid "There is no series associated with this sermon."
+msgstr ""
+
+#: includes/class-sermon-post.php:467
+msgid "There is no speaker associated with this sermon."
+msgstr ""
+
+#: includes/pages/class-config-page.php:57
+#: includes/pages/class-config-page.php:58
+msgid "Messages Config"
+msgstr ""
+
+#: includes/pages/class-config-page.php:174
+msgid "Please wait..."
+msgstr ""
+
+#: includes/pages/class-config-page.php:175
+msgid "Please fill all the required values"
+msgstr ""
+
+#: includes/pages/class-config-page.php:210
+#: includes/pages/class-config-page.php:236
+msgid "Successfully updated"
+msgstr ""
+
+#: includes/pages/class-option-page.php:54
+msgid "Series List View"
+msgstr ""
+
+#: includes/pages/class-option-page.php:59
+#: includes/pages/class-option-page.php:98
+msgid "Display the Title of the Series Over the Series Featured Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:64
+#: includes/pages/class-option-page.php:103
+#: includes/pages/class-option-page.php:125
+#: includes/pages/class-option-page.php:225
+msgid "Always Show"
+msgstr ""
+
+#: includes/pages/class-option-page.php:65
+#: includes/pages/class-option-page.php:86
+#: includes/pages/class-option-page.php:104
+#: includes/pages/class-option-page.php:126
+#: includes/pages/class-option-page.php:190
+#: includes/pages/class-option-page.php:226
+msgid "Yes"
+msgstr ""
+
+#: includes/pages/class-option-page.php:66
+#: includes/pages/class-option-page.php:87
+#: includes/pages/class-option-page.php:105
+#: includes/pages/class-option-page.php:127
+#: includes/pages/class-option-page.php:191
+#: includes/pages/class-option-page.php:227
+msgid "No"
+msgstr ""
+
+#: includes/pages/class-option-page.php:70
+#: includes/pages/class-option-page.php:109
+msgid "How Do You Want Each Series Image to Look"
+msgstr ""
+
+#: includes/pages/class-option-page.php:74
+#: includes/pages/class-option-page.php:113
+#: includes/pages/class-option-page.php:135
+#: includes/pages/class-option-page.php:179
+#: includes/pages/class-option-page.php:189
+#: includes/pages/class-option-page.php:224
+#: includes/pages/class-option-page.php:235
+msgid "Select"
+msgstr ""
+
+#: includes/pages/class-option-page.php:75
+#: includes/pages/class-option-page.php:114
+#: includes/pages/class-option-page.php:136
+#: includes/pages/class-option-page.php:236
+msgid "No Overlay"
+msgstr ""
+
+#: includes/pages/class-option-page.php:76
+#: includes/pages/class-option-page.php:115
+#: includes/pages/class-option-page.php:137
+#: includes/pages/class-option-page.php:237
+msgid "Starts without Overlay, On Hover animates to Overlay"
+msgstr ""
+
+#: includes/pages/class-option-page.php:77
+#: includes/pages/class-option-page.php:116
+#: includes/pages/class-option-page.php:138
+#: includes/pages/class-option-page.php:238
+msgid "Starts with Overlay, On Hover animates to No Overlay"
+msgstr ""
+
+#: includes/pages/class-option-page.php:81
+msgid "Fit Entire Year of Series On One Page"
+msgstr ""
+
+#: includes/pages/class-option-page.php:93
+msgid "Search Results View"
+msgstr ""
+
+#: includes/pages/class-option-page.php:120
+msgid "Display the Title of the Message Over the Message Featured Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:131
+msgid "How Do You Want Each Message Feature Image to Look"
+msgstr ""
+
+#: includes/pages/class-option-page.php:144
+msgid "Individual Series View"
+msgstr ""
+
+#: includes/pages/class-option-page.php:149
+msgid "Series Fields to Display on Front End"
+msgstr ""
+
+#: includes/pages/class-option-page.php:153
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:69
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:83
+#: includes/taxonomies/class-series.php:88
+msgid "Series Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:154
+#: includes/pages/class-option-page.php:164
+#: includes/pages/class-option-page.php:207
+#: includes/pages/class-option-page.php:274
+msgid "Title"
+msgstr ""
+
+#: includes/pages/class-option-page.php:155
+#: includes/pages/class-option-page.php:168
+#: includes/pages/class-option-page.php:212
+msgid "Description"
+msgstr ""
+
+#: includes/pages/class-option-page.php:159
+#: includes/pages/class-option-page.php:202
+msgid "Message Fields to Display on Front End"
+msgstr ""
+
+#: includes/pages/class-option-page.php:163
+#: includes/pages/class-option-page.php:206
+msgid "Sermon Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:165
+#: includes/pages/class-option-page.php:208
+msgid "Speaker(s)"
+msgstr ""
+
+#: includes/pages/class-option-page.php:166
+#: includes/pages/class-option-page.php:210
+msgid "Date"
+msgstr ""
+
+#: includes/pages/class-option-page.php:167
+#: includes/pages/class-option-page.php:211
+msgid "Part of Series"
+msgstr ""
+
+#: includes/pages/class-option-page.php:169
+#: includes/pages/class-option-page.php:213
+#: includes/taxonomies/class-topic.php:27
+msgid "Topics"
+msgstr ""
+
+#: includes/pages/class-option-page.php:170
+#: includes/pages/class-option-page.php:214
+#: includes/taxonomies/class-tag.php:27
+msgid "Tags"
+msgstr ""
+
+#: includes/pages/class-option-page.php:171
+#: includes/pages/class-option-page.php:215
+#: includes/pages/class-option-page.php:281
+#: includes/taxonomies/class-scripture.php:26
+msgid "Scripture References"
+msgstr ""
+
+#: includes/pages/class-option-page.php:175
+msgid "Which Image Should be Displayed for Each Individual Message in the Series"
+msgstr ""
+
+#: includes/pages/class-option-page.php:180
+msgid "Series Featured Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:181
+msgid "Message Featured Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:185
+msgid "Previous Resource(s) Minimize When One Moves to Create Another Resource."
+msgstr ""
+
+#: includes/pages/class-option-page.php:197
+msgid "Individual Message View"
+msgstr ""
+
+#: includes/pages/class-option-page.php:209
+msgid "Series(s)"
+msgstr ""
+
+#: includes/pages/class-option-page.php:220
+msgid ""
+"Display the Title of the Message Over the Message Featured Image for "
+"Related Messages"
+msgstr ""
+
+#: includes/pages/class-option-page.php:231
+msgid "How Do You Want Each Message Image to Look"
+msgstr ""
+
+#: includes/pages/class-option-page.php:244
+msgid "Additional Resource's Option"
+msgstr ""
+
+#: includes/pages/class-option-page.php:249
+msgid "Display Name Field Value"
+msgstr ""
+
+#: includes/pages/class-option-page.php:252
+msgid "Enter value like - Video, Audio, Notes, Group Guide"
+msgstr ""
+
+#: includes/pages/class-option-page.php:256
+msgid "Language Option"
+msgstr ""
+
+#: includes/pages/class-option-page.php:259
+msgid "Enter value like - eng:English, spa:Spanish"
+msgstr ""
+
+#: includes/pages/class-option-page.php:265
+msgid "Search Criteria"
+msgstr ""
+
+#: includes/pages/class-option-page.php:270
+msgid "Front-end Search Keys"
+msgstr ""
+
+#: includes/pages/class-option-page.php:275
+msgid "Author"
+msgstr ""
+
+#: includes/pages/class-option-page.php:276
+#: includes/taxonomies/class-topic.php:27
+msgid "Topic"
+msgstr ""
+
+#: includes/pages/class-option-page.php:277
+#: includes/taxonomies/class-tag.php:27
+msgid "Tag"
+msgstr ""
+
+#: includes/pages/class-option-page.php:278
+msgid "Summary"
+msgstr ""
+
+#: includes/pages/class-option-page.php:279
+#: includes/shortcodes/shortcodes-resources/class-admin.php:67
+msgid "Video"
+msgstr ""
+
+#: includes/pages/class-option-page.php:280
+#: includes/post-types/class-sermons.php:291
+#: includes/shortcodes/shortcodes-resources/class-admin.php:66
+#: includes/taxonomies/class-taxonomies-base.php:130
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:19
+msgid "Image"
+msgstr ""
+
+#: includes/pages/class-option-page.php:307
+#: includes/pages/class-option-page.php:308
+#: templates/pages/sermon-plugin-option-page.php:6
+msgid "Plugin Options"
+msgstr ""
+
+#: includes/pages/class-option-page.php:443
+msgid "Successfully saved"
+msgstr ""
+
+#: includes/pages/class-option-page.php:447
+#: includes/pages/class-option-page.php:459
+#: includes/pages/class-option-page.php:465
+#: includes/pages/class-option-page.php:471
+#: includes/pages/class-option-page.php:482
+#: includes/pages/class-option-page.php:493
+#: includes/pages/class-option-page.php:504
+msgid "Data can not be empty"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:56
+msgid "Sermon"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:56
+msgid "Sermons"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:238
+msgid "Coming Soon:"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:258
+msgid "Video URL"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:259
+msgid ""
+"Enter a youtube, or vimeo URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:264
+msgid "Video File"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:265
+msgid "Alternatively upload/select video from your media library."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:271
+msgid "Audio URL"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:272
+msgid ""
+"Enter a soundcloud, spotify, or other oembed-supported web audio URL. "
+"Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:277
+msgid "Audio File"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:278
+msgid "Alternatively upload/select audio from your media library."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:284
+msgid "Excerpt"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:285
+msgid ""
+"Excerpts are optional hand-crafted summaries of your content that can be "
+"used in your theme. <a href=\"https://codex.wordpress.org/Excerpt\" "
+"target=\"_blank\">Learn more about manual excerpts.</a>"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:292
+msgid "Select an image if you want to override the series image for this sermon."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:297
+msgid "Sermon Notes"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:304
+msgid "Sermon Details"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:332
+msgid "Message Feature"
+msgstr ""
+
+#: includes/post-types/class-sermons.php:628
+msgid "\"%s\" is not a valid taxonomy for %s."
+msgstr ""
+
+#: includes/post-types/class-sermons.php:707
+msgid ""
+"<div class=\"gc-sermon-duplicate-notice\"><p>There are other posts exists, "
+"containing the same meta video URL"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-admin.php:26
+#: includes/shortcodes/shortcodes-audio-player/class-admin.php:27
+msgid "GC Sermon Audio Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-admin.php:43
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:42
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:42
+#: includes/shortcodes/shortcodes-resources/class-admin.php:83
+#: includes/shortcodes/shortcodes-video-player/class-admin.php:44
+msgid "Sermon ID"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-admin.php:44
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's audio player. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:24
+msgid "GC Sermon Play"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:25
+msgid "GC Sermon Play Button"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:41
+msgid "Sermon to play"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:42
+msgid ""
+"Blank, \"recent\", or \"0\" will play the most recent video. Otherwise "
+"enter a post ID. Click the magnifying glass to search for a Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:51
+msgid "Icon Color"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:58
+msgid "Icon Size"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:59
+msgid ""
+"Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "
+"\"medium\", \"large\", or \"small\"."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:66
+#: includes/shortcodes/shortcodes-resources/class-admin.php:93
+msgid "Extra CSS Classes"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:67
+#: includes/shortcodes/shortcodes-resources/class-admin.php:94
+#: includes/shortcodes/shortcodes-series/class-admin.php:96
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:149
+msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:24
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:25
+msgid "GC Recent Series"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:43
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's series info. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:53
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:53
+msgid "Filter Most Recent Sermon By:"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:54
+msgid ""
+"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent sermon to get the series info for."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:60
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:60
+msgid "Most Recent"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:61
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:61
+msgid "Most Recent with Audio"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:62
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:62
+msgid "Most Recent with Video"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:67
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:67
+#: includes/shortcodes/shortcodes-series/class-admin.php:63
+msgid "Remove Thumbnail"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:74
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:74
+#: includes/shortcodes/shortcodes-search/class-admin.php:100
+#: includes/shortcodes/shortcodes-series/class-admin.php:70
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:123
+msgid "Thumbnail Size (if included)"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:19
+#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:20
+msgid "GC Recent Sermon"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:36
+msgid "Per Page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:70
+msgid "Number of Columns"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:24
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:25
+msgid "GC Recent Speaker"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:43
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's speaker info. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:54
+msgid ""
+"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent sermon to get the speaker info for."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:32
+#: includes/shortcodes/shortcodes-resources/class-admin.php:33
+msgid "Sermon Resources"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:48
+msgid "Resource Type"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:49
+msgid "Select the type of resource to display."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:54
+msgid "Files"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:55
+msgid "URLs"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:60
+msgid "File Type"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:61
+msgid "Only applies if checking \"Files\" as the Resource Type."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:68
+msgid "Audio"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:69
+msgid "PDF"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:70
+msgid "Zip"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:71
+msgid "Other"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:76
+msgid "Use the Display Name"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:77
+msgid "By default, the Resource Name will be used."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-resources/class-admin.php:84
+msgid "If nothing is selected, it will use <code>get_the_id()</code>"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:44
+#: includes/shortcodes/shortcodes-search/class-admin.php:45
+msgid "GC Sermons Search"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:61
+msgid "Search:"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:62
+msgid "Select whether form allows searching %s, %s, or both."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:69
+msgid "Both"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:74
+msgid "Number of results to show per-page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:81
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:104
+msgid "Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:86
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:109
+msgid "None"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:87
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:110
+msgid "Sermon Post Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:88
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:111
+msgid "Sermon Post Excerpt"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:93
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:116
+msgid "Remove Thumbnails"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:107
+#: includes/shortcodes/shortcodes-series/class-admin.php:77
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:130
+msgid "Max number of columns"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:108
+#: includes/shortcodes/shortcodes-series/class-admin.php:78
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:131
+msgid "Will vary on device screen width"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-run.php:158
+#: includes/shortcodes/shortcodes-search/class-run.php:185
+msgid "No results."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-run.php:160
+#: includes/shortcodes/shortcodes-search/class-run.php:187
+msgid "%s search results for: <em>%s</em>"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:24
+#: includes/shortcodes/shortcodes-series/class-admin.php:25
+msgid "GC Series"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:42
+msgid "Number of Series to Show Per-Page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:49
+msgid "Remove Year Date Separators"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:56
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:97
+msgid "Remove Pagination"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:86
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:139
+msgid "Offset"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:87
+msgid "Changes which series starts the list"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:95
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:148
+msgid "Extra Wrap CSS Classes"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:103
+msgid "Pagination by per_year or per_page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:110
+msgid "Pagination number of years in the first page if paging_by is per_year"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:117
+msgid "Pagination initial years if paging_by is per_year"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:118
+msgid "This is only applicable if `show_num_years_first_page` is empty or 0"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:46
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:47
+msgid "GC Sermons"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:64
+msgid "Number of sermons to show per-page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:72
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:85
+msgid "Start typing to search. Enter \"this\" to use this post's %s."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:140
+msgid "Changes which sermon starts the list"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:19
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:20
+msgid "GC Sermon Single"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:37
+msgid "Sermon to show"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:38
+msgid ""
+"Blank, \"recent\", or \"0\" will display the most recent sermon. Otherwise "
+"enter a post ID. Click the magnifying glass to search for a Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:68
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:82
+msgid "Featured Image"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:80
+msgid "Video Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:81
+msgid "Audio Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-video-player/class-admin.php:26
+#: includes/shortcodes/shortcodes-video-player/class-admin.php:27
+msgid "GC Sermon Video Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-video-player/class-admin.php:45
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's video player. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/taxonomies/class-scripture.php:26
+msgid "Scripture Reference"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:44
+msgid "Sermon Series"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:80
+msgid "Sermon Series Image"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:81
+msgid "Select the series' branding image"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:34 templates/sermon-speaker-info.php:5
+msgid "Speaker"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:34
+msgid "Speakers"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:61
+#: includes/taxonomies/class-speaker.php:68
+msgid "Speaker Avatar"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:62
+msgid ""
+"Select the speaker's avatar. Will only show if \"Connected User\" is not "
+"chosen, or if the \"Connected User\" does not have an avatar."
+msgstr ""
+
+#: lqd-messages.php:307
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:113
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
+msgid "Install Required Plugins"
+msgstr ""
+
+#: lqd-messages.php:308
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:114
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
+msgid "Install Plugins"
+msgstr ""
+
+#: lqd-messages.php:309
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:115
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
+#. translators: %s: plugin name.
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: lqd-messages.php:311
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:340
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:117
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: lqd-messages.php:312
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:118
+msgid "The \"WDS Shortcodes\" plugin requires the following plugin: %1$s."
+msgid_plural "This plugin requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:315
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:120
+msgid "This plugin recommends the following plugin: %1$s."
+msgid_plural "This plugin recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:318
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:122
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:321
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:124
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:324
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:126
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:327
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:128
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:330
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:130
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:333
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:132
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:336
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:377
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:134
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
+#. translators: 1: plugin name(s).
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:338
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:135
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lqd-messages.php:340
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:392
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:136
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: lqd-messages.php:341
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:394
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3252
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:137
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3029
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: lqd-messages.php:342
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:138
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page-li.php:9
+msgid "Auto Sort"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page-li.php:10
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2816
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2609
+msgid "Update"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page-li.php:11
+msgid "Reset"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page.php:3
+msgid "Auto Sort all"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page.php:6
+msgid "Update all"
+msgstr ""
+
+#: templates/pages/sermon-message-config-page.php:9
+msgid "Reset all"
+msgstr ""
+
+#: templates/pages/sermon-plugin-option-page.php:7
+msgid "Options related to the Plugin."
+msgstr ""
+
+#: templates/pages/sermon-plugin-option-page.php:32
+msgid "Save Changes"
+msgstr ""
+
+#: templates/search-query-error.php:2
+msgid "For performance reasons, please enter at least 3 characters in your search."
+msgstr ""
+
+#: templates/sermons-single.php:322
+#: templates/template-parts/content-single-gc-sermons.php:195
+#. translators: %s: Name of current post
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:339
+#. translators: %s: plugin name.
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:387
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:387
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:392
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:393
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:920
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2626
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3673
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:828
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3438
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:395
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3045
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:400
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2832
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:401
+#. translators: 1: plugin name.
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:402
+#. translators: 1: plugin name.
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:401
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:403
+#. translators: 1: dashboard link.
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:402
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:404
+msgid "Dismiss this notice"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:404
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:607
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:608
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:725
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:635
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1027
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1027
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1030
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1030
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2075
+#. translators: %s: version number
+msgid "TGMPA v%s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2366
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2167
+msgid "Required"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2369
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2170
+msgid "Recommended"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2385
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2186
+msgid "WordPress Repository"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2388
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2189
+msgid "External Source"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2391
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2192
+msgid "Pre-Packaged"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2408
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2209
+msgid "Not Installed"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2412
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2213
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2414
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2215
+msgid "Active"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2420
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2221
+msgid "Required Update not Available"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2423
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2224
+msgid "Requires Update"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2426
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2227
+msgid "Update recommended"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2485
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2283
+#. translators: 1: number of plugins.
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2489
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2286
+#. translators: 1: number of plugins.
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2493
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2289
+#. translators: 1: number of plugins.
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2583
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2379
+msgid "Installed version:"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2591
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2387
+msgid "Minimum required version:"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2603
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2399
+msgid "Available version:"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2626
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2640
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2436
+msgid "Plugin"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2641
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2437
+msgid "Source"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2642
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2438
+msgid "Type"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2646
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2442
+msgid "Version"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2647
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2443
+msgid "Status"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2696
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Install %2$s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2701
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Update %2$s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2707
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Activate %2$s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2777
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2570
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2810
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2603
+msgid "Install"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2819
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2612
+msgid "Activate"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2850
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2643
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2852
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2645
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2893
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2681
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2895
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2683
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3001
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2788
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3027
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2814
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3251
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3028
+msgid "Plugin activation failed."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3591
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3362
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3594
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3364
+#. translators: 1: plugin name, 2: error message.
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3596
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3365
+#. translators: 1: plugin name.
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3600
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3369
+msgid ""
+"The installation and activation process is starting. This process may take "
+"a while on some hosts, so please be patient."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3602
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#. translators: 1: plugin name.
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3602
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3610
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+msgid "Show Details"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3602
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3610
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+msgid "Hide Details"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3603
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3371
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3605
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3372
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3608
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3375
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3610
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+#. translators: 1: plugin name.
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3611
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3377
+msgid "All installations have been completed."
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3613
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3378
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2-post-search-field/lib/init.php:47
+msgid "An error has occurred. Please reload the page and try again."
+msgstr ""
+
+#: vendor/webdevstudios/cmb2-post-search-field/lib/init.php:48
+msgid "Find Posts or Pages"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:77
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:81
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:85
+msgid "It is required to pass a single, plural and slug string to CPT_Core"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:142
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:143
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:131
+msgid "Add New %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:144
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:128
+msgid "Edit %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:145
+msgid "New %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:146
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:127
+msgid "All %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:147
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:129
+msgid "View %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:148
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:126
+msgid "Search %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:149
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:134
+msgid "No %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:150
+msgid "No %s found in Trash"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:151
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:138
+msgid "Parent %s:"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:153
+msgid "Insert into %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:154
+msgid "Uploaded to this %s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:155
+msgid "%s list"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:156
+msgid "%s list navigation"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:157
+msgid "Filter %s list"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:207
+msgid "Custom field updated."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:208
+msgid "Custom field deleted."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:209
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:226
+msgid "%1$s updated."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:211
+#. translators: %s: date and time of the revision
+msgid "%1$s restored to revision from %2$s"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:212
+msgid "%1$s saved."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:217
+msgid "%1$s updated. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:218
+msgid "%1$s published. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:219
+msgid "%1$s submitted. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:221
+#. translators: Publish box date format, see http:php.net/date
+msgid ""
+"%1$s scheduled for: <strong>%2$s</strong>. <a target=\"_blank\" "
+"href=\"%3$s\">Preview %1$s</a>"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:221
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:230
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:222
+msgid "%1$s draft updated. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:227
+msgid "%1$s published."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:228
+msgid "%1$s submitted."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:230
+#. translators: Publish box date format, see http:php.net/date
+msgid "%1$s scheduled for: <strong>%2$s</strong>."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:231
+msgid "%1$s draft updated."
+msgstr ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:249
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %3$s updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:250
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %3$s not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:251
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %3$s permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:252
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %3$s moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:253
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %3$s restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/cpt-core/CPT_Core.php:305
+msgid "%s Title"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:84
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:88
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:92
+msgid "It is required to pass a single, plural and slug string to Taxonomy_Core"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:130
+msgid "Update %s"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:132
+msgid "New %s Name"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:133
+msgid "No %s found."
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:137
+msgid "Parent %s"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:141
+msgid "Popular %s"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:142
+msgid "Separate %s with commas"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:143
+msgid "Add or remove %s"
+msgstr ""
+
+#: vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php:144
+msgid "Choose from the most used %s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:62
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
+msgid "Cancel"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:63
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
+msgid "Insert Shortcode"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:25
+msgid "Image Display Options"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:29
+msgid "Full Bleed"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:30
+msgid "Text Box on Left"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:31
+msgid "Text Box on Right"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
+msgid "Update Shortcode"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
+msgid "Shortcode Contents"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
+msgid "failed verification"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:440
+msgid "No items found."
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:7
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:10
+msgid "Close"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:342
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:347
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:352
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:357
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:362
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:377
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:398
+msgid "Return to the dashboard"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2422
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Liquid Church Messages"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://liquidchurch.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Manage messages and message content in WordPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "jtsternberg, surajprgupta, davidshq, liquidchurch"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:71
+msgctxt "limit sermons by sermon series."
+msgid "Optionally select to limit %1$s by %2$s"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:84
+msgctxt "limit sermons by sermon speaker."
+msgid "Optionally select to limit %1$s by %2$s"
+msgstr ""
+
+#: templates/searchform-xhtml.php:5
+msgctxt "Search results filter"
+msgid "Show search results for:"
+msgstr ""
+
+#: templates/searchform.php:25
+msgctxt "Search results filter"
+msgid "Show search results for :"
+msgstr ""
+
+#: templates/searchform-xhtml.php:6 templates/searchform.php:32
+msgctxt "Show search results for both sermons and sermon series."
+msgid "Both"
+msgstr ""
+
+#: templates/searchform-xhtml.php:12
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: templates/searchform.php:6
+msgctxt "label"
+msgid "Search for :"
+msgstr ""
+
+#: templates/searchform-xhtml.php:15 templates/searchform.php:16
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: templates/searchform.php:12
+msgctxt "placeholder"
+msgid "Search for Series &amp; Sermons &hellip;"
+msgstr ""
+
+#: templates/single-gc-sermons.php:29
+msgctxt "Parent post link"
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span "
+"class=\"post-title\">%title</span>"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1214
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3041
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1116
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2828
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2435
+#. translators: 1: install status, 2: update status
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2481
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2280
+#. translators: 1: number of plugins.
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2575
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2371
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1881
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2235
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2491
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2495
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2500
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
