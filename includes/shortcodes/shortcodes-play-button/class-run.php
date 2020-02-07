@@ -1,11 +1,11 @@
 <?php
 /**
- * Liquid Messages Play Button Shortcodes Run.
+ * Liquid Messages Play Button Shortcode - Run.
  *
  * @todo Add overlay/video popup JS, etc
  * @todo Use dashicons as fallback.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
@@ -14,7 +14,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'sermon_play_button';
+	public $shortcode = 'lqdm_play_button';
 
 	/**
 	 * Default attributes applied to the shortcode.
@@ -22,7 +22,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'  => 0,
+		'message_id'  => 0,
 		'icon_color' => '#000000',
 		'icon_size'  => 'large',
 		'icon_class' => 'fa-youtube-play',
@@ -36,10 +36,10 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	 */
 	public function shortcode() {
 
-		$sermon = $this->get_sermon();
+		$message = $this->get_message();
 
-		if ( ! $sermon || ! isset( $sermon->ID ) ) {
-			return apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
+		if ( ! $message || ! isset( $message->ID ) ) {
+			return apply_filters( 'lqdm_message_play_button_shortcode_output', LqdM_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
 		}
 
 		if ( $this->att( 'do_scripts' ) ) {
@@ -50,14 +50,14 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
 		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
 
-		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template(
+		$output .= apply_filters( 'lqdm_message_play_button_shortcode_output', LqdM_Template_Loader::get_template(
 			'play-button-shortcode',
 			array(
 				// Get our extra_class attribute
 				'extra_classes' => $this->get_extra_classes( $has_icon_font_size ),
-				'sermon_id'    => $sermon->ID,
+				'message_id'    => $message->ID,
 				'style'         => $style,
-				'video_url'     => get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 ),
+				'video_url'     => get_post_meta( $message->ID, 'lqdm_message_video_url', 1 ),
 			)
 		), $this );
 
@@ -65,13 +65,13 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	}
 
 	/**
-	 * Get most Recent Sermon
+	 * Get most Recent Message
 	 *
 	 * @return false|LqdM_Message_Post
 	 * @throws Exception
 	 */
-	protected function most_recent_sermon() {
-		return $this->sermons->most_recent_with_video();
+	protected function most_recent_message() {
+		return $this->messages->most_recent_with_video();
 	}
 
 	/**
@@ -79,7 +79,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	 *
 	 * @return array
 	 */
-	public function get_inline_styles() {
+	public function get_inline_styles() { // TODO: Dupe code?
 		$style = '';
 		$has_icon_font_size = false;
 
@@ -123,6 +123,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	public function do_scripts() {
 
 		// Enqueue whatever version of fontawesome that's registered (if it is registered)
+        // TODO: Why so many?
 		wp_enqueue_style( 'qode_font_awesome-css' );
 		wp_enqueue_style( 'font_awesome' );
 		wp_enqueue_style( 'font-awesome' );
@@ -156,7 +157,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 		static $done;
 
 		// Get shortcode instances
-		$shortcodes = WDS_Shortcode_Instances::get( $this->shortcode );
+		$shortcodes = WDS_Shortcode_Instances::get( $this->shortcode ); // TODO: Why calling WDS_Shortcode_Instances directly?
 
 		if ( $done || empty( $shortcodes ) ) {
 			return;
@@ -164,18 +165,18 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
 		$videos = array();
 		foreach ( $shortcodes as $shortcode ) {
-			// Check for found sermons
-			if ( ! ( $sermon = $shortcode->att( 'sermon' ) ) ) {
+			// Check for found messages
+			if ( ! ( $message = $shortcode->att( 'message' ) ) ) {
 				continue;
 			}
 
 			// Check for video player
-			if ( ! ( $player = $sermon->get_video_player() ) ) {
+			if ( ! ( $player = $message->get_video_player() ) ) {
 				return;
 			}
 
 			// Ok, add the video player
-			$videos[ $sermon->ID ] = $player;
+			$videos[ $message->ID ] = $player;
 		}
 
 		if ( ! empty( $videos ) ) {

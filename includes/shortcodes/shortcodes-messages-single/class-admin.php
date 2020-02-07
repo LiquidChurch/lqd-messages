@@ -1,12 +1,12 @@
 <?php
     /**
-     *  Liquid Messages Message Admin Shortcodes.
+     *  Liquid Messages Single Message Admin Shortcode.
      *
      * @since 0.11.0
      *
-     * @package GC Sermons
+     * @package Liquid Messages
      */
-    class LqdM_Shortcodes_Sermon_Admin extends LqdM_Shortcodes_Admin_Base
+    class LqdM_Shortcodes_Message_Admin extends LqdM_Shortcodes_Admin_Base
     {
         /**
          * Sets up the button
@@ -16,10 +16,9 @@
         function js_button_data()
         {
             return array(
-                'qt_button_text' => __('GC Sermon Single', 'lqdm'),
-                'button_tooltip' => __('GC Sermon Single', 'lqdm'),
-                'icon'           => 'dashicons-media-interactive',
-                // 'mceView'        => true, // The future
+                'qt_button_text' => __('Single Liquid Message', 'lqdm'),
+                'button_tooltip' => __('Single Liquid Message', 'lqdm'),
+                'icon'           => 'dashicons-media-interactive'
             );
         }
 
@@ -34,11 +33,11 @@
         function fields($fields, $button_data)
         {
             $fields[] = array(
-                'name'            => __( 'Sermon to show', 'lqdm' ),
-                'desc'            => __( 'Blank, "recent", or "0" will display the most recent sermon. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
-                'id'              => $this->prefix . 'sermon_id',
+                'name'            => __( 'Message to show', 'lqdm' ),
+                'desc'            => __( 'Blank, "recent", or "0" will display the most recent message. Otherwise enter a post ID. Click the magnifying glass to search for a Message post.', 'lqdm' ),
+                'id'              => $this->prefix . 'message_id',
                 'type'            => 'post_search_text',
-                'post_type'       => $this->run->sermons->post_type(),
+                'post_type'       => $this->run->messages->post_type(),
                 'select_type'     => 'radio',
                 'select_behavior' => 'replace',
             );

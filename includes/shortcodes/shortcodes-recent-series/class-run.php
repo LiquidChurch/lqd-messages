@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Recent Series Shortcode
+ * Liquid Messages Recent Series Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 
@@ -19,7 +19,7 @@ class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'          => 0, // 'Blank, "recent", or "0" will play the most recent video.
+		'message_id'          => 0, // 'Blank, "recent", or "0" will play the most recent video.
 		'recent'             => 'recent', // Options: 'recent', 'audio', 'video'
 		'remove_thumbnail'   => true,
 		'thumbnail_size'     => 'medium',
@@ -44,7 +44,7 @@ class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 
 		$args['wrap_classes'] .= ' lqdm-recent-series';
 
-		return lqdm_get_sermon_series_info( $this->get_sermon(), $args );
+		return lqdm_get_message_series_info( $this->get_message(), $args );
 	}
 
 }

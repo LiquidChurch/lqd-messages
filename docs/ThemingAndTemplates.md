@@ -20,24 +20,24 @@ To learn about creating custom templates see:
 
 ### Templates:
 #### Post Types
-- `single-gc-sermons.php`  -  For an individual message.
-- `archive-gc-sermons.php` - For the archives of messages.
+- `single-lqd-messages.php`  -  For an individual message.
+- `archive-lqd-messages.php` - For the archives of messages.
 #### Taxonomies
-- Sermon Series Templates
- - `taxonomy-gc-sermon-series-{term}.php`     - For a single term archive.
- - `taxonomy-gc-sermon-series.php`            - For all terms archive.
+- Message Series Templates
+ - `taxonomy-lqd-message-series-{term}.php`     - For a single term archive.
+ - `taxonomy-lqd-message-series.php`            - For all terms archive.
 - Scripture Templates
- - `taxonomy-gcs-scripture-{scripture}.php`   - For a single Scripture archive.
- - `taxonomy-gcs-scripture.php`               - For all Scriptures archive.
+ - `taxonomy-lqd-scripture-{scripture}.php`   - For a single Scripture archive.
+ - `taxonomy-lqd-scripture.php`               - For all Scriptures archive.
 - Speaker Templates
- - `taxonomy-gcs-speaker-{speaker}.php`       - For a single speaker archive.
- - `taxonomy-gcs-speaker.php`                 - For all speakers archive.
+ - `taxonomy-lqd-speaker-{speaker}.php`       - For a single speaker archive.
+ - `taxonomy-lqd-speaker.php`                 - For all speakers archive.
 - Tag Templates
- - `taxonomy-gcs-tag-{term}.php`              - For a single tag archive.
- - `taxonomy-gcs-tag.php`                     - For all tags archive.
+ - `taxonomy-lqd-tag-{term}.php`              - For a single tag archive.
+ - `taxonomy-lqd-tag.php`                     - For all tags archive.
 - Topic Templates
- - `taxonomy-gcs-topic-{term}.php`            - For a single topic archive.
- - `taxonomy-gcs-topic.php`                   - For all topics archive.
+ - `taxonomy-lqd-topic-{term}.php`            - For a single topic archive.
+ - `taxonomy-lqd-topic.php`                   - For all topics archive.
 
 
 

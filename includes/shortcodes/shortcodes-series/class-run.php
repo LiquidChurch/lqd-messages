@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Series Shortcode - Run
+ * Liquid Messages Series Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
 {
@@ -15,7 +15,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
      public $shortcode = 'lqdm_series';
 
      /**
-      * GCS_Series object
+      * LqdM_Series object
       *
       * @var   LqdM_Series
       * @since 0.1.0
@@ -25,17 +25,17 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
      /**
       * Constructor
       *
-      * @param LqdM_Messages $sermons
+      * @param LqdM_Messages $messages
       * @param LqdM_Series $series
       *
       * @since 0.1.3
       *
       */
-     public function __construct(LqdM_Messages $sermons, LqdM_Series $series)
+     public function __construct(LqdM_Messages $messages, LqdM_Series $series)
      {
          $this->series = $series;
          $this->atts_defaults['paging_init_year'] = array(date('Y', time()));
-         parent::__construct($sermons);
+         parent::__construct($messages);
      }
 
      /**
@@ -67,7 +67,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       */
      public function shortcode()
      {
-         $allterms = $this->series->get_many(array('orderby' => 'sermon_date'));
+         $allterms = $this->series->get_many(array('orderby' => 'message_date'));
 
          if (empty($allterms)) {
              return '';

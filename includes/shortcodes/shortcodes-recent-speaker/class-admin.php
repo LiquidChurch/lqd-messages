@@ -1,8 +1,8 @@
 <?php
 /**
- * Liquid Messages Recent Speaker Admin Shortcodes.
+ * Liquid Messages Recent Speaker Shortcode - Admin.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Recent_Speaker_Admin extends LqdM_Recent_Admin_Base {
 
@@ -12,7 +12,7 @@ class LqdM_Recent_Speaker_Admin extends LqdM_Recent_Admin_Base {
 	 * @var   string
 	 * @since 0.1.3
 	 */
-	protected $prefix = 'speaker_';
+	protected $prefix = 'lqdm_speaker_';
 
 	/**
 	 * Sets up the button
@@ -21,10 +21,9 @@ class LqdM_Recent_Speaker_Admin extends LqdM_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Recent Speaker', 'lqdm' ),
-			'button_tooltip' => __( 'GC Recent Speaker', 'lqdm' ),
-			'icon'           => 'dashicons-businessman',
-			// 'mceView'        => true, // The future
+			'qt_button_text' => __( 'Recent Speaker', 'lqdm' ),
+			'button_tooltip' => __( 'Recent Speaker', 'lqdm' ),
+			'icon'           => 'dashicons-businessman'
 		);
 	}
 
@@ -39,19 +38,19 @@ class LqdM_Recent_Speaker_Admin extends LqdM_Recent_Admin_Base {
 	function fields( $fields, $button_data ) {
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'lqdm' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
-			'id'              => $this->prefix . 'sermon_id',
+			'name'            => __( 'Message ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Message post.', 'lqdm' ),
+			'id'              => $this->prefix . 'message_id',
 			'type'            => 'post_search_text',
-			'post_type'       => $this->run->sermons->post_type(),
+			'post_type'       => $this->run->messages->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 			'row_classes'     => 'check-if-recent',
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Filter Most Recent Sermon By:', 'lqdm' ),
-			'desc'    => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the speaker info for.', 'lqdm' ),
+			'name'    => __( 'Filter Most Recent Message By:', 'lqdm' ),
+			'desc'    => __( 'If setting "Message ID" above to blank, "recent", or "0", this setting determines which type of most recent message to get the speaker info for.', 'lqdm' ),
 			'type'    => 'select',
 			'id'      => $this->prefix . 'recent',
 			'default' => $this->atts_defaults['recent'],

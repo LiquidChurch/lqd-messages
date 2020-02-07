@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Speaker_Test
+ * Class LqdM_Speaker_Test
  */
 class LqdM_Speaker_Test extends WP_UnitTestCase {
 
@@ -14,6 +14,6 @@ class LqdM_Speaker_Test extends WP_UnitTestCase {
 	}
 
   function test_taxonomy_exists() {
-    $this->assertTrue( taxonomy_exists( 'gcs-speaker' ) );
+    $this->assertTrue( taxonomy_exists( 'lqdmspeaker' ) );
   }
 }

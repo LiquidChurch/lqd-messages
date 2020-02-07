@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Taxonomies_Test
+ * Class LqdM_Taxonomies_Test
  */
 class LqdM_Taxonomies_Test extends WP_UnitTestCase {
 

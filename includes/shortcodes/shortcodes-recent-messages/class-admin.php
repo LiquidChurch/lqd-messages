@@ -1,12 +1,12 @@
 <?php
 /**
- *  Liquid Messages Recent Message Admin Shortcodes.
+ *  Liquid Messages Recent Message Shortcode - Admin.
  *
  * @since 0.10.0
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
+class LqdM_Shortcodes_Recent_Message_Admin extends LqdM_Recent_Admin_Base
 {
     /**
      * Sets up the button
@@ -16,8 +16,8 @@ class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
     function js_button_data()
     {
         return array(
-            'qt_button_text' => __('GC Recent Sermon', 'lqdm'),
-            'button_tooltip' => __('GC Recent Sermon', 'lqdm'),
+            'qt_button_text' => __('Recent Message', 'lqdm'),
+            'button_tooltip' => __('Recent Message', 'lqdm'),
             'icon'           => 'dashicons-media-interactive'
         );
     }

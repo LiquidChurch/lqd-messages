@@ -2,40 +2,40 @@
 /**
  * Liquid Messages Taxonomies
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Taxonomies {
 
 	/**
-	 * Instance of GCS_Series
+	 * Instance of Message Series
 	 *
 	 * @var LqdM_Series
 	 */
 	protected $series;
 
 	/**
-	 * Instance of GCS_Speaker
+	 * Instance of Message Speaker
 	 *
 	 * @var LqdM_Speaker
 	 */
 	protected $speaker;
 
 	/**
-	 * Instance of GCS_Topic
+	 * Instance of Message Topic
 	 *
 	 * @var LqdM_Topic
 	 */
 	protected $topic;
 
 	/**
-	 * Instance of GCS_Tag
+	 * Instance of Message Tag
 	 *
 	 * @var LqdM_Tag
 	 */
 	protected $tag;
 
 	/**
-	 * Instance of GCS_Scripture
+	 * Instance of Message Scripture
 	 *
 	 * @var LqdM_Scripture
 	 */
@@ -45,15 +45,15 @@ class LqdM_Taxonomies {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $messages LqdM_Messages object.
 	 * @return void
 	 */
-	public function __construct( $sermons ) {
-		$this->series    = new LqdM_Series( $sermons );
-		$this->speaker   = new LqdM_Speaker( $sermons );
-		$this->topic     = new LqdM_Topic( $sermons );
-		$this->tag       = new LqdM_Tag( $sermons );
-		$this->scripture = new LqdM_Scripture( $sermons );
+	public function __construct( $messages ) {
+		$this->series    = new LqdM_Series( $messages );
+		$this->speaker   = new LqdM_Speaker( $messages );
+		$this->topic     = new LqdM_Topic( $messages );
+		$this->tag       = new LqdM_Tag( $messages );
+		$this->scripture = new LqdM_Scripture( $messages );
 	}
 
 	/**

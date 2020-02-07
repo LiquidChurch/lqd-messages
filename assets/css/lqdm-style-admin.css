@@ -115,23 +115,23 @@
     margin-top: 20px;
 }
 
-.message-config-list .message-list .message-item .align.left {
+.lqdm-message-config-list .lqdm-message-list .lqdm-message-item .align.left {
     float: left;
     width: 50%;
     line-height: 2.4em;
 }
 
-.message-config-list .message-list .message-item .align.right input[type="number"] {
+.lqdm-message-config-list .lqdm-message-list .lqdm-message-item .align.right input[type="number"] {
     width: 57%;
 }
 
-.message-config-list .message-list .message-item .align.right {
+.lqdm-message-config-list .lqdm-message-list .lqdm-message-item .align.right {
     float: right;
     width: 50%;
     text-align: right;
 }
 
-.message-config-list .message-list .message-item {
+.lqdm-message-config-list .lqdm-message-list .lqdm-message-item {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
     border-top: 1px solid #000;
@@ -139,7 +139,7 @@
     margin-bottom: 0;
 }
 
-h2.series-name {
+h2.lqdm-series-name {
     background: rgba(236, 236, 236, 1);
     background: -moz-linear-gradient(top, rgba(236, 236, 236, 1) 0%, rgba(185, 185, 185, 1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(236, 236, 236, 1)), color-stop(100%, rgba(185, 185, 185, 1)));
@@ -159,7 +159,7 @@ h2.series-name {
     padding: 5px;
 }
 
-.message-config-list-single {
+.lqdm-message-config-list-single {
     width: 80%;
 }
 

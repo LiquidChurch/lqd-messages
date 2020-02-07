@@ -1,1 +1,1 @@
-<!-- no sermons found -->
+<!-- no messages found -->

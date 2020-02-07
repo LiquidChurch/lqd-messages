@@ -4,9 +4,9 @@
  * Gets a Message Post object from a post object or ID.
  *
  * TODO: Is there a reason we want to offer these functions which aren't part of a class? Is there an advantage
- * to calling `lqdm_get_sermon_post()` over...?
+ * to calling `lqdm_get_message_post()` over...?
  *
- * @param  mixed $sermon         Post object or ID or (LqdM_Message_Post object).
+ * @param  mixed $message         Post object or ID or (LqdM_Message_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
  *
  * @return LqdM_Message_Post|false LqdM_Message_Post object if successful
@@ -14,46 +14,46 @@
  *@since  0.1.3
  *
  */
-function lqdm_get_sermon_post($sermon = 0, $throw_on_error = false)
+function lqdm_get_message_post($message = 0, $throw_on_error = false)
 {
-    if ($sermon instanceof LqdM_Message_Post ) {
-        return $sermon;
+    if ($message instanceof LqdM_Message_Post ) {
+        return $message;
     }
 
-    $sermon = $sermon ? $sermon : get_the_ID();
+    $message = $message ? $message : get_the_ID();
 
     try {
-        $sermon = $sermon instanceof WP_Post ? $sermon : get_post($sermon);
-        $sermon = new LqdM_Message_Post($sermon);
+        $message = $message instanceof WP_Post ? $message : get_post($message);
+        $message = new LqdM_Message_Post($message);
 
     } catch (Exception $e) {
         if ($throw_on_error) {
             throw $e;
         }
-        $sermon = false;
+        $message = false;
     }
 
-    return $sermon;
+    return $message;
 }
 
 /**
- * Get's info for a series attached to the sermon.
+ * Get's info for a series attached to the message.
  *
- * TODO: Here we are offering lqdm_get_sermon_series_info() and then under the hood using $sermon->get_series, why?
+ * TODO: Here we are offering lqdm_get_message_series_info() and then under the hood using $message->get_series, why?
  *
  * @since  0.1.3
  *
- * @param  mixed  $sermon          Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed  $message          Post object or ID or (LqdM_Message_Post object).
  * @param  array  $args            Args array
- * @param  array  $get_series_args Args for GCS_Sermon_Post::get_series()
+ * @param  array  $get_series_args Args for LqdM_Message_Post::get_series()
  *
- * @return string Sermon series info output.
+ * @return string Message series info output.
  * @throws Exception
  */
-function lqdm_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
+function lqdm_get_message_series_info($message = 0, $args = array(), $get_series_args = array())
 {
-    if (!($sermon = lqdm_get_sermon_post($sermon))) {
-        // If no sermon, bail.
+    if (!($message = lqdm_get_message_post($message))) {
+        // If no message, bail.
         return '';
     }
 
@@ -68,7 +68,7 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = array(), $get_series_a
         ? $get_series_args['image_size']
         : $args['thumbnail_size'];
 
-    if (!($series = $sermon->get_series($get_series_args))) {
+    if (!($series = $message->get_series($get_series_args))) {
         // If no series, bail.
         return '';
     }
@@ -94,17 +94,17 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = array(), $get_series_a
  *
  * @since  0.1.3
  *
- * @param  mixed   $sermon           Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed   $message           Post object or ID or (LqdM_Message_Post object).
  * @param  array   $args             Args array
- * @param  array   $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
+ * @param  array   $get_speaker_args Args for LqdM_Message_Post::get_speaker()
  *
- * @return string Sermon speaker info output.
+ * @return string Message speaker info output.
  * @throws Exception
  */
-function lqdm_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
+function lqdm_get_message_speaker_info($message = 0, $args = array(), $get_speaker_args = array())
 {
-    if (!($sermon = lqdm_get_sermon_post($sermon))) {
-        // If no sermon, bail.
+    if (!($message = lqdm_get_message_post($message))) {
+        // If no message, bail.
         return '';
     }
 
@@ -118,43 +118,43 @@ function lqdm_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker
         ? $get_speaker_args['image_size']
         : $args['thumbnail_size'];
 
-    if (!($speaker = $sermon->get_speaker($get_speaker_args))) {
+    if (!($speaker = $message->get_speaker($get_speaker_args))) {
         // If no speaker, bail.
         return '';
     }
 
-    $sermon = lqdm_get_sermon_post($sermon);
+    $message = lqdm_get_message_post($message);
 
-    // If no sermon or no sermon speaker, bail.
-    if (!$sermon || !($speaker = $sermon->get_speaker($get_speaker_args))) {
+    // If no message or no message speaker, bail.
+    if (!$message || !($speaker = $message->get_speaker($get_speaker_args))) {
         return '';
     }
 
     $speaker->image = ! $args['remove_thumbnail'] ? $speaker->image : '';
     $speaker->classes = $args['wrap_classes'];
 
-    $content = LqdM_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);
+    $content = LqdM_Template_Loader::get_template('message-speaker-info', (array)$speaker);
 
     return $content;
 }
 
 /**
- * Get's video player for the sermon.
+ * Get's video player for the message.
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_video_player().
+ * @param  mixed $message Post object or ID or (LqdM_Message_Post object).
+ * @param  mixed $args   Arguments passed to LqdM_Message_Post::get_video_player().
  *
- * @return string Sermon video player output.
+ * @return string Message video player output.
  * @throws Exception
  */
-function lqdm_get_sermon_video_player($sermon = 0, $args = array())
+function lqdm_get_message_video_player($message = 0, $args = array())
 {
-    $sermon = lqdm_get_sermon_post($sermon);
+    $message = lqdm_get_message_post($message);
 
-    // If no sermon or no related links, bail.
-    if (!$sermon || !($video_player = $sermon->get_video_player($args))) {
+    // If no message or no related links, bail.
+    if (!$message || !($video_player = $message->get_video_player($args))) {
         return '';
     }
 
@@ -162,22 +162,22 @@ function lqdm_get_sermon_video_player($sermon = 0, $args = array())
 }
 
 /**
- * Get's audio player for the sermon.
+ * Get's audio player for the message.
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_audio_player().
+ * @param  mixed $message Post object or ID or (LqdM_Message_Post object).
+ * @param  mixed $args   Arguments passed to LqdM_Message_Post::get_audio_player().
  *
- * @return string Sermon audio player output.
+ * @return string Message audio player output.
  * @throws Exception
  */
-function lqdm_get_sermon_audio_player($sermon = 0, $args = array())
+function lqdm_get_message_audio_player($message = 0, $args = array())
 {
-    $sermon = lqdm_get_sermon_post($sermon);
+    $message = lqdm_get_message_post($message);
 
-    // If no sermon or no related links, bail.
-    if (!$sermon || !($audio_player = $sermon->get_audio_player($args))) {
+    // If no message or no related links, bail.
+    if (!$message || !($audio_player = $message->get_audio_player($args))) {
         return '';
     }
 
@@ -202,7 +202,7 @@ function lqdm_search_get_next_results_link($total_pages)
         $link = sprintf(
             '<a href="%s" %s>%s</a>',
             esc_url(add_query_arg('results-page', $page)),
-            apply_filters('gc_next_results_page_link_attributes', ''),
+            apply_filters('lqdm_next_results_page_link_attributes', ''),
             __('Older <span>&rarr;</span>', 'lqdm')
         );
     }
@@ -227,7 +227,7 @@ function lqdm_search_get_previous_results_link()
         $link = sprintf(
             '<a href="%s" %s>%s</a>',
             esc_url($url),
-            apply_filters('gc_previous_results_page_link_attributes', ''),
+            apply_filters('lqdm_previous_results_page_link_attributes', ''),
             __('<span>&larr;</span> Newer', 'lqdm')
         );
     }

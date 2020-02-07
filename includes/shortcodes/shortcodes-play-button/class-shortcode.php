@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Play Button Shortcode
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Play_Button extends LqdM_Shortcodes_Base {
 
@@ -14,7 +14,7 @@ class LqdM_Shortcodes_Play_Button extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run = new LqdM_Play_Button_Run( $plugin->sermons );
+		$this->run = new LqdM_Play_Button_Run( $plugin->messages );
 		$this->admin = new LqdM_Play_Button_Admin( $this->run );
 
 		parent::hooks();

@@ -1,10 +1,10 @@
 <?php
 /**
- * Liquid Messages Search Shortcode Button/Modal.
+ * Liquid Messages Search Shortcode Button/Modal - Admin.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
+class LqdM_Shortcodes_Message_Search_Admin extends LqdM_Recent_Admin_Base {
 
 	/**
 	 * Shortcode prefix for field ids.
@@ -15,7 +15,7 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 	protected $prefix = 'lqdm_search_';
 
 	/**
-	 * GCS_Taxonomies
+	 * Liquid Messages Taxonomies
 	 *
 	 * @var LqdM_Taxonomies
 	 */
@@ -25,7 +25,7 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
      * Constructor
      *
      * @param LqdM_Shortcodes_Run_Base $run Main plugin object.
-     * @param LqdM_Taxonomies $taxonomies GCS_Taxonomies object.
+     * @param LqdM_Taxonomies $taxonomies LqdM_Taxonomies object.
      *
      * @since  0.1.0
      */
@@ -41,8 +41,8 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermons Search', 'lqdm' ),
-			'button_tooltip' => __( 'GC Sermons Search', 'lqdm' ),
+			'qt_button_text' => __( 'Messages Search', 'lqdm' ),
+			'button_tooltip' => __( 'Messages Search', 'lqdm' ),
 			'icon'           => 'dashicons-search'
 		);
 	}
@@ -59,12 +59,12 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 
 		$fields[] = array(
 			'name'    => __( 'Search:', 'lqdm' ),
-			'desc'    => sprintf( __( 'Select whether form allows searching %s, %s, or both.', 'lqdm' ), $this->run->sermons->post_type( 'plural' ), $this->taxonomies->series->taxonomy( 'plural' ) ),
+			'desc'    => sprintf( __( 'Select whether form allows searching %s, %s, or both.', 'lqdm' ), $this->run->messages->post_type( 'plural' ), $this->taxonomies->series->taxonomy( 'plural' ) ),
 			'id'      => $this->prefix . 'search',
 			'type'    => 'select',
 			'default' => $this->atts_defaults['search'],
 			'options' => array(
-				'sermons' => $this->run->sermons->post_type( 'plural' ),
+				'messages' => $this->run->messages->post_type( 'plural' ),
 				'series' => $this->taxonomies->series->taxonomy( 'plural' ),
 				'' => __( 'Both', 'lqdm' ),
 			),
@@ -84,8 +84,8 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 			'default' => $this->atts_defaults['content'],
 			'options' => array(
 				''        => __( 'None', 'lqdm' ),
-				'content' => __( 'Sermon Post Content', 'lqdm' ),
-				'excerpt' => __( 'Sermon Post Excerpt', 'lqdm' ),
+				'content' => __( 'Message Post Content', 'lqdm' ),
+				'excerpt' => __( 'Message Post Excerpt', 'lqdm' ),
 			),
 		);
 

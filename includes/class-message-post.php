@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Sermon Post
+ * Liquid Messages Post Type
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Message_Post {
 
@@ -15,63 +15,63 @@ class LqdM_Message_Post {
     protected $post;
 
     /**
-     * Media data for the sermon post.
+     * Media data for the message post.
      *
      * @var array
      */
     protected $media = array();
 
     /**
-     * Image data for the sermon post.
+     * Image data for the message post.
      *
      * @var array
      */
     protected $images = array();
 
     /**
-     * Series terms for the sermon post.
+     * Series terms for the message post.
      *
      * @var array
      */
     protected $series = array();
 
     /**
-     * scripture terms for the sermon post.
+     * scripture terms for the message post.
      *
      * @var array
      */
     protected $scripture = array();
 
     /**
-     * Single series term for the sermon post.
+     * Single series term for the message post.
      *
      * @var array
      */
     protected $single_series = null;
 
     /**
-     * Speakers terms for the sermon post.
+     * Speakers terms for the message post.
      *
      * @var array
      */
     protected $speakers = array();
 
     /**
-     * Single speaker term for the sermon post.
+     * Single speaker term for the message post.
      *
      * @var array
      */
     protected $speaker = null;
 
     /**
-     * Topics terms for the sermon post.
+     * Topics terms for the message post.
      *
      * @var array
      */
     protected $topics = array();
 
     /**
-     * Tags terms for the sermon post.
+     * Tags terms for the message post.
      *
      * @var array
      */
@@ -91,7 +91,7 @@ class LqdM_Message_Post {
 	        throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 	    }
 
-	    $post_type = lqd_messages()->sermons->post_type();
+	    $post_type = lqd_messages()->messages->post_type();
 
 	    if ($post->post_type !== $post_type) {
 	        throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
@@ -131,18 +131,18 @@ class LqdM_Message_Post {
         $type = 'video' === $type ? $type : 'audio';
         $media = false;
 
-        if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
+        if ($media_url = get_post_meta($this->ID, "lqdm_message_{$type}_url", 1)) {
             $media = array(
                 'type'  => 'url',
                 'value' => $media_url
             );
-        } elseif ($media_src = get_post_meta($this->ID, "gc_sermon_{$type}_src_id", 1)) {
+        } elseif ($media_src = get_post_meta($this->ID, "lqdm_message_{$type}_src_id", 1)) {
             $media = array(
                 'type'           => 'attachment_id',
                 'value'          => $media_src,
-                'attachment_url' => get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)
+                'attachment_url' => get_post_meta($this->ID, "lqdm_message_{$type}_src", 1)
             );
-        } elseif ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)) {
+        } elseif ($media_url = get_post_meta($this->ID, "lqdm_message_{$type}_src", 1)) {
             $media = array(
                 'type'  => 'url',
                 'value' => $media_url,
@@ -226,7 +226,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.1
      *
-     * @return string Sermon post permalink.
+     * @return string Message post permalink.
      */
 	public function permalink() {
 	    return get_permalink($this->ID);
@@ -237,7 +237,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.1
      *
-     * @return string Sermon post title.
+     * @return string Message post title.
      */
 	public function title() {
 	    return get_the_title($this->ID);
@@ -248,7 +248,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.3
      *
-     * @return string Sermon post excerpt.
+     * @return string Message post excerpt.
      */
 	public function loop_excerpt() {
 	    ob_start();
@@ -328,11 +328,11 @@ class LqdM_Message_Post {
 	}
 
 	/**
-     * Get all speakers for this sermon
+     * Get all speakers for this message
      *
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return array|false|WP_Term Speaker term object.
      */
@@ -352,11 +352,11 @@ class LqdM_Message_Post {
 
 
 	/**
-     * Get single speaker for this sermon
+     * Get single speaker for this message
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Speaker term object.
      */
@@ -374,11 +374,11 @@ class LqdM_Message_Post {
 	}
 
 	/**
-     * Get single series for this sermon
+     * Get single series for this message
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Series term object.
      */
@@ -396,11 +396,11 @@ class LqdM_Message_Post {
 	}
 
 	/**
-     * Get scripture for this sermon
+     * Get scripture for this message
      *
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return array|bool $scripture scripture term object.
      */
@@ -419,7 +419,7 @@ class LqdM_Message_Post {
 	}
 
 	/**
-	 * Get other sermons in the same series.
+	 * Get other messages in the same series.
 	 *
 	 * @since  0.1.1
 	 *
@@ -431,7 +431,7 @@ class LqdM_Message_Post {
 	public function get_others_in_series( $args = array() ) {
 	    $series = $this->get_series();
 	    if (!$series) {
-			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
+			return new WP_Error( 'no_series_for_message', __( 'There is no series associated with this message.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -448,11 +448,11 @@ class LqdM_Message_Post {
             ),
         );
 
-	    return lqd_messages()->sermons->get_many($args);
+	    return lqd_messages()->messages->get_many($args);
 	}
 
 	/**
-	 * Get other sermons by the same speaker.
+	 * Get other messages by the same speaker.
 	 *
 	 * @since  0.1.1
 	 *
@@ -464,7 +464,7 @@ class LqdM_Message_Post {
 	public function get_others_by_speaker( $args = array() ) {
 	    $speaker = $this->get_speaker();
 	    if (!$speaker) {
-	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
+	        return new WP_Error( 'no_speaker_for_message', __( 'There is no speaker associated with this message.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -481,7 +481,7 @@ class LqdM_Message_Post {
             ),
         );
 
-	    return lqd_messages()->sermons->get_many($args);
+	    return lqd_messages()->messages->get_many($args);
 	}
 
 	/**

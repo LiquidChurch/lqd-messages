@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Post Types Base
+ * Liquid Messages Post Types Base
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 abstract class LqdM_Post_Types_Base extends CPT_Core {
 
@@ -66,7 +66,7 @@ abstract class LqdM_Post_Types_Base extends CPT_Core {
 			'arg_overrides' => $this->arg_overrides,
 		);
 
-		$filtered_args = apply_filters( 'gcs_post_types_'. $this->id, $args, $this );
+		$filtered_args = apply_filters( 'lqdm_post_types_'. $this->id, $args, $this );
 
 		if ( $filtered_args !== $args ) {
 			foreach ( $args as $arg => $val ) {
@@ -81,11 +81,12 @@ abstract class LqdM_Post_Types_Base extends CPT_Core {
 
 	/**
 	 * Provides access to protected class properties.
+     *
 	 * @since  0.2.0
 	 *
 	 * @param string $key Specific CPT parameter to return
 	 *
-	 * @return mixed        Specific CPT parameter or array of singular, plural and registered name
+	 * @return mixed      Specific CPT parameter or array of singular, plural and registered name
 	 */
 	public function post_type( $key = 'post_type' ) {
 		if ( ! $this->overrides_processed ) {
@@ -114,7 +115,7 @@ abstract class LqdM_Post_Types_Base extends CPT_Core {
 	 */
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
-		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
+		return new_cmb2_box( apply_filters( "lqdm_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
 	}
 
 	/**

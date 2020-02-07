@@ -1,4 +1,4 @@
-<form role="search" method="get" class="search-form lqdm-sermons-search"
+<form role="search" method="get" class="search-form lqdm-messages-search"
       action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 
     <div class="row first-row">
@@ -9,8 +9,8 @@
             <div class="form-inline">
                 <div class="form-group">
                     <input type="search" class="search-field"
-                           placeholder="<?php echo esc_attr_x('Search for Series &amp; Sermons &hellip;', 'placeholder'); ?>"
-                           value="<?php $this->output('search_query', 'esc_attr'); ?>" name="sermon-search"/>
+                           placeholder="<?php echo esc_attr_x('Search for Series &amp; Messages &hellip;', 'placeholder'); ?>"
+                           value="<?php $this->output('search_query', 'esc_attr'); ?>" name="message-search"/>
 
                     <input type="submit" class="search-submit"
                            value="<?php echo esc_attr_x('Search', 'submit button'); ?>"/>
@@ -29,11 +29,11 @@
                     <div class="form-group">
                         <input type="radio" class="search-field-radio" name="results-for"
                                value="" <?php checked($this->get('show_results'), ''); ?>/>
-                        <span><?php _ex('Both', 'Show search results for both sermons and sermon series.', 'lqdm'); ?></span>
+                        <span><?php _ex('Both', 'Show search results for both messages and message series.', 'lqdm'); ?></span>
 
                         <input type="radio" class="search-field-radio" name="results-for"
-                               value="<?php $this->output('sermons_value', 'esc_attr'); ?>" <?php checked($this->get('show_results'), $this->get('sermons_value', 'esc_attr')); ?>/>
-                        <span><?php $this->output('sermons_label', 'esc_attr'); ?></span>
+                               value="<?php $this->output('messages_value', 'esc_attr'); ?>" <?php checked($this->get('show_results'), $this->get('messages_value', 'esc_attr')); ?>/>
+                        <span><?php $this->output('messages_label', 'esc_attr'); ?></span>
                         <input type="radio" class="search-field-radio" name="results-for"
                                value="<?php $this->output('series_value', 'esc_attr'); ?>" <?php checked($this->get('show_results'), $this->get('series_value', 'esc_attr')); ?>/>
                         <span><?php $this->output('series_label', 'esc_attr'); ?></span>

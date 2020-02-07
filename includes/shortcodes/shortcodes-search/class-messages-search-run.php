@@ -1,10 +1,10 @@
 <?php
 /**
- * GC Sermons Search
+ * Liquid Messages Search Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
+class LqdM_Messages_Search_Run extends LqdM_Messages_Run {
 
 	/**
 	 * The current search query.
@@ -37,19 +37,19 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	/**
 	 * Constructor
 	 *
-	 * @param string         $search_query
+	 * @param string          $search_query
 	 * @param $atts
-	 * @param LqdM_Messages    $sermons
+	 * @param LqdM_Messages   $messages
 	 * @param LqdM_Taxonomies $taxonomies
      *
      * @since 0.1.3
 	 *
 	 */
-	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
+	public function __construct( $search_query, $atts, LqdM_Messages $messages, LqdM_Taxonomies $taxonomies ) {
 		$this->search_query = $search_query;
 		$this->current_page = absint( lqdm__get_arg( 'results-page', 1 ) );
 
-		parent::__construct( $sermons, $taxonomies );
+		parent::__construct( $messages, $taxonomies );
 
 		$this->create_shortcode_object(
 			shortcode_atts( $this->atts_defaults, $atts, $this->shortcode ),
@@ -64,7 +64,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 * @throws Exception
 	 */
 	public function get_search_results() {
-		add_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
+		add_filter( 'lqdm_get_messages_args', array( $this, 'filter_message_args' ) );
 
 		$my_level = self::$inception_levels++;
 		$args = $this->get_initial_query_args();
@@ -74,18 +74,18 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 			return '';
 		}
 
-		if ( ! isset( $args['post__not_in'] ) && is_singular( $this->sermons->post_type() ) ) {
+		if ( ! isset( $args['post__not_in'] ) && is_singular( $this->messages->post_type() ) ) {
 			$args['post__not_in'] = array( get_queried_object_id() );
 		}
 
-		$sermons = $this->sermons->get_many( $args );
+		$messages = $this->messages->get_many( $args );
 
-		if ( ! $sermons->have_posts() ) {
+		if ( ! $messages->have_posts() ) {
 			return '';
 		}
 
-		$max     = $sermons->max_num_pages;
-		$sermons = $this->map_sermon_args( $sermons, $my_level );
+		$max     = $messages->max_num_pages;
+		$messages = $this->map_message_args( $messages, $my_level );
 
 		$this->results = '';
 		if ( 0 === $my_level ) {
@@ -94,24 +94,24 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 
 		$args = $this->get_pagination( $max );
 		$args['wrap_classes'] = $this->get_wrap_classes();
-		$args['sermons']      = $sermons;
+		$args['messages']      = $messages;
 		$args['plugin_option'] = lqdm_get_plugin_settings_options('search_view');
 
-		$this->results .= LqdM_Template_Loader::get_template( 'sermons-list', $args );
+		$this->results .= LqdM_Template_Loader::get_template( 'messages-list', $args );
 
-		remove_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
+		remove_filter( 'lqdm_get_messages_args', array( $this, 'filter_message_args' ) );
 
 		return $this->results;
 	}
 
 	/**
-	 * Filter Sermon Args
+	 * Filter Message Args
 	 *
 	 * @param $args
 	 *
 	 * @return mixed
 	 */
-	public function filter_sermon_args( $args ) {
+	public function filter_message_args( $args ) {
 		$args['s'] = sanitize_text_field( $this->search_query );
 		return $args;
 	}
@@ -154,7 +154,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 * @return string
 	 */
 	protected function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' lqdm-sermons-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-messages-search-wrap';
 	}
 
 }

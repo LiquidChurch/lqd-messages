@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Recent Speaker Shortcode
+ * Liquid Messages Recent Speaker Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Recent_Speaker_Run extends LqdM_Shortcodes_Run_Base {
 
@@ -19,7 +19,7 @@ class LqdM_Recent_Speaker_Run extends LqdM_Shortcodes_Run_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'        => 0, // Blank, 'recent', or '0' will play the most recent video.
+		'message_id'        => 0, // Blank, 'recent', or '0' will play the most recent video.
 		'recent'           => 'recent', // Options: 'recent', 'audio', 'video'
 		'remove_thumbnail' => false,
 		'thumbnail_size'   => 'medium',
@@ -31,7 +31,7 @@ class LqdM_Recent_Speaker_Run extends LqdM_Shortcodes_Run_Base {
 	 * @throws Exception
 	 */
 	public function shortcode() {
-		$content = lqdm_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
+		$content = lqdm_get_message_speaker_info( $this->get_message(), ! $this->bool_att( 'remove_thumbnail' ) );
 
 		return $content;
 	}

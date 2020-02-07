@@ -1,22 +1,22 @@
 <?php
-    $sermon = $this->get('sermon');
-    $series = $sermon->get_series();
+    $message = $this->get('message');
+    $series = $message->get_series();
     $atts = $this->get('atts');
     $plugin_option = $this->get('plugin_option');
 
     $this->output('inline_style');
 ?>
-<article id="post-<?php echo $sermon->post->ID; ?>" <?php post_class('', $sermon->post->ID); ?>>
+<article id="post-<?php echo $message->post->ID; ?>" <?php post_class('', $message->post->ID); ?>>
 
     <div class="entry-content" style="">
         <div class="row">
-            <div id="top-row-single-sermon" class="row">
-                <div id="single-sermon-player" class="col-sm-12">
+            <div id="top-row-single-message" class="row">
+                <div id="single-message-player" class="col-sm-12">
                     <?php
                         if ($atts['show_media'] == 'video_player') :
                             ?>
                             <div class="message-video">
-                                <?php echo lqdm_get_sermon_video_player($sermon); ?>
+                                <?php echo lqdm_get_message_video_player($message); ?>
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {
@@ -27,7 +27,7 @@
                             elseif ($atts['show_media'] == 'audio_player'):
                         ?>
                             <div class="message-video">
-                                <?php echo lqdm_get_sermon_audio_player($sermon); ?>
+                                <?php echo lqdm_get_message_audio_player($message); ?>
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {
@@ -36,33 +36,33 @@
                             </script>
                             <?php
                         elseif ($atts['show_media'] == 'featured_image'):
-                            echo $sermon->featured_image();
+                            echo $message->featured_image();
                         elseif ($atts['show_media'] == 'series_image'):
-                            echo $sermon->series_image();
+                            echo $message->series_image();
                         endif; ?>
                 </div>
                 <div class="row" style="padding-left:55px;padding-right:55px;">
 
-                    <div id="single-sermon-content" class="col-md-12">
+                    <div id="single-message-content" class="col-md-12">
 
                         <?php
                             if ($atts['show_title'] == 'true') {
                                 ?>
-                                <div class="row single-sermon-title">
+                                <div class="row single-message-title">
                                     <header class="entry-header col-sm-7" style="margin-top: 20px;">
                                         <h1 class="lqdm-message-title">
                                             <?php
-                                                echo $sermon->post->post_title;
+                                                echo $message->post->post_title;
                                             ?>
                                         </h1>
                                     </header><!-- .entry-header -->
 
                                     <?php
                                         if ($atts['show_image'] == 'series_image') {
-                                            $image_id = $sermon->series_image('thumbnail', '',
+                                            $image_id = $message->series_image('thumbnail', '',
                                                 'id');
                                         } else {
-                                            $image_id = $sermon->featured_image_id();
+                                            $image_id = $message->featured_image_id();
                                         }
 
                                         if (!empty($image_id)) {
@@ -70,7 +70,7 @@
                                             <div class="col-sm-5 lqdm-right-col">
                                                 <?php echo wp_get_attachment_image($image_id,
                                                     'full', false, array(
-                                                        'class' => 'lqdm-series-list-sermons-img',
+                                                        'class' => 'lqdm-series-list-messages-img',
                                                         'style' => 'width:100%;',
                                                     )); ?>
                                             </div>
@@ -103,7 +103,7 @@
 
                         <?php
                             if ($atts['show_speakers'] == 'true') {
-                                $speakers = $sermon->get_speakers();
+                                $speakers = $message->get_speakers();
                                 if (!empty($speakers)) {
                                     ?>
                                     <div id="message-speaker" class="row">
@@ -130,7 +130,7 @@
 
                         <?php
                             if ($atts['show_part_of_series'] == 'true') {
-                                $display_order = $sermon->get_meta('gc_display_order');
+                                $display_order = $message->get_meta('lqdm_display_order');
                                 if (!empty($display_order)) {
                                     ?>
                                     <div id="message-series-part" class="row">
@@ -150,7 +150,7 @@
 
                         <?php
                             if ($atts['show_scripture_references'] == 'true') {
-                                $scriptures = $sermon->get_scriptures();
+                                $scriptures = $message->get_scriptures();
                                 if (!empty($scriptures)) {
                                     ?>
                                     <div id="message-scripture" class="row">
@@ -174,7 +174,7 @@
 
                         <?php
                             if ($atts['show_topics'] == 'true') {
-                                $topics = $sermon->topics();
+                                $topics = $message->topics();
                                 if (!empty($topics)) {
                                     ?>
                                     <div id="message-topics" class="row">
@@ -198,7 +198,7 @@
 
                         <?php
                             if ($atts['show_tags'] == 'true') {
-                                $tags = $sermon->tags();
+                                $tags = $message->tags();
                                 if (!empty($tags)) {
                                     ?>
                                     <div id="message-tags" class="row">
@@ -222,7 +222,7 @@
 
                         <?php
                             if ($atts['show_content'] == 'true') {
-                                $content = strip_tags($sermon->post->post_content);
+                                $content = strip_tags($message->post->post_content);
                                 if (!empty($content)) {
                                     ?>
                                     <div id="message-summary" class="row">
@@ -242,7 +242,7 @@
 
                         <?php
                             if ($atts['show_date_published'] == 'true') {
-                                if (!empty($sermon->post->post_date)) {
+                                if (!empty($message->post->post_date)) {
                                     ?>
                                     <div id="message-date" class="row">
                                         <div class="col-sm-3">
@@ -251,7 +251,7 @@
                                         <div class="col-sm-9">
                                             <?php
                                                 echo date('M d Y',
-                                                    strtotime($sermon->post->post_date));
+                                                    strtotime($message->post->post_date));
                                             ?>
                                         </div>
                                     </div>
@@ -263,8 +263,8 @@
                         <?php
                             if ($atts['show_additional_resource'] == 'true') {
                                 $addtl_resources
-                                    = do_shortcode('[sermon_resources resource_post_id="' .
-                                                   $sermon->post->ID .
+                                    = do_shortcode('[message_resources resource_post_id="' .
+                                                   $message->post->ID .
                                                    '" resource_display_name="true"]');
 
                                 if (!empty($addtl_resources) &&
@@ -292,12 +292,12 @@
             <?php
                 if ($atts['show_others_in_series'] == 'true' && !empty($series)) {
                     $other_msg
-                        = do_shortcode('[gc_sermons per_page="5" related_series="' .
+                        = do_shortcode('[lqdm_messages per_page="5" related_series="' .
                                        $series->term_id .
                                        '" thumbnail_size="medium" number_columns="4"]');
                     if (!empty($other_msg)) {
                         ?>
-                        <div id="message-others" class="row lqdm-individual-sermon-list">
+                        <div id="message-others" class="row lqdm-individual-message-list">
                             <h1 class="lqdm-message-title other-msg-title"
                                 style="padding-left: 8px !important;">Other Messages in
                                 This

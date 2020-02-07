@@ -2,9 +2,9 @@
 /**
  * Liquid Messages Search Shortcode.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Sermon_Search extends LqdM_Shortcodes_Base {
+class LqdM_Shortcodes_Message_Search extends LqdM_Shortcodes_Base {
 
 	/**
 	 * Constructor
@@ -14,8 +14,8 @@ class LqdM_Shortcodes_Sermon_Search extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new LqdM_Shortcodes_Sermon_Search_Run( $plugin->sermons, $plugin->taxonomies );
-		$this->admin = new LqdM_Shortcodes_Sermon_Search_Admin( $this->run, $plugin->taxonomies );
+		$this->run   = new LqdM_Shortcodes_Message_Search_Run( $plugin->messages, $plugin->taxonomies );
+		$this->admin = new LqdM_Shortcodes_Message_Search_Admin( $this->run, $plugin->taxonomies );
 
 		parent::hooks();
 	}

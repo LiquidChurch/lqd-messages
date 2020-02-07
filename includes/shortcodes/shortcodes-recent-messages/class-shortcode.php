@@ -1,11 +1,11 @@
 <?php
 /**
- *  GC Sermons Shortcodes Recent Sermon.
+ *  Liquid Messages Recent Message Shortcode.
  *
  * @since 0.10.0
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Recent_Sermon extends LqdM_Shortcodes_Base
+class LqdM_Shortcodes_Recent_Message extends LqdM_Shortcodes_Base
 {
     /**
      * Constructor
@@ -16,8 +16,8 @@ class LqdM_Shortcodes_Recent_Sermon extends LqdM_Shortcodes_Base
      */
     public function __construct($plugin)
     {
-        $this->run   = new LqdM_Shortcodes_Recent_Sermon_Run( $plugin->sermons );
-        $this->admin = new LqdM_Shortcodes_Recent_Sermon_Admin( $this->run );
+        $this->run   = new LqdM_Shortcodes_Recent_Message_Run( $plugin->messages );
+        $this->admin = new LqdM_Shortcodes_Recent_Message_Admin( $this->run );
 
         parent::hooks();
 

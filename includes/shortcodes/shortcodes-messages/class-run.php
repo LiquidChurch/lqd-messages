@@ -1,17 +1,17 @@
 <?php
 /**
- * Liquid Messages Shortcodes Sermons Run.
+ * Liquid Messages Shortcodes Messages Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
+class LqdM_Messages_Run extends LqdM_Shortcodes_Run_Base
 {
     /**
      * The Shortcode Tag
      * @var string
      * @since 0.1.0
      */
-    public $shortcode = 'lqdm_sermons';
+    public $shortcode = 'lqdm_messages';
 
     /**
      * Default attributes applied to the shortcode.
@@ -32,7 +32,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
     );
 
     /**
-     * GCS_Taxonomies object
+     * LqdM_Taxonomies object
      *
      * @var   LqdM_Taxonomies
      * @since 0.1.0
@@ -50,16 +50,16 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
     /**
      * Constructor
      *
-     * @param LqdM_Messages $sermons
+     * @param LqdM_Messages $messages
      * @param LqdM_Taxonomies $taxonomies
      *
      * @since 0.1.3
      *
      */
-    public function __construct(LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies)
+    public function __construct(LqdM_Messages $messages, LqdM_Taxonomies $taxonomies)
     {
         $this->taxonomies = $taxonomies;
-        parent::__construct($sermons);
+        parent::__construct($messages);
     }
 
     /**
@@ -82,12 +82,12 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             return '';
         }
 
-        if (!isset($args['post__not_in']) && is_singular($this->sermons->post_type())) {
+        if (!isset($args['post__not_in']) && is_singular($this->messages->post_type())) {
             $args['post__not_in'] = array(get_queried_object_id());
-        } elseif(is_singular($this->sermons->post_type())) {
+        } elseif(is_singular($this->messages->post_type())) {
             $get_video_post = get_posts(array(
-                'post_type' => $this->sermons->post_type(),
-                'meta_key' => 'gc_exclude_msg',
+                'post_type' => $this->messages->post_type(),
+                'meta_key' => 'lqdm_exclude_msg',
                 'meta_value' => 'on',
             ));
 
@@ -96,14 +96,14 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             $args['post__not_in'] = array_unique(array_merge($args['post__not_in'], $get_video_post_ids));
         }
 
-        $sermons = $this->sermons->get_many($args);
+        $messages = $this->messages->get_many($args);
 
-        if (!$sermons->have_posts()) {
+        if (!$messages->have_posts()) {
             return '';
         }
 
-        $max     = $sermons->max_num_pages;
-        $sermons = $this->map_sermon_args($sermons, $my_level);
+        $max     = $messages->max_num_pages;
+        $messages = $this->map_message_args($messages, $my_level);
 
         $content = '';
         if (0 === $my_level) {
@@ -112,10 +112,10 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
 
         $args = $this->get_pagination($max);
         $args['wrap_classes']  = $this->get_wrap_classes();
-        $args['sermons']       = $sermons;
+        $args['messages']       = $messages;
         $args['plugin_option'] = lqdm_get_plugin_settings_options('single_message_view');
 
-        $content .= LqdM_Template_Loader::get_template('sermons-list', $args);
+        $content .= LqdM_Template_Loader::get_template('messages-list', $args);
 
         return $content;
     }
@@ -170,12 +170,12 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             $required = true;
 
             try {
-                $sermon = lqdm_get_sermon_post(get_queried_object(), true);
+                $message = lqdm_get_message_post(get_queried_object(), true);
 
-                $args['post__not_in'] = array($sermon->ID);
+                $args['post__not_in'] = array($message->ID);
 
                 $method = 'get_' . $key;
-                $term   = $sermon->$method();
+                $term   = $message->$method();
 
                 if (!$term) {
                     throw new Exception('No ' . $key . ' term.');
@@ -196,7 +196,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         }
 
         if ($required && !$passes) {
-            // They wanted sermons associated to 'this', but that's not possible.
+            // They wanted messages associated to 'this', but that's not possible.
             return false;
         }
 
@@ -232,46 +232,46 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-messages-wrap';
     }
 
 	/**
-	 * Map Sermon Args
+	 * Map Message Args
 	 *
-	 * @param $all_sermons
+	 * @param $all_messages
 	 * @param $my_level
 	 *
 	 * @return array
 	 */
-    protected function map_sermon_args($all_sermons, $my_level)
+    protected function map_message_args($all_messages, $my_level)
     {
         global $post;
-        $sermons = array();
+        $messages = array();
 
         $do_thumb        = !$this->bool_att('remove_thumbnail');
         $do_content      = $this->bool_att('content');
         $type_of_content = $this->att('content');
         $thumb_size      = $this->att('thumbnail_size');
 
-        while ($all_sermons->have_posts()) {
-            $all_sermons->the_post();
+        while ($all_messages->have_posts()) {
+            $all_messages->the_post();
 
-            $obj = $all_sermons->post;
+            $obj = $all_messages->post;
 
-            $sermon = array();
-            $sermon['url']            = $obj->permalink();
-            $sermon['name']           = $obj->title();
-            $sermon['image']          = $do_thumb ? $obj->featured_image($thumb_size) : '';
-            $sermon['do_image']       = (bool)$sermon['image'];
-            $sermon['description']    = '';
-            $sermon['do_description'] = $do_content;
+            $message = array();
+            $message['url']            = $obj->permalink();
+            $message['name']           = $obj->title();
+            $message['image']          = $do_thumb ? $obj->featured_image($thumb_size) : '';
+            $message['do_image']       = (bool)$message['image'];
+            $message['description']    = '';
+            $message['do_description'] = $do_content;
             if ($do_content) {
-                $sermon['description'] = 'excerpt' === $type_of_content
+                $message['description'] = 'excerpt' === $type_of_content
                     ? $obj->loop_excerpt()
                     : apply_filters('the_content', $obj->post_content);
             }
 
-            $sermons[] = $sermon;
+            $messages[] = $message;
         }
 
         wp_reset_postdata();
@@ -284,6 +284,6 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             $this->shortcode_object = WDS_Shortcode_Instances::get($this->shortcode, $my_level);
         }
 
-        return $sermons;
+        return $messages;
     }
 }

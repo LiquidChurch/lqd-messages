@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Liquid Church Messages 0.9.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lqd-messages\n"
-"POT-Creation-Date: 2020-02-06 22:09:46+00:00\n"
+"POT-Creation-Date: 2020-02-07 12:55:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,18 +13,24 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: functions.php:206
-#: includes/shortcodes/shortcodes-recent-sermons/class-run.php:154
+#: functions.php:206 includes/shortcodes/shortcodes-messages/class-run.php:219
+#: includes/shortcodes/shortcodes-recent-messages/class-run.php:154
 #: includes/shortcodes/shortcodes-series/class-run.php:229
-#: includes/shortcodes/shortcodes-sermons/class-run.php:219
 msgid "Older <span>&rarr;</span>"
 msgstr ""
 
-#: functions.php:231
-#: includes/shortcodes/shortcodes-recent-sermons/class-run.php:153
+#: functions.php:231 includes/shortcodes/shortcodes-messages/class-run.php:218
+#: includes/shortcodes/shortcodes-recent-messages/class-run.php:153
 #: includes/shortcodes/shortcodes-series/class-run.php:228
-#: includes/shortcodes/shortcodes-sermons/class-run.php:218
 msgid "<span>&larr;</span> Newer"
+msgstr ""
+
+#: includes/class-message-post.php:434
+msgid "There is no series associated with this message."
+msgstr ""
+
+#: includes/class-message-post.php:467
+msgid "There is no speaker associated with this message."
 msgstr ""
 
 #: includes/class-metaboxes.php:77
@@ -86,7 +92,7 @@ msgid "Resource Name"
 msgstr ""
 
 #: includes/class-metaboxes.php:134
-msgid "e.g., \"Audio for Faces of Grace Sermon\""
+msgid "e.g., \"Audio for Faces of Grace Message\""
 msgstr ""
 
 #: includes/class-metaboxes.php:139
@@ -123,14 +129,6 @@ msgstr ""
 msgid ""
 "e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate "
 "if selecting media. Leave blank if adding a URL instead of a file."
-msgstr ""
-
-#: includes/class-sermon-post.php:434
-msgid "There is no series associated with this sermon."
-msgstr ""
-
-#: includes/class-sermon-post.php:467
-msgid "There is no speaker associated with this sermon."
 msgstr ""
 
 #: includes/pages/class-config-page.php:57
@@ -246,8 +244,8 @@ msgid "Series Fields to Display on Front End"
 msgstr ""
 
 #: includes/pages/class-option-page.php:153
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:69
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:83
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:69
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:83
 #: includes/taxonomies/class-series.php:88
 msgid "Series Image"
 msgstr ""
@@ -272,7 +270,7 @@ msgstr ""
 
 #: includes/pages/class-option-page.php:163
 #: includes/pages/class-option-page.php:206
-msgid "Sermon Image"
+msgid "Message Image"
 msgstr ""
 
 #: includes/pages/class-option-page.php:165
@@ -395,7 +393,7 @@ msgid "Video"
 msgstr ""
 
 #: includes/pages/class-option-page.php:280
-#: includes/post-types/class-sermons.php:291
+#: includes/post-types/class-messages.php:291
 #: includes/shortcodes/shortcodes-resources/class-admin.php:66
 #: includes/taxonomies/class-taxonomies-base.php:130
 #: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:19
@@ -404,7 +402,7 @@ msgstr ""
 
 #: includes/pages/class-option-page.php:307
 #: includes/pages/class-option-page.php:308
-#: templates/pages/sermon-plugin-option-page.php:6
+#: templates/pages/lqdm-plugin-option-page.php:6
 msgid "Plugin Options"
 msgstr ""
 
@@ -422,42 +420,42 @@ msgstr ""
 msgid "Data can not be empty"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:56
-msgid "Sermon"
+#: includes/post-types/class-messages.php:56
+msgid "Message"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:56
-msgid "Sermons"
+#: includes/post-types/class-messages.php:56
+msgid "Messages"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:238
+#: includes/post-types/class-messages.php:238
 msgid "Coming Soon:"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:258
+#: includes/post-types/class-messages.php:258
 msgid "Video URL"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:259
+#: includes/post-types/class-messages.php:259
 msgid ""
 "Enter a youtube, or vimeo URL. Supports services listed at <a "
 "href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
 "Embeds</a>."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:264
+#: includes/post-types/class-messages.php:264
 msgid "Video File"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:265
+#: includes/post-types/class-messages.php:265
 msgid "Alternatively upload/select video from your media library."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:271
+#: includes/post-types/class-messages.php:271
 msgid "Audio URL"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:272
+#: includes/post-types/class-messages.php:272
 msgid ""
 "Enter a soundcloud, spotify, or other oembed-supported web audio URL. "
 "Supports services listed at <a "
@@ -465,54 +463,54 @@ msgid ""
 "Embeds</a>."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:277
+#: includes/post-types/class-messages.php:277
 msgid "Audio File"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:278
+#: includes/post-types/class-messages.php:278
 msgid "Alternatively upload/select audio from your media library."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:284
+#: includes/post-types/class-messages.php:284
 msgid "Excerpt"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:285
+#: includes/post-types/class-messages.php:285
 msgid ""
 "Excerpts are optional hand-crafted summaries of your content that can be "
 "used in your theme. <a href=\"https://codex.wordpress.org/Excerpt\" "
 "target=\"_blank\">Learn more about manual excerpts.</a>"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:292
-msgid "Select an image if you want to override the series image for this sermon."
+#: includes/post-types/class-messages.php:292
+msgid "Select an image if you want to override the series image for this message."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:297
-msgid "Sermon Notes"
+#: includes/post-types/class-messages.php:297
+msgid "Message Notes"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:304
-msgid "Sermon Details"
+#: includes/post-types/class-messages.php:304
+msgid "Message Details"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:332
+#: includes/post-types/class-messages.php:332
 msgid "Message Feature"
 msgstr ""
 
-#: includes/post-types/class-sermons.php:628
+#: includes/post-types/class-messages.php:628
 msgid "\"%s\" is not a valid taxonomy for %s."
 msgstr ""
 
-#: includes/post-types/class-sermons.php:707
+#: includes/post-types/class-messages.php:707
 msgid ""
-"<div class=\"gc-sermon-duplicate-notice\"><p>There are other posts exists, "
-"containing the same meta video URL"
+"<div class=\"lqdm-message-duplicate-notice\"><p>There are other posts "
+"exists, containing the same meta video URL"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-audio-player/class-admin.php:26
 #: includes/shortcodes/shortcodes-audio-player/class-admin.php:27
-msgid "GC Sermon Audio Player"
+msgid "Liquid Message Audio Player"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-audio-player/class-admin.php:43
@@ -520,32 +518,145 @@ msgstr ""
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:42
 #: includes/shortcodes/shortcodes-resources/class-admin.php:83
 #: includes/shortcodes/shortcodes-video-player/class-admin.php:44
-msgid "Sermon ID"
+msgid "Message ID"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-audio-player/class-admin.php:44
 msgid ""
-"Blank, \"recent\", or \"0\" will get the most recent sermon's audio player. "
+"Blank, \"recent\", or \"0\" will get the most recent message's audio player. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
-"Sermon post."
+"Message post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:46
+#: includes/shortcodes/shortcodes-messages/class-admin.php:47
+msgid "Liquid Messages"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:64
+msgid "Number of messages to show per-page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:72
+#: includes/shortcodes/shortcodes-messages/class-admin.php:85
+msgid "Start typing to search. Enter \"this\" to use this post's %s."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:97
+#: includes/shortcodes/shortcodes-series/class-admin.php:56
+msgid "Remove Pagination"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:104
+#: includes/shortcodes/shortcodes-search/class-admin.php:81
+msgid "Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:109
+#: includes/shortcodes/shortcodes-search/class-admin.php:86
+msgid "None"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:110
+#: includes/shortcodes/shortcodes-search/class-admin.php:87
+msgid "Message Post Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:111
+#: includes/shortcodes/shortcodes-search/class-admin.php:88
+msgid "Message Post Excerpt"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:116
+#: includes/shortcodes/shortcodes-search/class-admin.php:93
+msgid "Remove Thumbnails"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:123
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:74
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:74
+#: includes/shortcodes/shortcodes-search/class-admin.php:100
+#: includes/shortcodes/shortcodes-series/class-admin.php:70
+msgid "Thumbnail Size (if included)"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:130
+#: includes/shortcodes/shortcodes-search/class-admin.php:107
+#: includes/shortcodes/shortcodes-series/class-admin.php:77
+msgid "Max number of columns"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:131
+#: includes/shortcodes/shortcodes-search/class-admin.php:108
+#: includes/shortcodes/shortcodes-series/class-admin.php:78
+msgid "Will vary on device screen width"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:139
+#: includes/shortcodes/shortcodes-series/class-admin.php:86
+msgid "Offset"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:140
+msgid "Changes which message starts the list"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:148
+#: includes/shortcodes/shortcodes-series/class-admin.php:95
+msgid "Extra Wrap CSS Classes"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages/class-admin.php:149
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:67
+#: includes/shortcodes/shortcodes-resources/class-admin.php:94
+#: includes/shortcodes/shortcodes-series/class-admin.php:96
+msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:19
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:20
+msgid "Liquid Message Single"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:37
+msgid "Message to show"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:38
+msgid ""
+"Blank, \"recent\", or \"0\" will display the most recent message. Otherwise "
+"enter a post ID. Click the magnifying glass to search for a Message post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:68
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:82
+msgid "Featured Image"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:80
+msgid "Video Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-messages-single/class-admin.php:81
+msgid "Audio Player"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-play-button/class-admin.php:24
-msgid "GC Sermon Play"
+msgid "Message Play"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-play-button/class-admin.php:25
-msgid "GC Sermon Play Button"
+msgid "Message Play Button"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-play-button/class-admin.php:41
-msgid "Sermon to play"
+msgid "Message to play"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-play-button/class-admin.php:42
 msgid ""
 "Blank, \"recent\", or \"0\" will play the most recent video. Otherwise "
-"enter a post ID. Click the magnifying glass to search for a Sermon post."
+"enter a post ID. Click the magnifying glass to search for a Message post."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-play-button/class-admin.php:51
@@ -567,34 +678,40 @@ msgstr ""
 msgid "Extra CSS Classes"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-play-button/class-admin.php:67
-#: includes/shortcodes/shortcodes-resources/class-admin.php:94
-#: includes/shortcodes/shortcodes-series/class-admin.php:96
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:149
-msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
+#: includes/shortcodes/shortcodes-recent-messages/class-admin.php:19
+#: includes/shortcodes/shortcodes-recent-messages/class-admin.php:20
+msgid "Recent Message"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-messages/class-admin.php:36
+msgid "Per Page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-messages/class-admin.php:70
+msgid "Number of Columns"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:24
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:25
-msgid "GC Recent Series"
+msgid "Recent Series"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:43
 msgid ""
-"Blank, \"recent\", or \"0\" will get the most recent sermon's series info. "
+"Blank, \"recent\", or \"0\" will get the most recent message's series info. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
-"Sermon post."
+"Message post."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:53
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:53
-msgid "Filter Most Recent Sermon By:"
+msgid "Filter Most Recent Message By:"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:54
 msgid ""
-"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
-"determines which type of most recent sermon to get the series info for."
+"If setting \"Message ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent message to get the series info for."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:60
@@ -618,48 +735,27 @@ msgstr ""
 msgid "Remove Thumbnail"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-recent-series/class-admin.php:74
-#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:74
-#: includes/shortcodes/shortcodes-search/class-admin.php:100
-#: includes/shortcodes/shortcodes-series/class-admin.php:70
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:123
-msgid "Thumbnail Size (if included)"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:19
-#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:20
-msgid "GC Recent Sermon"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:36
-msgid "Per Page"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-recent-sermons/class-admin.php:70
-msgid "Number of Columns"
-msgstr ""
-
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:24
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:25
-msgid "GC Recent Speaker"
+msgid "Recent Speaker"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:43
 msgid ""
-"Blank, \"recent\", or \"0\" will get the most recent sermon's speaker info. "
+"Blank, \"recent\", or \"0\" will get the most recent message's speaker info. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
-"Sermon post."
+"Message post."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:54
 msgid ""
-"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
-"determines which type of most recent sermon to get the speaker info for."
+"If setting \"Message ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent message to get the speaker info for."
 msgstr ""
 
 #: includes/shortcodes/shortcodes-resources/class-admin.php:32
 #: includes/shortcodes/shortcodes-resources/class-admin.php:33
-msgid "Sermon Resources"
+msgid "Message Resources"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-resources/class-admin.php:48
@@ -716,7 +812,7 @@ msgstr ""
 
 #: includes/shortcodes/shortcodes-search/class-admin.php:44
 #: includes/shortcodes/shortcodes-search/class-admin.php:45
-msgid "GC Sermons Search"
+msgid "Messages Search"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-search/class-admin.php:61
@@ -735,43 +831,6 @@ msgstr ""
 msgid "Number of results to show per-page"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-search/class-admin.php:81
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:104
-msgid "Content"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:86
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:109
-msgid "None"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:87
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:110
-msgid "Sermon Post Content"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:88
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:111
-msgid "Sermon Post Excerpt"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:93
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:116
-msgid "Remove Thumbnails"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:107
-#: includes/shortcodes/shortcodes-series/class-admin.php:77
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:130
-msgid "Max number of columns"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-search/class-admin.php:108
-#: includes/shortcodes/shortcodes-series/class-admin.php:78
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:131
-msgid "Will vary on device screen width"
-msgstr ""
-
 #: includes/shortcodes/shortcodes-search/class-run.php:158
 #: includes/shortcodes/shortcodes-search/class-run.php:185
 msgid "No results."
@@ -784,7 +843,7 @@ msgstr ""
 
 #: includes/shortcodes/shortcodes-series/class-admin.php:24
 #: includes/shortcodes/shortcodes-series/class-admin.php:25
-msgid "GC Series"
+msgid "Series"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-series/class-admin.php:42
@@ -795,23 +854,8 @@ msgstr ""
 msgid "Remove Year Date Separators"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-series/class-admin.php:56
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:97
-msgid "Remove Pagination"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-series/class-admin.php:86
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:139
-msgid "Offset"
-msgstr ""
-
 #: includes/shortcodes/shortcodes-series/class-admin.php:87
 msgid "Changes which series starts the list"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-series/class-admin.php:95
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:148
-msgid "Extra Wrap CSS Classes"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-series/class-admin.php:103
@@ -830,62 +874,16 @@ msgstr ""
 msgid "This is only applicable if `show_num_years_first_page` is empty or 0"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:46
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:47
-msgid "GC Sermons"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:64
-msgid "Number of sermons to show per-page"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:72
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:85
-msgid "Start typing to search. Enter \"this\" to use this post's %s."
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:140
-msgid "Changes which sermon starts the list"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:19
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:20
-msgid "GC Sermon Single"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:37
-msgid "Sermon to show"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:38
-msgid ""
-"Blank, \"recent\", or \"0\" will display the most recent sermon. Otherwise "
-"enter a post ID. Click the magnifying glass to search for a Sermon post."
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:68
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:82
-msgid "Featured Image"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:80
-msgid "Video Player"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons-single/class-admin.php:81
-msgid "Audio Player"
-msgstr ""
-
 #: includes/shortcodes/shortcodes-video-player/class-admin.php:26
 #: includes/shortcodes/shortcodes-video-player/class-admin.php:27
-msgid "GC Sermon Video Player"
+msgid "Message Video Player"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-video-player/class-admin.php:45
 msgid ""
-"Blank, \"recent\", or \"0\" will get the most recent sermon's video player. "
+"Blank, \"recent\", or \"0\" will get the most recent message's video player. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
-"Sermon post."
+"Message post."
 msgstr ""
 
 #: includes/taxonomies/class-scripture.php:26
@@ -893,18 +891,19 @@ msgid "Scripture Reference"
 msgstr ""
 
 #: includes/taxonomies/class-series.php:44
-msgid "Sermon Series"
+msgid "Message Series"
 msgstr ""
 
 #: includes/taxonomies/class-series.php:80
-msgid "Sermon Series Image"
+msgid "Message Series Image"
 msgstr ""
 
 #: includes/taxonomies/class-series.php:81
 msgid "Select the series' branding image"
 msgstr ""
 
-#: includes/taxonomies/class-speaker.php:34 templates/sermon-speaker-info.php:5
+#: includes/taxonomies/class-speaker.php:34
+#: templates/message-speaker-info.php:5
 msgid "Speaker"
 msgstr ""
 
@@ -1070,48 +1069,48 @@ msgstr ""
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page-li.php:9
+#: templates/messages-single.php:322
+#: templates/template-parts/content-single-lqd-messages.php:179
+#. translators: %s: Name of current post
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: templates/pages/lqdm-message-config-page-li.php:9
 msgid "Auto Sort"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page-li.php:10
+#: templates/pages/lqdm-message-config-page-li.php:10
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2816
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2609
 msgid "Update"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page-li.php:11
+#: templates/pages/lqdm-message-config-page-li.php:11
 msgid "Reset"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page.php:3
+#: templates/pages/lqdm-message-config-page.php:3
 msgid "Auto Sort all"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page.php:6
+#: templates/pages/lqdm-message-config-page.php:6
 msgid "Update all"
 msgstr ""
 
-#: templates/pages/sermon-message-config-page.php:9
+#: templates/pages/lqdm-message-config-page.php:9
 msgid "Reset all"
 msgstr ""
 
-#: templates/pages/sermon-plugin-option-page.php:7
+#: templates/pages/lqdm-plugin-option-page.php:7
 msgid "Options related to the Plugin."
 msgstr ""
 
-#: templates/pages/sermon-plugin-option-page.php:32
+#: templates/pages/lqdm-plugin-option-page.php:32
 msgid "Save Changes"
 msgstr ""
 
 #: templates/search-query-error.php:2
 msgid "For performance reasons, please enter at least 3 characters in your search."
-msgstr ""
-
-#: templates/sermons-single.php:322
-#: templates/template-parts/content-single-gc-sermons.php:195
-#. translators: %s: Name of current post
-msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:339
@@ -1844,13 +1843,13 @@ msgstr ""
 msgid "jtsternberg, surajprgupta, davidshq, liquidchurch"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:71
-msgctxt "limit sermons by sermon series."
+#: includes/shortcodes/shortcodes-messages/class-admin.php:71
+msgctxt "limit messages by message series."
 msgid "Optionally select to limit %1$s by %2$s"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:84
-msgctxt "limit sermons by sermon speaker."
+#: includes/shortcodes/shortcodes-messages/class-admin.php:84
+msgctxt "limit messages by message speaker."
 msgid "Optionally select to limit %1$s by %2$s"
 msgstr ""
 
@@ -1865,7 +1864,7 @@ msgid "Show search results for :"
 msgstr ""
 
 #: templates/searchform-xhtml.php:6 templates/searchform.php:32
-msgctxt "Show search results for both sermons and sermon series."
+msgctxt "Show search results for both messages and message series."
 msgid "Both"
 msgstr ""
 
@@ -1886,10 +1885,10 @@ msgstr ""
 
 #: templates/searchform.php:12
 msgctxt "placeholder"
-msgid "Search for Series &amp; Sermons &hellip;"
+msgid "Search for Series &amp; Messages &hellip;"
 msgstr ""
 
-#: templates/single-gc-sermons.php:29
+#: templates/single-lqd-messages.php:29
 msgctxt "Parent post link"
 msgid ""
 "<span class=\"meta-nav\">Published in</span><span "

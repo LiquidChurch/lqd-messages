@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Resources Shortcode.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Resources extends LqdM_Shortcodes_Base {
 
@@ -15,7 +15,7 @@ class LqdM_Shortcodes_Resources extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run = new LqdM_Shortcodes_Resources_Run($plugin->sermons, $plugin->metaboxes->resources_meta_id);
+		$this->run = new LqdM_Shortcodes_Resources_Run($plugin->messages, $plugin->metaboxes->resources_meta_id);
 		$this->run->hooks();
 
 		if ( is_admin() ) {

@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Async
+ * Liquid Messages Async
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Async extends WP_Async_Task {
 
@@ -45,8 +45,8 @@ class LqdM_Async extends WP_Async_Task {
 		$object_id = $data[0];
 		$taxonomy = $data[3];
 
-		if ( $this->plugin->sermons->post_type() !== get_post_type( $object_id ) ) {
-			throw new Exception( 'We only want async tasks for sermons' );
+		if ( $this->plugin->messages->post_type() !== get_post_type( $object_id ) ) {
+			throw new Exception( 'We only want async tasks for messages' );
 		}
 
 		return compact( 'object_id', 'taxonomy' );
@@ -57,7 +57,7 @@ class LqdM_Async extends WP_Async_Task {
 	 */
 	protected function run_action() {
 		if ( isset( $_POST['object_id'], $_POST['taxonomy'] ) ) {
-			do_action( 'wp_async_set_sermon_terms', $_POST['object_id'], $_POST['taxonomy'] );
+			do_action( 'wp_async_set_message_terms', $_POST['object_id'], $_POST['taxonomy'] );
 		}
 	}
 

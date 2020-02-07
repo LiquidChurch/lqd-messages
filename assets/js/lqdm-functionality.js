@@ -1,5 +1,5 @@
 /**
- * LiquidChurch Functionality
+ * Liquid Messages Functionality
  *
  * Licensed under the GPLv2+ license.
  */

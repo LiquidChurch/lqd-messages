@@ -1,11 +1,11 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Sermon Run.
+     *  Liquid Messages Single Message Shortcode - Run.
      *
      * @since 0.11.0
-     * @package GC Sermons
+     * @package Liquid Messages
      */
-    class LqdM_Shortcodes_Sermon_Run extends LqdM_Shortcodes_Run_Base
+    class LqdM_Shortcodes_Message_Run extends LqdM_Shortcodes_Run_Base
     {
         /**
          * The Shortcode Tag
@@ -13,7 +13,7 @@
          * @var string
          * @since 0.11.0
          */
-        public $shortcode = 'lqdm_sermon';
+        public $shortcode = 'lqdm_message';
 
         /**
          * Default attributes applied to the shortcode.
@@ -23,7 +23,7 @@
          */
         public $atts_defaults
             = array(
-                'sermon_id'                 => 0,
+                'message_id'                 => 0,
                 'show_title'                => true,
                 'show_content'              => true,
                 'show_image'                => 'featured_image',
@@ -50,7 +50,7 @@
         {
             $output = $this->_shortcode();
 
-            return apply_filters('lqdm_sermon_shortcode_output', $output, $this);
+            return apply_filters('lqdm_message_shortcode_output', $output, $this);
         }
 
 	    /**
@@ -61,9 +61,9 @@
 	     */
         protected function _shortcode()
         {
-            $sermon = $this->get_sermon();
+            $message = $this->get_message();
 
-            if (empty($sermon)) {
+            if (empty($message)) {
                 return '';
             }
 
@@ -71,7 +71,7 @@
                 $this->do_scripts();
             }
 
-            $args['sermon'] = $sermon;
+            $args['message'] = $message;
             $args['atts'] = [
                 'show_title'                => $this->atts['show_title'],
                 'show_content'              => $this->atts['show_content'],
@@ -90,7 +90,7 @@
             $args['plugin_option'] = lqdm_get_plugin_settings_options('single_message_view');
             $args['inline_style'] = $this->inline_style();
 
-            $content = LqdM_Template_Loader::get_template('sermons-single', $args);
+            $content = LqdM_Template_Loader::get_template('messages-single', $args);
 
             return $content;
         }
@@ -118,43 +118,44 @@
         public function inline_style()
         {
             return '<style type="text/css">' .
-                   '#single-sermon-player img {width: 100%;}' .
+                   '#lqdm-single-message-player img {width: 100%;}' .
                    '</style>';
         }
 
 	    /**
-	     * Map Sermon Args
+	     * Map Message Args
 	     *
-	     * @param $all_sermons
+	     * @param $all_messages
 	     * @param $my_level
 	     *
 	     * @return array
 	     */
-        protected function map_sermon_args($all_sermons, $my_level)
+        protected function map_message_args($all_messages, $my_level)
         {
             global $post;
-            $sermons = array();
+
+            $messages = array();
 
             $thumb_size = $this->att('thumbnail_size');
 
-            while ($all_sermons->have_posts()) {
-                $all_sermons->the_post();
+            while ($all_messages->have_posts()) {
+                $all_messages->the_post();
 
-                $obj = $all_sermons->post;
+                $obj = $all_messages->post;
 
-                $sermon = array();
-                $sermon['url'] = $obj->permalink();
-                $sermon['name'] = $obj->title();
-                $sermon['image'] = $obj->featured_image($thumb_size);
-                $sermon['do_image'] = (bool)$sermon['image'];
-                $sermon['description'] = '';
+                $message = array();
+                $message['url'] = $obj->permalink();
+                $message['name'] = $obj->title();
+                $message['image'] = $obj->featured_image($thumb_size);
+                $message['do_image'] = (bool)$message['image'];
+                $message['description'] = '';
 
-                $sermons[] = $sermon;
+                $messages[] = $message;
             }
 
             wp_reset_postdata();
 
-            return $sermons;
+            return $messages;
         }
 
 

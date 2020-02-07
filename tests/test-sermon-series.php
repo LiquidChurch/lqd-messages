@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Series_Test
+ * Test Series Taxonomy
  */
 class LqdM_Series_Test extends WP_UnitTestCase {
 
@@ -14,6 +14,6 @@ class LqdM_Series_Test extends WP_UnitTestCase {
 	}
 
   function test_taxonomy_exists() {
-    $this->assertTrue( taxonomy_exists( 'gc-sermon-series' ) );
+    $this->assertTrue( taxonomy_exists( 'lqdmmessage-series' ) );
   }
 }

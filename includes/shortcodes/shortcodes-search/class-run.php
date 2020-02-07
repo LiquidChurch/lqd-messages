@@ -2,19 +2,20 @@
 /**
  * Liquid Messages Search Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
+class LqdM_Shortcodes_Message_Search_Run extends LqdM_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'lqdm_sermons_search';
+	public $shortcode = 'lqdm_messages_search';
 
 	/**
 	 * Default attributes applied to the shortcode.
+     *
 	 * @var array
 	 * @since 0.1.0
 	 */
@@ -28,7 +29,7 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 
 		// No admin UI.
 
-		// Sermon specific
+		// Message specific
 		'list_offset'        => 0,
 		'wrap_classes'       => '',
 		'remove_pagination'  => false,
@@ -38,7 +39,7 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 		// Series specific
 		'remove_description' => true,
 
-		'sermon_search_args' => array(),
+		'message_search_args' => array(),
 		'series_search_args' => array(),
 
 		// this option will allow one to decide whether
@@ -65,27 +66,27 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 	/**
 	 * Constructor
 	 *
-	 * @param LqdM_Messages $sermons
+	 * @param LqdM_Messages $messages
 	 * @param LqdM_Taxonomies $taxonomies
      *
      * @since 0.1.3
 	 *
 	 */
-	public function __construct( LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
+	public function __construct( LqdM_Messages $messages, LqdM_Taxonomies $taxonomies ) {
 
 		$this->taxonomies = $taxonomies;
-		parent::__construct( $sermons );
+		parent::__construct( $messages );
 	}
 
 	/**
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$this->search_query = lqdm__get_arg( 'sermon-search', '' );
+		$this->search_query = lqdm__get_arg( 'message-search', '' );
 		$show_results = lqdm__get_arg( 'results-for', '' );
 
 		$series_slug = $this->taxonomies->series->taxonomy();
-		$cpt_slug    = $this->sermons->post_type();
+		$cpt_slug    = $this->messages->post_type();
 
 		$to_search   = $this->att( 'search' );
 		$separate_results   = $this->att( 'separate_results' );
@@ -97,9 +98,9 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 
 		$args = array(
 			'search_query'  => $this->search_query,
-			'action_url'    => home_url('/messages/message-search/?sermon-search=1'),
-			'sermons_value' => $cpt_slug,
-			'sermons_label' => $this->sermons->post_type( 'singular' ),
+			'action_url'    => home_url('/messages/search/?message-search=1'),
+			'messages_value' => $cpt_slug,
+			'messages_label' => $this->messages->post_type( 'singular' ),
 			'series_value'  => $series_slug,
 			'series_label'  => $this->taxonomies->series->taxonomy( 'singular' ),
 			'show_filter'   => $search_both,
@@ -117,14 +118,14 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 				$content .= LqdM_Template_Loader::get_template( 'search-query-error' );
 			} else {
 
-				$show_sermon_results = ! $show_results || $cpt_slug === $show_results;
+				$show_message_results = ! $show_results || $cpt_slug === $show_results;
 				$show_series_results = ! $show_results || $series_slug === $show_results;
 
-				$search_sermons = $search_both || in_array( $to_search, array( 'sermons' ), 1 );
+				$search_messages = $search_both || in_array( $to_search, array( 'messages' ), 1 );
 				$search_series  = $search_both || in_array( $to_search, array( 'series' ), 1 );
 
-				if ( $search_sermons && $show_sermon_results ) {
-					$content .= $this->sermon_search_results();
+				if ( $search_messages && $show_message_results ) {
+					$content .= $this->message_search_results();
 				}
 
 				if ( $search_series && $show_series_results ) {
@@ -138,27 +139,27 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 	}
 
 	/**
-	 * Sermon Search Results
+	 * Message Search Results
 	 *
-	 * @return LqdM_Sermons_Search_Run|string
+	 * @return LqdM_Messages_Search_Run|string
 	 * @throws Exception
 	 */
-	protected function sermon_search_results() {
+	protected function message_search_results() {
 		$atts = $this->atts;
 		unset( $atts['search'] );
 		unset( $atts['wrap_classes'] );
 
-		$atts = wp_parse_args( $atts, $this->att( 'sermon_search_args', array() ) );
+		$atts = wp_parse_args( $atts, $this->att( 'message_search_args', array() ) );
 
-		$search = new LqdM_Sermons_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies );
+		$search = new LqdM_Messages_Search_Run( $this->search_query, $atts, $this->messages, $this->taxonomies );
 		$search->get_search_results( );
 
-		return LqdM_Template_Loader::get_template( 'sermon-search-results', array(
+		return LqdM_Template_Loader::get_template( 'message-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
 			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
 				__( '%s search results for: <em>%s</em>', 'lqdm' ),
-				$this->sermons->post_type( 'singular' ),
+				$this->messages->post_type( 'singular' ),
 				esc_html( $this->search_query )
 			),
 		) );
@@ -177,7 +178,7 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 
 		$atts = wp_parse_args( $atts, $this->att( 'series_search_args', array() ) );
 
-		$search = new LqdM_Series_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies->series );
+		$search = new LqdM_Series_Search_Run( $this->search_query, $atts, $this->messages, $this->taxonomies->series );
 		$search->get_search_results();
 
 		return LqdM_Template_Loader::get_template( 'series-search-results', array(

@@ -1,10 +1,10 @@
 <?php
 /**
- * Liquid Messages Resources Shortcode Button/Modal.
+ * Liquid Messages Resources Shortcode Button/Modal - Admin.
  *
  * @since 0.1.0
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Resources_Admin extends LqdM_Shortcodes_Admin_Base {
 
@@ -13,7 +13,7 @@ class LqdM_Shortcodes_Resources_Admin extends LqdM_Shortcodes_Admin_Base {
 	/**
 	 * Constructor
 	 *
-	 * @param LqdM_Shortcodes_Resources_Run $run GCS_Shortcodes_Resources_Run object.
+	 * @param LqdM_Shortcodes_Resources_Run $run LqdM_Shortcodes_Resources_Run object.
 	 *
 	 *@since  0.1.0
 	 *
@@ -29,8 +29,8 @@ class LqdM_Shortcodes_Resources_Admin extends LqdM_Shortcodes_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'Sermon Resources', 'lqdm' ),
-			'button_tooltip' => __( 'Sermon Resources', 'lqdm' ),
+			'qt_button_text' => __( 'Message Resources', 'lqdm' ),
+			'button_tooltip' => __( 'Message Resources', 'lqdm' ),
 			'icon'           => 'dashicons-media-interactive'
 		);
 	}
@@ -80,11 +80,11 @@ class LqdM_Shortcodes_Resources_Admin extends LqdM_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'lqdm' ),
+			'name'            => __( 'Message ID', 'lqdm' ),
 			'desc'            => __( 'If nothing is selected, it will use <code>get_the_id()</code>', 'lqdm' ),
 			'id'              => 'resource_post_id',
 			'type'            => 'post_search_text',
-			'post_type'       => $this->run->sermons->post_type(),
+			'post_type'       => $this->run->messages->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 		);

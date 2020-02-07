@@ -1,8 +1,8 @@
 <?php
 /**
- * Liquid Messages Recent Admin Shortcodes.
+ * Liquid Messages Recent Admin Shortcodes - Base.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
 {
@@ -31,7 +31,7 @@ abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
     public function enqueue_js()
     {
         wp_register_script(
-            'gc-sermons-admin',
+            'lqdm-messages-admin',
             Lqd_Messages_Plugin::$url . 'assets/js/lqdm-messages-admin.js',
             array('jquery'),
             Lqd_Messages_Plugin::VERSION,
@@ -59,8 +59,8 @@ abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
     public function maybe_remove_recent_attribute($updated)
     {
         // If recent is set, but shouldn't be, let's remove it.
-        if (isset($updated['recent'], $updated['sermon_id'])) {
-            if ($updated['sermon_id'] && '0' !== $updated['sermon_id'] && 0 !== $updated['sermon_id'] && 'recent' !== $updated['sermon_id']) {
+        if (isset($updated['recent'], $updated['message_id'])) {
+            if ($updated['message_id'] && '0' !== $updated['message_id'] && 0 !== $updated['message_id'] && 'recent' !== $updated['message_id']) {
                 unset($updated['recent']);
             }
         }

@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Recent Speaker Shortcode
+ * Liquid Messages Recent Speaker Shortcode.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Recent_Speaker extends LqdM_Shortcodes_Base {
 	/**
@@ -13,7 +13,7 @@ class LqdM_Shortcodes_Recent_Speaker extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new LqdM_Recent_Speaker_Run( $plugin->sermons );
+		$this->run   = new LqdM_Recent_Speaker_Run( $plugin->messages );
 		$this->admin = new LqdM_Recent_Speaker_Admin( $this->run );
 
 		parent::hooks();

@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Admin Options Page
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Option_Page
 {
@@ -160,7 +160,7 @@ class LqdM_Option_Page
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
                         'value' => array(
-                            'sermon_image' => __('Sermon Image', 'lqdm'),
+                            'message_image' => __('Message Image', 'lqdm'),
                             'title' => __('Title', 'lqdm'),
                             'speakers' => __('Speaker(s)', 'lqdm'),
                             'date' => __('Date', 'lqdm'),
@@ -203,7 +203,7 @@ class LqdM_Option_Page
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
                         'value' => array(
-                            'sermon_image' => __('Sermon Image', 'lqdm'),
+                            'message_image' => __('Message Image', 'lqdm'),
                             'title' => __('Title', 'lqdm'),
                             'speakers' => __('Speaker(s)', 'lqdm'),
                             'series' => __('Series(s)', 'lqdm'),
@@ -303,11 +303,11 @@ class LqdM_Option_Page
     public function add_page()
     {
         add_submenu_page(
-            'edit.php?post_type=gc-sermons',
+            'edit.php?post_type=lqdm-messages',
             __('Plugin Options', 'lqdm'),
             __('Plugin Options', 'lqdm'),
             'manage_options',
-            'lc-plugin-option',
+            'lqdm-plugin-option',
             array($this, 'plugin_option_page_view')
         );
     }
@@ -327,7 +327,7 @@ class LqdM_Option_Page
             'sections_config_arr' => $this->sections_config_arr
         );
 
-        $view = LqdM_Template_Loader::get_template('pages/sermon-plugin-option-page', $arg);
+        $view = LqdM_Template_Loader::get_template('pages/message-plugin-option-page', $arg);
         echo $view;
     }
 
@@ -339,15 +339,15 @@ class LqdM_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_style(
-            'lc-jquery-ui-css',
+            'lqdm-jquery-ui-css',
             "//code.jquery.com/ui/1.12.0/themes/base/jquery-ui{$min}.css",
             array(),
             Lqd_Messages_Plugin::VERSION
         );
 
         wp_enqueue_style(
-            'lc-style-admin',
-            Lqd_Messages_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
+            'lqdm-style-admin',
+            Lqd_Messages_Plugin::$url . "assets/css/lqdm-style-admin{$min}.css",
             array(),
 	        Lqd_Messages_Plugin::VERSION
         );
@@ -361,20 +361,20 @@ class LqdM_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_script(
-            'lc-jquery-ui-js',
+            'lqdm-jquery-ui-js',
             "//code.jquery.com/ui/1.12.0/jquery-ui{$min}.js",
             array('jquery'),
 	        Lqd_Messages_Plugin::VERSION
         );
 
         wp_enqueue_script(
-            'lc-func-admin-option-page',
-            Lqd_Messages_Plugin::$url . "assets/js/liquidchurch-page-option{$min}.js",
-            array('jquery', 'lc-jquery-ui-js'),
+            'lqdm-admin-option-page',
+            Lqd_Messages_Plugin::$url . "assets/js/lqdm-page-option{$min}.js",
+            array('jquery', 'lqdm-jquery-ui-js'),
 	        Lqd_Messages_Plugin::VERSION
         );
 
-        wp_localize_script('lc-func-admin-message-config', 'LiquidChurchAdmin', array(
+        wp_localize_script('lqdm-admin-message-config', 'LqdMAdmin', array(
             'path' => Lqd_Messages_Plugin::$url,
         ));
     }

@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Tags Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class LqdM_Tag extends LqdM_Taxonomies_Base {
@@ -16,18 +16,21 @@ class LqdM_Tag extends LqdM_Taxonomies_Base {
 
 	/**
 	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+     *
+	 * Register Taxonomy.
+     *
+     * See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $messages LqdM_Messages object.
 	 * @return void
 	 */
-	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Tag', 'lqdm' ), __( 'Tags', 'lqdm' ), 'gcs-tag' ),
+	public function __construct( $messages ) {
+		parent::__construct( $messages, array(
+			'labels' => array( __( 'Tag', 'lqdm' ), __( 'Tags', 'lqdm' ), 'lqdm-tag' ),
 			'args'   => array(
 				'hierarchical' => false,
-				'rewrite' => array( 'slug' => 'sermon-tag' ),
+				'rewrite' => array( 'slug' => 'message-tag' ),  // TODO: Rewrite to tag?
 			),
 		) );
 	}

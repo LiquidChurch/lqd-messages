@@ -107,7 +107,7 @@
          *
          * @var LqdM_Messages
          */
-        protected $sermons;
+        protected $messages;
 
         /**
          * Instance of Messages Taxonomies
@@ -233,8 +233,8 @@
         {
             require_once self::$path . 'functions.php';
 
-            $this->sermons = new LqdM_Messages($this);
-            $this->taxonomies = new LqdM_Taxonomies($this->sermons);
+            $this->messages = new LqdM_Messages($this);
+            $this->taxonomies = new LqdM_Taxonomies($this->messages);
             $this->async = new LqdM_Async($this);
 
 
@@ -247,12 +247,12 @@
             }
 
             // Set these properties for metaboxes, no matter what.
-            $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
-            $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
-            $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
-            $this->metaboxes->display_ordr_meta_id = 'gc_display_order';
-            $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
-            $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
+            $this->metaboxes->resources_box_id = 'lqdm_addtl_resources_metabox';
+            $this->metaboxes->resources_meta_id = 'lqdm_addtl_resources';
+            $this->metaboxes->display_ordr_box_id = 'lqdm_display_order_metabox';
+            $this->metaboxes->display_ordr_meta_id = 'lqdm_display_order';
+            $this->metaboxes->exclude_msg_meta_id = 'lqdm_exclude_msg';
+            $this->metaboxes->video_msg_appear_pos = 'lqdm_video_msg_pos';
 
             $this->shortcodes = new LqdM_Shortcodes($this);
 
@@ -402,7 +402,7 @@
                 case 'url':
                 case 'path':
                 case 'metaboxes':
-                case 'sermons':
+                case 'messages':
                 case 'taxonomies':
                 case 'shortcodes':
                 case 'plugin_option_key':

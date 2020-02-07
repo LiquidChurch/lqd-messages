@@ -2,7 +2,7 @@
   "name": "lqd-messages",
   "title": "Liquid Messages",
   "version": "0.9.1",
-  "description": "Manage messages (sermons) and message content in WordPress",
+  "description": "Manage messages (messages) and message content in WordPress",
   "homepage": "https://liquidchurch.com/",
   "bugs": {
     "url": "https://github.com/LiquidChurch/lqd-messages"

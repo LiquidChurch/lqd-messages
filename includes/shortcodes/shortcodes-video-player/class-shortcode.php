@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Video Player Shortcode
+ * Liquid Messages Video Player Shortcode.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Video_Player extends LqdM_Shortcodes_Base {
 
@@ -14,7 +14,7 @@ class LqdM_Shortcodes_Video_Player extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new LqdM_Shortcodes_Video_Player_Run( $plugin->sermons );
+		$this->run   = new LqdM_Shortcodes_Video_Player_Run( $plugin->messages );
 		$this->admin = new LqdM_Shortcodes_Video_Player_Admin( $this->run );
 
 		parent::hooks();

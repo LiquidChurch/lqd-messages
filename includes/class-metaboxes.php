@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Metaboxes
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Metaboxes
 {
@@ -75,7 +75,7 @@ class LqdM_Metaboxes
 		$args = array(
 			'id'           => $this->display_ordr_box_id,
 			'title'        => __( 'Display Conditions', 'lqdm' ),
-			'object_types' => array( lqd_messages()->sermons->post_type() ),
+			'object_types' => array( lqd_messages()->messages->post_type() ),
 		);
 
 		$cmb = new_cmb2_box( $args );
@@ -113,7 +113,7 @@ class LqdM_Metaboxes
 		$args = array(
 			'id'           => $this->resources_box_id,
 			'title'        => __( 'Additional Resources', 'lqdm' ),
-			'object_types' => array( lqd_messages()->sermons->post_type() ),
+			'object_types' => array( lqd_messages()->messages->post_type() ),
 		);
 
 		$field_group_args = array(
@@ -131,7 +131,7 @@ class LqdM_Metaboxes
 		$sub_fields = array(
 			array(
 				'name' => __( 'Resource Name', 'lqdm' ),
-				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'lqdm' ),
+				'desc' => __( 'e.g., "Audio for Faces of Grace Message"', 'lqdm' ),
 				'id'   => 'name',
 				'type' => 'text',
 			),
@@ -170,7 +170,7 @@ class LqdM_Metaboxes
 		}
 
 
-		// Include the same fields for sermon series.
+		// Include the same fields for message series.
 
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->resources_box_id . '_series',

@@ -1,11 +1,11 @@
 # Taxonomies in Liquid Messages
 Liquid Messages uses several custom taxonomies for categorizing messages. These taxonomies are associated with the Liquid Messages post type.
 
-## Sermon Series
-- If the message is part of a series you can create a "Sermon Series" taxonomy entry and add all messages in the series to this term.
+## Message Series
+- If the message is part of a series you can create a "Message Series" taxonomy entry and add all messages in the series to this term.
 - If the message does not have a featured image, the message will fallback to using the associated series' feature image.
 - To disable this fallback use the following filter:
-`add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );`
+`add_filter( 'lqdm_do_message_series_fallback_image', '__return_false' );`
 
 # Speakers
 - Speakers can be associated with each individual message.

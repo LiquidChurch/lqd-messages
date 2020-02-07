@@ -1,9 +1,9 @@
 <?php
 /**
- * GC Sermons Template Loader.
+ * Liquid Messages Template Loader.
  *
  * @since 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Template_Loader {
 

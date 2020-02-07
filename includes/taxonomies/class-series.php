@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Series Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series extends LqdM_Taxonomies_Base {
 
@@ -19,7 +19,7 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @var string
 	 * @since  0.1.1
 	 */
-	protected $image_meta_key = 'lqdm_sermon_series_image';
+	protected $image_meta_key = 'lqdm_message_series_image';
 
 	/**
 	 * The default args array for self::get()
@@ -33,20 +33,23 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 
 	/**
 	 * Constructor
-	 * Register Sermon Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+	 *
+     * Register Message Series Taxonomy.
+     *
+     * See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $messages LqdM_Messages object.
 	 * @return void
 	 */
-	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Sermon Series', 'lqdm' ), __( 'Sermon Series', 'lqdm' ), 'gc-sermon-series' ),
+	public function __construct( $messages ) {
+		parent::__construct( $messages, array(
+			'labels' => array( __( 'Message Series', 'lqdm' ), __( 'Message Series', 'lqdm' ), 'lqdm-message-series' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,
 				'rewrite' => array(
-				    'slug' => 'sermon-series',
+				    'slug' => 'message-series', // TODO: Change to series?
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
                 ),
@@ -72,12 +75,12 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 */
 	public function fields() {
 		$cmb = $this->new_cmb2( array(
-			'id'           => 'gc_sermon_series_metabox',
+			'id'           => 'lqdm_message_series_metabox',
 			'taxonomies'   => array( $this->taxonomy() ),
 			'object_types' => array( 'term' ),
 			'fields'       => array(
 				$this->image_meta_key => array(
-					'name' => __( 'Sermon Series Image', 'lqdm' ),
+					'name' => __( 'Series Image', 'lqdm' ),
 					'desc' => __( 'Select the series\' branding image', 'lqdm' ),
 					'id'   => $this->image_meta_key,
 					'type' => 'file'

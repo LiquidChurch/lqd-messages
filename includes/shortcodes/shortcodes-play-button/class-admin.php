@@ -1,8 +1,8 @@
 <?php
 /**
- * Liquid Messages Play Button Admin Shortcodes
+ * Liquid Messages Play Button Shortcode - Admin
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Play_Button_Admin extends LqdM_Shortcodes_Admin_Base {
 
@@ -21,8 +21,8 @@ class LqdM_Play_Button_Admin extends LqdM_Shortcodes_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermon Play', 'lqdm' ),
-			'button_tooltip' => __( 'GC Sermon Play Button', 'lqdm' ),
+			'qt_button_text' => __( 'Message Play', 'lqdm' ),
+			'button_tooltip' => __( 'Message Play Button', 'lqdm' ),
 			'icon'           => 'dashicons-controls-play',
 			'mceView'        => true, // The future
 		);
@@ -38,11 +38,11 @@ class LqdM_Play_Button_Admin extends LqdM_Shortcodes_Admin_Base {
 	 */
 	function fields( $fields, $button_data ) {
 		$fields[] = array(
-			'name'            => __( 'Sermon to play', 'lqdm' ),
-			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
-			'id'              => $this->prefix . 'sermon_id',
+			'name'            => __( 'Message to play', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Message post.', 'lqdm' ),
+			'id'              => $this->prefix . 'message_id',
 			'type'            => 'post_search_text',
-			'post_type'       => $this->run->sermons->post_type(),
+			'post_type'       => $this->run->messages->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 		);

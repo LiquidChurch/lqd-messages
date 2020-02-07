@@ -1,8 +1,8 @@
 <?php
 /**
- * Liquid Messages Admin Series Shortcodes.
+ * Liquid Messages Series Shortcode - Admin.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series_Admin extends LqdM_Shortcodes_Admin_Base {
 
@@ -12,7 +12,7 @@ class LqdM_Series_Admin extends LqdM_Shortcodes_Admin_Base {
 	 * @var   string
 	 * @since 0.1.3
 	 */
-	protected $prefix = 'series_';
+	protected $prefix = 'lqdm_series_';
 
 	/**
 	 * Sets up the button
@@ -21,8 +21,8 @@ class LqdM_Series_Admin extends LqdM_Shortcodes_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Series', 'lqdm' ),
-			'button_tooltip' => __( 'GC Series', 'lqdm' ),
+			'qt_button_text' => __( 'Series', 'lqdm' ),
+			'button_tooltip' => __( 'Series', 'lqdm' ),
 			'icon'           => 'dashicons-images-alt',
 			// 'mceView'        => true, // The future
 		);

@@ -1,9 +1,9 @@
 <?php
 /**
- * GC Sermons Video Player Shortcode
+ * Liquid Messages Video Player Shortcode - Run.
  *
  * @version 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
 
@@ -20,7 +20,7 @@ class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
      * @since 0.1.0
      */
     public $atts_defaults = array(
-        'sermon_id' => 0, // 'Blank, "recent", or "0" will play the most recent video.
+        'message_id' => 0, // 'Blank, "recent", or "0" will play the most recent video.
     );
 
     /**
@@ -29,7 +29,7 @@ class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
      * @throws Exception
      */
     public function shortcode() {
-        return lqdm_get_sermon_video_player( $this->get_sermon() );
+        return lqdm_get_message_video_player( $this->get_message() );
     }
 
 }

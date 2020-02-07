@@ -4,7 +4,7 @@
  *
  * @since 0.1.0
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 
@@ -13,7 +13,7 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'sermon_resources';
+	public $shortcode = 'lqdm_message_resources';
 
 	/**
 	 * Default attributes applied to the shortcode.
@@ -21,7 +21,7 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-        'data_type' => 'sermon', // File or URL
+        'data_type' => 'message', // File or URL
 		'resource_type'          => array( 'files', 'urls', ), // File or URL
 		'resource_file_type'     => array( 'image', 'video', 'audio', 'pdf', 'zip', 'other', ), // Only applies if 'type' is 'file',
 		'resource_display_name'  => false, // Uses Resource Name by default
@@ -48,15 +48,15 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
     /**
      * Constructor
      *
-     * @param LqdM_Messages $sermons
+     * @param LqdM_Messages $messages
      * @param string $meta_id Resource meta id
      *
      */
-    public function __construct(LqdM_Messages $sermons, $meta_id)
+    public function __construct(LqdM_Messages $messages, $meta_id)
     {
 		$this->meta_id = $meta_id;
         $this->atts_defaults['resource_lang'] = array_keys(LqdM_Metaboxes::get_lng_fld_option());
-        parent::__construct($sermons);
+        parent::__construct($messages);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 	public function shortcode() {
 		$output = $this->_shortcode();
 
-		return apply_filters( 'lc_sermon_resources_shortcode_output', $output, $this );
+		return apply_filters( 'lqdm_message_resources_shortcode_output', $output, $this );
 	}
 
 	/**
@@ -79,10 +79,10 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
     protected function _shortcode()
     {
         $data_type = $this->att('data_type');
-        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id);
+        $post_id = $this->att('resource_post_id', $data_type == 'message' ? get_the_ID() : get_queried_object()->term_id);
 
 		if ( 'this' === $post_id ) {
-            $post_id = $data_type == 'sermon' ? get_the_ID() : get_queried_object()->term_id;
+            $post_id = $data_type == 'message' ? get_the_ID() : get_queried_object()->term_id;
 		}
 
 		if ( ! $post_id ) {
@@ -107,7 +107,7 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 
         $args['lang_plugin_option'] = LqdM_Metaboxes::get_lng_fld_option();
 
-		return LqdM_Template_Loader::get_template( 'sermon-resources-shortcode', $args );
+		return LqdM_Template_Loader::get_template( 'message-resources-shortcode', $args );
 	}
 
 	/**
@@ -121,15 +121,15 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
     {
         $data_type = $this->att('data_type');
 
-        if ($data_type == 'sermon') {
+        if ($data_type == 'message') {
             $resources = !empty(get_post_meta($post_id, $this->meta_id, 1)) ? get_post_meta($post_id, $this->meta_id, 1) : array();
         } else {
             $resources = !empty(get_term_meta($post_id, $this->meta_id, 1)) ? get_term_meta($post_id, $this->meta_id, 1) : array();
         }
 
         $resource_empty = true;
-        foreach ($resources as $rkey => $rval) {
-            if (!empty($rval['file_id']) || !empty($rval['file'])) {
+        foreach ($resources as $resourcekey => $resourceval) {
+            if (!empty($resourceval['file_id']) || !empty($resourceval['file'])) {
                 $resource_empty = false;
             }
         }
@@ -163,12 +163,10 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 		$obj->wants_files = in_array( 'files', $allowed_types );
 
 		if ( ! $obj->wants_files && ! $obj->wants_urls ) {
-			// Ok.. you asked for it, send nothing back.
 			return array();
 		}
 
 		if ( ! $obj->wants_files ) {
-
 			// send only urls
 			// we can ignore file types.
 			return array_filter( $resources, array( $this, 'is_url_resource' ) );
@@ -219,12 +217,11 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
                     'src' => $resource['file']
                 );
             }
-            // $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
-            $resource['item'] = LqdM_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
+            $resource['item'] = LqdM_Template_Loader::get_template('message-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;
 
-            $items[$resource['lang']][] = LqdM_Template_Loader::get_template('sermon-resources-shortcode-li', $resource);
+            $items[$resource['lang']][] = LqdM_Template_Loader::get_template('message-resources-shortcode-li', $resource);
         }
 
         return $items;

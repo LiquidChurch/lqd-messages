@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Speakers Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Speaker extends LqdM_Taxonomies_Base {
 
@@ -19,19 +19,22 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 	 * @var string
 	 * @since  0.1.1
 	 */
-	protected $image_meta_key = 'gc_sermon_speaker_image';
+	protected $image_meta_key = 'lqdm_message_speaker_image';
 
 	/**
 	 * Constructor
-	 * Register Speaker Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+     *
+	 * Register Speaker Taxonomy.
+     *
+     * See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $messages LqdM_Messages object.
 	 * @return void
 	 */
-	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Speaker', 'lqdm' ), __( 'Speakers', 'lqdm' ), 'gcs-speaker' ),
+	public function __construct( $messages ) {
+		parent::__construct( $messages, array(
+			'labels' => array( __( 'Speaker', 'lqdm' ), __( 'Speakers', 'lqdm' ), 'lqdm-speaker' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'rewrite' => array( 'slug' => 'speaker' ),
@@ -59,7 +62,7 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 		$fields = array(
 			$this->image_meta_key => array(
 				'name' => __( 'Speaker Avatar', 'lqdm' ),
-				'desc' => __( 'Select the speaker\'s avatar. Will only show if "Connected User" is not chosen, or if the "Connected User" does not have an avatar.', 'lqdm' ),
+				'desc' => __( 'Select the speaker\'s avatar.', 'lqdm' ),
 				'id'   => $this->image_meta_key,
 				'type' => 'file'
 			),
@@ -68,7 +71,7 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 		$this->add_image_column( __( 'Speaker Avatar', 'lqdm' ) );
 
 		$cmb = $this->new_cmb2( array(
-			'id'           => 'gc_sermon_speaker_metabox',
+			'id'           => 'lqdm_message_speaker_metabox',
 			'taxonomies'   => array( $this->taxonomy() ), // Tells CMB2 which taxonomies should
 			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
 			'fields'       => $fields,

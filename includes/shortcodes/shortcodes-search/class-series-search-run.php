@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Series Search
+ * Liquid Series Search Shortcode - Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series_Search_Run extends LqdM_Series_Run {
 
@@ -32,17 +32,17 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 *
 	 * @param string      $search_query
 	 * @param             $atts
-	 * @param LqdM_Messages $sermons
+	 * @param LqdM_Messages $messages
 	 * @param LqdM_Series  $series
      *
      * @since 0.1.3
 	 *
 	 */
-	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Series $series ) {
+	public function __construct( $search_query, $atts, LqdM_Messages $messages, LqdM_Series $series ) {
 		$this->search_query = $search_query;
 		$this->current_page = absint( lqdm__get_arg( 'results-page', 1 ) );
 
-		parent::__construct( $sermons, $series );
+		parent::__construct( $messages, $series );
 
 		$this->create_shortcode_object(
 			shortcode_atts( $this->atts_defaults, $atts, $this->shortcode ),
@@ -66,7 +66,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 		$args['number'] = 1000;
 		$args['offset'] = 0;
 		$args['hide_empty'] = true;
-		$allterms = $this->series->search( sanitize_text_field( $this->search_query ), $args ); // TODO: Extract
+		$allterms = $this->series->search( sanitize_text_field( $this->search_query ), $args ); // TODO: Extract, needs to return array, not string
 		$allterms = $this->orderby_post_date( $allterms );
 
 		if ( empty( $allterms ) ) {
@@ -79,7 +79,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 
 		if ( $count > 900 ) {
 			// Whoops, warn!
-			trigger_error( 'You have more than 900 sermon series terms, and search queries which are requesting greater than 900 sermon series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
+			trigger_error( 'You have more than 900 message series terms, and search queries which are requesting greater than 900 message series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
 		}
 
 		$args = $this->get_pagination( $total_pages );

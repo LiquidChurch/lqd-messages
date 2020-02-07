@@ -1,11 +1,11 @@
 <?php
 /**
- *  GC Sermons Shortcodes Recent Sermon Run.
+ *  Liquid Messages Recent Message Shortcode - Run.
  *
  * @since 0.10.0
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
+class LqdM_Shortcodes_Recent_Message_Run extends LqdM_Shortcodes_Run_Base
 {
     /**
      * Keep track of the levels of inception.
@@ -21,7 +21,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
      * @var string
      * @since 0.10.0
      */
-    public $shortcode = 'lqdm_recent_sermon';
+    public $shortcode = 'lqdm_recent_message';
 
     /**
      * Default attributes applied to the shortcode.
@@ -44,7 +44,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
     {
         $output = $this->_shortcode();
 
-        return apply_filters('gc_sermon_recent_sermon_shortcode_output', $output, $this);
+        return apply_filters('lqdm_recent_message_shortcode_output', $output, $this);
     }
 
     /**
@@ -64,14 +64,14 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
 
         $args = $this->get_initial_query_args();
 
-        $sermons = $this->sermons->get_many($args);
+        $messages = $this->messages->get_many($args); // TODO: Dupe code?
 
-        if (!$sermons->have_posts()) {
+        if (!$messages->have_posts()) {
             return '';
         }
 
-        $max = $sermons->max_num_pages;
-        $sermons = $this->map_sermon_args($sermons, $my_level);
+        $max = $messages->max_num_pages;
+        $messages = $this->map_message_args($messages, $my_level);
 
         $content = '';
         if (0 === $my_level) {
@@ -80,10 +80,10 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
 
         $args = $this->get_pagination($max);
         $args['wrap_classes'] = $this->get_wrap_classes();
-        $args['sermons'] = $sermons;
+        $args['messages'] = $messages;
         $args['plugin_option'] = lqdm_get_plugin_settings_options('single_message_view');
 
-        $content .= LqdM_Template_Loader::get_template('sermons-list', $args);
+        $content .= LqdM_Template_Loader::get_template('messages-list', $args);
 
         return $content;
     }
@@ -105,37 +105,37 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
     }
 
     /**
-     * Map Sermon Arguments
+     * Map Message Arguments
      *
-     * @param $all_sermons
+     * @param $all_messages
      * @param $my_level
      *
      * @return array
      */
-    protected function map_sermon_args($all_sermons, $my_level)
+    protected function map_message_args($all_messages, $my_level)
     {
         global $post;
-        $sermons = array();
+        $messages = array();
 
         $thumb_size = $this->att('thumbnail_size');
 
-        while ($all_sermons->have_posts()) {
-            $all_sermons->the_post();
+        while ($all_messages->have_posts()) {
+            $all_messages->the_post();
 
-            $obj = $all_sermons->post;
+            $obj = $all_messages->post;
 
-            $sermon = array();
-            $sermon['url'] = $obj->permalink();
-            $sermon['name'] = $obj->title();
-            $sermon['image'] = $obj->featured_image($thumb_size);
-            $sermon['do_image'] = (bool)$sermon['image'];
-            $sermon['description'] = '';
-            $sermons[] = $sermon;
+            $message = array();
+            $message['url'] = $obj->permalink();
+            $message['name'] = $obj->title();
+            $message['image'] = $obj->featured_image($thumb_size);
+            $message['do_image'] = (bool)$message['image'];
+            $message['description'] = '';
+            $messages[] = $message;
         }
 
         wp_reset_postdata();
 
-        return $sermons;
+        return $messages;
     }
 
     /**
@@ -167,7 +167,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-messages-wrap';
     }
 
 }

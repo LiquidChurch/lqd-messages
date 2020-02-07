@@ -2,12 +2,12 @@
 /**
  * Liquid Messages Shortcodes
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes {
 
 	/**
-	 * Instance of GCS_Shortcodes_Play_Button
+	 * Instance of Play Button Shortcode
 	 *
 	 * @var LqdM_Shortcodes_Play_Button
 	 * @since 0.1.0
@@ -15,15 +15,15 @@ class LqdM_Shortcodes {
 	protected $play_button;
 
 	/**
-	 * Instance of GCS_Shortcodes_Sermons
+	 * Instance of Messages Shortcode
 	 *
-	 * @var LqdM_Shortcodes_Sermons
+	 * @var LqdM_Shortcodes_Messages
 	 * @since 0.1.4
 	 */
-	protected $sermons;
+	protected $messages;
 
 	/**
-	 * Instance of GCS_Shortcodes_Recent_Series
+	 * Instance of Recent Series Shortcode
 	 *
 	 * @var LqdM_Shortcodes_Recent_Series
 	 * @since 0.1.4
@@ -31,7 +31,7 @@ class LqdM_Shortcodes {
 	protected $recent_series;
 
 	/**
-	 * Instance of GCS_Shortcodes_Recent_Speaker
+	 * Instance of Recent Speaker Shortcode
 	 *
 	 * @var LqdM_Shortcodes_Recent_Speaker
 	 * @since 0.1.4
@@ -39,7 +39,7 @@ class LqdM_Shortcodes {
 	protected $recent_speaker;
 
 	/**
-	 * Instance of GCS_Shortcodes_Video_Player
+	 * Instance of Video Player Shortcode
 	 *
 	 * @var LqdM_Shortcodes_Video_Player
 	 * @since 0.1.4
@@ -47,7 +47,7 @@ class LqdM_Shortcodes {
 	protected $video_player;
 
 	/**
-	 * Instance of GCS_Shortcodes_Audio_Player
+	 * Instance of Audio Player Shortcode
 	 *
 	 * @var LqdM_Shortcodes_Audio_Player
 	 * @since 0.1.4
@@ -55,22 +55,22 @@ class LqdM_Shortcodes {
 	protected $audio_player;
 
 	/**
-	 * Instance of GCS_Shortcodes_Sermon_Search
+	 * Instance of Message Search Shortcode
 	 *
-	 * @var LqdM_Shortcodes_Sermon_Search
+	 * @var LqdM_Shortcodes_Message_Search
 	 * @since 0.1.5
 	 */
 	protected $search;
 
     /**
-     * Instance of GCS_Shortcodes_Resources
+     * Instance of Resources Shortcode
      *
      * @var LqdM_Shortcodes_Resources
      */
     protected $resources;
 
     /**
-     * Instances of GCS_Shortcodes_Series
+     * Instances of Series Shortcode
      *
      * @var LqdM_Shortcodes_Series
      */
@@ -85,13 +85,13 @@ class LqdM_Shortcodes {
 	 */
 	public function __construct( $plugin ) {
 		$this->play_button    = new LqdM_Shortcodes_Play_Button( $plugin );
-		$this->sermons        = new LqdM_Shortcodes_Sermons( $plugin );
+		$this->messages       = new LqdM_Shortcodes_Messages( $plugin );
 		$this->recent_series  = new LqdM_Shortcodes_Recent_Series( $plugin );
 		$this->recent_speaker = new LqdM_Shortcodes_Recent_Speaker( $plugin );
 		$this->series         = new LqdM_Shortcodes_Series( $plugin );
 		$this->video_player   = new LqdM_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new LqdM_Shortcodes_Audio_Player( $plugin );
-		$this->search         = new LqdM_Shortcodes_Sermon_Search( $plugin );
+		$this->search         = new LqdM_Shortcodes_Message_Search( $plugin );
 		$this->resources      = new LqdM_Shortcodes_Resources( $plugin );
 	}
 

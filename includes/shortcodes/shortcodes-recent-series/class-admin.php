@@ -1,8 +1,8 @@
 <?php
 /**
- * Liquid Messages Recent Series Admin Shortcodes.
+ * Liquid Messages Recent Series Shortcode - Admin.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Recent_Series_Admin extends LqdM_Recent_Admin_Base {
 
@@ -21,10 +21,9 @@ class LqdM_Recent_Series_Admin extends LqdM_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Recent Series', 'lqdm' ),
-			'button_tooltip' => __( 'GC Recent Series', 'lqdm' ),
-			'icon'           => 'dashicons-images-alt',
-			// 'mceView'        => true, // The future
+			'qt_button_text' => __( 'Recent Series', 'lqdm' ),
+			'button_tooltip' => __( 'Recent Series', 'lqdm' ),
+			'icon'           => 'dashicons-images-alt'
 		);
 	}
 
@@ -39,19 +38,19 @@ class LqdM_Recent_Series_Admin extends LqdM_Recent_Admin_Base {
 	function fields( $fields, $button_data ) {
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'lqdm' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s series info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
-			'id'              => $this->prefix . 'sermon_id',
+			'name'            => __( 'Message ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s series info. Otherwise enter a post ID. Click the magnifying glass to search for a message post.', 'lqdm' ),
+			'id'              => $this->prefix . 'message_id',
 			'type'            => 'post_search_text',
-			'post_type'       => $this->run->sermons->post_type(),
+			'post_type'       => $this->run->messages->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 			'row_classes'     => 'check-if-recent',
 		);
 
 		$fields[] = array(
-			'name'        => __( 'Filter Most Recent Sermon By:', 'lqdm' ),
-			'desc'        => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the series info for.', 'lqdm' ),
+			'name'        => __( 'Filter Most Recent Message By:', 'lqdm' ),
+			'desc'        => __( 'If setting "Message ID" above to blank, "recent", or "0", this setting determines which type of most recent message to get the series info for.', 'lqdm' ),
 			'type'        => 'select',
 			'id'          => $this->prefix . 'recent',
 			'default'     => $this->atts_defaults['recent'],

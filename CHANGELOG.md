@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ## 0.9.1 - 2017-07-10
 ### Added
-* Recent sermon shortcode
+* Recent message shortcode
 * Sermon single shortcode
 
 ## 0.9.0 - 2017-01-09

@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Series Shortcode
+ * Liquid Messages Series Shortcode.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Series extends LqdM_Shortcodes_Base {
 	/**
@@ -13,7 +13,7 @@ class LqdM_Shortcodes_Series extends LqdM_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new LqdM_Series_Run( $plugin->sermons, $plugin->series );
+		$this->run   = new LqdM_Series_Run( $plugin->messages, $plugin->series );
 		$this->admin = new LqdM_Series_Admin( $this->run );
 
 		parent::hooks();

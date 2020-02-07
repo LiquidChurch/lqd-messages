@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Sermons
+ * Liquid Messages Post Type
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Messages extends LqdM_Post_Types_Base
 {
@@ -11,7 +11,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      *
      * @var string
      */
-    protected $id = 'sermon';
+    protected $id = 'message';
 
     /**
      * Parent plugin class
@@ -43,7 +43,10 @@ class LqdM_Messages extends LqdM_Post_Types_Base
 
     /**
      * Constructor
-     * Register Custom Post Types. See documentation in CPT_Core, and in wp-includes/post.php
+     *
+     * Register Custom Post Types.
+     *
+     * See documentation in CPT_Core, and in wp-includes/post.php
      *
      * @since  0.1.0
      * @param  object $plugin Main plugin object.
@@ -53,12 +56,12 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     {
         // First parameter should be an array with Singular, Plural, and Registered name.
         parent::__construct($plugin, array(
-            'labels' => array(__('Sermon', 'lqdm'), __('Sermons', 'lqdm'), 'gc-sermons'),
+            'labels' => array(__('Message', 'lqdm'), __('Messages', 'lqdm'), 'lqdm-messages'),
             'args' => array(
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'menu_icon' => 'dashicons-playlist-video',
                 'rewrite' => array(
-                    'slug' => 'sermons',
+                    'slug' => 'messages',
                     'with_front' => false,
                     'ep_mask' => EP_ALL,
                 ),
@@ -81,14 +84,15 @@ class LqdM_Messages extends LqdM_Post_Types_Base
         add_filter('admin_init', array($this, 'admin_hooks'));
 
         /**
-         * Enable image fallback. If Sermon does not have a featured image, fall back
-         * to the sermon series image (if it exists).
+         * Enable image fallback.
+         *
+         * If message does not have a featured image, fall back to the series featured image (if it exists).
          *
          * To disable:
-         *    add_filter( 'lqdm_do_sermon_series_fallback_image', '__return_false' );
+         *    add_filter( 'lqdm_do_message_series_fallback_image', '__return_false' );
          *
          */
-        if (apply_filters('gc_do_sermon_series_fallback_image', true))
+        if (apply_filters('lqdm_do_message_series_fallback_image', true))
         {
             add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
         }
@@ -99,10 +103,10 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          * If false, future posts will be 'scheduled', WordPress' default behavior.
          *
          * To disable:
-         *    add_filter( 'lqdm_display_future_sermsons', '__return_false' );
+         *    add_filter( 'lqdm_display_future_messages', '__return_false' );
          *
          */
-        if (apply_filters('gc_display_future_sermsons', true)) {
+        if (apply_filters('lqdm_display_future_messages', true)) {
             add_filter('wp_insert_post_data', array($this, 'save_future_as_published'), 10, 2);
             if (!is_admin()) {
                 add_filter('the_title', array($this, 'label_coming_soon'), 10, 2);
@@ -118,22 +122,22 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      */
     public function admin_hooks()
     {
-        add_action('dbx_post_advanced', array($this, 'remove_default_boxes_for_sermons'));
+        add_action('dbx_post_advanced', array($this, 'remove_default_boxes_for_messages'));
         add_filter("manage_edit-{$this->post_type()}_columns", array($this, 'columns'));
         add_filter("manage_edit-{$this->post_type()}_sortable_columns", array($this, 'columns_sortable'), 10, 1);
         add_filter('posts_clauses', array($this, 'columns_sort_func'), 10, 2);
-        add_action('wp_ajax_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
-        add_action('wp_ajax_nopriv_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
+        add_action('wp_ajax_check_message_duplicate_video', array($this, 'check_message_duplicate_video'));
+        add_action('wp_ajax_nopriv_check_message_duplicate_video', array($this, 'check_message_duplicate_video'));
     }
 
     /**
-     * Remove default excerpt and featured image metaboxes for Sermons
+     * Remove default excerpt and featured image metaboxes for Messages
      *
      * @since  0.1.3
      *
      * @return void
      */
-    public function remove_default_boxes_for_sermons()
+    public function remove_default_boxes_for_messages()
     {
         $screen = get_current_screen();
 
@@ -144,8 +148,10 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     }
 
 	/**
-	 * This provides a backup featured image for sermons by checking the sermon series
-	 * for the series featured image. If a sermon has a featured image set, that will be used.
+     * Provide Backup Featured Image for Messages
+     *
+	 * This provides a backup featured image for messages by checking the message series
+	 * for the series featured image. If a message has a featured image set, that will be used.
 	 *
 	 * @since  0.1.3
 	 *
@@ -153,7 +159,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
 	 * @param  int    $object_id  Object ID.
 	 * @param  string $meta_key   Meta key.
 	 *
-	 * @return mixed Sermon featured image id, or Series image id, or nothing.
+	 * @return mixed Message featured image id, or Series image id, or nothing.
 	 * @throws Exception
 	 */
     public function featured_image_fallback_to_series_image($meta, $object_id, $meta_key)
@@ -170,11 +176,11 @@ class LqdM_Messages extends LqdM_Post_Types_Base
             // If no featured image exists...
             if (!$id || !get_post($id)) {
 
-                // Get sermon.
-                $sermon = new LqdM_Message_Post(get_post($object_id));
+                // Get message.
+                $message = new LqdM_Message_Post(get_post($object_id));
 
                 // Get series.
-                $series = $sermon->get_series();
+                $series = $message->get_series();
 
                 // Send series image id.
                 return isset($series->image_id) ? $series->image_id : $id;
@@ -185,8 +191,9 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     }
 
     /**
+     * Allow Future Data Messages to Show on Front-End
+     *
      * When a scheduled message post is saved, change the status back to 'publish'.
-     * This allows the future-date messages to show on the front-end.
      *
      * @since  0.1.3
      *
@@ -200,7 +207,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
         if (
             !isset($postarr['ID'], $data['post_status'], $data['post_type'])
             || 'future' !== $data['post_status']
-            || $this->post_type() !== $data['post_type'] // Changed: 1/17/19
+            || $this->post_type() !== $data['post_type']
         ) {
             return $data;
         }
@@ -211,7 +218,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     }
 
 	/**
-	 * Possibly add a "Coming Soon" prefix to future message titles.
+	 * Add a "Coming Soon" prefix to future message titles.
 	 *
      * @since  0.2.1
      *
@@ -235,7 +242,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
 
         if (mysql2date('U', get_post($post_id)->post_date_gmt, false) > mysql2date('U', $now, false)) {
 
-            $coming_soon_prefix = apply_filters('gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __('Coming Soon:', 'lqdm') . '</span> ', $post_id, $this);
+            $coming_soon_prefix = apply_filters('lqdm_message_coming_soon_prefix', '<span class="lqdm-coming-soon-prefix">' . __('Coming Soon:', 'lqdm') . '</span> ', $post_id, $this);
             $title = $coming_soon_prefix . $title;
         }
 
@@ -253,27 +260,27 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     public function fields()
     {
         $fields = array(
-            'gc_sermon_video_url' => array(
-                'id'   => 'gc_sermon_video_url',
+            'lqdm_message_video_url' => array(
+                'id'   => 'lqdm_message_video_url',
                 'name' => __('Video URL', 'lqdm'),
-                'desc' => __('Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'lqdm'),
+                'desc' => __('Enter a Youtube, Vimeo or other oembed URL. Supported services listed <a href="http://codex.wordpress.org/Embeds">here</a>.', 'lqdm'),
                 'type' => 'oembed',
             ),
-            'gc_sermon_video_src' => array(
-                'id'      => 'gc_sermon_video_src',
+            'lqdm_message_video_src' => array(
+                'id'      => 'lqdm_message_video_src',
                 'name'    => __('Video File', 'lqdm'),
                 'desc'    => __('Alternatively upload/select video from your media library.', 'lqdm'),
                 'type'    => 'file',
                 'options' => array('url' => false),
             ),
-            'gc_sermon_audio_url' => array(
-                'id'   => 'gc_sermon_audio_url',
+            'lqdm_message_audio_url' => array(
+                'id'   => 'lqdm_message_audio_url',
                 'name' => __('Audio URL', 'lqdm'),
-                'desc' => __('Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'lqdm'),
+                'desc' => __('Enter a Soundcloud, Spotify, or other oembed-supported web audio URL. Supported services listed at <a href="http://codex.wordpress.org/Embeds">here</a>.', 'lqdm'),
                 'type' => 'oembed',
             ),
-            'gc_sermon_audio_src' => array(
-                'id'      => 'gc_sermon_audio_src',
+            'lqdm_message_audio_src' => array(
+                'id'      => 'lqdm_message_audio_src',
                 'name'    => __('Audio File', 'lqdm'),
                 'desc'    => __('Alternatively upload/select audio from your media library.', 'lqdm'),
                 'type'    => 'file',
@@ -289,19 +296,19 @@ class LqdM_Messages extends LqdM_Post_Types_Base
             '_thumbnail' => array(
                 'id'   => '_thumbnail',
                 'name' => __('Image', 'lqdm'),
-                'desc' => __('Select an image if you want to override the series image for this sermon.', 'lqdm'),
+                'desc' => __('Select an image if you want to override the series image for this message.', 'lqdm'),
                 'type' => 'file',
             ),
-            'gc_sermon_notes' => array(
-                'id'   => 'gc_sermon_notes',
-                'name' => __('Sermon Notes', 'lqdm'),
+            'lqdm_message_notes' => array(
+                'id'   => 'lqdm_message_notes',
+                'name' => __('Message Notes', 'lqdm'),
                 'type' => 'wysiwyg',
             ),
         );
 
         $this->new_cmb2(array(
-            'id'           => 'gc_sermon_metabox',
-            'title'        => __('Sermon Details', 'lqdm'),
+            'id'           => 'lqdm_message_metabox',
+            'title'        => __('Message Details', 'lqdm'),
             'object_types' => array($this->post_type()),
             'fields'       => $fields,
         ));
@@ -322,6 +329,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
 
     /**
      * Registers admin columns to display.
+     *
      * @since  0.1.0
      * @param  array $columns Array of registered column names/labels
      * @return array           Modified array
@@ -351,14 +359,14 @@ class LqdM_Messages extends LqdM_Post_Types_Base
         if ('tax-' . $this->plugin->series->id === $column) {
             add_action('admin_footer', array($this, 'admin_column_css'));
 
-            // Get sermon post object
-            $sermon = new LqdM_Message_Post(get_post($post_id));
+            // Get message post object
+            $message = new LqdM_Message_Post(get_post($post_id));
 
-            // If we have sermon series...
-            if (is_array($sermon->series)) {
+            // If we have message series...
+            if (is_array($message->series)) {
 
                 // Then loop them (typically only one)
-                foreach ($sermon->series as $series) {
+                foreach ($message->series as $series) {
 
                     // Get augmented term object to get the thumbnail url
                     $series = $this->plugin->series->get($series, array('image_size' => 'thumb'));
@@ -376,7 +384,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
                         $term = $series->name;
                     }
 
-                    echo '<div class="sermon-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
+                    echo '<div class="lqdm-message-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
                 }
             }
         } elseif ('thumb-' . $this->post_type() === $column) {
@@ -418,7 +426,7 @@ LEFT OUTER JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID={$wpdb->term_re
 LEFT OUTER JOIN {$wpdb->term_taxonomy} USING (term_taxonomy_id)
 LEFT OUTER JOIN {$wpdb->terms} USING (term_id)
 SQL;
-            $clauses['where'] .= "AND (taxonomy = 'gc-sermon-series' OR taxonomy IS NULL)";
+            $clauses['where'] .= "AND (taxonomy = 'lqdm-message-series' OR taxonomy IS NULL)";
             $clauses['groupby'] = "object_id";
             $clauses['orderby'] = "GROUP_CONCAT({$wpdb->terms}.name ORDER BY name ASC)";
             if (strtoupper($wp_query->get('order')) == 'ASC') {
@@ -441,80 +449,80 @@ SQL;
     }
 
 	/**
-	 * Retrieve the most recent sermon with video media.
+	 * Retrieve the most recent message with video media.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
 	 */
     public function most_recent_with_video()
     {
-        static $sermon = null;
+        static $message = null;
 
-        if (null === $sermon || $this->flush) {
-            $sermon = $this->most_recent();
+        if (null === $message || $this->flush) {
+            $message = $this->most_recent();
 
-            if (empty($sermon->media['video'])) {
-                $sermon = $this->most_recent_with_media('video');
+            if (empty($message->media['video'])) {
+                $message = $this->most_recent_with_media('video');
             }
         }
 
-        return $sermon;
+        return $message;
     }
 
 	/**
-	 * Retrieve the most recent sermon with audio media.
+	 * Retrieve the most recent message with audio media.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
 	 */
     public function most_recent_with_audio()
     {
-        static $sermon = null;
+        static $message = null;
 
-        if (null === $sermon || $this->flush) {
-            $sermon = $this->most_recent();
+        if (null === $message || $this->flush) {
+            $message = $this->most_recent();
 
-            if (empty($sermon->media['audio'])) {
-                $sermon = $this->most_recent_with_media('audio');
+            if (empty($message->media['audio'])) {
+                $message = $this->most_recent_with_media('audio');
             }
         }
 
-        return $sermon;
+        return $message;
     }
 
     /**
-     * Retrieve the most recent sermon.
+     * Retrieve the most recent message.
      *
-     * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+     * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
      * @throws Exception
      *@since  0.1.0
      *
      */
     public function most_recent()
     {
-        static $sermon = null;
+        static $message = null;
 
-        if (null === $sermon || $this->flush) {
-            $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
-            $sermon = false;
-            if ($sermons->have_posts()) {
-                $sermon = new LqdM_Message_Post( $sermons->post);
+        if (null === $message || $this->flush) {
+            $messages = new WP_Query(apply_filters('lqdm_recent_message_args', $this->query_args));
+            $message = false;
+            if ($messages->have_posts()) {
+                $message = new LqdM_Message_Post( $messages->post);
             }
         }
 
-        return $sermon;
+        return $message;
     }
 
 	/**
-	 * Retrieve a specific sermon.
+	 * Retrieve a specific message.
 	 *
 	 * @param $args
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -522,17 +530,17 @@ SQL;
     public function get($args)
     {
         $args = wp_parse_args($args, $this->query_args);
-        $sermons = new WP_Query(apply_filters('gcs_get_sermon_args', $args));
-        $sermon = false;
-        if ($sermons->have_posts()) {
-            $sermon = new LqdM_Message_Post( $sermons->post);
+        $messages = new WP_Query(apply_filters('lqdm_get_message_args', $args));
+        $message = false;
+        if ($messages->have_posts()) {
+            $message = new LqdM_Message_Post( $messages->post);
         }
 
-        return $sermon;
+        return $message;
     }
 
 	/**
-	 * Retrieve sermons.
+	 * Retrieve messages.
 	 *
 	 * @since  0.1.0
 	 *
@@ -548,37 +556,37 @@ SQL;
         unset($defaults['no_found_rows']);
         $args['augment_posts'] = true;
 
-        $args = apply_filters('gcs_get_sermons_args', wp_parse_args($args, $defaults));
-        $sermons = new WP_Query($args);
+        $args = apply_filters('lqdm_get_messages_args', wp_parse_args($args, $defaults));
+        $messages = new WP_Query($args);
 
         if (
             isset($args['augment_posts'])
             && $args['augment_posts']
-            && $sermons->have_posts()
+            && $messages->have_posts()
             // Don't augment for queries w/ greater than 100 posts, for perf. reasons.
-            && $sermons->post_count < 100
+            && $messages->post_count < 100
         ) {
-            foreach ($sermons->posts as $key => $post) {
-                $sermons->posts[$key] = new LqdM_Message_Post( $post);
+            foreach ($messages->posts as $key => $post) {
+                $messages->posts[$key] = new LqdM_Message_Post( $post);
             }
         }
 
-        return $sermons;
+        return $messages;
     }
 
     /**
-     * Retrieve the most recent sermon with audio media.
+     * Retrieve the most recent message with audio media.
      *
      * @param  string $type Media type (audio or video)
      *
-     * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+     * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
      * @throws Exception
      *@since  0.1.0
      *
      */
     protected function most_recent_with_media($type = 'video')
     {
-        $sermon = false;
+        $message = false;
 
         // Only audio/video allowed.
         $type = 'video' === $type ? $type : 'audio';
@@ -587,82 +595,81 @@ SQL;
         $args['meta_query'] = array(
             'relation' => 'OR',
             array(
-                'key' => "gc_sermon_{$type}_url",
+                'key' => "lqdm_message_{$type}_url",
             ),
             array(
-                'key' => "gc_sermon_{$type}_src",
+                'key' => "lqdm_message_{$type}_src",
             ),
         );
 
-        $sermons = new WP_Query(apply_filters("gcs_recent_sermon_with_{$type}_args", $args));
+        $messages = new WP_Query(apply_filters("lqdm_recent_message_with_{$type}_args", $args));
 
-        if ($sermons->have_posts()) {
-            $sermon = new LqdM_Message_Post( $sermons->post);
+        if ($messages->have_posts()) {
+            $message = new LqdM_Message_Post( $messages->post);
         }
 
-        return $sermon;
+        return $message;
     }
 
 	/**
-	 * Retrieve the most recent sermon which has terms in specified taxonomy.
+	 * Retrieve the most recent message which has terms in specified taxonomy.
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  string $taxonomy_id LqdM_Taxonomies_Base taxonomy id
 	 *
-	 * @return LqdM_Message_Post|false|WP_Error  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false|WP_Error  Liquid Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
 	 */
     public function most_recent_with_taxonomy($taxonomy_id)
     {
-        $sermon = $this->most_recent();
+        $message = $this->most_recent();
 
-        // No sermon post found at all.. oops
-        if (!$sermon) {
+        if (!$message) {
             return false;
         }
 
         try {
-            $terms = $sermon->{$taxonomy_id};
+            $terms = $message->{$taxonomy_id};
         } catch (Exception $e) {
             return new WP_Error(__('"%s" is not a valid taxonomy for %s.', 'lqdm'), $taxonomy_id, $this->post_type('plural'));
         }
 
         if (!$terms || is_wp_error($terms)) {
-            $sermon = $this->find_sermon_with_taxonomy($taxonomy_id, array($sermon->ID));
+            $message = $this->find_message_with_taxonomy($taxonomy_id, array($message->ID));
         }
 
-        return $sermon;
+        return $message;
     }
 
 	/**
 	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
 	 *
-	 * @param  string  $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  string  $taxonomy_id LqdM_Taxonomies_Base taxonomy id
 	 * @param  array   $exclude     Array of excluded post IDs
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  LqdM_Message_Post post object if successful.
 	 * @throws Exception
-	 *@since  0.1.0
+	 * @since  0.1.0
 	 *
 	 */
-    protected function find_sermon_with_taxonomy($taxonomy_id, $exclude)
+    protected function find_message_with_taxonomy($taxonomy_id, $exclude)
     {
         static $count = 0;
 
         $args = $this->query_args;
         $args['post__not_in'] = $exclude;
-        $args = apply_filters('gcs_find_sermon_with_taxonomy_args', $args);
+        $args = apply_filters('lqdm_find_message_with_taxonomy_args', $args);
 
-        $sermons = new WP_Query($args);
+        $messages = new WP_Query($args);
 
-        if (!$sermons->have_posts()) {
+        if (!$messages->have_posts()) {
             return false;
         }
 
-        $sermon = new LqdM_Message_Post( $sermons->post);
+        $message = new LqdM_Message_Post( $messages->post);
 
-        $terms = $sermon ? $sermon->{$taxonomy_id} : false;
+        $terms = $message ? $message->{$taxonomy_id} : false;
 
         if (!$terms || is_wp_error($terms)) {
             // Only try this up to 5 times
@@ -670,20 +677,20 @@ SQL;
                 return false;
             }
 
-            $exclude = array_merge($exclude, array($sermon->ID));
-            $sermon = $this->find_sermon_with_taxonomy($taxonomy_id, $exclude);
+            $exclude = array_merge($exclude, array($message->ID));
+            $message = $this->find_message_with_taxonomy($taxonomy_id, $exclude);
         }
 
-        return $sermon;
+        return $message;
     }
 
     /**
-     * check duplicate post with same video meta url
+     * Check duplicate post with same video meta url
      *
      * @since  0.1.7
      *
      */
-    public function check_sermon_duplicate_video()
+    public function check_message_duplicate_video()
     {
         $response = array();
         $response['success'] = true;
@@ -693,8 +700,8 @@ SQL;
 
             $the_query = new WP_Query(
                 array(
-                    'post_type' => 'gc-sermons',
-                    'meta_key' => 'gc_sermon_video_url',
+                    'post_type' => 'lqdm-messages',
+                    'meta_key' => 'lqdm_message_video_url',
                     'meta_value' => $_POST['video_url'],
                     'order' => 'ASC',
                     'post__not_in' => array($_POST['curr_post_id']),
@@ -704,7 +711,7 @@ SQL;
 
             if ($the_query->have_posts()) {
                 $response['success'] = false;
-                $response['data'] = __('<div class="lqdm-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
+                $response['data'] = __('<div class="lqdm-message-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
                 while ($the_query->have_posts()) {
                     $the_query->the_post();
                     $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';
