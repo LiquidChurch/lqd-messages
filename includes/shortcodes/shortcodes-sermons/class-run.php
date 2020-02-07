@@ -170,7 +170,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             $required = true;
 
             try {
-                $sermon = gc_get_sermon_post(get_queried_object(), true);
+                $sermon = lqdm_get_sermon_post(get_queried_object(), true);
 
                 $args['post__not_in'] = array($sermon->ID);
 

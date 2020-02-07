@@ -1,19 +1,19 @@
 /**
- * LiquidChurch Admin Functionality
+ * Liquid Messages Admin Functionality
  *
  * Licensed under the GPLv2+ license.
  */
 
-window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
+window.LqdMAdmin = window.LqdMAdmin || {};
 
-( function (window, document, $, LiquidChurchAdmin) {
+( function (window, document, $, LqdMAdmin) {
 
     var self = this;
 
     var $sort_btn = $(".sort-btn"),
         $update_btn = $(".update-btn"),
         $reset_btn = $(".reset-btn"),
-        $sermon_message_config_page_wrap = $(".gc-sermon-message-config-wrap"),
+        $sermon_message_config_page_wrap = $(".lqdm-sermon-config-wrap"),
         $message_config_form = $(".message-config-form");
 
 
@@ -58,34 +58,34 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
                 $parentForm.find('input[type="number"][required]').each(function (fi, fv) {
                     var inputStatus = null;
                     inputStatus = self.updateInputClass(fv);
-                    if (inputStatus == false) {
+                    if (inputStatus === false) {
                         formValid = false;
                     }
                 });
 
-                if (formValid == true) {
+                if (formValid === true) {
                     formData.push($parentForm.serialize());
                 } else {
                     submitValue = false;
                 }
             });
 
-            if(submitValue == true) {
+            if(submitValue === true) {
                 self.blockUI();
                 $.ajax({
                     url: window.ajaxurl,
                     method: "POST",
                     data: {
-                        action: 'sermon_message_config_all_series_update',
-                        nonce: LiquidChurchAdmin.ajax_nonce,
+                        action: 'lqdm_message_config_all_series_update',
+                        nonce: LiquidMAdmin.ajax_nonce,
                         formData: formData,
                     },
                     dataType: 'json'
                 }).done(function (response) {
                     $.each(response, function (i, v) {
-                        $form = $sermon_message_config_page_wrap.find('#series-' + i);
+                        $form = $lqdm_message_config_page_wrap.find('#series-' + i);
                         $.each(v, function (ci, cv) {
-                            var $adjcntLabel = $sermon_message_config_page_wrap.find('label[data-post-id="' + ci + '"]');
+                            var $adjcntLabel = $lqdm_message_config_page_wrap.find('label[data-post-id="' + ci + '"]');
 
                             self.modifyLabel($adjcntLabel, cv);
                             self.setFormInputValue($form);
@@ -95,7 +95,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
                     self.unblockUI();
                 });
             } else {
-                alert(LiquidChurchAdmin.required_message);
+                alert(LqdMAdmin.required_message);
             }
         }
     });
@@ -130,7 +130,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
      * binding validation classes to input
      * after keyup event
      */
-    $sermon_message_config_page_wrap.find('input[type="number"][required]').each(function (i, v) {
+    $lqdm_message_config_page_wrap.find('input[type="number"][required]').each(function (i, v) {
         $(v).keyup(function (e) {
             self.updateInputClass(this);
         });
@@ -142,18 +142,18 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
      * @param $el
      */
     this.blockUI = function ($el) {
-        if (typeof $el != 'undefined') {
+        if (typeof $el !== 'undefined') {
             $el.block({
                 message: '<div class="vcenter">' +
-                '<div><img width="40px" src="' + LiquidChurchAdmin.path + 'assets/img/spinner.gif" /></div>' +
-                '<div><h2>' + LiquidChurchAdmin.blockui_message + '</h2></div>' +
+                '<div><img width="40px" src="' + LqdMAdmin.path + 'assets/img/spinner.gif" /></div>' +
+                '<div><h2>' + LqdMAdmin.blockui_message + '</h2></div>' +
                 '</div>'
             });
         } else {
             $.blockUI({
                 message: '<div class="vcenter">' +
-                '<div><img width="40px" src="' + LiquidChurchAdmin.path + 'assets/img/spinner.gif" /></div>' +
-                '<div><h2>' + LiquidChurchAdmin.blockui_message + '</h2></div>' +
+                '<div><img width="40px" src="' + LqdMAdmin.path + 'assets/img/spinner.gif" /></div>' +
+                '<div><h2>' + LqdMAdmin.blockui_message + '</h2></div>' +
                 '</div>'
             });
         }
@@ -165,7 +165,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
      * @param $el
      */
     this.unblockUI = function ($el) {
-        if (typeof $el != 'undefined') {
+        if (typeof $el !== 'undefined') {
             $el.unblock();
         } else {
             $.unblockUI();
@@ -185,14 +185,14 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
             url: window.ajaxurl,
             method: "POST",
             data: {
-                action: 'sermon_message_config_single_series_update',
-                nonce: LiquidChurchAdmin.ajax_nonce,
+                action: 'lqdm_message_config_single_series_update',
+                nonce: LqdMAdmin.ajax_nonce,
                 formData: that.serialize(),
             },
             dataType: 'json'
         }).done(function (response) {
             $.each(response, function (i, v) {
-                var $adjcntLabel = $sermon_message_config_page_wrap.find('label[data-post-id="' + i + '"]');
+                var $adjcntLabel = $lqdm_message_config_page_wrap.find('label[data-post-id="' + i + '"]');
                 self.modifyLabel($adjcntLabel, v);
                 self.setFormInputValue(that);
             });
@@ -208,7 +208,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
      * @param el - element
      */
     this.updateInputClass = function (el) {
-        if ($(el).val() != '') {
+        if ($(el).val() !== '') {
             $(el).addClass('success');
             $(el).removeClass('error');
             return true;
@@ -217,7 +217,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
             $(el).removeClass('success');
             return false;
         }
-    }
+    };
 
 
     /**
@@ -227,7 +227,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
     this.clearInputClass = function (el) {
         $(el).removeClass('error');
         $(el).removeClass('success');
-    }
+    };
 
 
     /**
@@ -236,7 +236,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
      * @param status
      */
     this.modifyLabel = function ($el, status) {
-        if (status.status != false) {
+        if (status.status !== false) {
             $el.show();
             $el.removeClass('hidden');
             $el.addClass('success');
@@ -248,7 +248,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
                 $el.html('');
             }, 20000);
         }
-    }
+    };
 
 
     /**
@@ -260,6 +260,6 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
         $el.find('input[type="number"][required]').each(function (i, v) {
             $(v).attr('value', $(v).val());
         });
-    }
+    };
 
-}(window, document, jQuery, LiquidChurchAdmin) );
+}(window, document, jQuery, LqdMAdmin) );

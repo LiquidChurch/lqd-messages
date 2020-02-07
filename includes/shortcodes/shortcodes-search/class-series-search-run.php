@@ -119,8 +119,8 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 		$nav = array( 'prev_link' => '', 'next_link' => '' );
 
 		if ( ! $this->bool_att( 'remove_pagination' ) ) {
-			$nav['prev_link'] = gc_search_get_previous_results_link();
-			$nav['next_link'] = gc_search_get_next_results_link( $total_pages );
+			$nav['prev_link'] = lqdm_search_get_previous_results_link();
+			$nav['next_link'] = lqdm_search_get_next_results_link( $total_pages );
 		}
 
 		return $nav;

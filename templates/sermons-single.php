@@ -16,7 +16,7 @@
                         if ($atts['show_media'] == 'video_player') :
                             ?>
                             <div class="message-video">
-                                <?php echo gc_get_sermon_video_player($sermon); ?>
+                                <?php echo lqdm_get_sermon_video_player($sermon); ?>
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {
@@ -27,7 +27,7 @@
                             elseif ($atts['show_media'] == 'audio_player'):
                         ?>
                             <div class="message-video">
-                                <?php echo gc_get_sermon_audio_player($sermon); ?>
+                                <?php echo lqdm_get_sermon_audio_player($sermon); ?>
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {

@@ -1,4 +1,4 @@
-window.GCSermonsAdmin = window.GCSermonsAdmin || {};
+window.LqdMAdmin = window.LqdMAdmin || {};
 
 ( function( window, document, $, app, undefined ) {
 	'use strict';
@@ -14,7 +14,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 		// Take action on events...
 		$( document.body )
 			.on( 'keyup change', '.check-if-recent input[type="text"]', app.maybeToggle )
-			.on( 'change', '#gc_sermon_video_url', app.checkDupVideo )
+			.on( 'change', '#lqdm_sermon_video_url', app.checkDupVideo )
 			.on( 'shortcode_button:open', app.showNotRecent );
 		$( app.expandTaxonomy );
 	};
@@ -35,7 +35,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 	};
 
 	app.expandTaxonomy = function(){
-		var expandTaxonomy = ['gc-sermon-series', 'gcs-speaker', 'gcs-tag'];
+		var expandTaxonomy = ['lqdm-series', 'lqdm-speaker', 'lqdm-tag'];
 		var expandElem = [];
 		$.each(expandTaxonomy, function(i, item) {
 			expandElem.push('#link-' + item);
@@ -58,8 +58,8 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 			data: data,
 			dataType: 'json'
 		}).done(function(resp) {
-			$(".gc-sermon-duplicate-notice").remove();
-			if(resp.success == false) {
+			$(".lqdm-duplicate-notice").remove();
+			if(resp.success === false) {
 				$(".cmb2-metabox-description").after(resp.data);
 			}
 		});
@@ -67,4 +67,4 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 
 	$( app.init );
 
-} )( window, document, jQuery, window.GCSermonsAdmin );
+} )( window, document, jQuery, window.LqdMAdmin );

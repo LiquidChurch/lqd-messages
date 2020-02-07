@@ -29,7 +29,7 @@ class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
      * @throws Exception
      */
     public function shortcode() {
-        return gc_get_sermon_video_player( $this->get_sermon() );
+        return lqdm_get_sermon_video_player( $this->get_sermon() );
     }
 
 }

@@ -14,7 +14,7 @@
  *@since  0.1.3
  *
  */
-function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
+function lqdm_get_sermon_post($sermon = 0, $throw_on_error = false)
 {
     if ($sermon instanceof LqdM_Message_Post ) {
         return $sermon;
@@ -50,9 +50,9 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  * @return string Sermon series info output.
  * @throws Exception
  */
-function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
+function lqdm_get_sermon_series_info($sermon = 0, $args = [], $get_series_args = [])
 {
-    if (!($sermon = gc_get_sermon_post($sermon))) {
+    if (!($sermon = lqdm_get_sermon_post($sermon))) {
         // If no sermon, bail.
         return '';
     }
@@ -101,9 +101,9 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
  * @return string Sermon speaker info output.
  * @throws Exception
  */
-function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
+function lqdm_get_sermon_speaker_info($sermon = 0, $args = [], $get_speaker_args = [])
 {
-    if (!($sermon = gc_get_sermon_post($sermon))) {
+    if (!($sermon = lqdm_get_sermon_post($sermon))) {
         // If no sermon, bail.
         return '';
     }
@@ -123,7 +123,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
         return '';
     }
 
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no sermon speaker, bail.
     if (!$sermon || !($speaker = $sermon->get_speaker($get_speaker_args))) {
@@ -149,9 +149,9 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
  * @return string Sermon video player output.
  * @throws Exception
  */
-function gc_get_sermon_video_player($sermon = 0, $args = array())
+function lqdm_get_sermon_video_player($sermon = 0, $args = [])
 {
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no related links, bail.
     if (!$sermon || !($video_player = $sermon->get_video_player($args))) {
@@ -172,9 +172,9 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
  * @return string Sermon audio player output.
  * @throws Exception
  */
-function gc_get_sermon_audio_player($sermon = 0, $args = array())
+function lqdm_get_sermon_audio_player($sermon = 0, $args = [])
 {
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no related links, bail.
     if (!$sermon || !($audio_player = $sermon->get_audio_player($args))) {
@@ -193,7 +193,7 @@ function gc_get_sermon_audio_player($sermon = 0, $args = array())
  *
  * @return string           Next results page link, if there is a next page.
  */
-function gc_search_get_next_results_link($total_pages)
+function lqdm_search_get_next_results_link($total_pages)
 {
     $page = absint(gc__get_arg('results-page', 1));
     $link = '';
@@ -202,7 +202,7 @@ function gc_search_get_next_results_link($total_pages)
         $link = sprintf(
             '<a href="%s" %s>%s</a>',
             esc_url(add_query_arg('results-page', $page)),
-            apply_filters('gc_next_results_page_link_attributes', ''),
+            apply_filters('lqdm_next_results_page_link_attributes', ''),
             __('Older <span>&rarr;</span>', 'lqdm')
         );
     }
@@ -217,9 +217,9 @@ function gc_search_get_next_results_link($total_pages)
  *
  * @return string           Next results page link, if there is a previous page.
  */
-function gc_search_get_previous_results_link()
+function lqdm_search_get_previous_results_link()
 {
-    $page = absint(gc__get_arg('results-page', 1));
+    $page = absint(lqdm__get_arg('results-page', 1));
     $link = '';
 
     if ($page-- > 1) {
@@ -227,7 +227,7 @@ function gc_search_get_previous_results_link()
         $link = sprintf(
             '<a href="%s" %s>%s</a>',
             esc_url($url),
-            apply_filters('gc_previous_results_page_link_attributes', ''),
+            apply_filters('lqdm_previous_results_page_link_attributes', ''),
             __('<span>&larr;</span> Newer', 'lqdm')
         );
     }
@@ -245,7 +245,7 @@ function gc_search_get_previous_results_link()
  *
  * @return mixed            Result of query var or default.
  */
-function gc__get_arg($arg, $default = null)
+function lqdm__get_arg($arg, $default = null)
 {
     return isset($_GET[$arg]) ? $_GET[$arg] : $default;
 }
@@ -262,7 +262,7 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
     $plugin_option = Lqd_Messages_Plugin::get_plugin_settings_options($arg1, $arg2);
 
     if (empty($plugin_option)) {
-        return array();
+        return [];
     }
 
     return $plugin_option;

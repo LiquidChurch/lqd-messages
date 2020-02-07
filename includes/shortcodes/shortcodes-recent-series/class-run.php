@@ -44,7 +44,7 @@ class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 
 		$args['wrap_classes'] .= ' gc-recent-series';
 
-		return gc_get_sermon_series_info( $this->get_sermon(), $args );
+		return lqdm_get_sermon_series_info( $this->get_sermon(), $args );
 	}
 
 }

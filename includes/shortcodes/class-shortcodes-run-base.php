@@ -42,11 +42,11 @@ abstract class LqdM_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 		} elseif ( 'this' === $sermon_id ) {
 
-			$this->shortcode_object->set_att( 'sermon', gc_get_sermon_post( get_queried_object_id() ) );
+			$this->shortcode_object->set_att( 'sermon', lqdm_get_sermon_post( get_queried_object_id() ) );
 
 		} elseif ( is_numeric( $sermon_id ) ) {
 
-			$this->shortcode_object->set_att( 'sermon', gc_get_sermon_post( $sermon_id ) );
+			$this->shortcode_object->set_att( 'sermon', lqdm_get_sermon_post( $sermon_id ) );
 
 		}
 

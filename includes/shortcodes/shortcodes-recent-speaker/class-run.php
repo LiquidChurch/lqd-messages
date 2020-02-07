@@ -31,7 +31,7 @@ class LqdM_Recent_Speaker_Run extends LqdM_Shortcodes_Run_Base {
 	 * @throws Exception
 	 */
 	public function shortcode() {
-		$content = gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
+		$content = lqdm_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
 
 		return $content;
 	}

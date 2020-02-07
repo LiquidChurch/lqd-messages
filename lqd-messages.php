@@ -84,7 +84,7 @@
          * @var array
          * @since  0.1.0
          */
-        protected $requirements = array();
+        protected $requirements = [];
 
         /**
          * Array of plugin requirements which are not met.
@@ -92,7 +92,7 @@
          * @var array
          * @since  0.1.0
          */
-        protected $missed_requirements = array();
+        protected $missed_requirements = [];
 
         /**
          * Singleton instance of plugin
@@ -243,16 +243,16 @@
                 $this->metaboxes = new LqdM_Metaboxes($this);
                 $this->metaboxes->hooks();
             } else {
-                $this->metaboxes = (object) array();
+                $this->metaboxes = (object) [];
             }
 
             // Set these properties for metaboxes, no matter what.
-            $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
-            $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
-            $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
-            $this->metaboxes->display_ordr_meta_id = 'gc_display_order';
-            $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
-            $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
+            $this->metaboxes->resources_box_id = 'lqdm_addtl_resources_metabox';
+            $this->metaboxes->resources_meta_id = 'lqdm_addtl_resources';
+            $this->metaboxes->display_ordr_box_id = 'lqdm_display_order_metabox';
+            $this->metaboxes->display_ordr_meta_id = 'lqdm_display_order';
+            $this->metaboxes->exclude_msg_meta_id = 'lqdm_exclude_msg';
+            $this->metaboxes->video_msg_appear_pos = 'lqdm_video_msg_pos';
 
             $this->shortcodes = new LqdM_Shortcodes($this);
 
@@ -273,9 +273,9 @@
         public function hooks()
         {
             if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
-                add_action('tgmpa_register', array($this, 'register_required_plugin'));
+                add_action('tgmpa_register', [$this, 'register_required_plugin']);
             } else {
-                add_action('init', array($this, 'init'));
+                add_action('init', [$this, 'init']);
                 $this->plugin_classes();
             }
         }
@@ -286,16 +286,16 @@
         public function register_required_plugin()
         {
 
-            $plugins = array(
-                array(
+            $plugins = [
+                [
                     'name'     => 'CMB2',
                     'slug'     => 'cmb2',
                     'required' => true,
                     'version'  => '2.2.1',
-                ),
-            );
+                ],
+            ];
 
-            $config = array(
+            $config = [
                 'domain'       => 'lqdm',
                 'parent_slug'  => 'plugins.php',
                 'capability'   => 'install_plugins',
@@ -303,7 +303,7 @@
                 'has_notices'  => true,
                 'is_automatic' => true,
                 'message'      => '',
-                'strings'      => array(
+                'strings'      => [
                     'page_title'                      => __('Install Required Plugins', 'lqdm'),
                     'menu_title'                      => __('Install Plugins', 'lqdm'),
                     'installing'                      => __('Installing Plugin: %s', 'lqdm'),
@@ -341,8 +341,8 @@
                     'plugin_activated'                => __('Plugin activated successfully.', 'lqdm'),
                     'complete'                        => __('All plugins installed and activated successfully. %s', 'lqdm'),
                     // %1$s = dashboard link
-                ),
-            );
+                ],
+            ];
 
             tgmpa($plugins, $config);
         }
