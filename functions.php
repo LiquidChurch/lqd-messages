@@ -94,9 +94,9 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = [], $get_series_args =
  *
  * @since  0.1.3
  *
- * @param  mixed   $sermon           Post object or ID or (LqdM_Sermon_Post object).
+ * @param  mixed   $sermon           Post object or ID or (Message object).
  * @param  array   $args             Args array
- * @param  array   $get_speaker_args Args for LqdM_Sermon_Post::get_speaker()
+ * @param  array   $get_speaker_args Args for LqdM_Message_Post::get_speaker()
  *
  * @return string Sermon speaker info output.
  * @throws Exception
@@ -143,13 +143,13 @@ function lqdm_get_sermon_speaker_info($sermon = 0, $args = [], $get_speaker_args
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (LqdM_Sermon_Post object).
- * @param  mixed $args   Arguments passed to LqdM_Sermon_Post::get_video_player().
+ * @param  mixed $sermon Post object or ID or (Message object).
+ * @param  mixed $args   Arguments passed to LqdM_Message_Post::get_video_player().
  *
  * @return string Sermon video player output.
  * @throws Exception
  */
-function lqdm_get_sermon_video_player($sermon = 0, $args = [])
+function lqdm_get_video_player($sermon = 0, $args = [])
 {
     $sermon = lqdm_get_sermon_post($sermon);
 
@@ -166,8 +166,8 @@ function lqdm_get_sermon_video_player($sermon = 0, $args = [])
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (LqdM_Sermon_Post object).
- * @param  mixed $args   Arguments passed to LqdM_Sermon_Post::get_audio_player().
+ * @param  mixed $sermon Post object or ID or (LqdM_Message_Post object).
+ * @param  mixed $args   Arguments passed to LqdM_Message_Post::get_audio_player().
  *
  * @return string Sermon audio player output.
  * @throws Exception

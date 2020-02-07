@@ -370,7 +370,7 @@ class LqdM_Option_Page
         wp_enqueue_script(
             'lqdm-admin-option-page',
             Lqd_Messages_Plugin::$url . "assets/js/lqdm-page-option{$min}.js",
-            [ 'jquery', 'lc-jquery-ui-js' ],
+            [ 'jquery', 'lqdm-jquery-ui-js' ],
 	        Lqd_Messages_Plugin::VERSION
         );
 

@@ -82,7 +82,6 @@
     -webkit-transition: background-color .3s ease-in-out;
     -moz-transition: background-color .3s ease-in-out;
     -o-transition: background-color .3s ease-in-out;
-    -ms-transition: background-color .3s ease-in-out;
 }
 
 .lqdm-no-thumb .lqdm-item-link:hover {
@@ -132,7 +131,6 @@
     -webkit-transition: opacity .3s ease-in-out;
     -moz-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
-    -ms-transition: opacity .3s ease-in-out;
 }
 
 .lqdm-thumb .lqdm-shader,
@@ -194,7 +192,6 @@
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
     -o-transition: all .1s ease-in-out;
-    -ms-transition: all .1s ease-in-out;
 }
 
 .lqdm-no-thumb .lqdm-link:hover h3:after {
