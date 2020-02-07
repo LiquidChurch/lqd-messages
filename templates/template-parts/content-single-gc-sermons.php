@@ -9,7 +9,7 @@
 
 // Get Sermon object
 global $sermon;
-$sermon = gc_get_sermon_post();
+$sermon = lqdm_get_sermon_post();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -18,7 +18,7 @@ $sermon = gc_get_sermon_post();
         <div class="row">
             <div id="top-row-single-sermon" class="row">
                 <div id="single-sermon-player" class="col-sm-12">
-                    <?php if ($video_player = gc_get_sermon_video_player($sermon)) : ?>
+                    <?php if ($video_player = lqdm_get_sermon_video_player($sermon)) : ?>
                         <div class="message-video">
                             <?php echo $video_player; ?>
                         </div>
@@ -153,7 +153,7 @@ $sermon = gc_get_sermon_post();
                 </div>
             </div>
             <?php
-            $other_msg = do_shortcode('[gc_sermons per_page="5" related_series="this" thumbnail_size="medium" number_columns="4"]');
+            $other_msg = do_shortcode('[lqdm_sermons per_page="5" related_series="this" thumbnail_size="medium" number_columns="4"]');
             if (!empty($other_msg)) {
                 ?>
                 <div id="message-others" class="row lqdm-individual-sermon-list">

@@ -21,7 +21,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
      * @var string
      * @since 0.10.0
      */
-    public $shortcode = 'gc_recent_sermon';
+    public $shortcode = 'lqdm_recent_sermon';
 
     /**
      * Default attributes applied to the shortcode.
@@ -81,7 +81,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
         $args = $this->get_pagination($max);
         $args['wrap_classes'] = $this->get_wrap_classes();
         $args['sermons'] = $sermons;
-        $args['plugin_option'] = get_plugin_settings_options('single_message_view');
+        $args['plugin_option'] = lqdm_get_plugin_settings_options('single_message_view');
 
         $content .= LqdM_Template_Loader::get_template('sermons-list', $args);
 

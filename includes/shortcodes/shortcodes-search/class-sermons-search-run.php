@@ -47,7 +47,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 */
 	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
 		$this->search_query = $search_query;
-		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
+		$this->current_page = absint( lqdm__get_arg( 'results-page', 1 ) );
 
 		parent::__construct( $sermons, $taxonomies );
 
@@ -95,7 +95,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 		$args = $this->get_pagination( $max );
 		$args['wrap_classes'] = $this->get_wrap_classes();
 		$args['sermons']      = $sermons;
-		$args['plugin_option'] = get_plugin_settings_options('search_view');
+		$args['plugin_option'] = lqdm_get_plugin_settings_options('search_view');
 
 		$this->results .= LqdM_Template_Loader::get_template( 'sermons-list', $args );
 
@@ -141,8 +141,8 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 		$nav = array( 'prev_link' => '', 'next_link' => '' );
 
 		if ( ! $this->bool_att( 'remove_pagination' ) ) {
-			$nav['prev_link'] = gc_search_get_previous_results_link();
-			$nav['next_link'] = gc_search_get_next_results_link( $total_pages );
+			$nav['prev_link'] = lqdm_search_get_previous_results_link();
+			$nav['next_link'] = lqdm_search_get_next_results_link( $total_pages );
 		}
 
 		return $nav;

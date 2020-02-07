@@ -85,7 +85,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          * to the sermon series image (if it exists).
          *
          * To disable:
-         *    add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );
+         *    add_filter( 'lqdm_do_sermon_series_fallback_image', '__return_false' );
          *
          */
         if (apply_filters('gc_do_sermon_series_fallback_image', true))
@@ -99,7 +99,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          * If false, future posts will be 'scheduled', WordPress' default behavior.
          *
          * To disable:
-         *    add_filter( 'gc_display_future_sermsons', '__return_false' );
+         *    add_filter( 'lqdm_display_future_sermsons', '__return_false' );
          *
          */
         if (apply_filters('gc_display_future_sermsons', true)) {

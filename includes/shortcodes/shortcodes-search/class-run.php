@@ -11,7 +11,7 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'gc_sermons_search';
+	public $shortcode = 'lqdm_sermons_search';
 
 	/**
 	 * Default attributes applied to the shortcode.
@@ -81,8 +81,8 @@ class LqdM_Shortcodes_Sermon_Search_Run extends LqdM_Shortcodes_Run_Base {
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$this->search_query = gc__get_arg( 'sermon-search', '' );
-		$show_results = gc__get_arg( 'results-for', '' );
+		$this->search_query = lqdm__get_arg( 'sermon-search', '' );
+		$show_results = lqdm__get_arg( 'results-for', '' );
 
 		$series_slug = $this->taxonomies->series->taxonomy();
 		$cpt_slug    = $this->sermons->post_type();

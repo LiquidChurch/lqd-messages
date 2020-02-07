@@ -14,7 +14,7 @@ class LqdM_Shortcodes_Audio_Player_Admin extends LqdM_Recent_Admin_Base {
      * @var   string
      * @since 0.1.3
      */
-    protected $prefix = 'gc_audplayer_';
+    protected $prefix = 'lqdm_audplayer_';
 
     /**
      * Sets up the TinyMCE/Quicktags Button

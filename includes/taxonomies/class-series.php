@@ -19,7 +19,7 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @var string
 	 * @since  0.1.1
 	 */
-	protected $image_meta_key = 'gc_sermon_series_image';
+	protected $image_meta_key = 'lqdm_sermon_series_image';
 
 	/**
 	 * The default args array for self::get()

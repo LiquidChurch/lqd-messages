@@ -6,9 +6,9 @@ The entire Liquid Messages plugin is centered around the messages post type.
 ## Wrapper for WP_Post
 One can use `LqdM_Message_Post` instead of `WP_Post`, the former wraps the latter.
 
-To get an instance of `LqdM_Message_Post`: `gc_get_sermon_post( $post_id )`.
+To get an instance of `LqdM_Message_Post`: `lqdm_get_sermon_post( $post_id )`.
 
-One can pass in `$sermon->ID`, `$sermon->post_name`, `$sermon->post_date`, and all normal `WP_Post` parameters to `gc_get_sermon_post()`.
+One can pass in `$sermon->ID`, `$sermon->post_name`, `$sermon->post_date`, and all normal `WP_Post` parameters to `lqdm_get_sermon_post()`.
 
 ## Wrapper for Message Video
 `$sermon->get_video_player( $args = array() )` is a wrapper for `wp_oembed_get` and `wp_video_shortcode`.

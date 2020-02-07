@@ -11,7 +11,7 @@ class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'gc_recent_series';
+	public $shortcode = 'lqdm_recent_series';
 
 	/**
 	 * Default attributes applied to the shortcode.
@@ -44,7 +44,7 @@ class LqdM_Recent_Series_Run extends LqdM_Shortcodes_Run_Base {
 
 		$args['wrap_classes'] .= ' lqdm-recent-series';
 
-		return gc_get_sermon_series_info( $this->get_sermon(), $args );
+		return lqdm_get_sermon_series_info( $this->get_sermon(), $args );
 	}
 
 }

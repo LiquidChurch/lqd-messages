@@ -12,7 +12,7 @@ class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
      * @var string
      * @since 0.1.0
      */
-    public $shortcode = 'gc_video_player';
+    public $shortcode = 'lqdm_video_player';
 
     /**
      * Default attributes applied to the shortcode.
@@ -29,7 +29,7 @@ class LqdM_Shortcodes_Video_Player_Run extends LqdM_Shortcodes_Run_Base {
      * @throws Exception
      */
     public function shortcode() {
-        return gc_get_sermon_video_player( $this->get_sermon() );
+        return lqdm_get_sermon_video_player( $this->get_sermon() );
     }
 
 }

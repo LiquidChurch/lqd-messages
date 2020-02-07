@@ -21,7 +21,7 @@ window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
 		// Take action on events...
 		$( document.body )
 			.on( 'keyup change', '.check-if-recent input[type="text"]', plugin.maybeToggle )
-			.on( 'change', '#gc_sermon_video_url', plugin.checkDupVideo )
+			.on( 'change', '#lqdm_sermon_video_url', plugin.checkDupVideo )
 			.on( 'shortcode_button:open', plugin.showNotRecent );
 		$( plugin.expandTaxonomy );
 

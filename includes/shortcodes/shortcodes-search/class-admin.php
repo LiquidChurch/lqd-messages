@@ -12,7 +12,7 @@ class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 	 * @var   string
 	 * @since 0.1.3
 	 */
-	protected $prefix = 'gc_search_';
+	protected $prefix = 'lqdm_search_';
 
 	/**
 	 * GCS_Taxonomies

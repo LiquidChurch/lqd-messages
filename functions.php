@@ -4,7 +4,7 @@
  * Gets a Message Post object from a post object or ID.
  *
  * TODO: Is there a reason we want to offer these functions which aren't part of a class? Is there an advantage
- * to calling `gc_get_sermon_post()` over...?
+ * to calling `lqdm_get_sermon_post()` over...?
  *
  * @param  mixed $sermon         Post object or ID or (LqdM_Message_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
@@ -14,7 +14,7 @@
  *@since  0.1.3
  *
  */
-function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
+function lqdm_get_sermon_post($sermon = 0, $throw_on_error = false)
 {
     if ($sermon instanceof LqdM_Message_Post ) {
         return $sermon;
@@ -39,7 +39,7 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
 /**
  * Get's info for a series attached to the sermon.
  *
- * TODO: Here we are offering gc_get_sermon_series_info() and then under the hood using $sermon->get_series, why?
+ * TODO: Here we are offering lqdm_get_sermon_series_info() and then under the hood using $sermon->get_series, why?
  *
  * @since  0.1.3
  *
@@ -50,9 +50,9 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  * @return string Sermon series info output.
  * @throws Exception
  */
-function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
+function lqdm_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
 {
-    if (!($sermon = gc_get_sermon_post($sermon))) {
+    if (!($sermon = lqdm_get_sermon_post($sermon))) {
         // If no sermon, bail.
         return '';
     }
@@ -77,7 +77,7 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
     $series->do_image       = ! $args['remove_thumbnail'] && $series->image;
     $series->do_description = ! $args['remove_description'] && $series->description;
     $series->url            = $series->term_link;
-    $series->plugin_option  = get_plugin_settings_options('series_view');
+    $series->plugin_option  = lqdm_get_plugin_settings_options('series_view');
 
     $content = '';
     $content .= LqdM_Style_Loader::get_template('list-item-style');
@@ -101,9 +101,9 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
  * @return string Sermon speaker info output.
  * @throws Exception
  */
-function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
+function lqdm_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
 {
-    if (!($sermon = gc_get_sermon_post($sermon))) {
+    if (!($sermon = lqdm_get_sermon_post($sermon))) {
         // If no sermon, bail.
         return '';
     }
@@ -123,7 +123,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
         return '';
     }
 
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no sermon speaker, bail.
     if (!$sermon || !($speaker = $sermon->get_speaker($get_speaker_args))) {
@@ -149,9 +149,9 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
  * @return string Sermon video player output.
  * @throws Exception
  */
-function gc_get_sermon_video_player($sermon = 0, $args = array())
+function lqdm_get_sermon_video_player($sermon = 0, $args = array())
 {
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no related links, bail.
     if (!$sermon || !($video_player = $sermon->get_video_player($args))) {
@@ -172,9 +172,9 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
  * @return string Sermon audio player output.
  * @throws Exception
  */
-function gc_get_sermon_audio_player($sermon = 0, $args = array())
+function lqdm_get_sermon_audio_player($sermon = 0, $args = array())
 {
-    $sermon = gc_get_sermon_post($sermon);
+    $sermon = lqdm_get_sermon_post($sermon);
 
     // If no sermon or no related links, bail.
     if (!$sermon || !($audio_player = $sermon->get_audio_player($args))) {
@@ -193,9 +193,9 @@ function gc_get_sermon_audio_player($sermon = 0, $args = array())
  *
  * @return string           Next results page link, if there is a next page.
  */
-function gc_search_get_next_results_link($total_pages)
+function lqdm_search_get_next_results_link($total_pages)
 {
-    $page = absint(gc__get_arg('results-page', 1));
+    $page = absint(lqdm__get_arg('results-page', 1));
     $link = '';
 
     if (++$page <= $total_pages) {
@@ -217,9 +217,9 @@ function gc_search_get_next_results_link($total_pages)
  *
  * @return string           Next results page link, if there is a previous page.
  */
-function gc_search_get_previous_results_link()
+function lqdm_search_get_previous_results_link()
 {
-    $page = absint(gc__get_arg('results-page', 1));
+    $page = absint(lqdm__get_arg('results-page', 1));
     $link = '';
 
     if ($page-- > 1) {
@@ -245,7 +245,7 @@ function gc_search_get_previous_results_link()
  *
  * @return mixed            Result of query var or default.
  */
-function gc__get_arg($arg, $default = null)
+function lqdm__get_arg($arg, $default = null)
 {
     return isset($_GET[$arg]) ? $_GET[$arg] : $default;
 }
@@ -257,7 +257,7 @@ function gc__get_arg($arg, $default = null)
  * @param string $arg2
  * @return array|bool|mixed|void
  */
-function get_plugin_settings_options($arg1 = '', $arg2 = '')
+function lqdm_get_plugin_settings_options($arg1 = '', $arg2 = '')
 {
     $plugin_option = Lqd_Messages_Plugin::get_plugin_settings_options($arg1, $arg2);
 

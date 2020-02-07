@@ -14,7 +14,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 		// Take action on events...
 		$( document.body )
 			.on( 'keyup change', '.check-if-recent input[type="text"]', app.maybeToggle )
-			.on( 'change', '#gc_sermon_video_url', app.checkDupVideo )
+			.on( 'change', '#lqdm_sermon_video_url', app.checkDupVideo )
 			.on( 'shortcode_button:open', app.showNotRecent );
 		$( app.expandTaxonomy );
 	};
@@ -35,7 +35,7 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 	};
 
 	app.expandTaxonomy = function(){
-		var expandTaxonomy = ['gc-sermon-series', 'gcs-speaker', 'gcs-tag'];
+		var expandTaxonomy = ['lqdm-sermon-series', 'lqdm-speaker', 'lqdm-tag'];
 		var expandElem = [];
 		$.each(expandTaxonomy, function(i, item) {
 			expandElem.push('#link-' + item);

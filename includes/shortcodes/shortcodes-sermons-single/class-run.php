@@ -13,7 +13,7 @@
          * @var string
          * @since 0.11.0
          */
-        public $shortcode = 'gc_sermon';
+        public $shortcode = 'lqdm_sermon';
 
         /**
          * Default attributes applied to the shortcode.
@@ -50,7 +50,7 @@
         {
             $output = $this->_shortcode();
 
-            return apply_filters('gc_sermon_shortcode_output', $output, $this);
+            return apply_filters('lqdm_sermon_shortcode_output', $output, $this);
         }
 
 	    /**
@@ -87,7 +87,7 @@
                 'show_additional_resource'  => $this->atts['show_additional_resource'],
                 'show_scripture_references' => $this->atts['show_scripture_references'],
             ];
-            $args['plugin_option'] = get_plugin_settings_options('single_message_view');
+            $args['plugin_option'] = lqdm_get_plugin_settings_options('single_message_view');
             $args['inline_style'] = $this->inline_style();
 
             $content = LqdM_Template_Loader::get_template('sermons-single', $args);

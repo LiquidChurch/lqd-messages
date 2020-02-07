@@ -12,7 +12,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       * @var string
       * @since 0.1.0
       */
-     public $shortcode = 'gc_series';
+     public $shortcode = 'lqdm_series';
 
      /**
       * GCS_Series object
@@ -120,7 +120,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
          $args['terms']         = $allterms;
          $args['remove_dates']  = $this->bool_att('remove_dates');
          $args['wrap_classes']  = $this->get_wrap_classes();
-         $args['plugin_option'] = get_plugin_settings_options('series_view');
+         $args['plugin_option'] = lqdm_get_plugin_settings_options('series_view');
 
          $content = '';
          $content .= LqdM_Style_Loader::get_template('list-item-style');

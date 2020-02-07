@@ -14,7 +14,7 @@ class LqdM_Shortcodes_Video_Player_Admin extends LqdM_Recent_Admin_Base {
      * @var   string
      * @since 0.1.3
      */
-    protected $prefix = 'gc_vidplayer_';
+    protected $prefix = 'lqdm_vidplayer_';
 
     /**
      * Sets up the button
