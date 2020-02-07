@@ -5,7 +5,7 @@
  * @todo Add overlay/video popup JS, etc
  * @todo Use dashicons as fallback.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 

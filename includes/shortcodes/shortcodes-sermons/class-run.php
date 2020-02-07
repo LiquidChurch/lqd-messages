@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Shortcodes Sermons Run.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
 {

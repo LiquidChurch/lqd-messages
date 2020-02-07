@@ -1,4 +1,4 @@
-window.GCVideoModal = window.GCVideoModal || {};
+window.LqdMVideoModal = window.LqdMVideoModal || {};
 
 /**
  * @todo Play video when opening
@@ -10,15 +10,15 @@ window.GCVideoModal = window.GCVideoModal || {};
 
 	app.cache = function() {
 		app.$ = {};
-		app.$.overlay = $( document.getElementById( 'gc-video-overlay' ) );
+		app.$.overlay = $( document.getElementById( 'lqdm-video-overlay' ) );
 		app.$.body = $( document.body );
-		app.$.modals = $( '.gc-sermons-modal' );
+		app.$.modals = $( '.lqdm-modal' );
 	};
 
 	app.init = function() {
 		app.cache();
 		if ( 'function' === typeof $.fn.prettyPhoto ) {
-			$( '.gc-sermons-play-button' ).prettyPhoto({
+			$( '.lqdm-play-button' ).prettyPhoto({
 				default_width  : 1100,
 				default_height : 619,
 				theme          : 'dark_square',
@@ -36,8 +36,8 @@ window.GCVideoModal = window.GCVideoModal || {};
 		} );
 
 		app.$.body
-			.on( 'click', '.gc-sermons-play-button', app.clickOpenModal )
-			.on( 'click', '#gc-video-overlay', app.closeModals );
+			.on( 'click', '.lqdm-play-button', app.clickOpenModal )
+			.on( 'click', '#lqdm-video-overlay', app.closeModals );
 	};
 
 	app.clickOpenModal = function( evt ) {
@@ -50,18 +50,18 @@ window.GCVideoModal = window.GCVideoModal || {};
 	app.showVideo = function( sermonId ) {
 		app.$.overlay.fadeIn( 'fast' );
 
-		var $video = app.$.modals.filter( '#gc-sermons-video-'+ sermonId ).removeClass( 'gcinvisible' );
+		var $video = app.$.modals.filter( '#lqdm-video-'+ sermonId ).removeClass( 'lqdm-invisible' );
 
-		$video.find( '.gc-sermons-video-container' ).html( $video.find( '.tmpl-videoModal' ).html() ).fitVids();
+		$video.find( '.lqdm-video-container' ).html( $video.find( '.tmpl-videoModal' ).html() ).fitVids();
 
 		$video.css({ 'margin-top' : - Math.floor( parseInt( $video.outerHeight() * 0.6 ) ) });
 	};
 
 	app.closeModals = function() {
 		app.$.overlay.fadeOut();
-		app.$.modals.addClass( 'gcinvisible' ).find( '.gc-sermons-video-container' ).empty();
+		app.$.modals.addClass( 'lqdm-invisible' ).find( '.lqdm-video-container' ).empty();
 	};
 
 	$( app.init );
 
-} )( window, document, jQuery, window.GCVideoModal );
+} )( window, document, jQuery, window.LqdMVideoModal );

@@ -4,7 +4,7 @@
  *
  * @since 0.10.0
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
 {

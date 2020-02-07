@@ -3,7 +3,7 @@
  * GC Sermons Audio Player Shortcode
  *
  * @version 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Audio_Player_Run extends LqdM_Shortcodes_Run_Base {
 

@@ -3,7 +3,7 @@
  *  GC Sermons Shortcodes Recent Sermon Run.
  *
  * @since 0.10.0
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
 {

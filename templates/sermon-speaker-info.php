@@ -1,5 +1,5 @@
 <div
-    class="gc-speaker gc-<?php if (!$this->get('image')) : ?>no-<?php endif; ?>thumb <?php $this->output('classes', 'esc_attr'); ?>">
+    class="lqdm-speaker lqdm-<?php if (!$this->get('image')) : ?>no-<?php endif; ?>thumb <?php $this->output('classes', 'esc_attr'); ?>">
     <div class="row">
         <div class="col-sm-3">
             <span><?php _e('Speaker', 'lqdm'); ?>:</span>

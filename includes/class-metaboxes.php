@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Metaboxes
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Metaboxes
 {
@@ -59,8 +59,8 @@ class LqdM_Metaboxes
 	 * @return void
 	 */
 	public function hooks() {
-		add_action( 'cmb2_admin_init', array( $this, 'add_metabox' ), 99 );
-		add_action( 'cmb2_render_text_number', array( $this, 'meta_addtnl_type_text_number' ), 10, 5 );
+		add_action( 'cmb2_admin_init', [ $this, 'add_metabox' ], 99 );
+		add_action( 'cmb2_render_text_number', [ $this, 'meta_addtnl_type_text_number' ], 10, 5 );
 	}
 
 	/**
@@ -72,96 +72,96 @@ class LqdM_Metaboxes
 
 		//display order field for messages
 
-		$args = array(
+		$args = [
 			'id'           => $this->display_ordr_box_id,
 			'title'        => __( 'Display Conditions', 'lqdm' ),
-			'object_types' => array( lqd_messages()->sermons->post_type() ),
-		);
+			'object_types' => [ lqd_messages()->sermons->post_type() ],
+        ];
 
 		$cmb = new_cmb2_box( $args );
 
-		$cmb->add_field( array(
+		$cmb->add_field( [
 			'name' => __( 'Display Order', 'lqdm' ),
 			'desc' => __( 'Post will appear in the series based on this order', 'lqdm' ),
 			'id'   => $this->display_ordr_meta_id,
 			'type' => 'text_number',
-            'attributes'  => array(
+            'attributes'  => [
                 'required'    => 'required',
-            ),
-		) );
+            ],
+        ] );
 
-        $cmb->add_field(array(
+        $cmb->add_field( [
             'name' => __('Exclude as Message', 'lqdm'),
             'desc' => __('If selected the post will not appear as message in the message listing', 'lqdm'),
             'id' => $this->exclude_msg_meta_id,
             'type' => 'checkbox',
-        ));
+        ] );
 
-        $cmb->add_field(array(
+        $cmb->add_field( [
             'name' => __('Position in Message Archive Page', 'lqdm'),
             'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'lqdm'),
             'id' => $this->video_msg_appear_pos,
             'type' => 'radio',
-            'options' => array(
+            'options' => [
                 'top' => __('First', 'lqdm'),
                 'bottom' => __('Last', 'lqdm'),
-            ),
-        ));
+            ],
+        ] );
 
 		// Additional Resources Fields
 
-		$args = array(
+		$args = [
 			'id'           => $this->resources_box_id,
 			'title'        => __( 'Additional Resources', 'lqdm' ),
-			'object_types' => array( lqd_messages()->sermons->post_type() ),
-		);
+			'object_types' => [ lqd_messages()->sermons->post_type() ],
+        ];
 
-		$field_group_args = array(
+		$field_group_args = [
 			'id'      => $this->resources_meta_id,
 			'type'    => 'group',
-			'options' => array(
+			'options' => [
 				'group_title'   => __( 'Resource {#}', 'lqdm' ), // {#} gets replaced by row number
 				'add_button'    => __( 'Add Another Resource', 'lqdm' ),
 				'remove_button' => __( 'Remove Resource', 'lqdm' ),
 				'sortable'      => true,
-			),
-			'after_group' => array( $this, 'enqueu_box_js' ),
-		);
+            ],
+			'after_group' => [ $this, 'enqueu_box_js' ],
+        ];
 
-		$sub_fields = array(
-			array(
+		$sub_fields = [
+			[
 				'name' => __( 'Resource Name', 'lqdm' ),
 				'desc' => __( 'e.g., "Audio for Faces of Grace Sermon"', 'lqdm' ),
 				'id'   => 'name',
 				'type' => 'text',
-			),
-            array(
+            ],
+            [
                 'name' => __('Resource Language', 'lqdm'),
                 'desc' => __('Please select the resource language', 'lqdm'),
                 'id' => 'lang',
                 'type' => 'select',
                 'options' => $this->get_lng_fld_option()
-            ),
-			array(
+            ],
+			[
 				'name'    => __( 'Display Name', 'lqdm' ),
 				'desc'    => __( 'e.g., "Download Audio"', 'lqdm' ),
 				'id'      => 'display_name',
                 'type' => 'select',
                 'options' => $this->get_disp_name_fld_option()
-			),
-			array(
+            ],
+			[
 				'name' => __( 'URL or File', 'lqdm' ),
 				'desc' => __( 'Link to OR upload OR select resource"', 'lqdm' ),
 				'id'   => 'file',
 				'type' => 'file',
-			),
-			array(
+            ],
+			[
 				'name' => __( 'Type of Resource', 'lqdm' ),
 				'desc' => __( 'e.g., image / video / audio / pdf / zip / embed / other. Will autopopulate if selecting media. Leave blank if adding a URL instead of a file.', 'lqdm' ),
 				'id'   => 'type',
 				'type' => 'text',
-            )
-		);
+            ]
+        ];
 
 		$cmb = new_cmb2_box( $args );
 		$group_field_id = $cmb->add_field( $field_group_args );
@@ -172,18 +172,18 @@ class LqdM_Metaboxes
 
 		// Include the same fields for sermon series.
 
-		$cmb = new_cmb2_box( array(
+		$cmb = new_cmb2_box( [
 			'id'           => $this->resources_box_id . '_series',
-			'object_types' => array( 'term' ),
-			'taxonomies'   => array( lqd_messages()->taxonomies->series->taxonomy() ),
-		) );
+			'object_types' => [ 'term' ],
+			'taxonomies'   => [ lqd_messages()->taxonomies->series->taxonomy() ],
+        ] );
 
-		$cmb->add_field( array(
+		$cmb->add_field( [
 			'name' => $args['title'],
 			'desc' => '<hr>',
 			'id'   => 'series_resources_title',
 			'type' => 'title',
-		) );
+        ] );
 
 		$group_field_id = $cmb->add_field( $field_group_args );
 		foreach ( $sub_fields as $field ) {
@@ -201,10 +201,10 @@ class LqdM_Metaboxes
     {
         $plugin_option = lqd_messages()->get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
         if (empty($plugin_option)) {
-            return array('Video' => 'Video', 'Audio' => 'Audio', 'Notes' => 'Notes', 'Group Guide' => 'Group Guide');
+            return [ 'Video' => 'Video', 'Audio' => 'Audio', 'Notes' => 'Notes', 'Group Guide' => 'Group Guide' ]; // TODO: Make config option
         } else {
             $plugin_option_arr = array_map('trim', explode(',', $plugin_option));
-            $option = array();
+            $option = [];
             foreach ($plugin_option_arr as $item) {
                 $option[ucwords($item)] = ucwords($item);
             }
@@ -221,16 +221,16 @@ class LqdM_Metaboxes
     {
         $plugin_option = lqd_messages()->get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
         if (empty($plugin_option)) {
-            return array(
+            return [
                 'eng' => 'English',
                 'spa' => 'Spanish'
-            );
+            ];
         } else {
             // We set $plugin_option_array equal to the results in $plugin_option, once parsed into an array.
             $plugin_option_arr = array_map('trim', explode(',', $plugin_option)); // "eng:English, \r\nspa:Spanish,\r\nspa:Espanol" w/tilde before $plugin_opt_arr
             // becomes 0 = "eng:English", 1 = "spa:Spanish", 2="spa:Espanol" once mapped into arr
             // Create an empty array
-            $lng_option = array();
+            $lng_option = [];
             // Iterate through our newly created $plugin_option_arr
             foreach ($plugin_option_arr as $item) {
                 // We now create an array from the individual item in $plugin_option_arr, consists of for ex, eng:English, now eng, English
@@ -251,14 +251,14 @@ class LqdM_Metaboxes
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_script(
-			'lc-func-admin',
-            Lqd_Messages_Plugin::$url . "assets/js/liquidchurch-functionality-admin{$min}.js",
+			'lqdm-admin',
+            Lqd_Messages_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
 			array( 'cmb2-scripts' ),
 			Lqd_Messages_Plugin::VERSION,
 			1
 		);
 
-		wp_localize_script( 'lc-func-admin', 'LiquidChurchAdmin', array( 'id' => $args['id'] ) );
+		wp_localize_script( 'lqdm-admin', 'LqdMAdmin', [ 'id' => $args['id'] ] );
 	}
 
 	/**
@@ -271,7 +271,7 @@ class LqdM_Metaboxes
 	 * @param $field_type_object
 	 */
 	function meta_addtnl_type_text_number( $field, $escaped_value, $object_id, $object_type, $field_type_object ) {
-		echo $field_type_object->input( array( 'type' => 'number', 'min' => 0 ) );
+		echo $field_type_object->input( [ 'type' => 'number', 'min' => 0 ] );
 	}
 
 }

@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Sermons
+ * Liquid Messages Message Post Type
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Messages extends LqdM_Post_Types_Base
 {
@@ -34,12 +34,12 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      * @var   array
      * @since 0.1.0
      */
-    protected $query_args = array(
+    protected $query_args = [
         'post_type'      => 'THIS(REPLACE)',
         'post_status'    => 'publish',
         'posts_per_page' => 1,
         'no_found_rows'  => true,
-    );
+    ];
 
     /**
      * Constructor
@@ -52,18 +52,18 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     public function __construct($plugin)
     {
         // First parameter should be an array with Singular, Plural, and Registered name.
-        parent::__construct($plugin, array(
-            'labels' => array(__('Sermon', 'lqdm'), __('Sermons', 'lqdm'), 'gc-sermons'),
-            'args' => array(
-                'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+        parent::__construct($plugin, [
+            'labels' => [ __('Sermon', 'lqdm'), __('Sermons', 'lqdm'), 'lqd-messages' ],
+            'args' => [
+                'supports' => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'menu_icon' => 'dashicons-playlist-video',
-                'rewrite' => array(
-                    'slug' => 'sermons',
+                'rewrite' => [
+                    'slug' => 'sermons', // TODO: Change to messages?
                     'with_front' => false,
                     'ep_mask' => EP_ALL,
-                ),
-            ),
-        ));
+                ],
+            ],
+        ] );
         $this->query_args['post_type'] = $this->post_type();
     }
 
@@ -75,10 +75,10 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      */
     public function hooks()
     {
-        add_action('cmb2_admin_init', array($this, 'fields'));
-        add_filter('cmb2_override_excerpt_meta_value', array($this, 'get_excerpt'), 10, 2);
+        add_action('cmb2_admin_init', [ $this, 'fields' ] );
+        add_filter('cmb2_override_excerpt_meta_value', [ $this, 'get_excerpt' ], 10, 2);
         add_filter('cmb2_override_excerpt_meta_save', '__return_true');
-        add_filter('admin_init', array($this, 'admin_hooks'));
+        add_filter('admin_init', [ $this, 'admin_hooks' ] );
 
         /**
          * Enable image fallback. If Sermon does not have a featured image, fall back
@@ -90,7 +90,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          */
         if (apply_filters('gc_do_sermon_series_fallback_image', true))
         {
-            add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
+            add_filter('get_post_metadata', [ $this, 'featured_image_fallback_to_series_image' ], 10, 3);
         }
 
         /**
@@ -99,13 +99,13 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          * If false, future posts will be 'scheduled', WordPress' default behavior.
          *
          * To disable:
-         *    add_filter( 'gc_display_future_sermsons', '__return_false' );
+         *    add_filter( 'lqdm_display_future_sermons', '__return_false' );
          *
          */
-        if (apply_filters('gc_display_future_sermsons', true)) {
-            add_filter('wp_insert_post_data', array($this, 'save_future_as_published'), 10, 2);
+        if (apply_filters('lqdm_display_future_sermons', true)) {
+            add_filter('wp_insert_post_data', [ $this, 'save_future_as_published' ], 10, 2);
             if (!is_admin()) {
-                add_filter('the_title', array($this, 'label_coming_soon'), 10, 2);
+                add_filter('the_title', [ $this, 'label_coming_soon' ], 10, 2);
             }
         }
     }
@@ -118,12 +118,12 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      */
     public function admin_hooks()
     {
-        add_action('dbx_post_advanced', array($this, 'remove_default_boxes_for_sermons'));
-        add_filter("manage_edit-{$this->post_type()}_columns", array($this, 'columns'));
-        add_filter("manage_edit-{$this->post_type()}_sortable_columns", array($this, 'columns_sortable'), 10, 1);
-        add_filter('posts_clauses', array($this, 'columns_sort_func'), 10, 2);
-        add_action('wp_ajax_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
-        add_action('wp_ajax_nopriv_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
+        add_action('dbx_post_advanced', [ $this, 'remove_default_boxes_for_sermons' ] );
+        add_filter("manage_edit-{$this->post_type()}_columns", [ $this, 'columns' ] );
+        add_filter("manage_edit-{$this->post_type()}_sortable_columns", [ $this, 'columns_sortable' ], 10, 1);
+        add_filter('posts_clauses', [ $this, 'columns_sort_func' ], 10, 2);
+        add_action('wp_ajax_check_sermon_duplicate_video', [ $this, 'check_sermon_duplicate_video' ] );
+        add_action('wp_ajax_nopriv_check_sermon_duplicate_video', [ $this, 'check_sermon_duplicate_video' ] );
     }
 
     /**
@@ -163,9 +163,9 @@ class LqdM_Messages extends LqdM_Post_Types_Base
         if ('_thumbnail_id' === $meta_key && $this->post_type() === get_post_type($object_id)) {
 
             // Have to remove this filter to get the actual value to see if we need to do the work.
-            remove_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10);
+            remove_filter('get_post_metadata', [ $this, 'featured_image_fallback_to_series_image' ], 10);
             $id = get_post_thumbnail_id($object_id);
-            add_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10, 3);
+            add_filter('get_post_metadata', [ $this, 'featured_image_fallback_to_series_image' ], 10, 3);
 
             // If no featured image exists...
             if (!$id || !get_post($id)) {
@@ -200,7 +200,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
         if (
             !isset($postarr['ID'], $data['post_status'], $data['post_type'])
             || 'future' !== $data['post_status']
-            || $this->post_type() !== $data['post_type'] // Changed: 1/17/19
+            || $this->post_type() !== $data['post_type']
         ) {
             return $data;
         }
@@ -223,7 +223,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     public function label_coming_soon($title, $post_id = 0)
     {
         static $now = null;
-        static $done = array();
+        static $done = [];
 
         $post_id = $post_id ? $post_id : get_the_ID();
 
@@ -235,7 +235,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
 
         if (mysql2date('U', get_post($post_id)->post_date_gmt, false) > mysql2date('U', $now, false)) {
 
-            $coming_soon_prefix = apply_filters('gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __('Coming Soon:', 'lqdm') . '</span> ', $post_id, $this);
+            $coming_soon_prefix = apply_filters('lqdm_coming_soon_prefix', '<span class="lqdm-coming-soon-prefix">' . __('Coming Soon:', 'lqdm') . '</span> ', $post_id, $this);
             $title = $coming_soon_prefix . $title;
         }
 
@@ -252,59 +252,59 @@ class LqdM_Messages extends LqdM_Post_Types_Base
      */
     public function fields()
     {
-        $fields = array(
-            'gc_sermon_video_url' => array(
-                'id'   => 'gc_sermon_video_url',
+        $fields = [
+            'lqdm_video_url' => [
+                'id'   => 'lqdm_video_url',
                 'name' => __('Video URL', 'lqdm'),
                 'desc' => __('Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'lqdm'),
                 'type' => 'oembed',
-            ),
-            'gc_sermon_video_src' => array(
-                'id'      => 'gc_sermon_video_src',
+            ],
+            'lqdm_video_src' => [
+                'id'      => 'lqdm_video_src',
                 'name'    => __('Video File', 'lqdm'),
                 'desc'    => __('Alternatively upload/select video from your media library.', 'lqdm'),
                 'type'    => 'file',
-                'options' => array('url' => false),
-            ),
-            'gc_sermon_audio_url' => array(
-                'id'   => 'gc_sermon_audio_url',
+                'options' => [ 'url' => false ],
+            ],
+            'lqdm_audio_url' => [
+                'id'   => 'lqdm_audio_url',
                 'name' => __('Audio URL', 'lqdm'),
                 'desc' => __('Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'lqdm'),
                 'type' => 'oembed',
-            ),
-            'gc_sermon_audio_src' => array(
-                'id'      => 'gc_sermon_audio_src',
+            ],
+            'lqdm_audio_src' => [
+                'id'      => 'lqdm_audio_src',
                 'name'    => __('Audio File', 'lqdm'),
                 'desc'    => __('Alternatively upload/select audio from your media library.', 'lqdm'),
                 'type'    => 'file',
-                'options' => array('url' => false),
-            ),
-            'excerpt' => array(
+                'options' => [ 'url' => false ],
+            ],
+            'excerpt' => [
                 'id'        => 'excerpt',
                 'name'      => __('Excerpt', 'lqdm'),
                 'desc'      => __('Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>'),
                 'type'      => 'textarea',
                 'escape_cb' => false,
-            ),
-            '_thumbnail' => array(
+            ],
+            '_thumbnail' => [
                 'id'   => '_thumbnail',
-                'name' => __('Image', 'gc-staff'),
+                'name' => __('Image', 'lqdm'),
                 'desc' => __('Select an image if you want to override the series image for this sermon.', 'lqdm'),
                 'type' => 'file',
-            ),
-            'gc_sermon_notes' => array(
-                'id'   => 'gc_sermon_notes',
+            ],
+            'lqdm_notes' => [
+                'id'   => 'lqdm_notes',
                 'name' => __('Sermon Notes', 'lqdm'),
                 'type' => 'wysiwyg',
-            ),
-        );
+            ],
+        ];
 
-        $this->new_cmb2(array(
-            'id'           => 'gc_sermon_metabox',
+        $this->new_cmb2( [
+            'id'           => 'lqdm_metabox',
             'title'        => __('Sermon Details', 'lqdm'),
-            'object_types' => array($this->post_type()),
+            'object_types' => [ $this->post_type() ],
             'fields'       => $fields,
-        ));
+        ] );
     }
 
 	/**
@@ -376,7 +376,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
                         $term = $series->name;
                     }
 
-                    echo '<div class="sermon-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
+                    echo '<div class="lqdm-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
                 }
             }
         } elseif ('thumb-' . $this->post_type() === $column) {
@@ -418,7 +418,7 @@ LEFT OUTER JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID={$wpdb->term_re
 LEFT OUTER JOIN {$wpdb->term_taxonomy} USING (term_taxonomy_id)
 LEFT OUTER JOIN {$wpdb->terms} USING (term_id)
 SQL;
-            $clauses['where'] .= "AND (taxonomy = 'gc-sermon-series' OR taxonomy IS NULL)";
+            $clauses['where'] .= "AND (taxonomy = 'lqdm-series' OR taxonomy IS NULL)";
             $clauses['groupby'] = "object_id";
             $clauses['orderby'] = "GROUP_CONCAT({$wpdb->terms}.name ORDER BY name ASC)";
             if (strtoupper($wp_query->get('order')) == 'ASC') {
@@ -499,7 +499,7 @@ SQL;
         static $sermon = null;
 
         if (null === $sermon || $this->flush) {
-            $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
+            $sermons = new WP_Query(apply_filters('lqdm_recent_sermon_args', $this->query_args));
             $sermon = false;
             if ($sermons->have_posts()) {
                 $sermon = new LqdM_Message_Post( $sermons->post);
@@ -522,7 +522,7 @@ SQL;
     public function get($args)
     {
         $args = wp_parse_args($args, $this->query_args);
-        $sermons = new WP_Query(apply_filters('gcs_get_sermon_args', $args));
+        $sermons = new WP_Query(apply_filters('lqdm_get_sermon_args', $args));
         $sermon = false;
         if ($sermons->have_posts()) {
             $sermon = new LqdM_Message_Post( $sermons->post);
@@ -548,7 +548,7 @@ SQL;
         unset($defaults['no_found_rows']);
         $args['augment_posts'] = true;
 
-        $args = apply_filters('gcs_get_sermons_args', wp_parse_args($args, $defaults));
+        $args = apply_filters('lqdm_get_sermons_args', wp_parse_args($args, $defaults));
         $sermons = new WP_Query($args);
 
         if (
@@ -584,17 +584,17 @@ SQL;
         $type = 'video' === $type ? $type : 'audio';
 
         $args = $this->query_args;
-        $args['meta_query'] = array(
+        $args['meta_query'] = [
             'relation' => 'OR',
-            array(
-                'key' => "gc_sermon_{$type}_url",
-            ),
-            array(
-                'key' => "gc_sermon_{$type}_src",
-            ),
-        );
+            [
+                'key' => "lqdm_{$type}_url",
+            ],
+            [
+                'key' => "lqdm_{$type}_src",
+            ],
+        ];
 
-        $sermons = new WP_Query(apply_filters("gcs_recent_sermon_with_{$type}_args", $args));
+        $sermons = new WP_Query(apply_filters("lqdm_recent_sermon_with_{$type}_args", $args));
 
         if ($sermons->have_posts()) {
             $sermon = new LqdM_Message_Post( $sermons->post);
@@ -629,7 +629,7 @@ SQL;
         }
 
         if (!$terms || is_wp_error($terms)) {
-            $sermon = $this->find_sermon_with_taxonomy($taxonomy_id, array($sermon->ID));
+            $sermon = $this->find_sermon_with_taxonomy($taxonomy_id, [ $sermon->ID ] );
         }
 
         return $sermon;
@@ -652,7 +652,7 @@ SQL;
 
         $args = $this->query_args;
         $args['post__not_in'] = $exclude;
-        $args = apply_filters('gcs_find_sermon_with_taxonomy_args', $args);
+        $args = apply_filters('lqdm_find_sermon_with_taxonomy_args', $args);
 
         $sermons = new WP_Query($args);
 
@@ -670,7 +670,7 @@ SQL;
                 return false;
             }
 
-            $exclude = array_merge($exclude, array($sermon->ID));
+            $exclude = array_merge($exclude, [ $sermon->ID ] );
             $sermon = $this->find_sermon_with_taxonomy($taxonomy_id, $exclude);
         }
 
@@ -685,26 +685,26 @@ SQL;
      */
     public function check_sermon_duplicate_video()
     {
-        $response = array();
+        $response = [];
         $response['success'] = true;
         $nonce_verify = wp_verify_nonce($_POST['nonce'], 'scripterz-nonce');
 
         if (!empty($_POST['video_url']) && $nonce_verify == true) {
 
             $the_query = new WP_Query(
-                array(
-                    'post_type' => 'gc-sermons',
-                    'meta_key' => 'gc_sermon_video_url',
+                [
+                    'post_type' => 'lqd-messages',
+                    'meta_key' => 'lqdm_video_url',
                     'meta_value' => $_POST['video_url'],
                     'order' => 'ASC',
-                    'post__not_in' => array($_POST['curr_post_id']),
-                )
+                    'post__not_in' => [ $_POST['curr_post_id'] ],
+                ]
             );
 
 
             if ($the_query->have_posts()) {
                 $response['success'] = false;
-                $response['data'] = __('<div class="gc-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
+                $response['data'] = __('<div class="lqdm-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'lqdm');
                 while ($the_query->have_posts()) {
                     $the_query->the_post();
                     $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';

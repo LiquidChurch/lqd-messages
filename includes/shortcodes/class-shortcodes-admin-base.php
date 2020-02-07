@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Admin Shortcodes Base.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 abstract class LqdM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**

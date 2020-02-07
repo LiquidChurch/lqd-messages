@@ -1,5 +1,5 @@
-<li class="message-config-list-single">
-    <form action="" method="post" class="message-config-form" name="series-<?php $this->output('id') ?>" id="series-<?php $this->output('id') ?>">
+<li class="lqdm-config-list-single">
+    <form action="" method="post" class="lqdm-config-form" name="series-<?php $this->output('id') ?>" id="series-<?php $this->output('id') ?>">
         <input type="hidden" name="series_id" value="<?php $this->output('id') ?>" />
         <h2 class="series-name"><?php $this->output('series_title') ?></h2>
         <ul class="message-list">

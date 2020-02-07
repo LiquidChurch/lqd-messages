@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Shortcode Base
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 abstract class LqdM_Shortcodes_Base {
 

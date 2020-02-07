@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Sermon Post
+ * Liquid Message Post
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Message_Post {
 
@@ -19,28 +19,28 @@ class LqdM_Message_Post {
      *
      * @var array
      */
-    protected $media = array();
+    protected $media = [];
 
     /**
      * Image data for the sermon post.
      *
      * @var array
      */
-    protected $images = array();
+    protected $images = [];
 
     /**
      * Series terms for the sermon post.
      *
      * @var array
      */
-    protected $series = array();
+    protected $series = [];
 
     /**
      * scripture terms for the sermon post.
      *
      * @var array
      */
-    protected $scripture = array();
+    protected $scripture = [];
 
     /**
      * Single series term for the sermon post.
@@ -54,7 +54,7 @@ class LqdM_Message_Post {
      *
      * @var array
      */
-    protected $speakers = array();
+    protected $speakers = [];
 
     /**
      * Single speaker term for the sermon post.
@@ -68,14 +68,14 @@ class LqdM_Message_Post {
      *
      * @var array
      */
-    protected $topics = array();
+    protected $topics = [];
 
     /**
      * Tags terms for the sermon post.
      *
      * @var array
      */
-    protected $tags = array();
+    protected $tags = [];
 
 	/**
 	 * Constructor
@@ -108,10 +108,10 @@ class LqdM_Message_Post {
      * @return array Array of video/audio media info.
      */
 	protected function init_media() {
-	    $this->media = array(
-	        'video' => array(),
-            'audio' => array(),
-        );
+	    $this->media = [
+	        'video' => [],
+            'audio' => [],
+        ];
 	    $this->add_media_type('video');
 	    $this->add_media_type('audio');
 	    return $this->media;
@@ -131,22 +131,22 @@ class LqdM_Message_Post {
         $type = 'video' === $type ? $type : 'audio';
         $media = false;
 
-        if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
-            $media = array(
+        if ($media_url = get_post_meta($this->ID, "lqdm_{$type}_url", 1)) {
+            $media = [
                 'type'  => 'url',
                 'value' => $media_url
-            );
-        } elseif ($media_src = get_post_meta($this->ID, "gc_sermon_{$type}_src_id", 1)) {
-            $media = array(
+            ];
+        } elseif ($media_src = get_post_meta($this->ID, "lqdm_{$type}_src_id", 1)) {
+            $media = [
                 'type'           => 'attachment_id',
                 'value'          => $media_src,
-                'attachment_url' => get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)
-            );
-        } elseif ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_src", 1)) {
-            $media = array(
+                'attachment_url' => get_post_meta($this->ID, "lqdm_{$type}_src", 1)
+            ];
+        } elseif ($media_url = get_post_meta($this->ID, "lqdm_{$type}_src", 1)) {
+            $media = [
                 'type'  => 'url',
                 'value' => $media_url,
-            );
+            ];
         }
 
         if ($media) {
@@ -165,11 +165,11 @@ class LqdM_Message_Post {
      *                     or wp_video_shortcode.
      * @return mixed       The video player if successful.
      */
-	public function get_video_player( $args = array() ) {
+	public function get_video_player( $args = [] ) {
 	    global $wp_embed;
 
 	    $media = empty($this->media) ? $this->init_media() : $this->media;
-	    $video = isset($media['video']) ? $media['video'] : array();
+	    $video = isset($media['video']) ? $media['video'] : [];
 	    if (!isset($video['type'])) {
 	        return '';
 	    }
@@ -182,7 +182,7 @@ class LqdM_Message_Post {
 
 	        $args['src'] = $video['attachment_url'];
 	        if ($video_player = wp_video_shortcode($args)) {
-				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
+				$video_player = '<div class="lqdm-video-wrap">' . $video_player . '</div><!-- .lqdm-video-wrap -->';
 	        }
 	    }
 
@@ -215,7 +215,7 @@ class LqdM_Message_Post {
         }
 
         if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
-			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
+			$audio_player = '<div class="lqdm-audio-wrap">' . $audio_player . '</div><!-- .lqdm-audio-wrap -->';
         }
 
         return $audio_player;
@@ -286,10 +286,10 @@ class LqdM_Message_Post {
             if (isset($this->images[$size][$id])) {
                 return $this->images[$size][$id];
             } else {
-                $this->images[$size][$id] = array();
+                $this->images[$size][$id] = [];
             }
 		} else {
-		    $this->images[$size][$id] = array();
+		    $this->images[$size][$id] = [];
 		}
 
 		$img = get_the_post_thumbnail($this->ID, $size, $attr);
@@ -321,7 +321,7 @@ class LqdM_Message_Post {
      * @return string              The series image tag.
      */
 	public function series_image( $size = 'full', $attr = '' ) {
-	    $args = array('image_size' => $size);
+	    $args = [ 'image_size' => $size ];
 	    $series = $this->get_series($args);
 
 	    return $series->image;
@@ -336,13 +336,13 @@ class LqdM_Message_Post {
      *
      * @return array|false|WP_Term Speaker term object.
      */
-	public function get_speakers( $args = array() ) {
+	public function get_speakers( $args = [] ) {
 	    $speakers = $this->speakers();
 	    if (empty($speakers)) {
 	        return false;
 	    }
 
-	    $speaker = array();
+	    $speaker = [];
 	    foreach ($speakers as $key => $val) {
 	        $speaker[] = lqd_messages()->taxonomies->speaker->get($val, $args);
 	    }
@@ -360,7 +360,7 @@ class LqdM_Message_Post {
      *
      * @return WP_Term|false Speaker term object.
      */
-	public function get_speaker( $args = array() ) {
+	public function get_speaker( $args = [] ) {
 	    $speakers = $this->speakers();
 	    if (empty($speakers)) {
 	        return false;
@@ -382,7 +382,7 @@ class LqdM_Message_Post {
      *
      * @return WP_Term|false Series term object.
      */
-	public function get_series( $args = array() ) {
+	public function get_series( $args = [] ) {
 	    $series = $this->series();
 	    if (empty($series)) {
 	        return false;
@@ -404,13 +404,13 @@ class LqdM_Message_Post {
      *
      * @return array|bool $scripture scripture term object.
      */
-	public function get_scriptures( $args = array() ) {
+	public function get_scriptures( $args = [] ) {
 	    $scriptures = $this->scripture();
 	    if (empty($scriptures)) {
 	        return false;
 	    }
 
-	    $scripture = array();
+	    $scripture = [];
 	    foreach ($scriptures as $key => $val) {
 	        $scripture[] = lqd_messages()->taxonomies->scripture->get($val, $args);
 	    }
@@ -428,25 +428,25 @@ class LqdM_Message_Post {
 	 * @return mixed        WP_Query instance if successful.
 	 * @throws Exception
 	 */
-	public function get_others_in_series( $args = array() ) {
+	public function get_others_in_series( $args = [] ) {
 	    $series = $this->get_series();
 	    if (!$series) {
 			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
-	    $args = wp_parse_args($args, array(
-	        'post__not_in'   => array($this->ID),
+	    $args = wp_parse_args($args, [
+	        'post__not_in'   => [ $this->ID ],
             'posts_per_page' => 10,
             'no_found_rows'  => true,
-        ));
+        ] );
 
-	    $args['tax_query'] = array(
-	        array(
+	    $args['tax_query'] = [
+	        [
 	            'taxonomy' => $series->taxonomy,
                 'field'    => 'slug',
                 'terms'    => $series->slug,
-            ),
-        );
+            ],
+        ];
 
 	    return lqd_messages()->sermons->get_many($args);
 	}
@@ -461,25 +461,25 @@ class LqdM_Message_Post {
 	 * @return mixed           WP_Query instance if successful.
 	 * @throws Exception
 	 */
-	public function get_others_by_speaker( $args = array() ) {
+	public function get_others_by_speaker( $args = [] ) {
 	    $speaker = $this->get_speaker();
 	    if (!$speaker) {
 	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
-	    $args = wp_parse_args($args, array(
-	        'post__not_in'   => array($this->ID),
+	    $args = wp_parse_args($args, [
+	        'post__not_in'   => [ $this->ID ],
             'posts_per_page' => 10,
             'no_found_rows'  => true,
-        ));
+        ] );
 
-	    $args['tax_query'] = array(
-	        array(
+	    $args['tax_query'] = [
+	        [
 	            'taxonomy' => $speaker->taxonomy,
                 'field'    => 'slug',
                 'terms'    => $speaker->slug,
-            ),
-        );
+            ],
+        ];
 
 	    return lqd_messages()->sermons->get_many($args);
 	}

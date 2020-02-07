@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Speakers Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Speaker extends LqdM_Taxonomies_Base {
 

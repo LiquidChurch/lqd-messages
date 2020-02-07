@@ -1,9 +1,9 @@
 <?php
 /**
- * GC Sermons Style Loader.
+ * Liquid Messages Style Loader.
  *
  * @since 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Style_Loader extends LqdM_Template_Loader {
 
@@ -29,7 +29,7 @@ class LqdM_Style_Loader extends LqdM_Template_Loader {
 	 * @var array
 	 * @since 0.1.3
 	 */
-	protected static $done = array();
+	protected static $done = [];
 
 	/**
 	 * HTML view template loader constructor.
@@ -44,7 +44,7 @@ class LqdM_Style_Loader extends LqdM_Template_Loader {
 	 * @throws Exception
 	 * @return void
 	 */
-	public function __construct( $css_template, $name = null, array $args = array(), $force = false ) {
+	public function __construct( $css_template, $name = null, array $args = [], $force = false ) {
 		$this->force = $force;
 		parent::__construct( $css_template, $name, $args );
 	}
@@ -123,7 +123,7 @@ class LqdM_Style_Loader extends LqdM_Template_Loader {
 	 * @return string           Rendered template output
 	 * @throws Exception
 	 */
-	public static function get_template( $template, $name = null, array $args = array() ) {
+	public static function get_template( $template, $name = null, array $args = [] ) {
 		$view = new self( $template, $name, $args );
 		return $view->load();
 	}
@@ -141,7 +141,7 @@ class LqdM_Style_Loader extends LqdM_Template_Loader {
 	 * @return void
 	 * @throws Exception
 	 */
-	public static function output_template( $template, $name = null, array $args = array() ) {
+	public static function output_template( $template, $name = null, array $args = [] ) {
 		$view = new self( $template, $name, $args );
 		$view->load( 1 );
 	}

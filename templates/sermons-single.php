@@ -20,7 +20,7 @@
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {
-                                    jQuery('.message-video').fitVids();
+                                    jQuery('.lqdm-video').fitVids();
                                 });
                             </script>
                         <?php
@@ -31,7 +31,7 @@
                             </div>
                             <script type="text/javascript">
                                 jQuery(function ($) {
-                                    jQuery('.message-video').fitVids();
+                                    jQuery('.lqdm-video').fitVids();
                                 });
                             </script>
                             <?php
@@ -43,14 +43,14 @@
                 </div>
                 <div class="row" style="padding-left:55px;padding-right:55px;">
 
-                    <div id="single-sermon-content" class="col-md-12">
+                    <div id="lqdm-single-sermon-content" class="col-md-12">
 
                         <?php
                             if ($atts['show_title'] == 'true') {
                                 ?>
-                                <div class="row single-sermon-title">
+                                <div class="row lqdm-single-sermon-title">
                                     <header class="entry-header col-sm-7" style="margin-top: 20px;">
-                                        <h1 class="gc-sermon-title">
+                                        <h1 class="lqdm-sermon-title">
                                             <?php
                                                 echo $sermon->post->post_title;
                                             ?>
@@ -69,10 +69,10 @@
                                             ?>
                                             <div class="col-sm-5 gc-right-col">
                                                 <?php echo wp_get_attachment_image($image_id,
-                                                    'full', false, array(
-                                                        'class' => 'gc-series-list-sermons-img',
+                                                    'full', false, [
+                                                        'class' => 'lqdm-series-list-sermons-img',
                                                         'style' => 'width:100%;',
-                                                    )); ?>
+                                                    ] ); ?>
                                             </div>
                                             <?php
                                         }
@@ -106,13 +106,13 @@
                                 $speakers = $sermon->get_speakers();
                                 if (!empty($speakers)) {
                                     ?>
-                                    <div id="message-speaker" class="row">
+                                    <div id="lqdm-message-speaker" class="row">
                                         <div class="col-sm-3">
                                             <b>Speaker:</b>
                                         </div>
                                         <div class="col-sm-9">
                                             <?php
-                                                $speaker = array();
+                                                $speaker = [];
                                                 foreach ($speakers as $key => $val) {
                                                     $speaker[] = $val->name;
                                                 }
@@ -130,7 +130,7 @@
 
                         <?php
                             if ($atts['show_part_of_series'] == 'true') {
-                                $display_order = $sermon->get_meta('gc_display_order');
+                                $display_order = $sermon->get_meta('lqdm_display_order');
                                 if (!empty($display_order)) {
                                     ?>
                                     <div id="message-series-part" class="row">
@@ -153,13 +153,13 @@
                                 $scriptures = $sermon->get_scriptures();
                                 if (!empty($scriptures)) {
                                     ?>
-                                    <div id="message-scripture" class="row">
+                                    <div id="lqdm-scripture" class="row">
                                         <div class="col-sm-3">
                                             <b>Scriptures:</b>
                                         </div>
                                         <div class="col-sm-9">
                                             <?php
-                                                $scripture = array();
+                                                $scripture = [];
                                                 foreach ($scriptures as $key => $val) {
                                                     $scripture[] = $val->name;
                                                 }
@@ -183,7 +183,7 @@
                                         </div>
                                         <div class="col-sm-9">
                                             <?php
-                                                $topic = array();
+                                                $topic = [];
                                                 foreach ($topics as $key => $val) {
                                                     $topic[] = $val->name;
                                                 }
@@ -201,13 +201,13 @@
                                 $tags = $sermon->tags();
                                 if (!empty($tags)) {
                                     ?>
-                                    <div id="message-tags" class="row">
+                                    <div id="lqdm-tags" class="row">
                                         <div class="col-sm-3">
                                             <b>Tag:</b>
                                         </div>
                                         <div class="col-sm-9">
                                             <?php
-                                                $tag = array();
+                                                $tag = [];
                                                 foreach ($tags as $key => $val) {
                                                     $tag[] = $val->name;
                                                 }
@@ -225,7 +225,7 @@
                                 $content = strip_tags($sermon->post->post_content);
                                 if (!empty($content)) {
                                     ?>
-                                    <div id="message-summary" class="row">
+                                    <div id="lqdm-summary" class="row">
                                         <div class="col-sm-3">
                                             <b>Summary:</b>
                                         </div>
@@ -244,7 +244,7 @@
                             if ($atts['show_date_published'] == 'true') {
                                 if (!empty($sermon->post->post_date)) {
                                     ?>
-                                    <div id="message-date" class="row">
+                                    <div id="lqdm-date" class="row">
                                         <div class="col-sm-3">
                                             <b>Date:</b>
                                         </div>
@@ -263,7 +263,7 @@
                         <?php
                             if ($atts['show_additional_resource'] == 'true') {
                                 $addtl_resources
-                                    = do_shortcode('[sermon_resources resource_post_id="' .
+                                    = do_shortcode('[lqdm_resources resource_post_id="' .
                                                    $sermon->post->ID .
                                                    '" resource_display_name="true"]');
 
@@ -271,7 +271,7 @@
                                     ($addtl_resources != '<!-- no resources found -->')
                                 ) {
                                     ?>
-                                    <div id="message-resource" class="row">
+                                    <div id="lqdm-resource" class="row">
                                         <div class="col-sm-3">
                                             <b>Resources:</b>
                                         </div>
@@ -297,8 +297,8 @@
                                        '" thumbnail_size="medium" number_columns="4"]');
                     if (!empty($other_msg)) {
                         ?>
-                        <div id="message-others" class="row gc-individual-sermon-list">
-                            <h1 class="gc-sermon-title other-msg-title"
+                        <div id="lqdm-message-others" class="row lqdm-individual-sermon-list">
+                            <h1 class="lqdm-sermon-title other-msg-title"
                                 style="padding-left: 8px !important;">Other Messages in
                                 This
                                 Series</h1>
@@ -319,7 +319,7 @@
             edit_post_link(
                 sprintf(
                 /* translators: %s: Name of current post */
-                    __('Edit<span class="screen-reader-text"> "%s"</span>', 'liquidchurch'),
+                    __('Edit<span class="screen-reader-text"> "%s"</span>', 'lqdm'),
                     get_the_title()
                 ),
                 '<span class="edit-link">',

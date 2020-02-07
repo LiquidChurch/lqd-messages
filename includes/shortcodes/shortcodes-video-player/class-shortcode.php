@@ -2,7 +2,7 @@
 /**
  * GC Sermons Video Player Shortcode
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Video_Player extends LqdM_Shortcodes_Base {
 

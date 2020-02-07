@@ -2,7 +2,7 @@
 $sections_config_arr = $this->get('sections_config_arr');
 ?>
 
-<div class="wrap gc-sermon-message-config-wrap">
+<div class="wrap lqdm-config-wrap">
     <h2><?php echo __('Plugin Options', 'lqdm') ?></h2>
     <p> <?php echo __('Options related to the Plugin.', 'lqdm') ?></p>
     <div id="tabs">

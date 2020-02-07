@@ -2,7 +2,7 @@
 /**
  * GC Sermons Recent Speaker Shortcode
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Recent_Speaker extends LqdM_Shortcodes_Base {
 	/**

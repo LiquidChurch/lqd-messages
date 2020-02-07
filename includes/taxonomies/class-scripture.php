@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Scripture References Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Scripture extends LqdM_Taxonomies_Base {
 

@@ -4,7 +4,7 @@
  *
  * @version 0.1.3
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Video_Player_Admin extends LqdM_Recent_Admin_Base {
 

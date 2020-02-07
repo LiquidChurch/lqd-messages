@@ -10,11 +10,11 @@ window.LqdMAdmin = window.LqdMAdmin || {};
 
     var self = this;
 
-    var $sort_btn = $(".sort-btn"),
-        $update_btn = $(".update-btn"),
-        $reset_btn = $(".reset-btn"),
-        $sermon_message_config_page_wrap = $(".lqdm-sermon-config-wrap"),
-        $message_config_form = $(".message-config-form");
+    var $sort_btn = $('.sort-btn'),
+        $update_btn = $('.update-btn'),
+        $reset_btn = $('.reset-btn'),
+        $lqdm_config_page_wrap = $('.lqdm-config-wrap'),
+        $lqdm_config_form = $('.lqdm-config-form');
 
 
     /**
@@ -83,9 +83,9 @@ window.LqdMAdmin = window.LqdMAdmin || {};
                     dataType: 'json'
                 }).done(function (response) {
                     $.each(response, function (i, v) {
-                        $form = $lqdm_message_config_page_wrap.find('#series-' + i);
+                        $form = $lqdm_config_page_wrap.find('#series-' + i);
                         $.each(v, function (ci, cv) {
-                            var $adjcntLabel = $lqdm_message_config_page_wrap.find('label[data-post-id="' + ci + '"]');
+                            var $adjcntLabel = $lqdm_config_page_wrap.find('label[data-post-id="' + ci + '"]');
 
                             self.modifyLabel($adjcntLabel, cv);
                             self.setFormInputValue($form);
@@ -130,7 +130,7 @@ window.LqdMAdmin = window.LqdMAdmin || {};
      * binding validation classes to input
      * after keyup event
      */
-    $lqdm_message_config_page_wrap.find('input[type="number"][required]').each(function (i, v) {
+    $lqdm_config_page_wrap.find('input[type="number"][required]').each(function (i, v) {
         $(v).keyup(function (e) {
             self.updateInputClass(this);
         });
@@ -157,7 +157,7 @@ window.LqdMAdmin = window.LqdMAdmin || {};
                 '</div>'
             });
         }
-    }
+    };
 
 
     /**
@@ -170,29 +170,29 @@ window.LqdMAdmin = window.LqdMAdmin || {};
         } else {
             $.unblockUI();
         }
-    }
+    };
 
 
     /**
      * individual message config form submit event
      */
-    $message_config_form.on('submit', function (e) {
+    $lqdm_config_form.on('submit', function (e) {
         e.preventDefault();
         var that = $(this);
 
         self.blockUI(that);
         $.ajax({
             url: window.ajaxurl,
-            method: "POST",
+            method: 'POST',
             data: {
-                action: 'lqdm_message_config_single_series_update',
+                action: 'lqdm_config_single_series_update',
                 nonce: LqdMAdmin.ajax_nonce,
                 formData: that.serialize(),
             },
             dataType: 'json'
         }).done(function (response) {
             $.each(response, function (i, v) {
-                var $adjcntLabel = $lqdm_message_config_page_wrap.find('label[data-post-id="' + i + '"]');
+                var $adjcntLabel = $lqdm_config_page_wrap.find('label[data-post-id="' + i + '"]');
                 self.modifyLabel($adjcntLabel, v);
                 self.setFormInputValue(that);
             });

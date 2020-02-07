@@ -4,11 +4,11 @@
  * Licensed under the GPLv2+ license.
  */
 
-window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
+window.LqdMAdmin = window.LqdMAdmin || {};
 
-( function (window, document, $, LiquidChurchAdmin) { // TODO: Do we need LiquidChurchAdmin parameter?
+( function (window, document, $, LqdMAdmin) {
 
-    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+    $( '#tabs' ).tabs().addClass( 'ui-tabs-vertical ui-helper-clearfix' );
+    $( '#tabs li' ).removeClass( 'ui-corner-top' ).addClass( 'ui-corner-left' );
 
-}(window, document, jQuery, LiquidChurchAdmin) );
+}(window, document, jQuery, LqdMAdmin) );

@@ -1,9 +1,9 @@
 <?php
 /**
- * GC Sermons Template Loader.
+ * Liquid Messages Template Loader.
  *
  * @since 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Template_Loader {
 
@@ -13,7 +13,7 @@ class LqdM_Template_Loader {
 	 * @var array
 	 * @since 0.1.3
 	 */
-	public $args = array();
+	public $args = [];
 
 	/**
 	 * Template names array
@@ -21,7 +21,7 @@ class LqdM_Template_Loader {
 	 * @var array
 	 * @since 0.1.3
 	 */
-	public $templates = array();
+	public $templates = [];
 
 	/**
 	 * Template Name
@@ -51,7 +51,7 @@ class LqdM_Template_Loader {
 	 * @throws Exception
 	 * @return void
 	 */
-	public function __construct( $template, $name = null, array $args = array() ) {
+	public function __construct( $template, $name = null, array $args = [] ) {
 		if ( empty( $template ) ) {
 			throw new Exception( 'Template variable required for '. __CLASS__ .'.' );
 		}
@@ -146,12 +146,12 @@ class LqdM_Template_Loader {
 	 */
 	protected function _locate( $template ) {
 
-		$locations = apply_filters( "template_locations_for_{$this->template}", array(
+		$locations = apply_filters( "template_locations_for_{$this->template}", [
 			STYLESHEETPATH . '/lqd-messages/assets/css/',
 			TEMPLATEPATH . '/lqd-messages/',
             Lqd_Messages_Plugin::$path . 'templates/',
             Lqd_Messages_Plugin::$path . 'templates/assets/css/'
-		), $this );
+        ], $this );
 
 		$locations = array_reverse( $locations );
 
@@ -247,7 +247,7 @@ class LqdM_Template_Loader {
 	 * @return string           Rendered template output
 	 * @throws Exception
 	 */
-	public static function get_template( $template, $name = null, array $args = array() ) {
+	public static function get_template( $template, $name = null, array $args = [] ) {
 		$view = new self( $template, $name, $args );
 		return $view->load();
 	}
@@ -265,7 +265,7 @@ class LqdM_Template_Loader {
 	 * @return void
 	 * @throws Exception
 	 */
-	public static function output_template( $template, $name = null, array $args = array() ) {
+	public static function output_template( $template, $name = null, array $args = [] ) {
 		$view = new self( $template, $name, $args );
 		$view->load( 1 );
 	}

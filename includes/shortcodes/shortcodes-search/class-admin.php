@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Search Shortcode Button/Modal.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Sermon_Search_Admin extends LqdM_Recent_Admin_Base {
 

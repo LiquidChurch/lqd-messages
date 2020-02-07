@@ -4,7 +4,7 @@
  * Licensed under the GPLv2+ license.
  */
 
-window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};
+window.LqdMAdmin = window.LqdMAdmin || {};
 
 // We pass in our cmb and plugin objects.
 ( function( window, document, $, cmb, plugin ) {

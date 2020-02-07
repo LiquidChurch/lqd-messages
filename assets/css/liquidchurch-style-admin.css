@@ -87,22 +87,22 @@
     margin-bottom: 10px !important;
 }
 
-.lc-form-group {
+.lqdm-form-group {
     padding: 5px;
     display: inline-block;
 }
 
-.lc-form-group input {
+.lqdm-form-group input {
     margin-left: 10px;
 }
 
-.lc-notice {
+.lqdm-notice {
 
 }
-.lc-notice .success {
+.lqdm-notice .success {
     color: #2db065;
 }
-.lc-notice .error {
+.lqdm-notice .error {
     color: #E83737;
 }
 

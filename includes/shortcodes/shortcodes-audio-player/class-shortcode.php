@@ -2,7 +2,7 @@
 /**
  * GC Sermons Audio Player Shortcode
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Audio_Player extends LqdM_Shortcodes_Base {
 

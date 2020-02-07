@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Admin Series Shortcodes.
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series_Admin extends LqdM_Shortcodes_Admin_Base {
 

@@ -2,7 +2,7 @@
 /**
  * GC Sermons Async
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Async extends WP_Async_Task {
 

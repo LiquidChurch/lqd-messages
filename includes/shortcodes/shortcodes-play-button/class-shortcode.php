@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Play Button Shortcode
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Shortcodes_Play_Button extends LqdM_Shortcodes_Base {
 

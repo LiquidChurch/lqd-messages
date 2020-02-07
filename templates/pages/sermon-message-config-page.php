@@ -1,4 +1,4 @@
-<div class="wrap gc-sermon-message-config-wrap">
+<div class="wrap lqdm-config-wrap">
     <button type="button" id="all-sort-btn" class="sort-btn">
         <?php echo __('Auto Sort all', 'lqdm') ?>
     </button>

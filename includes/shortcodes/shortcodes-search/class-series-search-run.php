@@ -2,7 +2,7 @@
 /**
  * GC Series Search
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Series_Search_Run extends LqdM_Series_Run {
 

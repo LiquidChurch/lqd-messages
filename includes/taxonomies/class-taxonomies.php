@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Taxonomies
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Taxonomies {
 

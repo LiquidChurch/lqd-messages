@@ -15,14 +15,14 @@ $plugin_option = $this->get('plugin_option');
 
 		<?php
 		if(!empty($plugin_option['message_img_type']) && ($plugin_option['message_img_type'] != 'no_overlay')) {
-			echo '<div class="gc-sermons-shader"></div>';
+			echo '<div class="lqdm-shader"></div>';
 		}
 		?>
 
 		<?php
 		if(!empty($plugin_option['title_over_message_featured_img']) && ($plugin_option['title_over_message_featured_img'] == 'yes' || $plugin_option['title_over_message_featured_img'] == 'always_show')) {
 			?>
-			<div class="gc-sermons-table-wrapper <?php echo ($plugin_option['title_over_message_featured_img'] == 'always_show') ? 'always-show-title' : '' ?>">
+			<div class="lqdm-table-wrapper <?php echo ($plugin_option['title_over_message_featured_img'] == 'always_show') ? 'always-show-title' : '' ?>">
 				<table>
 					<tbody>
 					<tr>
@@ -38,7 +38,7 @@ $plugin_option = $this->get('plugin_option');
 		?>
 	</a>
 
-	<div class="gc-list-item-description">
+	<div class="lqdm-list-item-description">
 		<?php $this->maybe_output( 'description', '', 'do_description' ); ?>
 	</div>
 

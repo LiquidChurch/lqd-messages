@@ -2,7 +2,7 @@
 /**
  * Liquid Messages Admin Options Page
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class LqdM_Option_Page
 {
@@ -18,7 +18,7 @@ class LqdM_Option_Page
      *
      * @var array
      */
-    protected $sections_config_arr = array();
+    protected $sections_config_arr = [];
 
     /**
      * Option Key for Plugin
@@ -49,117 +49,117 @@ class LqdM_Option_Page
 	 */
     protected function _get_sections_config_arr()
     {
-        return array(
-            'series_view' => array(
+        return [
+            'series_view' => [
                 'title' => __('Series List View', 'lqdm'),
                 'page' => 'series_view',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Display the Title of the Series Over the Series Featured Image', 'lqdm'),
                         'name' => 'title_over_series_featured_img',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => 'Select',
                             'always_show' => __('Always Show', 'lqdm'),
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('How Do You Want Each Series Image to Look', 'lqdm'),
                         'name' => 'series_img_type',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'no_overlay' => __('No Overlay', 'lqdm'),
                             'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lqdm'),
                             'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Fit Entire Year of Series On One Page', 'lqdm'),
                         'name' => 'entire_year_series_one_page',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => 'Select',
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    )
-                )
-            ),
-            'search_view' => array(
+                        ]
+                    ]
+                ]
+            ],
+            'search_view' => [
                 'title' => __('Search Results View', 'lqdm'),
                 'page' => 'search_view',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Display the Title of the Series Over the Series Featured Image', 'lqdm'),
                         'name' => 'title_over_series_featured_img',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => 'Select',
                             'always_show' => __('Always Show', 'lqdm'),
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('How Do You Want Each Series Image to Look', 'lqdm'),
                         'name' => 'series_img_type',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'no_overlay' => __('No Overlay', 'lqdm'),
                             'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lqdm'),
                             'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Display the Title of the Message Over the Message Featured Image', 'lqdm'),
                         'name' => 'title_over_message_featured_img',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => 'Select',
                             'always_show' => __('Always Show', 'lqdm'),
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('How Do You Want Each Message Feature Image to Look', 'lqdm'),
                         'name' => 'message_img_type',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'no_overlay' => __('No Overlay', 'lqdm'),
                             'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lqdm'),
                             'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lqdm')
-                        )
-                    )
-                )
-            ),
-            'single_series_view' => array(
+                        ]
+                    ]
+                ]
+            ],
+            'single_series_view' => [
                 'title' => __('Individual Series View', 'lqdm'),
                 'page' => 'single_series_view',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Series Fields to Display on Front End', 'lqdm'),
                         'name' => 'series_field_to_display',
                         'type' => 'checkbox',
-                        'value' => array(
+                        'value' => [
                             'series_image' => __('Series Image', 'lqdm'),
                             'title' => __('Title', 'lqdm'),
                             'description' => __('Description', 'lqdm'),
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Message Fields to Display on Front End', 'lqdm'),
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
-                        'value' => array(
+                        'value' => [
                             'sermon_image' => __('Sermon Image', 'lqdm'),
                             'title' => __('Title', 'lqdm'),
                             'speakers' => __('Speaker(s)', 'lqdm'),
@@ -169,40 +169,40 @@ class LqdM_Option_Page
                             'topics' => __('Topics', 'lqdm'),
                             'tags' => __('Tags', 'lqdm'),
                             'scripture_reference' => __('Scripture References', 'lqdm'),
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Which Image Should be Displayed for Each Individual Message in the Series', 'lqdm'),
                         'name' => 'choose_image_type_to_display',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'series_featured_image' => __('Series Featured Image', 'lqdm'),
                             'message_featured_image' => __('Message Featured Image', 'lqdm'),
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Previous Resource(s) Minimize When One Moves to Create Another Resource.', 'lqdm'),
                         'name' => 'minimize_previous_resource',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    )
-                )
-            ),
-            'single_message_view' => array(
+                        ]
+                    ]
+                ]
+            ],
+            'single_message_view' => [
                 'title' => __('Individual Message View', 'lqdm'),
                 'page' => 'single_message_view',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Message Fields to Display on Front End', 'lqdm'),
                         'name' => 'message_field_to_display',
                         'type' => 'checkbox',
-                        'value' => array(
+                        'value' => [
                             'sermon_image' => __('Sermon Image', 'lqdm'),
                             'title' => __('Title', 'lqdm'),
                             'speakers' => __('Speaker(s)', 'lqdm'),
@@ -214,63 +214,63 @@ class LqdM_Option_Page
                             'tags' => __('Tags', 'lqdm'),
                             'scripture_reference' => __('Scripture References', 'lqdm'),
                             'additional_resource' => __('Additional Resources', 'lqdm'),
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('Display the Title of the Message Over the Message Featured Image for Related Messages', 'lqdm'),
                         'name' => 'title_over_message_featured_img',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'always_show' => __('Always Show', 'lqdm'),
                             'yes' => __('Yes', 'lqdm'),
                             'no' => __('No', 'lqdm')
-                        )
-                    ),
-                    array(
+                        ]
+                    ],
+                    [
                         'title' => __('How Do You Want Each Message Image to Look', 'lqdm'),
                         'name' => 'message_img_type',
                         'type' => 'select',
-                        'value' => array(
+                        'value' => [
                             '' => __('Select', 'lqdm'),
                             'no_overlay' => __('No Overlay', 'lqdm'),
                             'on_hover_overlay' => __('Starts without Overlay, On Hover animates to Overlay', 'lqdm'),
                             'start_with_overlay' => __('Starts with Overlay, On Hover animates to No Overlay', 'lqdm')
-                        )
-                    )
-                )
-            ),
-            'addtnl_rsrc_option' => array(
+                        ]
+                    ]
+                ]
+            ],
+            'addtnl_rsrc_option' => [
                 'title' => __('Additional Resource\'s Option', 'lqdm'),
                 'page' => 'addtnl_rsrc_option',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Display Name Field Value', 'lqdm'),
                         'name' => 'display_name_fld_val',
                         'type' => 'textarea',
                         'placeholder' => __('Enter value like - Video, Audio, Notes, Group Guide', 'lqdm'),
                         'default' => "Video, \r\nAudio, \r\nNotes, \r\nGroup Guide",
-                    ),
-                    array(
+                    ],
+                    [
                         'title' => __('Language Option', 'lqdm'),
                         'name' => 'addtnl_rsrc_lng_optn',
                         'type' => 'textarea',
                         'placeholder' => __('Enter value like - eng:English, spa:Spanish', 'lqdm'),
                         'default' => "eng:English, \r\nspa:Spanish",
-                    )
-                )
-            ),
-            'search_criteria' => array(
+                    ]
+                ]
+            ],
+            'search_criteria' => [
                 'title' => __('Search Criteria', 'lqdm'),
                 'page' => 'search_criteria',
                 'desc' => __('', 'lqdm'),
-                'fields' => array(
-                    array(
+                'fields' => [
+                    [
                         'title' => __('Front-end Search Keys', 'lqdm'),
                         'name' => 'front_end_search_keys',
                         'type' => 'checkbox',
-                        'value' => array(
+                        'value' => [
                             'title' => __('Title', 'lqdm'),
                             'author' => __('Author', 'lqdm'),
                             'topic' => __('Topic', 'lqdm'),
@@ -279,11 +279,11 @@ class LqdM_Option_Page
                             'video' => __('Video', 'lqdm'),
                             'image' => __('Image', 'lqdm'),
                             'scripture_references' => __('Scripture References', 'lqdm'),
-                        )
-                    )
-                )
-            )
-        );
+                        ]
+                    ]
+                ]
+            ]
+        ];
     }
 
 	/**
@@ -291,8 +291,8 @@ class LqdM_Option_Page
 	 */
     public function hooks()
     {
-        add_action('admin_menu', array($this, 'add_page'));
-        add_action('admin_init', array($this, 'plugin_settings'));
+        add_action('admin_menu', [ $this, 'add_page' ] );
+        add_action('admin_init', [ $this, 'plugin_settings' ] );
     }
 
     /**
@@ -303,12 +303,12 @@ class LqdM_Option_Page
     public function add_page()
     {
         add_submenu_page(
-            'edit.php?post_type=gc-sermons',
+            'edit.php?post_type=lqd-messages',
             __('Plugin Options', 'lqdm'),
             __('Plugin Options', 'lqdm'),
             'manage_options',
-            'lc-plugin-option',
-            array($this, 'plugin_option_page_view')
+            'lqdm-plugin-option',
+            [ $this, 'plugin_option_page_view' ]
         );
     }
 
@@ -322,12 +322,12 @@ class LqdM_Option_Page
         $this->enqueu_css();
         $this->enqueu_js();
 
-        $arg = array(
+        $arg = [
             'plugin_option_key' => $this->plugin_option_key,
             'sections_config_arr' => $this->sections_config_arr
-        );
+        ];
 
-        $view = LqdM_Template_Loader::get_template('pages/sermon-plugin-option-page', $arg);
+        $view = LqdM_Template_Loader::get_template('pages/lqdm-plugin-option-page', $arg);
         echo $view;
     }
 
@@ -339,16 +339,16 @@ class LqdM_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_style(
-            'lc-jquery-ui-css',
+            'lqdm-jquery-ui-css',
             "//code.jquery.com/ui/1.12.0/themes/base/jquery-ui{$min}.css",
-            array(),
+            [],
             Lqd_Messages_Plugin::VERSION
         );
 
         wp_enqueue_style(
-            'lc-style-admin',
+            'lqdm-style-admin',
             Lqd_Messages_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
-            array(),
+            [],
 	        Lqd_Messages_Plugin::VERSION
         );
     }
@@ -361,22 +361,22 @@ class LqdM_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_script(
-            'lc-jquery-ui-js',
+            'lqdm-jquery-ui-js',
             "//code.jquery.com/ui/1.12.0/jquery-ui{$min}.js",
-            array('jquery'),
+            [ 'jquery' ],
 	        Lqd_Messages_Plugin::VERSION
         );
 
         wp_enqueue_script(
-            'lc-func-admin-option-page',
-            Lqd_Messages_Plugin::$url . "assets/js/liquidchurch-page-option{$min}.js",
-            array('jquery', 'lc-jquery-ui-js'),
+            'lqdm-admin-option-page',
+            Lqd_Messages_Plugin::$url . "assets/js/lqdm-page-option{$min}.js",
+            [ 'jquery', 'lc-jquery-ui-js' ],
 	        Lqd_Messages_Plugin::VERSION
         );
 
-        wp_localize_script('lc-func-admin-message-config', 'LiquidChurchAdmin', array(
+        wp_localize_script('lqdm-admin-message-config', 'LqdMAdmin', [
             'path' => Lqd_Messages_Plugin::$url,
-        ));
+        ] );
     }
 
 	/**
@@ -384,7 +384,7 @@ class LqdM_Option_Page
 	 */
     public function plugin_settings()
     {
-        register_setting($this->plugin_option_key, $this->plugin_option_key, array($this, 'plugin_options_validate'));
+        register_setting($this->plugin_option_key, $this->plugin_option_key, [ $this, 'plugin_options_validate' ] );
         $this->add_settings_sections();
     }
 
@@ -394,7 +394,7 @@ class LqdM_Option_Page
     protected function add_settings_sections()
     {
         foreach ($this->sections_config_arr as $key => $val) {
-            add_settings_section($key, $val['title'], array($this, 'plugin_section_text'), $val['page']);
+            add_settings_section($key, $val['title'], [ $this, 'plugin_section_text' ], $val['page']);
             $this->add_settings_fields($key, $val);
         }
     }
@@ -412,10 +412,10 @@ class LqdM_Option_Page
                 add_settings_field(
                 	$sec_key . '_' . $val['name'],
 	                $val['title'],
-	                array($this, 'plugin_form_fields'),
+	                [ $this, 'plugin_form_fields' ],
 	                $sectn_det['page'],
 	                $sec_key,
-	                array_merge(array('key' => $sec_key), $val)
+	                array_merge( [ 'key' => $sec_key ], $val)
                 );
             }
         }
@@ -620,9 +620,9 @@ class LqdM_Option_Page
         $error = get_settings_errors($id);
         if (!empty($error[0])) {
             if ($error[0]['type'] == 'updated') {
-                printf('<div class="lc-notice"><p class="success">%s</p></div>', $error[0]['message']);
+                printf('<div class="lqdm-notice"><p class="success">%s</p></div>', $error[0]['message']);
             } else {
-                printf('<div class="lc-notice"><p class="error">%s</p></div>', $error[0]['message']);
+                printf('<div class="lqdm-notice"><p class="error">%s</p></div>', $error[0]['message']);
             }
         }
     }
@@ -635,12 +635,12 @@ class LqdM_Option_Page
 	 */
     protected function _get_form_checkbox_element($arg, $db_val)
     {
-        $saved_db_val = !empty($db_val[$arg['key']][$arg['name']]) ? $db_val[$arg['key']][$arg['name']] : array();
+        $saved_db_val = !empty($db_val[$arg['key']][$arg['name']]) ? $db_val[$arg['key']][$arg['name']] : [];
         $id = $arg['key'] . '_' . $arg['name'];
         $name = $this->plugin_option_key . '[' . $arg['key'] . '][' . $arg['name'] . ']';
         foreach ($arg['value'] as $key => $val) {
             $matched = in_array($key, $saved_db_val) ? 'checked' : '';
-            printf('<div class="lc-form-group">');
+            printf('<div class="lqdm-form-group">');
             printf('<label for="%s">%s</label>', $id, $val);
             printf('<input type="checkbox" id="%s" name="%s[]" value="%s" %s />', $id, $name, $key, $matched);
             printf('</div>');

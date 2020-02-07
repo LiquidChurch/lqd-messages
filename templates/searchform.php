@@ -1,4 +1,4 @@
-<form role="search" method="get" class="search-form gc-sermons-search"
+<form role="search" method="get" class="search-form lqdm-search"
       action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 
     <div class="row first-row">
@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <input type="search" class="search-field"
                            placeholder="<?php echo esc_attr_x('Search for Series &amp; Sermons &hellip;', 'placeholder'); ?>"
-                           value="<?php $this->output('search_query', 'esc_attr'); ?>" name="sermon-search"/>
+                           value="<?php $this->output('search_query', 'esc_attr'); ?>" name="lqdm-search"/>
 
                     <input type="submit" class="search-submit"
                            value="<?php echo esc_attr_x('Search', 'submit button'); ?>"/>
