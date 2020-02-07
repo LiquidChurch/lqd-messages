@@ -15,12 +15,11 @@
          */
         function js_button_data()
         {
-            return array(
-                'qt_button_text' => __('GC Sermon Single', 'lqdm'),
-                'button_tooltip' => __('GC Sermon Single', 'lqdm'),
-                'icon'           => 'dashicons-media-interactive',
-                // 'mceView'        => true, // The future
-            );
+            return [
+                'qt_button_text' => __('Single Message', 'lqdm'),
+                'button_tooltip' => __('Single Message', 'lqdm'),
+                'icon'           => 'dashicons-media-interactive'
+            ];
         }
 
         /**
@@ -33,7 +32,7 @@
          */
         function fields($fields, $button_data)
         {
-            $fields[] = array(
+            $fields[] = [
                 'name'            => __( 'Sermon to show', 'lqdm' ),
                 'desc'            => __( 'Blank, "recent", or "0" will display the most recent sermon. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
                 'id'              => $this->prefix . 'sermon_id',
@@ -41,112 +40,112 @@
                 'post_type'       => $this->run->sermons->post_type(),
                 'select_type'     => 'radio',
                 'select_behavior' => 'replace',
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Title',
                 'desc' => '',
                 'id' => $this->prefix . 'show_title',
                 'type' => 'checkbox',
                 'default' => true
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Content',
                 'desc' => '',
                 'id' => $this->prefix . 'show_content',
                 'type' => 'checkbox',
                 'default' => true
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Image to display',
                 'desc' => '',
                 'id' => $this->prefix . 'show_image',
                 'type'    => 'radio_inline',
-                'options' => array(
+                'options' => [
                     'featured_image' => __( 'Featured Image', 'lqdm' ),
                     'series_image'   => __( 'Series Image', 'lqdm' ),
-                ),
+                ],
                 'default' => 'featured_image'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Header Media',
                 'desc' => '',
                 'id' => $this->prefix . 'show_media',
                 'type'    => 'radio_inline',
-                'options' => array(
+                'options' => [
                     'video_player'   => __( 'Video Player', 'lqdm' ),
                     'audio_player' => __( 'Audio Player', 'lqdm' ),
                     'featured_image' => __( 'Featured Image', 'lqdm' ),
                     'series_image' => __( 'Series Image', 'lqdm' ),
-                ),
+                ],
                 'default' => 'video_player'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_series',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Part of Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_part_of_series',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Speaker',
                 'desc' => '',
                 'id' => $this->prefix . 'show_speakers',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Others in Series',
                 'desc' => '',
                 'id' => $this->prefix . 'show_others_in_series',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Topics',
                 'desc' => '',
                 'id' => $this->prefix . 'show_topics',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Tags',
                 'desc' => '',
                 'id' => $this->prefix . 'show_tags',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Date Published',
                 'desc' => '',
                 'id' => $this->prefix . 'show_date_published',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Additional Resource',
                 'desc' => '',
                 'id' => $this->prefix . 'show_additional_resource',
                 'type' => 'checkbox'
-            );
+            ];
 
-            $fields[] = array(
+            $fields[] = [
                 'name' => 'Show Scripture References',
                 'desc' => '',
                 'id' => $this->prefix . 'show_scripture_references',
                 'type' => 'checkbox'
-            );
+            ];
 
             return $fields;
         }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Shortcodes_Resources_Run_Test
+ * Class LqdM_Shortcodes_Resources_Run_Test
  */
 class LqdM_Shortcodes_Resources_Run_Test extends WP_UnitTestCase {
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Search
+ * Liquid Messages Search Shortcode - Run
  *
  * @package Liquid Messages
  */
@@ -47,7 +47,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 */
 	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Taxonomies $taxonomies ) {
 		$this->search_query = $search_query;
-		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
+		$this->current_page = absint( lqdm__get_arg( 'results-page', 1 ) );
 
 		parent::__construct( $sermons, $taxonomies );
 
@@ -64,7 +64,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 * @throws Exception
 	 */
 	public function get_search_results() {
-		add_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
+		add_filter( 'lqdm_get_sermons_args', [ $this, 'filter_sermon_args' ] );
 
 		$my_level = self::$inception_levels++;
 		$args = $this->get_initial_query_args();
@@ -75,7 +75,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 		}
 
 		if ( ! isset( $args['post__not_in'] ) && is_singular( $this->sermons->post_type() ) ) {
-			$args['post__not_in'] = array( get_queried_object_id() );
+			$args['post__not_in'] = [ get_queried_object_id() ];
 		}
 
 		$sermons = $this->sermons->get_many( $args );
@@ -99,7 +99,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 
 		$this->results .= LqdM_Template_Loader::get_template( 'sermons-list', $args );
 
-		remove_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
+		remove_filter( 'lqdm_get_sermons_args', [ $this, 'filter_sermon_args' ] );
 
 		return $this->results;
 	}
@@ -138,7 +138,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 */
 	protected function get_pagination( $total_pages ) {
 		$this->total_pages = $total_pages;
-		$nav = array( 'prev_link' => '', 'next_link' => '' );
+		$nav = [ 'prev_link' => '', 'next_link' => '' ];
 
 		if ( ! $this->bool_att( 'remove_pagination' ) ) {
 			$nav['prev_link'] = lqdm_search_get_previous_results_link();
@@ -154,7 +154,7 @@ class LqdM_Sermons_Search_Run extends LqdM_Sermons_Run {
 	 * @return string
 	 */
 	protected function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-sermons-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-search-wrap';
 	}
 
 }

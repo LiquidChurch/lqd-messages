@@ -74,10 +74,10 @@ window.LqdMAdmin = window.LqdMAdmin || {};
                 self.blockUI();
                 $.ajax({
                     url: window.ajaxurl,
-                    method: "POST",
+                    method: 'POST',
                     data: {
-                        action: 'lqdm_message_config_all_series_update',
-                        nonce: LiquidMAdmin.ajax_nonce,
+                        action: 'lqdm_config_all_series_update',
+                        nonce: LqdMAdmin.ajax_nonce,
                         formData: formData,
                     },
                     dataType: 'json'

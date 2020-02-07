@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Series Shortcode - Run
+ * Liquid Messages Series Shortcode - Run
  *
  * @package Liquid Messages
  */
@@ -12,10 +12,10 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       * @var string
       * @since 0.1.0
       */
-     public $shortcode = 'gc_series';
+     public $shortcode = 'lqdm_series';
 
      /**
-      * GCS_Series object
+      * Message Series object
       *
       * @var   LqdM_Series
       * @since 0.1.0
@@ -34,7 +34,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
      public function __construct(LqdM_Messages $sermons, LqdM_Series $series)
      {
          $this->series = $series;
-         $this->atts_defaults['paging_init_year'] = array(date('Y', time()));
+         $this->atts_defaults['paging_init_year'] = [ date('Y', time()) ];
          parent::__construct($sermons);
      }
 
@@ -44,7 +44,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       * @var array
       * @since 0.1.0
       */
-     public $atts_defaults = array( /* TODO: Move above construct */
+     public $atts_defaults = [ /* TODO: Move above construct */
          'per_page'           => 10, // Will use WP's per-page option.
          'remove_dates'       => false,
          'remove_thumbnail'   => false,
@@ -57,7 +57,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
          'paging_by'                 => 'per_page',
          'show_num_years_first_page' => 0,
          'paging_init_year'          => '',
-     );
+     ];
 
      /**
       * Shortcode Output
@@ -67,7 +67,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       */
      public function shortcode()
      {
-         $allterms = $this->series->get_many(array('orderby' => 'sermon_date'));
+         $allterms = $this->series->get_many( [ 'orderby' => 'sermon_date' ] );
 
          if (empty($allterms)) {
              return '';
@@ -94,14 +94,14 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
              $paging_init_year
                  = $curr_year = array_flip(array_reverse($args['year_config']));
 
-             $paging_init_year_tmp = array();
+             $paging_init_year_tmp = [];
              $max_year = max(array_keys($paging_init_year));
              $min_year = min(array_keys($paging_init_year));
 
              if ($args['paged'] > 1) {
                  for ($i = 1; $i < $args['paged']; $i++) {
                      $tmp_year = --$min_year;
-                     $curr_year = array($tmp_year => '');
+                     $curr_year = [ $tmp_year => '' ];
                      $paging_init_year_tmp[$tmp_year] = '';
                  }
              }
@@ -182,7 +182,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       */
      public function add_year_index_and_augment_terms($allterms)
      {
-         $terms = array();
+         $terms = [];
 
          $do_date  = !$this->bool_att('remove_dates');
          $do_thumb = !$this->bool_att('remove_thumbnail');
@@ -210,7 +210,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       */
      public function get_term_data($term)
      {
-         return $this->series->get($term, array('image_size' => $this->att('thumbnail_size')));
+         return $this->series->get($term, [ 'image_size' => $this->att('thumbnail_size') ] );
      }
 
      /**
@@ -222,7 +222,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
       */
      public function get_pagination($total_pages)
      {
-         $nav = array('prev_link' => '', 'next_link' => '');
+         $nav = [ 'prev_link' => '', 'next_link' => '' ];
 
          if (!$this->bool_att('remove_pagination')) {
              $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
@@ -242,7 +242,7 @@ class LqdM_Series_Run extends LqdM_Shortcodes_Run_Base
          $columns = absint($this->att('number_columns'));
          $columns = $columns < 1 ? 1 : $columns;
 
-         return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-series-wrap';
+         return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-series-wrap';
      }
 
 }

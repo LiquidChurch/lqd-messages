@@ -14,14 +14,14 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'sermon_play_button';
+	public $shortcode = 'lqdm_play_button';
 
 	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
 	 * @since 0.1.0
 	 */
-	public $atts_defaults = array(
+	public $atts_defaults = [
 		'sermon_id'  => 0,
 		'icon_color' => '#000000',
 		'icon_size'  => 'large',
@@ -29,7 +29,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
 		// no admin
 		'do_scripts' => true,
-	);
+    ];
 
 	/**
 	 * Shortcode Output
@@ -39,7 +39,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 		$sermon = $this->get_sermon();
 
 		if ( ! $sermon || ! isset( $sermon->ID ) ) {
-			return apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
+			return apply_filters( 'lqdm_play_button_shortcode_output', LqdM_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
 		}
 
 		if ( $this->att( 'do_scripts' ) ) {
@@ -50,15 +50,15 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 
 		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
 
-		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', LqdM_Template_Loader::get_template(
+		$output .= apply_filters( 'lqdm_play_button_shortcode_output', LqdM_Template_Loader::get_template(
 			'play-button-shortcode',
-			array(
+			[
 				// Get our extra_class attribute
 				'extra_classes' => $this->get_extra_classes( $has_icon_font_size ),
 				'sermon_id'    => $sermon->ID,
 				'style'         => $style,
-				'video_url'     => get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 ),
-			)
+				'video_url'     => get_post_meta( $sermon->ID, 'lqdm_video_url', 1 ),
+            ]
 		), $this );
 
 		return $output;
@@ -97,7 +97,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 			$style .= '"';
 		}
 
-		return array( $style, $has_icon_font_size );
+		return [ $style, $has_icon_font_size ];
 	}
 
 	/**
@@ -128,20 +128,20 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_style( 'fontawesome' );
 
-		add_action( 'wp_footer', array( $this, 'video_modal' ) );
+		add_action( 'wp_footer', [ $this, 'video_modal' ] );
 
 		wp_enqueue_script(
 			'fitvids',
             Lqd_Messages_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
-			array( 'jquery' ),
+			[ 'jquery' ],
 			'1.1',
 			true
 		);
 
 		wp_enqueue_script(
-			'gc-sermon-videos',
-            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermon-videos.js',
-			array( 'fitvids' ),
+			'lqdm-videos',
+            Lqd_Messages_Plugin::$url . 'assets/js/lqdm-videos.js',
+			[ 'fitvids' ],
 			Lqd_Messages_Plugin::VERSION,
 			true
 		);
@@ -162,7 +162,7 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 			return;
 		}
 
-		$videos = array();
+		$videos = [];
 		foreach ( $shortcodes as $shortcode ) {
 			// Check for found sermons
 			if ( ! ( $sermon = $shortcode->att( 'sermon' ) ) ) {
@@ -179,9 +179,9 @@ class LqdM_Play_Button_Run extends LqdM_Shortcodes_Run_Base {
 		}
 
 		if ( ! empty( $videos ) ) {
-			echo new LqdM_Template_Loader( 'play-button-shortcode-modal-videos', array(
+			echo new LqdM_Template_Loader( 'play-button-shortcode-modal-videos', [
 				'videos' => $videos,
-			) );
+            ] );
 		}
 
 		$done = true;

@@ -14,7 +14,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	protected $id = '';
 
 	/**
-	 * GCS_Sermons object
+	 * Messages object
 	 *
 	 * @var LqdM_Messages
 	 * @since  0.1.0
@@ -35,9 +35,9 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 * @var array
 	 * @since  0.1.1
 	 */
-	protected $term_get_args_defaults = array(
+	protected $term_get_args_defaults = [
 		'image_size' => 512,
-	);
+    ];
 
 	/**
 	 * The default args array for self::get_many()
@@ -45,10 +45,10 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 * @var array
 	 * @since  0.1.1
 	 */
-	protected $term_get_many_args_defaults = array(
+	protected $term_get_many_args_defaults = [
 		'orderby'       => 'name',
 		'augment_terms' => true,
-	);
+    ];
 
 	/**
 	 * The image column title (if applicable).
@@ -62,7 +62,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
      * Constructor
      * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
      *
-     * @param object $sermons GCS_Sermons object.
+     * @param object $sermons Messages object.
      * @param $args
      *
      * @since 0.1.0
@@ -81,11 +81,11 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 		parent::__construct(
 			$args['labels'],
 			$args['args'],
-			array( $this->sermons->post_type() )
+			[ $this->sermons->post_type() ]
 		);
 
-		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
-		add_action( 'wp_async_set_sermon_terms', array( $this, 'trigger_cache_flush' ), 10, 2 );
+		add_action( 'plugins_loaded', [ $this, 'filter_values' ], 4 );
+		add_action( 'wp_async_set_sermon_terms', [ $this, 'trigger_cache_flush' ], 10, 2 );
 	}
 
 	/**
@@ -96,15 +96,15 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 * @return void
 	 */
 	public function filter_values() {
-		$args = array(
+		$args = [
 			'singular'      => $this->singular,
 			'plural'        => $this->plural,
 			'taxonomy'      => $this->taxonomy,
 			'arg_overrides' => $this->arg_overrides,
 			'object_types'  => $this->object_types,
-		);
+        ];
 
-		$filtered_args = apply_filters( 'gcs_taxonomies_'. $this->id, $args, $this );
+		$filtered_args = apply_filters( 'lqdm_taxonomies_'. $this->id, $args, $this );
 		if ( $filtered_args !== $args ) {
 			foreach ( $args as $arg => $val ) {
 				if ( isset( $filtered_args[ $arg ] ) ) {
@@ -131,8 +131,8 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 
 		$tax = $this->taxonomy();
 
-		add_filter( "manage_edit-{$tax}_columns", array( $this, 'add_column_header' ) );
-		add_filter( "manage_{$tax}_custom_column", array( $this, 'add_column_value'  ), 10, 3 );
+		add_filter( "manage_edit-{$tax}_columns", [ $this, 'add_column_header' ] );
+		add_filter( "manage_{$tax}_custom_column", [ $this, 'add_column_value' ], 10, 3 );
 	}
 
 	/**
@@ -144,7 +144,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @return array
 	 */
-	public function add_column_header( $columns = array() ) {
+	public function add_column_header( $columns = [] ) {
 		$columns['tax-image'] = $this->img_col_title;
 
 		return $columns;
@@ -171,13 +171,13 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 		$retval = '&#8212;';
 
 		// Get the term data.
-		$term = $this->get( $term_id, array( 'image_size' => 'thumb' ) );
+		$term = $this->get( $term_id, [ 'image_size' => 'thumb' ] );
 
 		// Output image if not empty.
 		if ( isset( $term->image_id ) && $term->image_id ) {
-			$retval = wp_get_attachment_image( $term->image_id, 'thumb', false, array(
+			$retval = wp_get_attachment_image( $term->image_id, 'thumb', false, [
 				'style' => 'max-width:100%;height: auto;',
-			) );
+            ] );
 
 			$link = get_edit_term_link( $term->term_id, $this->taxonomy(), $this->sermons->post_type() );
 
@@ -210,7 +210,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
-		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
+		return new_cmb2_box( apply_filters( "lqdm_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
 	}
 
 	/**
@@ -218,7 +218,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @param  boolean $get_single_term Whether to get the first term or all of them.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Messages post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -244,7 +244,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Retrieve the most recent sermon which has terms in this taxonomy.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Messages post object if successful.
 	 * @throws Exception
 	 *@since  0.2.0
 	 *
@@ -259,14 +259,14 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 * @since  0.1.1
 	 *
 	 * @param  array $args             Array of arguments (passed to get_terms).
-	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
+	 * @param  array $single_term_args Array of arguments for LqdM_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 * @throws Exception
 	 */
-	public function get_many( $args = array(), $single_term_args = array() ) {
+	public function get_many( $args = [], $single_term_args = [] ) {
 		$args = wp_parse_args( $args, $this->term_get_many_args_defaults );
-		$args = apply_filters( "gcs_get_{$this->id}_args", $args );
+		$args = apply_filters( "lqdm_get_{$this->id}_args", $args );
 
 		if ( isset( $args['orderby'] ) && 'sermon_date' === $args['orderby'] ) {
 			$terms = $this->get_terms_in_sermon_date_order();
@@ -299,20 +299,20 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 * @since  0.1.5
 	 *
 	 * @param  array $search_term      The search term.
-	 * @param  array $args             Array of arguments for GCS_Taxonomies_Base::get_many().
-	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
+	 * @param  array $args             Array of arguments for LqdM_Taxonomies_Base::get_many().
+	 * @param  array $single_term_args Array of arguments for LqdM_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 * @throws Exception
 	 */
-	public function search( $search_term, $args = array(), $single_term_args = array() ) {
-		$args = wp_parse_args( $args, array(
+	public function search( $search_term, $args = [], $single_term_args = [] ) {
+		$args = wp_parse_args( $args, [
 			'name__like'   => sanitize_text_field( $search_term ),
 			'hide_empty'   => false,
 			'orderby'      => 'term_id',
 			'order'        => 'DESC',
 			'cache_domain' => 'gc_sermons_search_' . $this->id,
-		) );
+        ] );
 
 		return $this->get_many( $args, $single_term_args );
 	}
@@ -327,14 +327,14 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @return WP_Term|false    Term object or false
 	 */
-	public function get( $term, $args = array() ) {
+	public function get( $term, $args = [] ) {
 		$term = isset( $term->term_id ) ? $term : get_term_by( 'id', $term, $this->taxonomy() );
 		if ( ! isset( $term->term_id ) ) {
 			return false;
 		}
 
 		$args = wp_parse_args( $args, $this->term_get_args_defaults );
-		$args = apply_filters( "gcs_get_{$this->id}_single_args", $args, $term, $this );
+		$args = apply_filters( "lqdm_get_{$this->id}_single_args", $args, $term, $this );
 
 		$term->term_link = get_term_link( $term );
 		$term = $this->extra_term_data( $term, $args );
@@ -386,7 +386,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 		}
 
 		if ( $size ) {
-			$size = is_numeric( $size ) ? array( $size, $size ) : $size;
+			$size = is_numeric( $size ) ? [ $size, $size ] : $size;
 		}
 
 		$term->image = wp_get_attachment_image( $term->image_id, $size ? $size : 'thumbnail' );
@@ -413,13 +413,13 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 		$terms = get_transient( $this->id . '_in_sermon_date_order' );
 
 		if ( ! $terms || $this->flush_cache ) {
-			$sermons = $this->sermons->get_many( array(
+			$sermons = $this->sermons->get_many( [
 				'posts_per_page' => 1000,
 				'cache_results' => false,
-			) );
+            ] );
 
 			$taxonomy = $this->taxonomy();
-			$terms = array();
+			$terms = [];
 			if ( $sermons->have_posts() ) {
 				foreach ( $sermons->posts as $post ) {
 					$year = get_the_date( 'Y', $post );
@@ -472,7 +472,7 @@ abstract class LqdM_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @return mixed Array of terms on success
 	 */
-	protected static function get_terms( $taxonomy, $args = array() ) {
+	protected static function get_terms( $taxonomy, $args = [] ) {
 		unset( $args['augment_terms'] );
 		if ( version_compare( $GLOBALS['wp_version'], '4.5.0', '>=' ) ) {
 			$args['taxonomy'] = $taxonomy;

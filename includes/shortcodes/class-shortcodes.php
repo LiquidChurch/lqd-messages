@@ -7,7 +7,7 @@
 class LqdM_Shortcodes {
 
 	/**
-	 * Instance of GCS_Shortcodes_Play_Button
+	 * Instance of LqdM_Shortcodes_Play_Button
 	 *
 	 * @var LqdM_Shortcodes_Play_Button
 	 * @since 0.1.0
@@ -15,7 +15,7 @@ class LqdM_Shortcodes {
 	protected $play_button;
 
 	/**
-	 * Instance of GCS_Shortcodes_Sermons
+	 * Instance of LqdM_Shortcodes_Sermons
 	 *
 	 * @var LqdM_Shortcodes_Sermons
 	 * @since 0.1.4
@@ -23,7 +23,7 @@ class LqdM_Shortcodes {
 	protected $sermons;
 
 	/**
-	 * Instance of GCS_Shortcodes_Recent_Series
+	 * Instance of LqdM_Shortcodes_Recent_Series
 	 *
 	 * @var LqdM_Shortcodes_Recent_Series
 	 * @since 0.1.4
@@ -31,7 +31,7 @@ class LqdM_Shortcodes {
 	protected $recent_series;
 
 	/**
-	 * Instance of GCS_Shortcodes_Recent_Speaker
+	 * Instance of LqdM_Shortcodes_Recent_Speaker
 	 *
 	 * @var LqdM_Shortcodes_Recent_Speaker
 	 * @since 0.1.4
@@ -39,7 +39,7 @@ class LqdM_Shortcodes {
 	protected $recent_speaker;
 
 	/**
-	 * Instance of GCS_Shortcodes_Video_Player
+	 * Instance of LqdM_Shortcodes_Video_Player
 	 *
 	 * @var LqdM_Shortcodes_Video_Player
 	 * @since 0.1.4
@@ -47,7 +47,7 @@ class LqdM_Shortcodes {
 	protected $video_player;
 
 	/**
-	 * Instance of GCS_Shortcodes_Audio_Player
+	 * Instance of LqdM_Shortcodes_Audio_Player
 	 *
 	 * @var LqdM_Shortcodes_Audio_Player
 	 * @since 0.1.4
@@ -55,7 +55,7 @@ class LqdM_Shortcodes {
 	protected $audio_player;
 
 	/**
-	 * Instance of GCS_Shortcodes_Sermon_Search
+	 * Instance of LqdM_Shortcodes_Sermon_Search
 	 *
 	 * @var LqdM_Shortcodes_Sermon_Search
 	 * @since 0.1.5
@@ -63,14 +63,14 @@ class LqdM_Shortcodes {
 	protected $search;
 
     /**
-     * Instance of GCS_Shortcodes_Resources
+     * Instance of LqdM_Shortcodes_Resources
      *
      * @var LqdM_Shortcodes_Resources
      */
     protected $resources;
 
     /**
-     * Instances of GCS_Shortcodes_Series
+     * Instances of LqdM_Shortcodes_Series
      *
      * @var LqdM_Shortcodes_Series
      */

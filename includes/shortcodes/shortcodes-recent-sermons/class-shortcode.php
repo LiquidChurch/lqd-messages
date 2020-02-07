@@ -1,6 +1,6 @@
 <?php
 /**
- *  GC Sermons Shortcodes Recent Sermon.
+ *  Liquid Messages Recent Sermon.
  *
  * @since 0.10.0
  * @package Liquid Messages

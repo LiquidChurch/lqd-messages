@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Sermons Async
+ * Liquid Messages Async
  *
  * @package Liquid Messages
  */

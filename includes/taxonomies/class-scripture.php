@@ -18,16 +18,16 @@ class LqdM_Scripture extends LqdM_Taxonomies_Base {
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.3
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons Messages object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Scripture Reference', 'lqdm' ), __( 'Scripture References', 'lqdm' ), 'gcs-scripture' ),
-			'args' => array(
-				'rewrite' => array( 'slug' => 'scripture-reference' ),
-			),
-		) );
+		parent::__construct( $sermons, [
+			'labels' => [ __( 'Scripture Reference', 'lqdm' ), __( 'Scripture References', 'lqdm' ), 'lqdm-scripture' ],
+			'args' => [
+				'rewrite' => [ 'slug' => 'scripture-reference' ],
+            ],
+        ] );
 	}
 
 	/**

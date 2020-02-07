@@ -214,7 +214,7 @@ class LqdM_Message_Post {
             $audio_url = $audio['attachment_url'];
         }
 
-        if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
+        if ($audio_player = wp_audio_shortcode( [ 'src' => $audio_url ] )) {
 			$audio_player = '<div class="lqdm-audio-wrap">' . $audio_player . '</div><!-- .lqdm-audio-wrap -->';
         }
 
@@ -332,7 +332,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return array|false|WP_Term Speaker term object.
      */
@@ -356,7 +356,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Speaker term object.
      */
@@ -378,7 +378,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Series term object.
      */
@@ -400,7 +400,7 @@ class LqdM_Message_Post {
      *
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LqdM_Taxonomies_Base::get()
      *
      * @return array|bool $scripture scripture term object.
      */
@@ -431,7 +431,7 @@ class LqdM_Message_Post {
 	public function get_others_in_series( $args = [] ) {
 	    $series = $this->get_series();
 	    if (!$series) {
-			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
+			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this message.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, [
@@ -464,7 +464,7 @@ class LqdM_Message_Post {
 	public function get_others_by_speaker( $args = [] ) {
 	    $speaker = $this->get_speaker();
 	    if (!$speaker) {
-	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
+	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this message.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, [

@@ -15,11 +15,11 @@ class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
      */
     function js_button_data()
     {
-        return array(
-            'qt_button_text' => __('GC Recent Sermon', 'lqdm'),
-            'button_tooltip' => __('GC Recent Sermon', 'lqdm'),
+        return [
+            'qt_button_text' => __('Recent Message', 'lqdm'),
+            'button_tooltip' => __('Recent Message', 'lqdm'),
             'icon'           => 'dashicons-media-interactive'
-        );
+        ];
     }
 
     /**
@@ -32,31 +32,31 @@ class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
      */
     function fields($fields, $button_data)
     {
-        $fields[] = array(
+        $fields[] = [
             'name' => __( 'Per Page', 'lqdm' ),
             'desc' => __( '', 'lqdm' ),
             'id'   => 'per_page',
             'type' => 'text',
             'default' => '10',
-            'attributes' => array(
+            'attributes' => [
                 'type' => 'number',
                 'pattern' => '\d*',
                 'min' => '1',
                 'max' => '25',
-            ),
+            ],
             'sanitization_cb' => 'absint',
             'escape_cb'       => 'absint',
-        );
+        ];
 
-        $fields[] = array(
+        $fields[] = [
             'name' => 'Remove Pagination',
             'desc' => '',
             'id'   => 'remove_pagination',
             'type' => 'checkbox',
             'default' => false,
-        );
+        ];
 
-        $fields[] = array(
+        $fields[] = [
             'name'             => 'Thumbnail Size',
             'desc'             => '',
             'id'               => 'thumbnail_size',
@@ -64,23 +64,23 @@ class LqdM_Shortcodes_Recent_Sermon_Admin extends LqdM_Recent_Admin_Base
             'show_option_none' => false,
             'default'          => 'thumbnail',
             'options'          => $this->get_thumb_size_list(),
-        );
+        ];
 
-        $fields[] = array(
+        $fields[] = [
             'name' => __( 'Number of Columns', 'lqdm' ),
             'desc' => __( '', 'lqdm' ),
             'id'   => 'number_columns',
             'type' => 'text',
             'default' => '2',
-            'attributes' => array(
+            'attributes' => [
                 'type' => 'number',
                 'pattern' => '\d*',
                 'min' => '1',
                 'max' => '4',
-            ),
+            ],
             'sanitization_cb' => 'absint',
             'escape_cb'       => 'absint',
-        );
+        ];
 
         return $fields;
     }

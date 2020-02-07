@@ -43,9 +43,9 @@ function lqdm_get_sermon_post($sermon = 0, $throw_on_error = false)
  *
  * @since  0.1.3
  *
- * @param  mixed  $sermon          Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed  $sermon          Post object or ID or (Messages post object).
  * @param  array  $args            Args array
- * @param  array  $get_series_args Args for GCS_Sermon_Post::get_series()
+ * @param  array  $get_series_args Args for Lqd_Sermon_Post::get_series()
  *
  * @return string Sermon series info output.
  * @throws Exception
@@ -57,12 +57,12 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = [], $get_series_args =
         return '';
     }
 
-    $args = wp_parse_args($args, array(
+    $args = wp_parse_args($args, [
         'remove_thumbnail'   => false,
         'remove_description' => true,
         'thumbnail_size'     => 'medium',
         'wrap_classes'       => '',
-    ));
+    ] );
 
     $get_series_args['image_size'] = isset($get_series_args['image_size'])
         ? $get_series_args['image_size']
@@ -84,7 +84,7 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = [], $get_series_args =
     $content .= LqdM_Template_Loader::get_template('list-item-series', (array) $series);
 
     // Not a list item.
-    $content = str_replace(array('<li', '</li'), array('<div', '</div'), $content);
+    $content = str_replace( [ '<li', '</li' ], [ '<div', '</div' ], $content);
 
     return $content;
 }
@@ -94,9 +94,9 @@ function lqdm_get_sermon_series_info($sermon = 0, $args = [], $get_series_args =
  *
  * @since  0.1.3
  *
- * @param  mixed   $sermon           Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed   $sermon           Post object or ID or (LqdM_Sermon_Post object).
  * @param  array   $args             Args array
- * @param  array   $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
+ * @param  array   $get_speaker_args Args for LqdM_Sermon_Post::get_speaker()
  *
  * @return string Sermon speaker info output.
  * @throws Exception
@@ -108,11 +108,11 @@ function lqdm_get_sermon_speaker_info($sermon = 0, $args = [], $get_speaker_args
         return '';
     }
 
-    $args = wp_parse_args($args, array(
+    $args = wp_parse_args($args, [
         'remove_thumbnail'  => false,
         'thumbnail_size'    => 'medium',
         'wrap_classes'      => '',
-    ));
+    ] );
 
     $get_speaker_args['image_size'] = isset($get_speaker_args['image_size'])
         ? $get_speaker_args['image_size']
@@ -143,8 +143,8 @@ function lqdm_get_sermon_speaker_info($sermon = 0, $args = [], $get_speaker_args
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_video_player().
+ * @param  mixed $sermon Post object or ID or (LqdM_Sermon_Post object).
+ * @param  mixed $args   Arguments passed to LqdM_Sermon_Post::get_video_player().
  *
  * @return string Sermon video player output.
  * @throws Exception
@@ -166,8 +166,8 @@ function lqdm_get_sermon_video_player($sermon = 0, $args = [])
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_audio_player().
+ * @param  mixed $sermon Post object or ID or (LqdM_Sermon_Post object).
+ * @param  mixed $args   Arguments passed to LqdM_Sermon_Post::get_audio_player().
  *
  * @return string Sermon audio player output.
  * @throws Exception
@@ -195,7 +195,7 @@ function lqdm_get_sermon_audio_player($sermon = 0, $args = [])
  */
 function lqdm_search_get_next_results_link($total_pages)
 {
-    $page = absint(gc__get_arg('results-page', 1));
+    $page = absint(lqdm__get_arg('results-page', 1));
     $link = '';
 
     if (++$page <= $total_pages) {

@@ -58,9 +58,9 @@ window.LqdMAdmin = window.LqdMAdmin || {};
 			data: data,
 			dataType: 'json'
 		}).done(function(resp) {
-			$(".lqdm-duplicate-notice").remove();
+			$('.lqdm-duplicate-notice').remove();
 			if(resp.success === false) {
-				$(".cmb2-metabox-description").after(resp.data);
+				$('.cmb2-metabox-description').after(resp.data);
 			}
 		});
 	};

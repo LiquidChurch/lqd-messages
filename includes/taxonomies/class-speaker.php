@@ -26,17 +26,17 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 	 * Register Speaker Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons Messages object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Speaker', 'lqdm' ), __( 'Speakers', 'lqdm' ), 'gcs-speaker' ),
-			'args'   => array(
+		parent::__construct( $sermons, [
+			'labels' => [ __( 'Speaker', 'lqdm' ), __( 'Speakers', 'lqdm' ), 'lqdm-speaker' ],
+			'args'   => [
 				'hierarchical' => false,
-				'rewrite' => array( 'slug' => 'speaker' ),
-			),
-		) );
+				'rewrite' => [ 'slug' => 'speaker' ],
+            ],
+        ] );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 	 * @return void
 	 */
 	public function hooks() {
-		add_action( 'cmb2_admin_init', array( $this, 'fields' ) );
+		add_action( 'cmb2_admin_init', [ $this, 'fields' ] );
 	}
 
 	/**
@@ -56,23 +56,23 @@ class LqdM_Speaker extends LqdM_Taxonomies_Base {
 	 * @return void
 	 */
 	public function fields() {
-		$fields = array(
-			$this->image_meta_key => array(
+		$fields = [
+			$this->image_meta_key => [
 				'name' => __( 'Speaker Avatar', 'lqdm' ),
 				'desc' => __( 'Select the speaker\'s avatar. Will only show if "Connected User" is not chosen, or if the "Connected User" does not have an avatar.', 'lqdm' ),
 				'id'   => $this->image_meta_key,
 				'type' => 'file'
-			),
-		);
+            ],
+        ];
 
 		$this->add_image_column( __( 'Speaker Avatar', 'lqdm' ) );
 
-		$cmb = $this->new_cmb2( array(
+		$cmb = $this->new_cmb2( [
 			'id'           => 'gc_sermon_speaker_metabox',
-			'taxonomies'   => array( $this->taxonomy() ), // Tells CMB2 which taxonomies should
-			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+			'taxonomies'   => [ $this->taxonomy() ], // Tells CMB2 which taxonomies should
+			'object_types' => [ 'term' ], // Tells CMB2 to use term_meta vs post_meta
 			'fields'       => $fields,
-		) );
+        ] );
 	}
 
 }

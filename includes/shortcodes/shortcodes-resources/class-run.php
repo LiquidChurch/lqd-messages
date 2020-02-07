@@ -13,22 +13,22 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 	 * @var string
 	 * @since 0.1.0
 	 */
-	public $shortcode = 'sermon_resources';
+	public $shortcode = 'lqdm_resources';
 
 	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
 	 * @since 0.1.0
 	 */
-	public $atts_defaults = array(
+	public $atts_defaults = [
         'data_type' => 'sermon', // File or URL
-		'resource_type'          => array( 'files', 'urls', ), // File or URL
-		'resource_file_type'     => array( 'image', 'video', 'audio', 'pdf', 'zip', 'other', ), // Only applies if 'type' is 'file',
+		'resource_type'          => [ 'files', 'urls', ], // File or URL
+		'resource_file_type'     => [ 'image', 'video', 'audio', 'pdf', 'zip', 'other', ], // Only applies if 'type' is 'file',
 		'resource_display_name'  => false, // Uses Resource Name by default
 		'resource_post_id'       => 0, // Uses `get_the_id()` by default
 		'resource_extra_classes' => '', // For custom styling
-        'resource_lang' => array(), // For resource language
-	);
+        'resource_lang' => [], // For resource language
+    ];
 
     /**
      * Additional Resources meta id.
@@ -95,10 +95,10 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 			return '<!-- no resources found -->';
 		}
 
-		$args = array(
+		$args = [
 			'resources' => $resources,
 			'items'     => $this->list_items( $resources, $this->att( 'resource_display_name' ) ),
-		);
+        ];
 
 		// Get parsed attribute values
 		foreach ( $this->shortcode_object->atts as $key => $value ) {
@@ -122,9 +122,9 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
         $data_type = $this->att('data_type');
 
         if ($data_type == 'sermon') {
-            $resources = !empty(get_post_meta($post_id, $this->meta_id, 1)) ? get_post_meta($post_id, $this->meta_id, 1) : array();
+            $resources = !empty(get_post_meta($post_id, $this->meta_id, 1)) ? get_post_meta($post_id, $this->meta_id, 1) : [];
         } else {
-            $resources = !empty(get_term_meta($post_id, $this->meta_id, 1)) ? get_term_meta($post_id, $this->meta_id, 1) : array();
+            $resources = !empty(get_term_meta($post_id, $this->meta_id, 1)) ? get_term_meta($post_id, $this->meta_id, 1) : [];
         }
 
         $resource_empty = true;
@@ -135,17 +135,17 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
         }
 
         if (!empty($resource_empty)) {
-            return array();
+            return [];
         }
 
         $resources = $this->resource_lang_check($resources);
 
-        $allowed_types = !empty($this->att('resource_type')) ? $this->att('resource_type') : array();
+        $allowed_types = !empty($this->att('resource_type')) ? $this->att('resource_type') : [];
         if (!is_array($allowed_types)) {
             $allowed_types = explode(',', $allowed_types);
         }
 
-        $allowed_file_types = (!empty($this->att('resource_file_type'))) ? $this->att('resource_file_type') : array();
+        $allowed_file_types = (!empty($this->att('resource_file_type'))) ? $this->att('resource_file_type') : [];
         if (!is_array($allowed_file_types)) {
             $allowed_file_types = explode(',', $allowed_file_types);
         }
@@ -164,18 +164,18 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 
 		if ( ! $obj->wants_files && ! $obj->wants_urls ) {
 			// Ok.. you asked for it, send nothing back.
-			return array();
+			return [];
 		}
 
 		if ( ! $obj->wants_files ) {
 
 			// send only urls
 			// we can ignore file types.
-			return array_filter( $resources, array( $this, 'is_url_resource' ) );
+			return array_filter( $resources, [ $this, 'is_url_resource' ] );
 		}
 
 		// filter rest
-		return array_filter( $resources, array( $this, 'filter_resources_by_types' ) );
+		return array_filter( $resources, [ $this, 'filter_resources_by_types' ] );
 	}
 
 	/**
@@ -206,7 +206,7 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 	 */
     protected function list_items($resources, $resource_display_name)
     {
-        $items = array();
+        $items = [];
 
         foreach ($resources as $index => $resource) {
 
@@ -214,12 +214,11 @@ class LqdM_Shortcodes_Resources_Run extends LqdM_Shortcodes_Run_Base {
 
             $type = isset($resource['type']) ? $resource['type'] : '';
             if ('video' === $type && isset($resource['file'])) {
-                $resource['embed_args'] = array(
+                $resource['embed_args'] = [
                     'url' => $resource['file'],
                     'src' => $resource['file']
-                );
+                ];
             }
-            // $resource['item'] = GCS_Template_Loader::get_template('sermon-resources-shortcode-item', $type, $resource);
             $resource['item'] = LqdM_Template_Loader::get_template('sermon-resources-shortcode-item', '', $resource);
 
             $resource['index'] = $index;

@@ -7,35 +7,35 @@
 class LqdM_Taxonomies {
 
 	/**
-	 * Instance of GCS_Series
+	 * Instance of LqdM_Series
 	 *
 	 * @var LqdM_Series
 	 */
 	protected $series;
 
 	/**
-	 * Instance of GCS_Speaker
+	 * Instance of LqdM_Speaker
 	 *
 	 * @var LqdM_Speaker
 	 */
 	protected $speaker;
 
 	/**
-	 * Instance of GCS_Topic
+	 * Instance of LqdM_Topic
 	 *
 	 * @var LqdM_Topic
 	 */
 	protected $topic;
 
 	/**
-	 * Instance of GCS_Tag
+	 * Instance of LqdM_Tag
 	 *
 	 * @var LqdM_Tag
 	 */
 	protected $tag;
 
 	/**
-	 * Instance of GCS_Scripture
+	 * Instance of LqdM_Scripture
 	 *
 	 * @var LqdM_Scripture
 	 */
@@ -45,7 +45,7 @@ class LqdM_Taxonomies {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons Messages object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {

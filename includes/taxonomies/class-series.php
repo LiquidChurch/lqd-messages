@@ -19,7 +19,7 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @var string
 	 * @since  0.1.1
 	 */
-	protected $image_meta_key = 'gc_sermon_series_image';
+	protected $image_meta_key = 'lqdm_series_image';
 
 	/**
 	 * The default args array for self::get()
@@ -27,31 +27,31 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @var array
 	 * @since  0.1.1
 	 */
-	protected $term_get_args_defaults = array(
+	protected $term_get_args_defaults = [
 		'image_size' => 'medium',
-	);
+    ];
 
 	/**
 	 * Constructor
 	 * Register Sermon Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons Messages object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Sermon Series', 'lqdm' ), __( 'Sermon Series', 'lqdm' ), 'gc-sermon-series' ),
-			'args'   => array(
+		parent::__construct( $sermons, [
+			'labels' => [ __( 'Sermon Series', 'lqdm' ), __( 'Sermon Series', 'lqdm' ), 'lqdm-series' ],
+			'args'   => [
 				'hierarchical' => false,
 				'show_admin_column' => false,
-				'rewrite' => array(
+				'rewrite' => [
 				    'slug' => 'sermon-series',
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
-                ),
-			),
-		) );
+                ],
+            ],
+        ] );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @return void
 	 */
 	public function hooks() {
-		add_action( 'cmb2_admin_init', array( $this, 'fields' ) );
+		add_action( 'cmb2_admin_init', [ $this, 'fields' ] );
 	}
 
 	/**
@@ -71,19 +71,19 @@ class LqdM_Series extends LqdM_Taxonomies_Base {
 	 * @return void
 	 */
 	public function fields() {
-		$cmb = $this->new_cmb2( array(
-			'id'           => 'gc_sermon_series_metabox',
-			'taxonomies'   => array( $this->taxonomy() ),
-			'object_types' => array( 'term' ),
-			'fields'       => array(
-				$this->image_meta_key => array(
-					'name' => __( 'Sermon Series Image', 'lqdm' ),
+		$cmb = $this->new_cmb2( [
+			'id'           => 'lqdm_series_metabox',
+			'taxonomies'   => [ $this->taxonomy() ],
+			'object_types' => [ 'term' ],
+			'fields'       => [
+				$this->image_meta_key => [
+					'name' => __( 'Series Image', 'lqdm' ),
 					'desc' => __( 'Select the series\' branding image', 'lqdm' ),
 					'id'   => $this->image_meta_key,
 					'type' => 'file'
-				),
-			),
-		) );
+                ],
+            ],
+        ] );
 
 		$this->add_image_column( __( 'Series Image', 'lqdm' ) );
 	}

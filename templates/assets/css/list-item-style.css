@@ -18,12 +18,6 @@
     clear: both;
 }
 
-.lqdm-list:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
 .lqdm-item {
     position: relative;
     display: block;

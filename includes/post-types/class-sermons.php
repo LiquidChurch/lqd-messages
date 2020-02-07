@@ -85,10 +85,10 @@ class LqdM_Messages extends LqdM_Post_Types_Base
          * to the sermon series image (if it exists).
          *
          * To disable:
-         *    add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );
+         *    add_filter( 'lqdm_do_sermon_series_fallback_image', '__return_false' );
          *
          */
-        if (apply_filters('gc_do_sermon_series_fallback_image', true))
+        if (apply_filters('lqdm_do_sermon_series_fallback_image', true))
         {
             add_filter('get_post_metadata', [ $this, 'featured_image_fallback_to_series_image' ], 10, 3);
         }
@@ -349,7 +349,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
     public function columns_display($column, $post_id)
     {
         if ('tax-' . $this->plugin->series->id === $column) {
-            add_action('admin_footer', array($this, 'admin_column_css'));
+            add_action('admin_footer', [ $this, 'admin_column_css' ] );
 
             // Get sermon post object
             $sermon = new LqdM_Message_Post(get_post($post_id));
@@ -361,7 +361,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
                 foreach ($sermon->series as $series) {
 
                     // Get augmented term object to get the thumbnail url
-                    $series = $this->plugin->series->get($series, array('image_size' => 'thumb'));
+                    $series = $this->plugin->series->get($series, [ 'image_size' => 'thumb' ] );
 
                     // Edit-term link
                     $edit_link = get_edit_term_link($series->term_id, $series->taxonomy, $this->post_type());
@@ -380,7 +380,7 @@ class LqdM_Messages extends LqdM_Post_Types_Base
                 }
             }
         } elseif ('thumb-' . $this->post_type() === $column) {
-            echo the_post_thumbnail(array(155, 55));
+            echo the_post_thumbnail( [ 155, 55 ] );
         }
     }
 
@@ -443,7 +443,7 @@ SQL;
 	/**
 	 * Retrieve the most recent sermon with video media.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -466,7 +466,7 @@ SQL;
 	/**
 	 * Retrieve the most recent sermon with audio media.
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -489,7 +489,7 @@ SQL;
     /**
      * Retrieve the most recent sermon.
      *
-     * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+     * @return LqdM_Message_Post|false  Message post object if successful.
      * @throws Exception
      *@since  0.1.0
      *
@@ -514,7 +514,7 @@ SQL;
 	 *
 	 * @param $args
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -571,7 +571,7 @@ SQL;
      *
      * @param  string $type Media type (audio or video)
      *
-     * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+     * @return LqdM_Message_Post|false  Message post object if successful.
      * @throws Exception
      *@since  0.1.0
      *
@@ -606,9 +606,9 @@ SQL;
 	/**
 	 * Retrieve the most recent sermon which has terms in specified taxonomy.
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  string $taxonomy_id LqdM_Taxonomies_Base taxonomy id
 	 *
-	 * @return LqdM_Message_Post|false|WP_Error  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false|WP_Error  Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *
@@ -638,10 +638,10 @@ SQL;
 	/**
 	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
 	 *
-	 * @param  string  $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  string  $taxonomy_id LqdM_Taxonomies_Base taxonomy id
 	 * @param  array   $exclude     Array of excluded post IDs
 	 *
-	 * @return LqdM_Message_Post|false  GC Sermon post object if successful.
+	 * @return LqdM_Message_Post|false  Message post object if successful.
 	 * @throws Exception
 	 *@since  0.1.0
 	 *

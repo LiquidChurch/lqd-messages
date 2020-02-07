@@ -38,7 +38,7 @@ abstract class LqdM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 		);
 
 		// Do this super late.
-		add_filter( "{$this->shortcode}_shortcode_fields", array( $this, 'maybe_remove_prefixes' ), 99999 );
+		add_filter( "{$this->shortcode}_shortcode_fields", [ $this, 'maybe_remove_prefixes' ], 99999 );
 	}
 
 	/**
@@ -53,7 +53,7 @@ abstract class LqdM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	public function maybe_remove_prefixes( $updated ) {
 		if ( $this->prefix ) {
 			$prefix_length = strlen( $this->prefix );
-			$new_updated = array();
+			$new_updated = [];
 
 			foreach ( $updated as $key => $value) {
 

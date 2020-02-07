@@ -59,13 +59,13 @@ We highly recommend reviewing the README.md for each of these libraries when doi
 Each shortcode has an equivalent action. Instead of using `do_shortcode()` you can `do_action()`. For example:
 ```php
 <?php 
-do_action( 'gc_sermons', array(
+do_action( 'gc_sermons', [
     'per_page'          => 8,
     'related_series'    => 'this',
     'content'           => '',
     'thumbnail_size'    => 'medium',
     'number_columns'    => 4,
-) )
+] )
 ; ?>
 ```
 ### What You'll Find Defining Each Shortcode...

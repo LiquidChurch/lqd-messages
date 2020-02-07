@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Shortcodes_Play_Button_Test
+ * Class LqdM_Shortcodes_Play_Button_Test
  */
 class LqdM_Shortcodes_Play_Button_Test extends WP_UnitTestCase {
 
@@ -10,6 +10,6 @@ class LqdM_Shortcodes_Play_Button_Test extends WP_UnitTestCase {
 	}
 
 	// function test_class_access() {
-	// 	$this->assertTrue( gc_sermons()->play_button instanceof GCS_Shortcodes_Play_Button );
+	// 	$this->assertTrue( lqd_messages()->play_button instanceof LqdM_Shortcodes_Play_Button );
 	// }
 }

@@ -19,10 +19,10 @@ abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
     {
         parent::__construct($run);
 
-        add_filter("shortcode_button_before_modal_{$this->shortcode}", array($this, 'enqueue_js'));
+        add_filter("shortcode_button_before_modal_{$this->shortcode}", [ $this, 'enqueue_js' ] );
 
         // Do this super late.
-        add_filter("{$this->shortcode}_shortcode_fields", array($this, 'maybe_remove_recent_attribute'), 100000);
+        add_filter("{$this->shortcode}_shortcode_fields", [ $this, 'maybe_remove_recent_attribute' ], 100000);
     }
 
 	/**
@@ -31,19 +31,19 @@ abstract class LqdM_Recent_Admin_Base extends LqdM_Shortcodes_Admin_Base
     public function enqueue_js()
     {
         wp_register_script(
-            'gc-sermons-admin',
-            Lqd_Messages_Plugin::$url . 'assets/js/gc-sermons-admin.js',
-            array('jquery'),
+            'lqdm-admin',
+            Lqd_Messages_Plugin::$url . 'assets/js/lqdm-admin.js',
+            [ 'jquery' ],
             Lqd_Messages_Plugin::VERSION,
             true
         );
-        wp_localize_script('gc-sermons-admin', 'php_vars', array(
+        wp_localize_script('lqdm-admin', 'php_vars', [
                 'postID' => $_GET['post'],
                 'nonce' => wp_create_nonce('scripterz-nonce')
-            )
+            ]
         );
         wp_enqueue_script(
-            'gc-sermons-admin'
+            'lqdm-admin'
         );
     }
 

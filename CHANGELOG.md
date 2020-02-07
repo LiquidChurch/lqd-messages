@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file.
   ** Added is_array_empty() function.
   ** Added get_plugin_settings_options() function, allows for integration with LiquidChurch Functionality plugin.
 * Added GPLv2 license file.
-* gc-sermons-admin.js
+* lqdm-admin.js
   ** Added check to warn of attempts to post duplicate messages based on video.
   ** Configured taxonomy to be auto-expanded on sermon admin page.
 * class-sermon-post.php

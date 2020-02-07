@@ -253,7 +253,7 @@ class LqdM_Metaboxes
 		wp_enqueue_script(
 			'lqdm-admin',
             Lqd_Messages_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
-			array( 'cmb2-scripts' ),
+			[ 'cmb2-scripts' ],
 			Lqd_Messages_Plugin::VERSION,
 			1
 		);

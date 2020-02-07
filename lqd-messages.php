@@ -432,7 +432,7 @@
     }
 
     // Kick it off.
-    add_action('plugins_loaded', array(lqd_messages(), 'hooks'));
-    register_activation_hook(__FILE__, array('Lqd_Messages_Plugin', 'activate'));
-    register_deactivation_hook(__FILE__, array('Lqd_Messages_Plugin', 'deactivate'));
+    add_action('plugins_loaded', [ lqd_messages(), 'hooks' ] );
+    register_activation_hook(__FILE__, [ 'Lqd_Messages_Plugin', 'activate' ] );
+    register_deactivation_hook(__FILE__, [ 'Lqd_Messages_Plugin', 'deactivate' ] );
 

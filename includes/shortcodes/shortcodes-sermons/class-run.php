@@ -11,14 +11,14 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
      * @var string
      * @since 0.1.0
      */
-    public $shortcode = 'gc_sermons';
+    public $shortcode = 'lqdm_messages';
 
     /**
      * Default attributes applied to the shortcode.
      * @var array
      * @since 0.1.0
      */
-    public $atts_defaults = array(
+    public $atts_defaults = [
         'per_page'          => 10, // Will use WP's per-page option.
         'content'           => 'excerpt',
         'remove_thumbnail'  => false,
@@ -29,10 +29,10 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         'remove_pagination' => false,
         'related_speaker'   => 0,
         'related_series'   => 0,
-    );
+    ];
 
     /**
-     * GCS_Taxonomies object
+     * Messages Taxonomies object
      *
      * @var   LqdM_Taxonomies
      * @since 0.1.0
@@ -83,13 +83,13 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         }
 
         if (!isset($args['post__not_in']) && is_singular($this->sermons->post_type())) {
-            $args['post__not_in'] = array(get_queried_object_id());
+            $args['post__not_in'] = [ get_queried_object_id() ];
         } elseif(is_singular($this->sermons->post_type())) {
-            $get_video_post = get_posts(array(
+            $get_video_post = get_posts( [
                 'post_type' => $this->sermons->post_type(),
-                'meta_key' => 'gc_exclude_msg',
+                'meta_key' => 'lqdm_exclude_msg',
                 'meta_value' => 'on',
-            ));
+            ] );
 
             $get_video_post_ids = wp_list_pluck($get_video_post, 'ID');
 
@@ -145,20 +145,20 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
     {
         $required = false;
         $passes   = false;
-        $keys     = array(
+        $keys     = [
             'series'  => 'related_series',
             'speaker' => 'related_speaker',
-        );
+        ];
 
         foreach ($keys as $key => $param) {
 
             if ($term_id = absint($this->att($param))) {
 
-                $args['tax_query'][] = array(
+                $args['tax_query'][] = [
                     'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
                     'field'    => 'id',
                     'terms'    => $term_id,
-                );
+                ];
 
                 continue;
             }
@@ -172,7 +172,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
             try {
                 $sermon = lqdm_get_sermon_post(get_queried_object(), true);
 
-                $args['post__not_in'] = array($sermon->ID);
+                $args['post__not_in'] = [ $sermon->ID ];
 
                 $method = 'get_' . $key;
                 $term   = $sermon->$method();
@@ -187,11 +187,11 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
 
             $passes = true;
 
-            $args['tax_query'][] = array(
+            $args['tax_query'][] = [
                 'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
                 'field'    => 'id',
                 'terms'    => $term->term_id,
-            );
+            ];
 
         }
 
@@ -212,7 +212,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
      */
     protected function get_pagination($total_pages)
     {
-        $nav = array('prev_link' => '', 'next_link' => '');
+        $nav = [ 'prev_link' => '', 'next_link' => '' ];
 
         if (!$this->bool_att('remove_pagination')) {
             $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
@@ -232,7 +232,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-sermons-wrap';
     }
 
 	/**
@@ -246,7 +246,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
     protected function map_sermon_args($all_sermons, $my_level)
     {
         global $post;
-        $sermons = array();
+        $sermons = [];
 
         $do_thumb        = !$this->bool_att('remove_thumbnail');
         $do_content      = $this->bool_att('content');
@@ -258,7 +258,7 @@ class LqdM_Sermons_Run extends LqdM_Shortcodes_Run_Base
 
             $obj = $all_sermons->post;
 
-            $sermon = array();
+            $sermon = [];
             $sermon['url']            = $obj->permalink();
             $sermon['name']           = $obj->title();
             $sermon['image']          = $do_thumb ? $obj->featured_image($thumb_size) : '';

@@ -102,7 +102,7 @@ class LqdM_Style_Loader extends LqdM_Template_Loader {
 		// Remove space after colons.
 		$content = str_replace( ': ', ':', $content );
 		// Remove whitespace.
-		$content = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $content );
+		$content = str_replace( [ "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ], '', $content );
 
 		// Then wrap in a style tag.
 		$content = "\n<style type=\"text/css\" media=\"screen\">\n{$content}\n</style>\n";

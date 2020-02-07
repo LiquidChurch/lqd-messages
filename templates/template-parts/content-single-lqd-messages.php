@@ -67,7 +67,7 @@ $sermon = lqdm_get_sermon_post();
                                 <?php
                                 if (in_array('sermon_image', $message_field_to_display)) {
                                     ?>
-                                    <div class="col-sm-5 gc-right-col">
+                                    <div class="col-sm-5 lqdm-right-col">
                                         <?php echo wp_get_attachment_image($sermon->featured_image_id(), 'full', false, [
                                             'class' => 'lqdm-series-list-sermons-img',
                                             'style' => 'width:100%;',

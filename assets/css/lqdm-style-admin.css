@@ -96,9 +96,6 @@
     margin-left: 10px;
 }
 
-.lqdm-notice {
-
-}
 .lqdm-notice .success {
     color: #2db065;
 }
@@ -107,15 +104,11 @@
 }
 
 /*********** Admin new style ***********/
-.lqdm-message-config-wrap {
+.lqdm-config-wrap {
     margin-top: 20px;
 }
 
-.lqdm-message-config-wrap {
-    margin-top: 20px;
-}
-
-.lqdm-message-config-list .lqdm-message-list .lqdm-message-item .align.left {
+.lqdm-config-list .lqdm-message-list .lqdm-message-item .align.left {
     float: left;
     width: 50%;
     line-height: 2.4em;
@@ -131,7 +124,7 @@
     text-align: right;
 }
 
-.lqdm-message-config-list .lqdm-message-list .lqdm-message-item {
+.lqdm-message-config-list .lqdm-message-list .lqdm-item {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
     border-top: 1px solid #000;
@@ -159,11 +152,11 @@ h2.lqdm-series-name {
     padding: 5px;
 }
 
-.lqdm-message-config-list-single {
+.lqdm-config-list-single {
     width: 80%;
 }
 
-.lqdm-message-config-wrap button {
+.lqdm-config-wrap button {
     padding: 5px 14px;
     background: rgba(236, 236, 236, 1);
     background: -moz-linear-gradient(top, rgba(236, 236, 236, 1) 0%, rgba(185, 185, 185, 1) 100%);
@@ -177,7 +170,7 @@ h2.lqdm-series-name {
     margin-right: 10px;
 }
 
-.lqdm-message-config-wrap .config-section button {
+.lqdm-config-wrap .config-section button {
     padding: 5px 8px;
 }
 

@@ -70,9 +70,9 @@ class LqdM_Config_Page
     public function config_page_view()
     {
         $items = $this->get_all_lqdm_messages_ord_by_series();
-        $arg = array(
+        $arg = [
             'items' => $items
-        );
+        ];
         $view = LqdM_Template_Loader::get_template('pages/lqdm-config-page', $arg);
 
         $this->enqueu_css();
@@ -96,11 +96,11 @@ class LqdM_Config_Page
 
             $item = $this->get_message_by_series($custom_term);
 
-            $series_resource = array(
+            $series_resource = [
                 'id' => $custom_term->term_id,
                 'series_title' => $custom_term->name,
                 'items' => $item
-            );
+            ];
             $items .= LqdM_Template_Loader::get_template('pages/lqdm-config-page-li', $series_resource);
         }
         return $items;
@@ -117,18 +117,18 @@ class LqdM_Config_Page
     public function get_message_by_series($term)
     {
         $item = '';
-        $args = array(
+        $args = [
             'post_type' => 'lqd-messages',
             'order' => 'ASC',
             'orderby' => 'date',
-            'tax_query' => array(
-                array(
+            'tax_query' => [
+                [
                     'taxonomy' => 'lqdm-series',
                     'field' => 'slug',
                     'terms' => $term->slug,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
 
         $loop = new WP_Query($args);
         if ($loop->have_posts()) {

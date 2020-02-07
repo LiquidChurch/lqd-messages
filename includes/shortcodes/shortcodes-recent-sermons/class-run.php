@@ -1,6 +1,6 @@
 <?php
 /**
- *  GC Sermons Shortcodes Recent Sermon Run.
+ *  Liquid Messages Recent Sermon Shortcode - Run.
  *
  * @since 0.10.0
  * @package Liquid Messages
@@ -21,7 +21,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
      * @var string
      * @since 0.10.0
      */
-    public $shortcode = 'gc_recent_sermon';
+    public $shortcode = 'lqdm_recent_sermon';
 
     /**
      * Default attributes applied to the shortcode.
@@ -30,12 +30,12 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
      * @since 0.10.0
      */
     public $atts_defaults
-        = array(
+        = [
             'per_page'          => 10,
             'remove_pagination' => false,
             'thumbnail_size'    => 'medium',
             'number_columns'    => 2,
-        );
+        ];
 
     /**
      * Shortcode Output
@@ -44,7 +44,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
     {
         $output = $this->_shortcode();
 
-        return apply_filters('gc_sermon_recent_sermon_shortcode_output', $output, $this);
+        return apply_filters('lqdm_recent_sermon_shortcode_output', $output, $this);
     }
 
     /**
@@ -115,7 +115,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
     protected function map_sermon_args($all_sermons, $my_level)
     {
         global $post;
-        $sermons = array();
+        $sermons = [];
 
         $thumb_size = $this->att('thumbnail_size');
 
@@ -124,7 +124,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
 
             $obj = $all_sermons->post;
 
-            $sermon = array();
+            $sermon = [];
             $sermon['url'] = $obj->permalink();
             $sermon['name'] = $obj->title();
             $sermon['image'] = $obj->featured_image($thumb_size);
@@ -147,7 +147,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
      */
     protected function get_pagination($total_pages)
     {
-        $nav = array('prev_link' => '', 'next_link' => '');
+        $nav = [ 'prev_link' => '', 'next_link' => '' ];
 
         if (!$this->bool_att('remove_pagination')) {
             $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
@@ -167,7 +167,7 @@ class LqdM_Shortcodes_Recent_Sermon_Run extends LqdM_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-sermons-wrap';
     }
 
 }

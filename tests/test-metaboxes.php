@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Metaboxes_Test
+ * Class LqdM_Metaboxes_Test
  */
 class LqdM_Metaboxes_Test extends WP_UnitTestCase {
 

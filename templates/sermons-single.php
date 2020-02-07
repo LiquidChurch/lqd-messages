@@ -10,8 +10,8 @@
 
     <div class="entry-content" style="">
         <div class="row">
-            <div id="top-row-single-sermon" class="row">
-                <div id="single-sermon-player" class="col-sm-12">
+            <div id="lqdm-top-row-single-sermon" class="row">
+                <div id="lqdm-single-sermon-player" class="col-sm-12">
                     <?php
                         if ($atts['show_media'] == 'video_player') :
                             ?>
@@ -67,7 +67,7 @@
 
                                         if (!empty($image_id)) {
                                             ?>
-                                            <div class="col-sm-5 gc-right-col">
+                                            <div class="col-sm-5 lqdm-right-col">
                                                 <?php echo wp_get_attachment_image($image_id,
                                                     'full', false, [
                                                         'class' => 'lqdm-series-list-sermons-img',

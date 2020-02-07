@@ -19,16 +19,16 @@ class LqdM_Topic extends LqdM_Taxonomies_Base {
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons Messages object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Topic', 'lqdm' ), __( 'Topics', 'lqdm' ), 'gcs-topic' ),
-			'args' => array(
-				'rewrite' => array( 'slug' => 'sermon-topic' ),
-			),
-		) );
+		parent::__construct( $sermons, [
+			'labels' => [ __( 'Topic', 'lqdm' ), __( 'Topics', 'lqdm' ), 'lqdm-topic' ],
+			'args' => [
+				'rewrite' => [ 'slug' => 'sermon-topic' ],
+            ],
+        ] );
 	}
 
 	/**

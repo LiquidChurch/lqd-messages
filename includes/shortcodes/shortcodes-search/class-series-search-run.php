@@ -1,6 +1,6 @@
 <?php
 /**
- * GC Series Search
+ * Liquid Messages Series Search
  *
  * @package Liquid Messages
  */
@@ -40,7 +40,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 */
 	public function __construct( $search_query, $atts, LqdM_Messages $sermons, LqdM_Series $series ) {
 		$this->search_query = $search_query;
-		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
+		$this->current_page = absint( lqdm__get_arg( 'results-page', 1 ) );
 
 		parent::__construct( $sermons, $series );
 
@@ -84,7 +84,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 
 		$args = $this->get_pagination( $total_pages );
 
-		$args['terms']        = array( $this->augment_terms( $allterms ) );
+		$args['terms']        = [ $this->augment_terms( $allterms ) ];
 		$args['remove_dates'] = true;
 		$args['wrap_classes'] = $this->get_wrap_classes();
 		$args['plugin_option'] = get_plugin_settings_options('search_view');
@@ -116,7 +116,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 * @return array
 	 */
 	public function get_pagination( $total_pages ) {
-		$nav = array( 'prev_link' => '', 'next_link' => '' );
+		$nav = [ 'prev_link' => '', 'next_link' => '' ];
 
 		if ( ! $this->bool_att( 'remove_pagination' ) ) {
 			$nav['prev_link'] = lqdm_search_get_previous_results_link();
@@ -132,7 +132,7 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 * @return string
 	 */
 	public function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-series-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-series-search-wrap';
 	}
 
 	/**
@@ -167,25 +167,25 @@ class LqdM_Series_Search_Run extends LqdM_Series_Run {
 	 * @return array
 	 */
 	public function orderby_post_date( $allterms ) {
-		$ordered = array();
+		$ordered = [];
 		if ( empty( $allterms ) ) {
 			return $ordered;
 		}
 		foreach ( $allterms as $key => $term ) {
-			$query = new WP_Query( array(
+			$query = new WP_Query( [
 				'post_status'      => 'publish',
 				'posts_per_page'   => 1,
 				'no_found_rows'    => true,
 				'cache_results'    => false,
 				'suppress_filters' => true,
-				'tax_query'        => array(
-					array(
+				'tax_query'        => [
+					[
 						'taxonomy' => $this->series->taxonomy(),
 						'field'    => 'slug',
 						'terms'    => $term->slug,
-					),
-				),
-			) );
+                    ],
+                ],
+            ] );
 
 			if ( $query->have_posts() ) {
 				$ordered[ strtotime( $query->post->post_date ) ] = $term;

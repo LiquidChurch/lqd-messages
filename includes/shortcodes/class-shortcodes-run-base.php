@@ -7,7 +7,7 @@
 abstract class LqdM_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 	/**
-	 * GCS_Sermons object
+	 * Liquid Messages object
 	 *
 	 * @var   LqdM_Messages
 	 * @since 0.1.0
@@ -94,7 +94,7 @@ abstract class LqdM_Shortcodes_Run_Base extends WDS_Shortcodes {
 			$style .= '"';
 		}
 
-		return array( $style, $has_icon_font_size );
+		return [ $style, $has_icon_font_size ];
 	}
 
 }

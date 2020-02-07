@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Sermons_Test
+ * LqdM_Sermons Test
  */
 class LqdM_Sermons_Test extends WP_UnitTestCase {
 
@@ -14,6 +14,6 @@ class LqdM_Sermons_Test extends WP_UnitTestCase {
 	}
 
   function test_cpt_exists() {
-    $this->assertTrue( post_type_exists( 'gc-sermons' ) );
+    $this->assertTrue( post_type_exists( 'lqd-messages' ) );
   }
 }

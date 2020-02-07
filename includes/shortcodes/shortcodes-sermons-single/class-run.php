@@ -1,6 +1,6 @@
 <?php
     /**
-     *  GC Sermons Shortcodes Sermon Run.
+     *  Liquid Messages Sermon Shortcode - Run.
      *
      * @since 0.11.0
      * @package Liquid Messages
@@ -13,7 +13,7 @@
          * @var string
          * @since 0.11.0
          */
-        public $shortcode = 'gc_sermon';
+        public $shortcode = 'lqdm_message';
 
         /**
          * Default attributes applied to the shortcode.
@@ -22,7 +22,7 @@
          * @since 0.11.0
          */
         public $atts_defaults
-            = array(
+            = [
                 'sermon_id'                 => 0,
                 'show_title'                => true,
                 'show_content'              => true,
@@ -41,7 +41,7 @@
 
                 // no admin
                 'do_scripts'                => true,
-            );
+            ];
 
         /**
          * Shortcode Output
@@ -104,7 +104,7 @@
             wp_enqueue_script(
                 'fitvids',
                 Lqd_Messages_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
-                array('jquery'),
+                [ 'jquery' ],
                 '1.1',
                 true
             );
@@ -118,7 +118,7 @@
         public function inline_style()
         {
             return '<style type="text/css">' .
-                   '#single-sermon-player img {width: 100%;}' .
+                   '#lqdm-single-sermon-player img {width: 100%;}' .
                    '</style>';
         }
 
@@ -133,7 +133,7 @@
         protected function map_sermon_args($all_sermons, $my_level)
         {
             global $post;
-            $sermons = array();
+            $sermons = [];
 
             $thumb_size = $this->att('thumbnail_size');
 
@@ -142,7 +142,7 @@
 
                 $obj = $all_sermons->post;
 
-                $sermon = array();
+                $sermon = [];
                 $sermon['url'] = $obj->permalink();
                 $sermon['name'] = $obj->title();
                 $sermon['image'] = $obj->featured_image($thumb_size);

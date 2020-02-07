@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class GCS_Sermon_Post_Test
+ * Class LqdM_Sermon_Post_Test
  */
 class LqdM_Sermon_Post_Test extends WP_UnitTestCase {
 
@@ -12,12 +12,12 @@ class LqdM_Sermon_Post_Test extends WP_UnitTestCase {
 	function test_class_access() {
 		$sermons = lqd_messages()->sermons;
 		$this->assertFalse( $sermons->most_recent() );
-		$this->assertEquals( 'gc-sermons', $sermons->post_type() );
+		$this->assertEquals( 'lqd-message', $sermons->post_type() );
 
 		// Create a post
-		$this->factory->post->create( array(
+		$this->factory->post->create( [
 			'post_type' => $sermons->post_type(),
-		) );
+        ] );
 
 		$sermons->flush = true;
 
