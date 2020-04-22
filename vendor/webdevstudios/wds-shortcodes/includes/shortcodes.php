@@ -61,10 +61,11 @@ abstract class WDS_Shortcodes {
 	 * and calls the shortcode method (to be overridden by subclasses)
 	 * and echos the results
 	 *
+	 * @throws Exception
 	 * @since  0.1.0
 	 *
-	 * @param  array  $atts    Array of attributes.
-	 * @param  string $content Shortcode content.
+	 * @param array  $atts    Array of attributes.
+	 * @param string $content Shortcode content.
 	 *
 	 * @return string           Modified shortcode content.
 	 */
@@ -76,10 +77,11 @@ abstract class WDS_Shortcodes {
 	 * Our shortcodes' callback. Sets up the object properties
 	 * and calls the shortcode method (to be overridden by subclasses)
 	 *
+	 * @throws Exception
 	 * @since  0.1.0
 	 *
-	 * @param  array  $atts    Array of attributes.
-	 * @param  string $content Shortcode content.
+	 * @param array  $atts    Array of attributes.
+	 * @param string $content Shortcode content.
 	 *
 	 * @return string           Modified shortcode content.
 	 */
@@ -145,9 +147,11 @@ abstract class WDS_Shortcodes {
 	/**
 	 * Calls the methods on the shortcode_object instance.
 	 *
+	 * @throws Exception
 	 * @since  NEXT
-	 * @param  string $method    Non-existent method name
-	 * @param  array  $arguments All arguments passed to the method
+	 *
+	 * @param string $method    Non-existent method name
+	 * @param array  $arguments All arguments passed to the method
 	 * @return mixed
 	 */
 	public function __call( $method, $arguments ) {

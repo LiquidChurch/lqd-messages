@@ -71,19 +71,19 @@ class Actress_CPT extends CPT_Core {
 		return array_merge( $new_column, $columns );
 	}
 
-	/**
-	 * Handles admin column display. Hooked in via CPT_Core.
-	 * @since  0.1.0
-	 * @param  array  $column Array of registered column names
-	 */
-	public function columns_display( $column, $post_id ) {
-		switch ( $column ) {
-			case 'headshot':
-				the_post_thumbnail();
-				break;
-		}
-	}
-
+    /**
+     * Handles admin column display. Hooked in via CPT_Core.
+     * @since  0.1.0
+     * @param $column
+     * @param $post_id
+     */
+    public function columns_display( $column, $post_id ) {
+    	switch ( $column ) {
+    		case 'headshot':
+    			the_post_thumbnail();
+			break;
+        }
+    }
 }
 new Actress_CPT();
 ```

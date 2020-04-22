@@ -1,7 +1,13 @@
+#scb-wrap.scbshow {
+	display: block;
+}
+.scbshow {
+	display: block;
+}
 .scb-form-wrap, .scb-wrap {
 	display: none;
 }
-#scb-wrap.scbshow, .scb-form-wrap.scbshow, .scb-wrap.scbshow, .scbshow {
+.scbshow {
 	display: block;
 }
 #scb-modal {
@@ -31,9 +37,8 @@
 .ui-dialog .cmb-type-checkbox .cmb-td {
 	padding: 1.2em 0 0 0;
 }
-.ui-dialog .cmb-type-checkbox .cmb2-metabox-description {
-	color: inherit;
-	font-style: inherit;
+.ui-dialog .cmb-type-checkbox .cmb-th {
+	width: 300px;
 }
 .ui-dialog .cmb-th + .cmb-td {
 	float: none;

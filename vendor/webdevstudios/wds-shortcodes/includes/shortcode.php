@@ -117,7 +117,9 @@ class WDS_Shortcode {
 	 *
 	 * @since  0.1.2
 	 *
-	 * @param  string  $value Attribute value
+	 * @param string $value Attribute value
+	 *
+	 * @param bool $force
 	 *
 	 * @return string         Possibly modified attribute value
 	 */

@@ -1,21 +1,13 @@
 <?php
 /**
- * GC Sermons Scripture References
+ * Liquid Messages Scripture References Custom Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
-/**
- * GCS_Scripture
- * @since 0.1.3
- */
 class GCS_Scripture extends GCS_Taxonomies_Base {
 
-	/**
-	 * The identifier for this object
-	 *
-	 * @var string
-	 */
+	// Identifier for this object
 	protected $id = 'scripture';
 
 	/**
@@ -28,7 +20,7 @@ class GCS_Scripture extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Scripture Reference', 'gc-sermons' ), __( 'Scripture References', 'gc-sermons' ), 'gcs-scripture' ),
+			'labels' => array( __( 'Scripture Reference', 'lqdm' ), __( 'Scripture References', 'lqdm' ), 'gcs-scripture' ),
 			'args' => array(
 				'rewrite' => array( 'slug' => 'scripture-reference' ),
 			),

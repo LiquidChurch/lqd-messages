@@ -14,7 +14,6 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 
 		$( document.body )
 			.on( 'keyup change', '.check-if-recent input[type="text"]', app.maybeToggle )
-			.on( 'change', '#gc_sermon_video_url', app.checkDupVideo )
 			.on( 'shortcode_button:open', app.showNotRecent );
 		$( app.expandTaxonomy );
 	};
@@ -41,27 +40,6 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 		});
 		var temp = expandElem.join(',');
 		$(temp).trigger('click');
-	};
-
-	app.checkDupVideo = function(){
-		var $elem = $(this);
-		var data = {
-			'action': 'check_sermon_duplicate_video',
-			'video_url': $elem.val(),
-			'curr_post_id': php_vars.postID,
-			'nonce': php_vars.nonce
-		};
-		$.ajax({
-			method: 'POST',
-			url: ajaxurl,
-			data: data,
-			dataType: 'json'
-		}).done(function(resp) {
-			$(".gc-sermon-duplicate-notice").remove();
-			if(resp.success == false) {
-				$(".cmb2-metabox-description").after(resp.data);
-			}
-		});
 	};
 
 	$( app.init );

@@ -7,6 +7,9 @@
 .scb-form-wrap, .scb-wrap {
 	display: none;
 }
+.scbshow {
+	display: block;
+}
 #scb-modal {
 	position: absolute;
 	top: 15%;
@@ -34,9 +37,8 @@
 .ui-dialog .cmb-type-checkbox .cmb-td {
 	padding: 1.2em 0 0 0;
 }
-.ui-dialog .cmb-type-checkbox .cmb2-metabox-description {
-	color: inherit;
-	font-style: inherit;
+.ui-dialog .cmb-type-checkbox .cmb-th {
+	width: 300px;
 }
 .ui-dialog .cmb-th + .cmb-td {
 	float: none;

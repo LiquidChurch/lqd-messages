@@ -1,48 +1,22 @@
 <?php
 /**
- * GC Sermons Template Loader
+ * Liquid Messages Template Loader
  *
  * @since 0.1.3
- * @package GC Sermons
- */
-
-/**
- * GC Sermons Template Loader.
- *
- * @since 0.1.3
+ * @package Liquid Messages
  */
 class GCS_Template_Loader {
 
-	/**
-	 * Array of arguments for template
-	 *
-	 * @var array
-	 * @since 0.1.3
-	 */
+	// Array of arguments for template
 	public $args = array();
 
-	/**
-	 * Template names array
-	 *
-	 * @var array
-	 * @since 0.1.3
-	 */
+	// Template names array
 	public $templates = array();
 
-	/**
-	 * Template name
-	 *
-	 * @var string
-	 * @since 0.1.3
-	 */
+	// Template name
 	public $template = '';
 
-	/**
-	 * Template file extension
-	 *
-	 * @var string
-	 * @since 0.1.3
-	 */
+	// Template file extension
 	protected $extension = '.php';
 
 	/**
@@ -54,8 +28,8 @@ class GCS_Template_Loader {
 	 * @param string  $name     The name of the specialised template. If array, will take the place of the $args.
 	 * @param array   $args     An array of arguments to extract as variables into the template
 	 *
-	 * @throws Exception
 	 * @return void
+	 * @throws Exception
 	 */
 	public function __construct( $template, $name = null, array $args = array() ) {
 		if ( empty( $template ) ) {
@@ -245,7 +219,7 @@ class GCS_Template_Loader {
 	 * @since  0.1.3
 	 *
 	 * @param string  $template  The template file name, relative to the includes/templates/ folder
-	 *                            - without .php extension
+	 *                           - without .php extension
 	 * @param string  $name      The name of the specialised template. If array, will take the place of the $args.
 	 * @param array   $args      An array of arguments to extract as variables into the template
 	 *

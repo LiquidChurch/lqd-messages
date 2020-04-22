@@ -1,23 +1,23 @@
 [
     {
         "name": "jtsternberg/shortcode-button",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-            "reference": "2130b5a9d6145f5eb90ac27a423babc99097cd8b"
+            "reference": "8234bbc8f7410c788b222f6ec64f6b8152d82d46"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/2130b5a9d6145f5eb90ac27a423babc99097cd8b",
-            "reference": "2130b5a9d6145f5eb90ac27a423babc99097cd8b",
+            "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/8234bbc8f7410c788b222f6ec64f6b8152d82d46",
+            "reference": "8234bbc8f7410c788b222f6ec64f6b8152d82d46",
             "shasum": ""
         },
         "require": {
             "php": ">5.2"
         },
-        "time": "2017-06-07T15:25:16+00:00",
+        "time": "2016-09-13T00:42:11+00:00",
         "type": "wordpress-plugin",
         "installation-source": "dist",
         "autoload": {

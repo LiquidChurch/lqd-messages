@@ -1,51 +1,5 @@
 [
     {
-        "name": "jtsternberg/cmb2-related-links",
-        "version": "v0.1.1",
-        "version_normalized": "0.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jtsternberg/CMB2-Related-Links.git",
-            "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-            "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2"
-        },
-        "time": "2016-05-30T07:10:25+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "cmb2-related-links.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "jtsternberg",
-                "email": "justin@dsgnwrks.pro",
-                "homepage": "http://dsgnwrks.pro/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Custom field for CMB2 which adds a releated links repeatable group field.",
-        "homepage": "https://github.com/jtsternberg/CMB2-Related-Links",
-        "keywords": [
-            "CMB2",
-            "meta",
-            "wordpress"
-        ]
-    },
-    {
         "name": "jtsternberg/cmb2-term-select",
         "version": "v0.1.0",
         "version_normalized": "0.1.0.0",
@@ -88,52 +42,6 @@
         "keywords": [
             "CMB2",
             "meta",
-            "wordpress"
-        ]
-    },
-    {
-        "name": "jtsternberg/shortcode-button",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-            "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
-            "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">5.2"
-        },
-        "time": "2017-06-07T15:59:21+00:00",
-        "type": "wordpress-plugin",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "shortcode-button.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "jtsternberg",
-                "email": "justin@dsgnwrks.pro",
-                "homepage": "http://dsgnwrks.pro/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Tinymce and Quicktag buttons (and modals) for outputting shortcodes. Built to work with CMB2.",
-        "homepage": "https://github.com/jtsternberg/Shortcode_Button",
-        "keywords": [
-            "CMB2",
-            "shortcodes",
             "wordpress"
         ]
     },
@@ -191,63 +99,6 @@
         "description": "Run asynchronous tasks for long-running operations in WordPress"
     },
     {
-        "name": "tgmpa/tgm-plugin-activation",
-        "version": "2.5.2",
-        "version_normalized": "2.5.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/TGMPA/TGM-Plugin-Activation.git",
-            "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/TGMPA/TGM-Plugin-Activation/zipball/ba41c10e821a10d3d6c3b8e468a16716bb03f125",
-            "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2"
-        },
-        "time": "2015-07-16T08:59:11+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "class-tgm-plugin-activation.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Thomas Griffin",
-                "homepage": "http://thomasgriffinmedia.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Gary Jones",
-                "homepage": "https://github.com/GaryJones",
-                "role": "Developer"
-            },
-            {
-                "name": "Juliette Reinders Folmer",
-                "homepage": "https://github.com/jrfnl",
-                "role": "Developer"
-            }
-        ],
-        "description": "TGM Plugin Activation is a PHP library that allows you to easily require or recommend plugins for your WordPress themes (and plugins).",
-        "homepage": "http://tgmpluginactivation.com",
-        "keywords": [
-            "activation",
-            "library",
-            "plugins",
-            "theme",
-            "wordpress"
-        ]
-    },
-    {
         "name": "webdevstudios/cmb2-post-search-field",
         "version": "v0.2.5",
         "version_normalized": "0.2.5.0",
@@ -294,29 +145,70 @@
         ]
     },
     {
-        "name": "webdevstudios/cmb2-user-select",
-        "version": "v0.2.3",
-        "version_normalized": "0.2.3.0",
+        "name": "webdevstudios/taxonomy_core",
+        "version": "v0.2.4",
+        "version_normalized": "0.2.4.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-            "reference": "b5a57b91d8c5c42f2300690641b21cba6e0f75bb"
+            "url": "https://github.com/WebDevStudios/Taxonomy_Core.git",
+            "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/b5a57b91d8c5c42f2300690641b21cba6e0f75bb",
-            "reference": "b5a57b91d8c5c42f2300690641b21cba6e0f75bb",
+            "url": "https://api.github.com/repos/WebDevStudios/Taxonomy_Core/zipball/80393ecb126d24ef3940ab7fa06635fe782701d8",
+            "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8",
             "shasum": ""
         },
-        "require": {
-            "php": ">=5.2"
-        },
-        "time": "2017-06-07T15:30:01+00:00",
-        "type": "wordpress-plugin",
+        "time": "2016-02-27T20:21:38+00:00",
+        "type": "library",
         "installation-source": "dist",
         "autoload": {
             "files": [
-                "cmb2-user-select.php"
+                "Taxonomy_Core.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPLv2"
+        ],
+        "authors": [
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com"
+            }
+        ],
+        "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods."
+    },
+    {
+        "name": "webdevstudios/wds-shortcodes",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
+            "reference": "610185109847e0403615fd310338077e46342b22"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/610185109847e0403615fd310338077e46342b22",
+            "reference": "610185109847e0403615fd310338077e46342b22",
+            "shasum": ""
+        },
+        "require": {
+            "jtsternberg/shortcode-button": "^v1.0.5",
+            "php": ">5.2",
+            "tgmpa/tgm-plugin-activation": "2.5.2"
+        },
+        "time": "2016-09-13T15:49:16+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "includes",
+                "vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
+            ],
+            "files": [
+                "vendor/jtsternberg/shortcode-button/shortcode-button.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -331,11 +223,57 @@
                 "role": "Developer"
             }
         ],
-        "description": "Special CMB2 Field that allows users to define an autocomplete text field for users",
-        "homepage": "https://github.com/WebDevStudios/CMB2-User-Select",
+        "description": "Base plugin/classes/functionality for creating shortcodes.",
+        "homepage": "https://github.com/WebDevStudios/WDS-Shortcodes",
+        "keywords": [
+            "json",
+            "wordpress",
+            "wp-api"
+        ]
+    },
+    {
+        "name": "jtsternberg/shortcode-button",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jtsternberg/Shortcode_Button.git",
+            "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/05e1abda5557d93e25a063123f72ece315aa2e3a",
+            "reference": "05e1abda5557d93e25a063123f72ece315aa2e3a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">5.2"
+        },
+        "time": "2017-02-27T16:51:40+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "shortcode-button.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "jtsternberg",
+                "email": "justin@dsgnwrks.pro",
+                "homepage": "http://dsgnwrks.pro/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Tinymce and Quicktag buttons (and modals) for outputting shortcodes. Built to work with CMB2.",
+        "homepage": "https://github.com/jtsternberg/Shortcode_Button",
         "keywords": [
             "CMB2",
-            "meta",
+            "shortcodes",
             "wordpress"
         ]
     },
@@ -383,126 +321,6 @@
             "metabox",
             "plugin",
             "wordpress"
-        ]
-    },
-    {
-        "name": "webdevstudios/taxonomy_core",
-        "version": "v0.2.4",
-        "version_normalized": "0.2.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/WebDevStudios/Taxonomy_Core.git",
-            "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/WebDevStudios/Taxonomy_Core/zipball/80393ecb126d24ef3940ab7fa06635fe782701d8",
-            "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8",
-            "shasum": ""
-        },
-        "time": "2016-02-27T20:21:38+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "Taxonomy_Core.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPLv2"
-        ],
-        "authors": [
-            {
-                "name": "WebDevStudios",
-                "email": "contact@webdevstudios.com"
-            }
-        ],
-        "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods."
-    },
-    {
-        "name": "webdevstudios/wds-shortcodes",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
-            "reference": "69b52b65d1120790e15303fff61f9749ac151e7f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/69b52b65d1120790e15303fff61f9749ac151e7f",
-            "reference": "69b52b65d1120790e15303fff61f9749ac151e7f",
-            "shasum": ""
-        },
-        "require": {
-            "jtsternberg/shortcode-button": "^v1.0.7",
-            "php": ">5.2",
-            "tgmpa/tgm-plugin-activation": "2.5.2"
-        },
-        "time": "2017-06-07T16:02:24+00:00",
-        "type": "wordpress-plugin",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "includes",
-                "vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
-            ],
-            "files": [
-                "vendor/jtsternberg/shortcode-button/shortcode-button.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "WebDevStudios",
-                "email": "contact@webdevstudios.com",
-                "homepage": "https://github.com/WebDevStudios",
-                "role": "Developer"
-            }
-        ],
-        "description": "Base plugin/classes/functionality for creating shortcodes.",
-        "homepage": "https://github.com/WebDevStudios/WDS-Shortcodes",
-        "keywords": [
-            "json",
-            "wordpress",
-            "wp-api"
-        ]
-    },
-    {
-        "name": "xrstf/composer-php52",
-        "version": "v1.0.20",
-        "version_normalized": "1.0.20.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/composer-php52/composer-php52.git",
-            "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/composer-php52/composer-php52/zipball/bd41459d5e27df8d33057842b32377c39e97a5a8",
-            "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8",
-            "shasum": ""
-        },
-        "time": "2016-04-16T21:52:24+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-default": "1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "xrstf\\Composer52": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
         ]
     }
 ]

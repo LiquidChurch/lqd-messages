@@ -30,6 +30,7 @@ class WDS_Shortcode_Instances {
 	/**
 	 * Add a WDS_Shortcode instance to the registry
 	 *
+	 * @return WDS_Shortcode
 	 * @since 0.1.0
 	 *
 	 * @param WDS_Shortcode $instance Instance to add.

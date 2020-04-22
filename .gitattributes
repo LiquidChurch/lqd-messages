@@ -1,2 +1,5 @@
 # Set the default behavior, in case people don't have core.autocrlfset set.
-* text=auto
+* text eol=lf
+
+# Ensure binary files are not converted to text.
+.eot binary .ttf binary .woff binary .woff2 binary .otf binary

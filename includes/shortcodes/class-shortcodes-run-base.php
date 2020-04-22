@@ -1,18 +1,12 @@
 <?php
 /**
- * GC Sermons Shortcode Base
+ * Liquid Messages Shortcode Base
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 
-	/**
-	 * GCS_Sermons object
-	 *
-	 * @var   GCS_Sermons
-	 * @since 0.1.0
-	 */
+	// GCS_Sermons object
 	public $sermons;
 
 	/**
@@ -70,31 +64,4 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 		return $this->sermons->most_recent();
 	}
-
-	/**
-	 * Get Inline Styles
-	 *
-	 * @return array
-	 */
-	public function get_inline_styles() {
-		$style = '';
-		$has_icon_font_size = false;
-
-		if ( $this->att( 'icon_color' ) || $this->att( 'icon_size' ) ) {
-			$style = ' style="';
-			// Get/check our text_color attribute
-			if ( $this->att( 'icon_color' ) ) {
-				$text_color = sanitize_text_field( $this->att( 'icon_color' ) );
-				$style .= 'color: ' . $text_color .';';
-			}
-			if ( is_numeric( $this->att( 'icon_size' ) ) ) {
-				$has_icon_font_size = absint( $this->att( 'icon_size' ) );
-				$style .= 'font-size: ' . $has_icon_font_size .'em;';
-			}
-			$style .= '"';
-		}
-
-		return array( $style, $has_icon_font_size );
-	}
-
 }

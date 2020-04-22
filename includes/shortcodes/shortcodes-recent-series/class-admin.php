@@ -1,31 +1,25 @@
 <?php
 /**
- * GC Sermons Recent Series Shortcode - Admin
+ * Liquid Messages Recent Series Shortcode - Admin
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 
-	/**
-	 * Shortcode prefix for field ids.
-	 *
-	 * @var   string
-	 * @since 0.1.3
-	 */
+	// Shortcode prefix for field ids.
 	protected $prefix = 'rcnt_series_';
 
 	/**
-	 * Sets up the button
+	 * Sets up the JS button
 	 *
 	 * @return array
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Recent Series', 'gc-sermons' ),
-			'button_tooltip' => __( 'GC Recent Series', 'gc-sermons' ),
+			'qt_button_text' => __( 'Recent Series', 'lqdm' ),
+			'button_tooltip' => __( 'Recent Series', 'lqdm' ),
 			'icon'           => 'dashicons-images-alt',
-			// 'mceView'        => true, // The future
 		);
 	}
 
@@ -38,10 +32,9 @@ class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 	 * @return array
 	 */
 	function fields( $fields, $button_data ) {
-
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'gc-sermons' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s series info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+			'name'            => __( 'Message ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s series info. Otherwise enter a post ID. Click the magnifying glass to search for a Message post.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
@@ -51,28 +44,28 @@ class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'        => __( 'Filter Most Recent Sermon By:', 'gc-sermons' ),
-			'desc'        => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the series info for.', 'gc-sermons' ),
+			'name'        => __( 'Filter Most Recent Message By:', 'lqdm' ),
+			'desc'        => __( 'If setting "Message ID" above to blank, "recent", or "0", this setting determines which type of most recent message to get the series info for.', 'lqdm' ),
 			'type'        => 'select',
 			'id'          => $this->prefix . 'recent',
 			'default'     => $this->atts_defaults['recent'],
 			'row_classes' => 'hide-if-not-recent',
 			'options'     => array(
-				'recent' => __( 'Most Recent', 'gc-sermons' ),
-				'audio' => __( 'Most Recent with Audio', 'gc-sermons' ),
-				'video' => __( 'Most Recent with Video', 'gc-sermons' ),
+				'recent' => __( 'Most Recent', 'lqdm' ),
+				'audio' => __( 'Most Recent with Audio', 'lqdm' ),
+				'video' => __( 'Most Recent with Video', 'lqdm' ),
 			),
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Remove Thumbnail', 'gc-sermons' ),
+			'name'    => __( 'Remove Thumbnail', 'lqdm' ),
 			'type'    => 'checkbox',
 			'id'      => $this->prefix . 'remove_thumbnail',
 			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Thumbnail Size (if included)', 'gc-sermons' ),
+			'name'    => __( 'Thumbnail Size (if included)', 'lqdm' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'thumbnail_size',
 			'default' => $this->atts_defaults['thumbnail_size'],
@@ -80,5 +73,4 @@ class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 
 		return $fields;
 	}
-
 }

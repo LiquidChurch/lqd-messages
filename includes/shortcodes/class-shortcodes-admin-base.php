@@ -1,33 +1,23 @@
 <?php
 /**
- * GC Sermons Shortcode Admin Base
+ * Liquid Messages Shortcode Admin Base
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
-	/**
-	 * Parent plugin class
-	 *
-	 * @var   GCS_Shortcodes_Run_Base
-	 * @since 0.1.0
-	 */
+
+	// Parent plugin class.
 	protected $run;
 
-	/**
-	 * Shortcode prefix for field ids.
-	 *
-	 * @var   string
-	 * @since 0.1.3
-	 */
+	// Shortcode prefix for field ids.
 	protected $prefix = '';
 
 	/**
 	 * Constructor
 	 *
-	 * @since   0.1.0
-	 * @param   object $run  Main plugin object.
-     * @return  void
+	 * @since  0.1.0
+	 *
+	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
 	 */
 	public function __construct( GCS_Shortcodes_Run_Base $run ) {
 		$this->run = $run;

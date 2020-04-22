@@ -7,50 +7,6 @@
     "content-hash": "3c3967b481b006edf115532ab3832b63",
     "packages": [
         {
-            "name": "jtsternberg/cmb2-related-links",
-            "version": "v0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jtsternberg/CMB2-Related-Links.git",
-                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "cmb2-related-links.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "jtsternberg",
-                    "email": "justin@dsgnwrks.pro",
-                    "homepage": "http://dsgnwrks.pro/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Custom field for CMB2 which adds a releated links repeatable group field.",
-            "homepage": "https://github.com/jtsternberg/CMB2-Related-Links",
-            "keywords": [
-                "CMB2",
-                "meta",
-                "wordpress"
-            ],
-            "time": "2016-05-30T07:10:25+00:00"
-        },
-        {
             "name": "jtsternberg/cmb2-term-select",
             "version": "v0.1.0",
             "source": {
@@ -190,61 +146,6 @@
             "time": "2016-03-10 17:37:13"
         },
         {
-            "name": "tgmpa/tgm-plugin-activation",
-            "version": "2.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TGMPA/TGM-Plugin-Activation.git",
-                "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TGMPA/TGM-Plugin-Activation/zipball/ba41c10e821a10d3d6c3b8e468a16716bb03f125",
-                "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "class-tgm-plugin-activation.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Griffin",
-                    "homepage": "http://thomasgriffinmedia.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Gary Jones",
-                    "homepage": "https://github.com/GaryJones",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Juliette Reinders Folmer",
-                    "homepage": "https://github.com/jrfnl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "TGM Plugin Activation is a PHP library that allows you to easily require or recommend plugins for your WordPress themes (and plugins).",
-            "homepage": "http://tgmpluginactivation.com",
-            "keywords": [
-                "activation",
-                "library",
-                "plugins",
-                "theme",
-                "wordpress"
-            ],
-            "time": "2015-07-16T08:59:11+00:00"
-        },
-        {
             "name": "webdevstudios/cmb2-post-search-field",
             "version": "v0.2.5",
             "source": {
@@ -287,50 +188,6 @@
                 "wordpress"
             ],
             "time": "2016-05-30T06:58:49+00:00"
-        },
-        {
-            "name": "webdevstudios/cmb2-user-select",
-            "version": "v0.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/de9bbc80c8d2fe03a52af1798167ecbe454fd394",
-                "reference": "de9bbc80c8d2fe03a52af1798167ecbe454fd394",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "cmb2-user-select.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WebDevStudios",
-                    "email": "contact@webdevstudios.com",
-                    "homepage": "https://github.com/WebDevStudios",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Special CMB2 Field that allows users to define an autocomplete text field for users",
-            "homepage": "https://github.com/WebDevStudios/CMB2-User-Select",
-            "keywords": [
-                "CMB2",
-                "meta",
-                "wordpress"
-            ],
-            "time": "2016-10-03T20:25:58+00:00"
         },
         {
             "name": "webdevstudios/cpt-core",

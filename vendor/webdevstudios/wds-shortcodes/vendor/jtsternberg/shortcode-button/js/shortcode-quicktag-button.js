@@ -24,30 +24,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		return content;
 	};
 
-	/**
-	 * Event handler to remove the custom Quicktags button
-	 * from wysiwyg editor added to shortcode modal if "include_close" is set to true,
-	 * by hooking into the "quicktags-init" event
-	 *
-	 * @param {document#event:quicktags-init} evt
-	 * @param {object} ed - The current quicktags editor instance
-	 * @see {@link https://github.com/WordPress/WordPress/blob/master/wp-includes/js/quicktags.js#L266-L325|WordPress Quicktags}
-	 * @see {@link https://github.com/jtsternberg/Shortcode_Button/blob/master/lib/class-shortcode-button.php#L236-L247|Shortcode Button}
-	 * @see {@link https://github.com/WebDevStudios/WDS-Shortcodes/issues/7|WDS-Shortcodes Issue #7}
-	 */
-	var removeQTagsButton = function( evt, ed ) {
-		var id;
-		if ( 'sccontent' === ed.id && btns.qt ) {
-			for ( id in btns.qt ) {
-				// Remove the HTML element from the quicktags editor toolbar
-				ed.toolbar.removeChild( QTags.getInstance( 'sccontent' ).getButtonElement( id ) );
-
-				// Remove the custom button object from the quicktags editor
-				delete ed.theButtons[ id ];
-			}
-		}
-	};
-
 	btns.log = function() {
 		btns.log.history = btns.log.history || [];
 		btns.log.history.push( arguments );
@@ -431,8 +407,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		// TODO: Reset all types
 		switch ( type ) {
 			case 'text':
-			case 'text-medium':
-			case 'text-small':
 				return $this.find( '[type="text"]' ).val( '' );
 			case 'file':
 				$this.find( '.cmb2-upload-file-id' ).val( '' );
@@ -463,8 +437,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		// TODO: Set fields for all types
 		switch ( data.type ) {
 			case 'text':
-			case 'text-medium':
-			case 'text-small':
 			case 'textarea':
 			case 'file':
 				return $field.val( data.value );
@@ -545,6 +517,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		$c.body.trigger( 'shortcode_button:jquery_init_complete' );
 	};
 
-	$( btns.jQueryInit ).on( 'quicktags-init', removeQTagsButton );
+	$( btns.jQueryInit );
 
 } )( window, document, jQuery, wp, QTags, shortcodeButtonsl10n, wp_sc_buttons );

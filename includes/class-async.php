@@ -1,28 +1,23 @@
 <?php
 /**
- * GC Sermons Async
+ * Liquid Messages Async
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCS_Async extends WP_Async_Task {
 
-	/**
-	 * Parent plugin class
-     *
-	 * @since 0.1.1
-	 */
+	// Parent plugin class
 	protected $plugin = null;
 
-	/**
-	 * @var string
-	 */
+	// Action to perform
 	protected $action = 'set_object_terms';
 
 	/**
 	 * Constructor
 	 *
 	 * @since  0.1.1
+	 *
 	 * @param  object $plugin Main plugin object.
 	 *
 	 * @throws Exception

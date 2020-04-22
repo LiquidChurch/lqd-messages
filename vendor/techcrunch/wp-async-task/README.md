@@ -22,12 +22,10 @@ class JPB_Async_Task extends WP_Async_Task {
 	/**
 	 * Prepare data for the asynchronous request
 	 *
-	 * @throws Exception If for any reason the request should not happen
+     * @param array $data An array of data sent to the hook
 	 *
-	 * @param array $data An array of data sent to the hook
-	 *
-	 * @return array
-	 */
+     * @return void
+     */
 	protected function prepare_data( $data ) {}
 
 	/**

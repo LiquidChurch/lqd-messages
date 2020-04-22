@@ -99,8 +99,7 @@ module.exports = function( grunt ) {
 							'!**/**Gruntfile.js',
 							'!**/**composer.json',
 							'!**/**composer.lock',
-							'!**/**bower.json',
- 							'!vendor/tgmpa/tgm-plugin-activation/plugins/**'
+							'!**/**bower.json'
 						],
 						dest: '/wds-shortcodes'
 				} ]

@@ -1,25 +1,15 @@
 <?php
 /**
- * GC Sermons Search Shortcode
+ * Liquid Messages Search Shortcode
  *
- * @todo Use Javascript/Ajax pagination/filtering.
- *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
-	/**
-	 * The Shortcode Tag
-	 * @var string
-	 * @since 0.1.0
-	 */
+	// The Shortcode Tag
 	public $shortcode = 'gc_sermons_search';
 
-	/**
-	 * Default attributes applied to the shortcode.
-	 * @var array
-	 * @since 0.1.0
-	 */
+	// Array of default attributes applied to the shortcode.
 	public $atts_defaults = array(
 		'search'             => '',
 		'per_page'           => 10, // Will use WP's per-page option.
@@ -49,19 +39,10 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 		'separate_results' => false,
 	);
 
-	/**
-	 * GCS_Sermons object
-	 *
-	 * @var   GCS_Sermons
-	 * @since 0.1.0
-	 */
+	// GCS_Taxonomies Object
 	public $taxonomies;
 
-	/**
-	 * The current search query.
-	 *
-	 * @var string
-	 */
+	// The current search query
 	protected $search_query = '';
 
 	/**
@@ -131,7 +112,6 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 				if ( $search_series && $show_series_results ) {
 					$content .= $this->series_search_results();
 				}
-
 			}
 		}
 
@@ -139,7 +119,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	}
 
 	/**
-	 * Sermon Search Results
+	 * Message Search Results
 	 *
 	 * @return GCSS_Sermons_Search_Run|string
 	 * @throws Exception
@@ -156,9 +136,9 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		return GCS_Template_Loader::get_template( 'sermon-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
-				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
+				__( '%s search results for: <em>%s</em>', 'lqdm' ),
 				$this->sermons->post_type( 'singular' ),
 				esc_html( $this->search_query )
 			),
@@ -183,13 +163,12 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		return GCS_Template_Loader::get_template( 'series-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
-				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
+				__( '%s search results for: <em>%s</em>', 'lqdm' ),
 				$this->taxonomies->series->taxonomy( 'singular' ),
 				esc_html( $this->search_query )
 			),
 		) );
 	}
-
 }

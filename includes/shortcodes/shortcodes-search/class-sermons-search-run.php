@@ -1,38 +1,22 @@
 <?php
 /**
- * GC Sermons Search
+ * Liquid Messages Search Shortcode - Run
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
-	/**
-	 * The current search query.
-	 *
-	 * @var string
-	 */
+	// The current search query.
 	protected $search_query = '';
 
-	/**
-	 * The current search results page number.
-	 *
-	 * @var int
-	 */
+	// The current search results page number.
 	public $current_page = 0;
 
-	/**
-	 * The total number of search results pages.
-	 *
-	 * @var int
-	 */
+	// The total number of search results pages.
 	public $total_pages = 0;
 
-	/**
-	 * Results of the call to shortcode_callback.
-	 *
-	 * @var mixed
-	 */
+	// Results of the call to shortcode_callback.
 	public $results = '';
 
 	/**
@@ -154,7 +138,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 * @return string
 	 */
 	protected function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-sermons-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-msgs-search-wrap';
 	}
 
 }

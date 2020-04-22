@@ -1,0 +1,34 @@
+# Liquid Church Theme Functions
+
+- liquidchurch_setup
+- liquidchurch_content_width
+- liquidchurch_fonts_url
+- liquidchurch_javascript_detection
+- liquidchurch_scripts
+- liquidchurch_body_classes
+- liquidchurch_hex2rgb
+- liquidchurch_content_image_sizes_attr
+- liquidchurch_post_thumbnail_sizes_attr
+- liquidchurch_widget_tag_cloud_args
+- pr
+- myplugin_custom_walker
+- myformatTinyMCE
+- my_mce4_options
+- lqd_customize_register
+- createDefaultMenu
+- createSamplePage
+- the_slug_exists
+- assignFrontPage_exists
+- modify_wp_vimeo_embeds
+- jetpackme_responsive_videos_setup
+- gc_sermon_before_after
+- gc_series_before_after
+- filter_media_comment_status
+- lqd_app_view_rewrite_endpoint
+- lqd_app_view_message_page_template
+- lqd_app_view_taxonomy_series_template
+- lqd_app_view_message_template
+- lqd_page_link
+- lqd_series_link
+- lqd_message_link
+\

@@ -1,40 +1,20 @@
 <?php
 /**
- * GC Sermons Style Loader
+ * Liquid Messages Style Loader
  *
  * @since 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
-/**
- * GC Sermons Style Loader.
- *
- * @since 0.1.3
- */
 class GCS_Style_Loader extends GCS_Template_Loader {
 
-	/**
-	 * Template file extension
-	 *
-	 * @var string
-	 * @since 0.1.3
-	 */
+	// Template file extension
 	protected $extension = '.css';
 
-	/**
-	 * Whether to force loading of an already-loaded template.
-	 *
-	 * @var bool
-	 * @since 0.1.3
-	 */
+	// Whether to force loading of an already loaded template.
 	protected $force = false;
 
-	/**
-	 * Keep CSS templates from loading more than once per page.
-	 *
-	 * @var array
-	 * @since 0.1.3
-	 */
+	// Keep CSS templates from loading more than once per page.
 	protected static $done = array();
 
 	/**
@@ -61,7 +41,6 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * @since  0.1.3
 	 *
 	 * @param  boolean $echo Whether to output or return the template
-	 *
 	 * @return string        Rendered template
 	 */
 	public function load( $echo = false ) {
@@ -87,8 +66,6 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 		}
 
 		echo $content;
-
-		return null;
 	}
 
 	/**
@@ -97,7 +74,6 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * @since  0.1.3
 	 *
 	 * @param  string  $content CSS content to format/wrap.
-	 *
 	 * @return string           Formatted CSS in style tag.
 	 */
 	protected function format_css_tag( $content ) {
@@ -140,7 +116,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * @since  0.1.3
 	 *
 	 * @param  string  $template  The template file name, relative to the includes/templates/ folder
-	 *                              - without .php extension
+	 *                           - without .php extension
 	 * @param  string  $name      The name of the specialised template. If array, will take the place of the $args.
 	 * @param  array   $args      An array of arguments to extract as variables into the template
 	 *

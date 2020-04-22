@@ -25,6 +25,10 @@ abstract class WDS_Shortcode_Admin extends Shortcode_Button {
 	/**
 	 * Constructor
 	 *
+	 * @param string $shortcode
+	 * @param string $version
+	 * @param array $atts_defaults
+	 *
 	 * @since 0.1.0
 	 */
 	public function __construct( $shortcode = '', $version = '', $atts_defaults = array() ) {

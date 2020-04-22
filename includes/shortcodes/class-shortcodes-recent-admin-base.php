@@ -1,8 +1,8 @@
 <?php
 /**
- * GC Sermons Recent Series Shortcode - Admin
+ * Liquid Messages Recent Series Shortcode - Admin
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
 {
@@ -67,5 +67,4 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
 
         return $updated;
     }
-
 }

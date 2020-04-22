@@ -1,17 +1,13 @@
 <?php
 /**
- * GC Sermons Topic
+ * Liquid Messages Topic Custom Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCS_Topic extends GCS_Taxonomies_Base {
 
-	/**
-	 * The identifier for this object
-	 *
-	 * @var string
-	 */
+	// Identifier for this object
 	protected $id = 'topic';
 
 	/**
@@ -24,7 +20,7 @@ class GCS_Topic extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Topic', 'gc-sermons' ), __( 'Topics', 'gc-sermons' ), 'gcs-topic' ),
+			'labels' => array( __( 'Topic', 'lqdm' ), __( 'Topics', 'lqdm' ), 'gcs-topic' ),
 			'args' => array(
 				'rewrite' => array( 'slug' => 'sermon-topic' ),
 			),

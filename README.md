@@ -16,8 +16,6 @@ A message/sermon plugin for WordPress.
 
 [Check out the GC-Sermons wiki](https://github.com/jtsternberg/GC-Sermons/wiki) for usage till we get ours up and running.
 
-
-
 ### Dependency Fragility
 Unfortunately, some of the dependencies of Liquid Messages have not aged particularly well. Because of this issue we are committing working versions of these dependencies with the plugin and we cannot recommend running composer at this time due to the likelihood it will break one or more dependencies.
 
@@ -30,13 +28,10 @@ Justin Sternberg (@jsternberg) created the core GC-Sermons WordPress plugin. Liq
 * [FitVid.js 1.1](http://fitvidsjs.com/) - Ensures that videos are responsive rather than fixed width allowing for proper display on a variety of viewports.
 * Composer
 * CMB2
-  * CMB2 Related Links
-  * CMB2 Term Select
-  * CMB2 Post Search Field
-  * CMB2 User Select
+  ** CMB2 Term Select
+  ** CMB2 Post Search Field
 * WordPress Shortcode Button
 * TechCrunch WP Asynchronous Tasks
-* TGMPA
 * CPT_Core
 * Taxonomy_Core
 * WDS Shortcodes

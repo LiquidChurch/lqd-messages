@@ -1,40 +1,26 @@
 <?php
 /**
- * GC Sermons Sermon Series
+ * Liquid Messages Series Custom Taxonomy
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCS_Series extends GCS_Taxonomies_Base {
 
-	/**
-	 * The identifier for this object
-	 *
-	 * @var string
-	 */
+	// Identifier for this object
 	protected $id = 'series';
 
-	/**
-	 * The image meta key for this taxonomy, if applicable
-	 *
-	 * @var string
-	 * @since  0.1.1
-	 */
+	// Image meta key for this taxonomy
 	protected $image_meta_key = 'gc_sermon_series_image';
 
-	/**
-	 * The default args array for self::get()
-	 *
-	 * @var array
-	 * @since  0.1.1
-	 */
+	// Default arguments array for self::get()
 	protected $term_get_args_defaults = array(
 		'image_size' => 'medium',
 	);
 
 	/**
 	 * Constructor
-	 * Register Sermon Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
+	 * Register Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
 	 * @param  object $sermons GCS_Sermons object.
@@ -42,12 +28,12 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Sermon Series', 'gc-sermons' ), __( 'Sermon Series', 'gc-sermons' ), 'gc-sermon-series' ),
+			'labels' => array( __( 'Message Series', 'lqdm' ), __( 'Message Series', 'lqdm' ), 'gc-sermon-series' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,
 				'rewrite' => array(
-				    'slug' => 'sermon-series',
+				    'slug' => 'series',
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
                 ),
@@ -66,7 +52,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	}
 
 	/**
-	 * Add custom fields to the Custom Taxonomy
+	 * Add custom fields to the Series Taxonomy
 	 *
 	 * @since  0.1.0
 	 * @return void
@@ -78,14 +64,14 @@ class GCS_Series extends GCS_Taxonomies_Base {
 			'object_types' => array( 'term' ),
 			'fields'       => array(
 				$this->image_meta_key => array(
-					'name' => __( 'Sermon Series Image', 'gc-sermons' ),
-					'desc' => __( 'Select the series\' branding image', 'gc-sermons' ),
+					'name' => __( 'Sermon Series Image', 'lqdm' ),
+					'desc' => __( 'Select the series\' branding image', 'lqdm' ),
 					'id'   => $this->image_meta_key,
 					'type' => 'file'
 				),
 			),
 		) );
 
-		$this->add_image_column( __( 'Series Image', 'gc-sermons' ) );
+		$this->add_image_column( __( 'Series Image', 'lqdm' ) );
 	}
 }

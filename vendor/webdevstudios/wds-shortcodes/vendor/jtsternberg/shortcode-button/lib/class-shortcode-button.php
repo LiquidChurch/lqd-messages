@@ -4,7 +4,7 @@
  *
  * @todo Fix generic ids possibly conflicting (maybe add a prefix to all fields)
  *
- * @version 1.0.7
+ * @version 1.0.5
  */
 class Shortcode_Button {
 
@@ -16,7 +16,6 @@ class Shortcode_Button {
 	 */
 	const VERSION = SHORTCODE_BUTTONS_VERSION;
 
-	protected $button_slug         = '';
 	protected $button_data         = array();
 	protected $args                = array();
 	protected $index               = 0;
@@ -94,7 +93,7 @@ class Shortcode_Button {
 
 		add_action( 'admin_footer', array( $this, 'get_cmb_config' ), 6 );
 		add_action( 'admin_footer', array( __CLASS__, 'add_quicktag_button_script' ), 7 );
-		add_action( 'wp_ajax_scb_parse_shortcode', array( $this, 'ajax_parse_shortcode' ) );
+		add_action( 'wp_ajax_scb_parse_shortcode', array( __CLASS__, 'ajax_parse_shortcode' ) );
 
 		if ( ! self::$scripts_url ) {
 			$url = set_url_scheme( str_ireplace( ABSPATH, site_url( '/' ), self::$dir ) );
@@ -392,8 +391,8 @@ class Shortcode_Button {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  array  $fields     (Possibly modified) field values
-	 * @param  array  $all_fields Unmodified field values
+	 * @param array $updated
+	 * @param array $allvalues
 	 *
 	 * @return array              Filtered field values
 	 */
@@ -418,23 +417,57 @@ class Shortcode_Button {
 	/**
 	 * Parse shortcode for display within a TinyMCE view.
 	 */
-	public function ajax_parse_shortcode() {
-		if ( empty( $_POST['type'] ) ) {
+	public static function ajax_parse_shortcode() {
+		global $wp_scripts;
+		static $once = false;
+
+		if ( $once ) {
+			return;
+		}
+		$once = true;
+
+		if ( empty( $_POST['shortcode'] ) ) {
 			wp_send_json_error();
 		}
 
-		if ( $this->button_slug !== $_POST['type'] ) {
-			return;
+		$slug = sanitize_text_field( $_POST['type'] );
+		$full_shortcode = wp_kses_post( wp_unslash( $_POST['shortcode'] ) );
+		$shortcode = do_shortcode( $full_shortcode );
+
+		if ( empty( $shortcode ) ) {
+			wp_send_json_error( array(
+				'type' => 'no-items',
+				'message' => __( 'No items found.' ),
+			) );
 		}
 
-		require_once trailingslashit( dirname( __FILE__ ) ) . 'class-shortcode-button-mce.php';
+		$head  = '';
+		$styles = wpview_media_sandbox_styles();
 
-		try {
-			$mce = Shortcode_Button_MCE::ajax_parse_shortcode( $_POST, $this );
-			wp_send_json_success( $mce->get_output() );
-		} catch ( Shortcode_Button_Exception $e ) {
-			wp_send_json_error( $e->get_data() );
+		foreach ( $styles as $style ) {
+			$head .= '<link type="text/css" rel="stylesheet" href="' . $style . '">';
 		}
+
+		if ( ! empty( $wp_scripts ) ) {
+			$wp_scripts->done = array();
+		}
+
+		ob_start();
+		echo $shortcode;
+
+		$send = array(
+			'head' => $head,
+			'body' => ob_get_clean(),
+		);
+
+		$send = apply_filters( "shortcode_button_parse_mce_view_before_send", $send );
+		$send = apply_filters( "shortcode_button_parse_mce_view_before_send_$slug", $send );
+
+		self::send_json_success( $send );
+	}
+
+	public static function send_json_success( $send ) {
+		wp_send_json_success( $send );
 	}
 
 	/**

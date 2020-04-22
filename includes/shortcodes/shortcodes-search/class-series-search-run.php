@@ -1,31 +1,18 @@
 <?php
 /**
- * GC Series Search
+ * Liquid Messages Series Search - Run
  *
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 class GCSS_Series_Search_Run extends GCSS_Series_Run {
 
-	/**
-	 * The current search query.
-	 *
-	 * @var string
-	 */
+	// The current search query.
 	protected $search_query = '';
 
-	/**
-	 * The current search results page number.
-	 *
-	 * @var int
-	 */
+	// The current search results page number.
 	public $current_page = 0;
 
-	/**
-	 * Results of the call to shortcode_callback.
-	 *
-	 * @var mixed
-	 */
+	// Results of the call to shortcode_callback.
 	public $results = '';
 
 	/**
@@ -79,7 +66,7 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 
 		if ( $count > 900 ) {
 			// Whoops, warn!
-			trigger_error( 'You have more than 900 sermon series terms, and search queries which are requesting greater than 900 sermon series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
+			trigger_error( 'You have more than 900 series terms, and search queries which are requesting greater than 900 series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
 		}
 
 		$args = $this->get_pagination( $total_pages );
@@ -132,7 +119,7 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 	 * @return string
 	 */
 	public function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-series-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-series-search-wrap';
 	}
 
 	/**

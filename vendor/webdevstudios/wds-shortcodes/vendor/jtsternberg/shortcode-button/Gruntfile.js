@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 			minify: {
 				expand: true,
 				cwd: '',
-				src: ['css/**/*.css', '!css/**/*.min.css'],
+				src: ['css/**/*.css'],
 				dest: '',
 				ext: '.min.css'
 			}
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			css: {
-				files: ['css/**/*.css', '!css/**/*.min.css'],
+				files: ['css/**/*.css'],
 				tasks: ['cssmin'],
 			},
 
@@ -68,6 +68,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-	grunt.registerTask('js', ['jshint', 'uglify']);
-	grunt.registerTask('default', ['js', 'cssmin']);
+	grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
 };

@@ -52,6 +52,13 @@ class CMB2_Term_Select {
 
 	/**
 	 * Render the field and setup the field for the JS autocomplete.
+	 *
+	 * @param $field
+	 * @param $escaped_value
+	 * @param $object_id
+	 * @param $object_type
+	 * @param $field_type
+	 *
 	 * @since  0.1.0
 	 */
 	public function render_term_select_field( $field, $escaped_value, $object_id, $object_type, $field_type ) {
@@ -134,6 +141,13 @@ class CMB2_Term_Select {
 	/**
 	 * Santize/validate the term search field value.
 	 *
+	 * @param $override_value
+	 * @param $value
+	 * @param $object_id
+	 * @param $args
+	 * @param $sanitizer
+	 *
+	 * @return array|string
 	 * @since  0.1.0
 	 */
 	function sanitize_value( $override_value, $value, $object_id, $args, $sanitizer ) {
@@ -322,6 +336,10 @@ class CMB2_Term_Select {
 
 	/**
 	 * Make term search wildcard on front as well as back
+	 *
+	 * @param $clauses
+	 *
+	 * @return mixed
 	 * @since  0.1.0
 	 */
 	public function wilcard_term_name( $clauses ) {

@@ -45,7 +45,7 @@ if ( ! class_exists( 'CPT_Core' ) ) :
 		 * Optional argument overrides passed in from the constructor.
 		 * @var array
 		 */
-		protected $arg_overrides = array();
+		public $arg_overrides = array();
 
 		/**
 		 * All CPT registration arguments
