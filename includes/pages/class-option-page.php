@@ -32,6 +32,9 @@ class GCS_Option_Page
 
 	/**
 	 * Get Sections Configuration Array
+     *
+     * Breaks down the options into six sections: (1) series view, (2) search view, (3) single series view, (4) single
+     * message view, (5) additional resources options, (6) search criteria.
 	 *
 	 * @return array[]
 	 */
@@ -284,11 +287,11 @@ class GCS_Option_Page
     }
 
 	/**
-	 * Add Plugin Options to Admin Menu
+	 * Add a Settings menu to the Admin Menu
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Plugin Options', 'lqdm'), __('Plugin Options', 'lqdmc'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
+        add_submenu_page('edit.php?post_type=gc-sermons', __('Settings', 'lqdm'), __('Settings', 'lqdmc'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
     }
 
 	/**
@@ -304,7 +307,7 @@ class GCS_Option_Page
             'sections_config_arr' => $this->sections_config_arr
         );
 
-        $view = GCS_Template_Loader::get_template('../includes/pages/sermon-plugin-option-page', $arg);
+        $view = GCS_Template_Loader::get_template('../includes/pages/lqdm-options-page', $arg);
         echo $view;
     }
 
@@ -324,7 +327,7 @@ class GCS_Option_Page
 
         wp_enqueue_style(
             'lc-style-admin',
-            GC_Sermons_Plugin::$url . "assets/css/liquidchurch-style-admin{$min}.css",
+            GC_Sermons_Plugin::$url . "assets/css/lqdm-style-admin{$min}.css",
             array(),
             GC_Sermons_Plugin::VERSION
         );
@@ -346,7 +349,7 @@ class GCS_Option_Page
 
         wp_enqueue_script(
             'lc-func-admin-option-page',
-            GC_Sermons_Plugin::$url . "assets/js/liquidchurch-page-option{$min}.js",
+            GC_Sermons_Plugin::$url . "assets/js/lqdm-admin-options{$min}.js",
             array('jquery', 'lc-jquery-ui-js'),
             GC_Sermons_Plugin::VERSION
         );
@@ -392,7 +395,7 @@ class GCS_Option_Page
     }
 
 	/**
-	 * Validate Plugin Options
+	 * Validate Plugin Settings
 	 *
 	 * @param $input
 	 *

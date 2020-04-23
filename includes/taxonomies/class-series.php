@@ -18,6 +18,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 		'image_size' => 'medium',
 	);
 
+
 	/**
 	 * Constructor
 	 * Register Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php

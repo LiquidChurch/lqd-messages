@@ -1,0 +1,19 @@
+- gc-sermons.php
+    - Determine if there is any advantage to keeping load_plugin_textdomain in init(), if not, move into hooks() and remove init().
+    - Do we need two instances of get_plugin_settings_options, the other instance is in functions.php.
+- jquery.fitvids.js
+    - Is this still necessary?
+- lqdm-videos.js
+    - What portions of this are no longer needed?
+- lqdm-recent-admin.js
+    - Investigate how this operates and if it is necessary.
+- class-metaboxes.php
+    - Should this be integrated into perhaps a post type? e.g., sermon?
+- admin-column.css
+    - Can this file be moved to assets/css?
+- list-item-style.css
+    - Can this file be moved to assets/css?
+- sermon-resources-shortcode.php / sermon-resources-shortcode-*.php
+    - Can these be renamed lqdm-shortcode-resources.php?
+- class-sermons.php
+    - Add options to options page to enable/disable specific fields, e.g., "Messages Notes".

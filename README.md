@@ -10,8 +10,6 @@
 ## Description ##
 A message/sermon plugin for WordPress.
 
-**Please note:** you will need to run `composer install` in order to fetch the dependencies for this plugin/library.
-
 ## Documentation
 
 [Check out the GC-Sermons wiki](https://github.com/jtsternberg/GC-Sermons/wiki) for usage till we get ours up and running.
@@ -26,12 +24,14 @@ Justin Sternberg (@jsternberg) created the core GC-Sermons WordPress plugin. Liq
 
 ## Utilizes
 * [FitVid.js 1.1](http://fitvidsjs.com/) - Ensures that videos are responsive rather than fixed width allowing for proper display on a variety of viewports.
-* Composer
-* CMB2
-  ** CMB2 Term Select
-  ** CMB2 Post Search Field
-* WordPress Shortcode Button
-* TechCrunch WP Asynchronous Tasks
-* CPT_Core
-* Taxonomy_Core
-* WDS Shortcodes
+* [Composer](https://github.com/composer/composer) - But not really atm see above.
+* [CMB2](https://github.com/CMB2/CMB2) - Toolkit for building metaboxes, custom fields, forms.
+  ** [CMB2 Term Select](https://github.com/CMB2/cmb2-term-select) - Select terms to associate with content.
+  ** [CMB2 Post Search Field](https://github.com/CMB2/CMB2-Post-Search-field) - Adds a post search dialog for searching/attaching other post IDs.
+  ** [CMB2 User Select](https://github.com/CMB2/CMB2-User-Select) - Associate users with object.
+* [WordPress Shortcode Button](https://github.com/jtsternberg/Shortcode_Button) - Allows for quickly creating TinyMCE and Quicktag buttons for outputting shortcodes.
+* [TechCrunch WP Asynchronous Tasks](https://github.com/techcrunch/wp-async-task) - Make tasks asynchronous.
+* [CPT_Core](https://github.com/WebDevStudios/CPT_Core) - Helper class for creating CPTs.
+* [Taxonomy_Core](https://github.com/WebDevStudios/Taxonomy_Core) - Helper class for registering custom taxonomies.
+* [WDS Shortcodes](https://github.com/WebDevStudios/WDS-Shortcodes) - Base class for creating shortcodes including ability to add a corresponding button.
+ - This plugin depends upon several other plugins including TGMPA and Shortcode Button. Its reliance on the former has been removed from the version bundled with Liquid Messages.

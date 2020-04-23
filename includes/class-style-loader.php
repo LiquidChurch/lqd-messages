@@ -2,7 +2,6 @@
 /**
  * Liquid Messages Style Loader
  *
- * @since 0.1.3
  * @package Liquid Messages
  */
 

@@ -73,7 +73,7 @@ class GC_Sermons_Plugin
 	// Instance of GCS_Async
 	protected $async;
 
-	// Plugin options settings key
+	// Plugin settings key
 	public static $plugin_option_key = 'lc-plugin-settings';
 
 	// Instance of GCS_Metaboxes

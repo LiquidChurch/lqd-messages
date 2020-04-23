@@ -1,6 +1,10 @@
 <?php
 /**
- * Liquid Messages CPT: Messages
+ * Liquid Messages CPT: Individual Messages
+ *
+ * Built using CPT_Core.
+ *
+ * @link https://github.com/WebDevStudios/CPT_Core
  *
  * @package Liquid Messages
  */
@@ -26,7 +30,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * Constructor
-     * Register Custom Post Types. See documentation in CPT_Core, and in wp-includes/post.php
      *
      * @since  0.1.0
      * @param  object $plugin Main plugin object.
@@ -124,14 +127,16 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * This provides a backup featured image for messages by checking the message series
-	 * for the series featured image. If a message has a featured image set, that will be used.
+	 * Provides a backup featured image for messages by checking the message's series
+	 * for the series featured image.
+     *
+     * If a message has a featured image set, that will be used.
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param  null|array|string $meta      Value that get_metadata() should return - either single or array.
-	 * @param  int               $object_id Object ID.
-	 * @param  string            $meta_key Meta key.
+	 * @param  null|array|string $meta       Value that get_metadata() should return - either single or array.
+	 * @param  int               $object_id  Object ID.
+	 * @param  string            $meta_key   Meta key.
 	 *
 	 * @return mixed Message featured image id, or Series image id, or nothing.
 	 * @throws Exception
@@ -191,7 +196,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * Possibly add a "Coming Soon" prefix to future message titles.
+	 * Add a "Coming Soon" prefix to future message titles.
 	 *
      * @since  0.2.1
      *
@@ -236,7 +241,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'gc_sermon_video_url' => array(
                 'id'   => 'gc_sermon_video_url',
                 'name' => __('Video URL', 'lqdm'),
-                'desc' => __('Enter a youtube, or vimeo URL.', 'lqdm'),
+                'desc' => __('Enter an oembed-supported video URL such as YouTube or Vimeo.', 'lqdm'),
                 'type' => 'oembed',
             ),
             'gc_sermon_video_src' => array(
@@ -249,7 +254,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             'gc_sermon_audio_url' => array(
                 'id'   => 'gc_sermon_audio_url',
                 'name' => __('Audio URL', 'lqdm'),
-                'desc' => __('Enter a soundcloud, spotify, or other oembed-supported web audio URL.', 'lqdm'),
+                'desc' => __('Enter a SoundCloud, Spotify, or other oembed-supported web audio URL.', 'lqdm'),
                 'type' => 'oembed',
             ),
             'gc_sermon_audio_src' => array(
@@ -302,8 +307,9 @@ class GCS_Sermons extends GCS_Post_Types_Base
 
     /**
      * Registers admin columns to display.
+     *
      * @since  0.1.0
-     * @param  array $columns Array of registered column names/labels
+     * @param  array $columns  Array of registered column names/labels
      * @return array           Modified array
      */
     public function columns($columns)
@@ -317,12 +323,14 @@ class GCS_Sermons extends GCS_Post_Types_Base
     }
 
 	/**
-	 * Handles admin column display. Hooked in via CPT_Core.
+	 * Handles admin column display.
+     *
+     * Hooked in via CPT_Core.
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param array $column  Column currently being rendered.
-	 * @param int   $post_id ID of post to display column for.
+	 * @param  array  $column   Column currently being rendered.
+	 * @param  int    $post_id  ID of post to display column for.
 	 *
 	 * @throws Exception
 	 */
@@ -360,12 +368,12 @@ class GCS_Sermons extends GCS_Post_Types_Base
                 }
             }
         } elseif ('thumb-' . $this->post_type() === $column) {
-            echo the_post_thumbnail(array(155, 55));
+            the_post_thumbnail(array(155, 55));
         }
     }
 
     /**
-     * For making custom columns sortable
+     * Make custom columns sortable
      *
      * @since  0.1.7
      *
@@ -423,8 +431,8 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     public function most_recent_with_video()
     {
@@ -446,8 +454,8 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     public function most_recent()
     {
@@ -469,10 +477,10 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $type Media type (audio or video)
+	 * @param   string  $type Media type (audio or video)
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     protected function most_recent_with_media($type = 'video')
     {
@@ -506,8 +514,8 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     public function most_recent_with_audio()
     {
@@ -531,8 +539,8 @@ SQL;
 	 *
 	 * @param $args
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     public function get($args)
     {
@@ -553,8 +561,8 @@ SQL;
 	 *
 	 * @param $args
 	 *
-	 * @return WP_Query WP_Query object
-	 * @throws Exception
+	 * @return  WP_Query  WP_Query object
+	 * @throws  Exception
 	 */
     public function get_many($args)
     {
@@ -584,12 +592,12 @@ SQL;
 	/**
 	 * Retrieve the most recent message which has terms in specified taxonomy.
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+     * @since  0.1.0
+     *
+	 * @param   string $taxonomy_id GCS_Taxonomies_Base taxonomy id
 	 *
-	 * @return false|GCS_Sermon_Post|WP_Error
-	 * @throws Exception
-	 * @since  0.1.0
-	 *
+	 * @return  false|GCS_Sermon_Post|WP_Error
+	 * @throws  Exception
 	 */
     public function most_recent_with_taxonomy($taxonomy_id)
     {
@@ -618,11 +626,11 @@ SQL;
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
-	 * @param  array  $exclude     Array of excluded post IDs
+	 * @param  string  $taxonomy_id  GCS_Taxonomies_Base taxonomy id
+	 * @param  array   $exclude      Array of excluded post IDs
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
+	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @throws  Exception
 	 */
     protected function find_sermon_with_taxonomy($taxonomy_id, $exclude)
     {

@@ -1,32 +1,39 @@
 /** SERIES **/
 .lqdm-series-wrap h4 {
-    clear: both;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
-    padding: .5em;
+  clear: both;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5em;
 }
 
 /* Messages within a Specific Series */
 .lqdm-series-msgs-list {
-    clear: both;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+  clear: both;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.lqdm-series-msgs-list:after {
-    content: '';
-    display: block;
-    clear: both;
+.lqdm-series-msgs-list::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* Individual Items */
 .lqdm-item {
-    position: relative;
-    display: block;
-    list-style-type: none;
-    float: left;
-    padding: .5em;
+  position: relative;
+  display: block;
+  list-style-type: none;
+  float: left;
+  padding: 0.5em;
+}
+
+.lqdm-item,
+.lqdm-item * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .lqdm-1-cols .lqdm-item {
@@ -45,8 +52,21 @@
   width: 25%;
 }
 
+.lqdm-item-link td {
+  padding: 0;
+  vertical-align: middle;
+  background: none;
+}
+
 .lqdm-4-cols .lqdm-item td {
   text-align: center;
+}
+
+.lqdm-item h3 {
+  color: #fff;
+  font-size: 2em;
+  position: relative;
+  padding-bottom: 1.5em;
 }
 
 .lqdm-4-cols .lqdm-item h3 {
@@ -54,271 +74,248 @@
   padding: 0;
 }
 
-.lqdm-item, .lqdm-item * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.lqdm-2-cols .lqdm-item:nth-child(2n+1),
-.lqdm-3-cols .lqdm-item:nth-child(3n+1),
-.lqdm-4-cols .lqdm-item:nth-child(4n+1) {
+.lqdm-2-cols .lqdm-item:nth-child(2n + 1),
+.lqdm-3-cols .lqdm-item:nth-child(3n + 1),
+.lqdm-4-cols .lqdm-item:nth-child(4n + 1) {
   clear: both;
 }
 
 /* Individual Item Image */
 .lqdm-item img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Individual Item Link */
 .lqdm-item-link {
-    display: inline-block;
-    position: relative;
-    margin: 0;
-    width: 100%;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  width: 100%;
 }
 
 /* Show or Hide Thumbnail Shadow on Individual Item Link */
 .lqdm-no-thumb .lqdm-item-link {
-  background-color: rgba(0, 0, 0, .5);
-  padding: .9em .5em .95em;
-  -webkit-transition: background-color .3s ease-in-out;
-  -moz-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.9em 0.5em 0.95em;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
 }
 
 .lqdm-no-thumb .lqdm-item-link:hover {
-  background-color: rgba(0, 0, 0, .7);
-}
-
-.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-shader,
-.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-table-wrapper {
-    opacity: 0;
-}
-
-.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-table-wrapper.always-show-title {
-    opacity: 1;
-}
-
-.lqdm-thumb .lqdm-item-link.hover-opposite:hover .lqdm-msgs-shader {
-    opacity: 0.5;
-}
-
-.lqdm-thumb .lqdm-item-link.hover-opposite:hover .lqdm-msgs-table-wrapper {
-    opacity: 1;
-}
-
-.lqdm-thumb .lqdm-item-link.hover-opposite .lqdm-msgs-table-wrapper {
-    opacity: 0;
-}
-
-.lqdm-thumb .lqdm-item-link.hover-opposite .lqdm-msgs-table-wrapper.always-show-title {
-    opacity: 1;
-}
-
-.lqdm-msgs-table-wrapper {
-    overflow: hidden;
-    text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .lqdm-msgs-shader,
 .lqdm-msgs-table-wrapper,
 .lqdm-item-link table {
-    position: relative;
+  position: relative;
+}
+
+.lqdm-msgs-table-wrapper {
+  overflow: hidden;
+  text-align: center;
 }
 
 .lqdm-thumb .lqdm-msgs-shader,
 .lqdm-thumb .lqdm-msgs-table-wrapper,
 .lqdm-thumb table {
-    position: absolute;
-    -webkit-transition: opacity .3s ease-in-out;
-    -moz-transition: opacity .3s ease-in-out;
-    -o-transition: opacity .3s ease-in-out;
+  position: absolute;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
 }
 
 .lqdm-thumb .lqdm-msgs-shader,
 .lqdm-thumb .lqdm-msgs-table-wrapper,
 .lqdm-item-link table {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    margin-left: 0;
-}
-
-.lqdm-item-link table {
-    border: 10px solid transparent;
-}
-
-.lqdm-item-link img {
-    display: block;
-    position: relative;
-    width: 100%;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin-left: 0;
 }
 
 .lqdm-item-link .lqdm-msgs-shader {
-    background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .lqdm-item-link.hover-opposite .lqdm-msgs-shader {
-    background-color: rgb(0, 0, 0);
-    opacity: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
 }
 
-.lqdm-item-link td {
-    padding: 0;
-    vertical-align: middle;
-    background: none;
+.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-shader,
+.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-table-wrapper {
+  opacity: 0;
 }
 
-.lqdm-item h3 {
-    color: #fff;
-    font-size: 2em;
-    position: relative;
-    padding-bottom: 1.5em;
+.lqdm-thumb .lqdm-item-link:hover .lqdm-msgs-table-wrapper.always-show-title {
+  opacity: 1;
 }
 
-.lqdm-item h3:after {
-    position: absolute;
-    font-family: monospace;
-    font-size: 2em;
-    display: block;
-    line-height: .25em;
-    text-align: center;
-    bottom: .5em;
-    height: 0;
-    width: 100%;
-    left: 50%;
-    margin-left: -50%;
-    padding: 0;
-    -webkit-transition: all .1s ease-in-out;
-    -moz-transition: all .1s ease-in-out;
-    -o-transition: all .1s ease-in-out;
+.lqdm-thumb .lqdm-item-link.hover-opposite:hover .lqdm-msgs-shader {
+  opacity: 0.5;
 }
 
-.lqdm-no-thumb .lqdm-link:hover h3:after {
-    font-size: 2.5em;
-    bottom: .46em;
+.lqdm-thumb .lqdm-item-link.hover-opposite .lqdm-msgs-table-wrapper {
+  opacity: 0;
+}
+
+.lqdm-thumb .lqdm-item-link.hover-opposite:hover .lqdm-msgs-table-wrapper {
+  opacity: 1;
+}
+
+.lqdm-thumb .lqdm-item-link.hover-opposite .lqdm-msgs-table-wrapper.always-show-title {
+  opacity: 1;
+}
+
+.lqdm-item-link table {
+  border: 10px solid transparent;
+}
+
+.lqdm-item-link img {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.lqdm-item h3::after {
+  position: absolute;
+  font-family: monospace;
+  font-size: 2em;
+  display: block;
+  line-height: 0.25em;
+  text-align: center;
+  bottom: 0.5em;
+  height: 0;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
+  padding: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+}
+
+.lqdm-no-thumb .lqdm-link:hover h3::after {
+  font-size: 2.5em;
+  bottom: 0.46em;
 }
 
 .lqdm-next-link {
-    float: right;
+  float: right;
 }
 
-.lqdm-next-link a span, .lqdm-prev-link a:before {
-    display: inline-block;
-    font-family: monospace;
-    font-size: 2em;
+.lqdm-next-link a span,
+.lqdm-prev-link a::before {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 2em;
 }
 
 .lqdm-prev-link a span {
-    display: none;
+  display: none;
 }
 
-.lqdm-prev-link a:before {
-    /* Because &rarr; looks better w/ monospace font, so flip it. */
-    content: '→';
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
+.lqdm-prev-link a::before {
+  /* Because &rarr; looks better w/ monospace font, so flip it. */
+  content: "→";
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
 }
 
-.lqdm-prev-next:after {
-    content: '';
-    display: block;
-    clear: both;
+.lqdm-prev-next::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .lqdm-msg-title {
-    padding: 0 0 !important;
+  padding: 0 0 !important;
 }
 
 /* Is this actually used? */
 .lqdm-left-col {
-    font-weight: 700;
-    font-size: 1em;
-    padding-left: 30px;
+  font-weight: 700;
+  font-size: 1em;
+  padding-left: 30px;
 }
 
 .lqdm-right-col {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .lqdm-msg-resources-list-item a {
-    font-size: .8em;
+  font-size: 0.8em;
 }
 
 /* Is this used? */
 .lqdm-msg-resources-list-item {
-    margin-bottom: 1px;
+  margin-bottom: 1px;
 }
 
 .lqdm-other-msgs .lqdm-series-msgs-list {
-    padding-right: 30px;
-    padding-left: 0;
-    padding-top: 50px;
-    font-size: 1em;
+  padding-right: 30px;
+  padding-left: 0;
+  padding-top: 50px;
+  font-size: 1em;
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1200px) {
-    .lqdm-left-col {
-        font-size: 18px;
-        line-height: 120%;
-    }
+  .lqdm-left-col {
+    font-size: 18px;
+    line-height: 120%;
+  }
 
-    .lqdm-right-col {
-        font-size: 18px;
-        line-height: 120%;
-    }
+  .lqdm-right-col {
+    font-size: 18px;
+    line-height: 120%;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
+  .lqdm-item h3 {
+    font-size: 1.5em;
+  }
 
-    .lqdm-item h3 {
-        font-size: 1.5em;
-    }
-
-    .lqdm-4-cols .lqdm-item h3 {
-        font-size: 1em;
-    }
+  .lqdm-4-cols .lqdm-item h3 {
+    font-size: 1em;
+  }
 }
 
 @media only screen and (max-width: 775px) {
+  .lqdm-3-cols .lqdm-item,
+  .lqdm-4-cols .lqdm-item {
+    width: 50%;
+  }
 
-    .lqdm-3-cols .lqdm-item,
-    .lqdm-4-cols .lqdm-item {
-        width: 50%;
-    }
+  .lqdm-3-cols .lqdm-item:nth-child(3n + 1),
+  .lqdm-4-cols .lqdm-item:nth-child(4n + 1) {
+    clear: none;
+  }
 
-    .lqdm-3-cols .lqdm-item:nth-child(3n+1),
-    .lqdm-4-cols .lqdm-item:nth-child(4n+1) {
-        clear: none;
-    }
+  .lqdm-3-cols .lqdm-item:nth-child(2n + 1),
+  .lqdm-4-cols .lqdm-item:nth-child(2n + 1) {
+    clear: both;
+  }
 
-    .lqdm-3-cols .lqdm-item:nth-child(2n+1),
-    .lqdm-4-cols .lqdm-item:nth-child(2n+1) {
-        clear: both;
-    }
-
-    .lqdm-4-cols .lqdm-item h3 {
-        font-size: 1.5em;
-    }
-
+  .lqdm-4-cols .lqdm-item h3 {
+    font-size: 1.5em;
+  }
 }
 
 @media only screen and (max-width: 500px) {
+  .lqdm-2-cols .lqdm-item,
+  .lqdm-3-cols .lqdm-item,
+  .lqdm-4-cols .lqdm-item {
+    width: 100%;
+  }
 
-    .lqdm-2-cols .lqdm-item,
-    .lqdm-3-cols .lqdm-item,
-    .lqdm-4-cols .lqdm-item {
-        width: 100%;
-    }
-
-    .lqdm-item h3 {
-        font-size: 1.4em;
-    }
-
+  .lqdm-item h3 {
+    font-size: 1.4em;
+  }
 }

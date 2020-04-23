@@ -246,7 +246,7 @@ function gc__get_arg($arg, $default = null)
 }
 
 /**
- * Get Plugin Options
+ * Get Plugin Settings
  *
  * @param string $arg1
  * @param string $arg2

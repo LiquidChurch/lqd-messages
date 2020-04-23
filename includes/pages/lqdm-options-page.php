@@ -3,8 +3,8 @@ $sections_config_arr = $this->get('sections_config_arr');
 ?>
 
 <div class="wrap lqdm-msg-config-wrap">
-    <h2><?php echo __('Plugin Options', 'lqdm') ?></h2>
-    <p> <?php echo __('Options related to the Plugin.', 'lqdm') ?></p>
+    <h2><?php echo __('Settings', 'lqdm') ?></h2>
+    <p> <?php echo __('Settings related to the Plugin.', 'lqdm') ?></p>
     <div id="tabs">
         <ul>
             <?php
