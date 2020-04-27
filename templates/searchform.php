@@ -1,7 +1,7 @@
 <form role="search" method="get" class="search-form lqdm-msgs-search"
       action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
 
-    <div class="row first-row">
+    <div class="row lqdt-first-row">
         <div class="col-md-3">
             <label class="screen-reader-text"><?php _ex('Search for :', 'label'); ?></label>
         </div>
@@ -20,7 +20,7 @@
     </div>
 
     <?php if ($this->get('show_filter')) : ?>
-        <div class="row second-row">
+        <div class="row lqdt-second-row">
             <div class="col-md-3">
                 <label><?php _ex('Show search results for :', 'Search results filter', 'lqdm'); ?></label>
             </div>

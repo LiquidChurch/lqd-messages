@@ -10,7 +10,7 @@
             if (empty($items[$val]))
                 continue;
             printf('<li class="lqdm-list" style="%s">', $lc_list_style);
-            printf('<ul class="lqdm-container %s">', $lc_container_class);
+            printf('<ul class="lqdm-resource-wrapper %s">', $lc_container_class);
             printf('<li class="lqdm-resources-lang">%s</li>', $lang_plugin_option[$val]);
             foreach ($items[$val] as $ik => $iv) {
                 echo $iv;

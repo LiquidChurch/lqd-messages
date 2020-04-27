@@ -265,6 +265,48 @@
   font-size: 1em;
 }
 
+/** Container around Resources */
+ul.lqdm-resource-wrapper {
+  padding: 0;
+}
+
+/* For Header Text */
+.lqdm-resources-lang {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+ul.lqdm-msg-resources-list li {
+  list-style-type: none;
+}
+
+ul.lqdm-msg-resources-list li.lqdm-list {
+  width: 45%;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  vertical-align: top;
+}
+
+ul.lqdm-msg-resources-list li.lqdm-msg-resources-list-item {
+  width: 100%;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+
+/** If we only have resources in 1x language, then use 100% of width of row. */
+ul.lqdm-msg-resources-list
+ul.lqdm-single-lng-resources
+li.lqdm-msg-resources-list-item {
+  width: 100%;
+}
+
+.lqdm-search-results-title {
+  display: block;
+  font-size: 28px;
+}
+
 @media only screen and (min-width: 1001px) and (max-width: 1200px) {
   .lqdm-left-col {
     font-size: 18px;
