@@ -1,0 +1,41 @@
+- class-shortcodes-run-base.php
+    - Class: GCS_Shortcodes_Run_Base (extends WDS_Shortcodes)
+        - __construct
+        - get_sermon
+        - most_recent_sermon
+- class-shortcodes-recent-admin-base.php
+    - Abstract Class: GCSS_Recent_Admin_Base (extends GCS_Shortcodes_Admin_Base)
+        - __construct
+        - enqueue_js
+        - maybe_remove_recent_attribute
+- class-shortcodes-base.php
+    - Abstract Class: GCS_Shortcodes_Base
+        - __construct
+        - hooks
+- class-shortcodes-admin-base.php
+    - Abstract Class: GCS_Shortcodes_Admin_Base (extends WDS_Sortcode_Admin)
+        - __construct
+        - maybe_remove_prefixes
+- class-shortcodes.php
+    - Class: GCS_Shortcodes
+        - __construct
+        - __get
+- shortcodes-sermons
+    - class-admin.php
+        - Class: GCSS_Sermons_Admin (extends GCS_Shortcodes_Admin_Base)
+            - __construct
+            - js_button_data
+            - fields
+            - return_taxonomy_term_id_only
+    - class-run.php
+        - Class: GCSS_Sermons_Run (extends GCS_Shortcodes_Run_Base)
+            - __construct
+            - shortcode
+            - map_related_term_args
+            - get_initial_query_args
+            - map_sermon_args
+            - get_pagination
+            - get_wrap_classes
+    - class-shortcode.php
+        - Class: GCS_Shortcodes_Sermons (extends GCS_Shortcodes Base)
+            - __construct

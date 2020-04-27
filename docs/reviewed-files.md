@@ -1,0 +1,122 @@
+- gc-sermons.php
+    - Class: GC_Sermons_Plugin
+        - __construct
+        - activate
+        - deactivate
+        - get_instance
+        - attach_plugin_classes
+            - $this->sermons = GCS_Sermons
+            - $this->taxonomies = GCS_Taxonomies
+            - $this->async = GCS_Async
+            - $this->metaboxes = GCS_Metaboxes (or an object)
+                - We cannot change the properties of the metabox object without potentially causing breakage in the DB, thus, these must remain:
+                - gc_addtl_resources_metabox, gc_addtl_resources, gc_display_order_metabox, gc_display_order, gc_exclude_msg, gc_video_msg_pos
+            - $this->shortcodes = GCS_Shortcodes
+            - $this->option_page = GCS_Option_Page
+        - init
+        - __get
+        - get_plugin_settings_options
+    - gc_sermons
+- functions.php
+    - gc_get_sermon_post - Gets GCS_Sermon_Post object
+    - gc_get_sermon_series_info - Gets info for series attached to message.
+    - gc_get_sermon_speaker_info - Gets info for speaker attached to message.
+    - gc_get_sermon_video_player - Gets video player for message.
+    - gc_get_sermon_audio_player - Gets audio player for message.
+    - gc_search_get_next_results_link - Gets next search results page link.
+    - gc_search_get_previous_results_link - Gets previous search results page link.
+    - gc__get_arg - Helper function for getting $_GET values w/optional default value.
+    - get_plugin_settings_options
+- class-async.php
+    - Class: GCS_Async
+        - __construct
+        - prepare_data
+        - run_action
+- class-metaboxes.php
+    - Class: GCS_Metaboxes
+        - __construct
+        - hooks
+        - add_metabox
+        - get_disp_name_fld_option
+        - get_lng_fld_option
+        - enqueue_box_js
+        - meta_addtnl_type_text_number
+- class-sermon-post.php
+    - Class: GCS_Sermon_Post
+        - __construct
+        - init_media
+        - add_media_type
+        - get_video_player
+        - get_audio_player
+        - permalink
+        - title
+        - loop_excerpt
+        - featured_image
+        - featured_image_id
+        - series_image
+        - get_speakers
+        - get_speaker
+        - get_series
+        - get_scriptures
+        - get_others_in_series
+        - get_others_by_speaker
+        - series
+        - scripture
+        - speakers
+        - topics
+        - init_taxonomy
+        - get_meta
+        - __get
+        - __isset
+        - translate_property
+- class-style-loader.php
+    - Class: GCS_Style_Loader (extends GCS_Template_Loader)
+        - __construct
+        - load
+        - format_css_tag
+        - get_template
+        - output_template
+- class-template-loader.php
+    - Class: GCS_Template_Loader
+        - __construct
+        - load
+        - locate_template
+        - _locate
+        - get
+        - output
+        - maybe_output
+        - __toString
+        - get_template
+        - output_template
+- class-post-types-base.php
+    - Abstract Class: GCS_Post_Types_Base (extends CPT_Core)
+        - __construct
+        - filter_values
+        - post_type
+        - hooks
+        - new_cmb2
+        - __get
+- class-sermons.php
+    - Class: GCS_Sermons (extends GCS_Post_Types_Base)
+    - __construct
+    - hooks
+    - admin_hooks
+    - remove_default_boxes_for_sermons
+    - featured_image_fallback_to_series_image
+    - save_future_as_published
+    - label_coming_soon
+    - fields
+    - get_excerpt
+    - columns
+    - columns_display
+    - columns_sortable
+    - columns_sort_func
+    - admin_column_css
+    - most_recent_with_video
+    - most_recent
+    - most_recent_with_media
+    - most_recent_with_audio
+    - get
+    - get_many
+    - most_recent_with_taxonomy
+    - find_sermon_with_taxonomy

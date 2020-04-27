@@ -53,7 +53,7 @@ class ComposerStaticInitd2d471ad4ea841f4e72a71a73f07c2f7
 	    'GCS_Speaker'                        => __DIR__ . '/../..' . '/includes/taxonomies/class-speaker.php',
 	    'GCS_Style_Loader'                   => __DIR__ . '/../..' . '/includes/class-style-loader.php',
 	    'GCS_Tag'                            => __DIR__ . '/../..' . '/includes/taxonomies/class-tag.php',
-	    'GCS_Option_Page'                    => __DIR__ . '/../..' . '/includes/pages/class-option-page.php',
+	    'GCS_Option_Page'                    => __DIR__ . '/../..' . '/includes/pages/class-settings-page.php',
 	    'GCS_Taxonomies'                     => __DIR__ . '/../..' . '/includes/taxonomies/class-taxonomies.php',
 	    'GCS_Taxonomies_Base'                => __DIR__ . '/../..' . '/includes/taxonomies/class-taxonomies-base.php',
 	    'GCS_Template_Loader'                => __DIR__ . '/../..' . '/includes/class-template-loader.php',

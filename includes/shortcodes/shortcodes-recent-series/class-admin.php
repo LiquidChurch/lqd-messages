@@ -4,7 +4,6 @@
  *
  * @package Liquid Messages
  */
-
 class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 
 	// Shortcode prefix for field ids.

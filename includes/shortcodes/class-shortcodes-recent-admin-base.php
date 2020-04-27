@@ -30,19 +30,19 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
     public function enqueue_js()
     {
         wp_register_script(
-            'gc-sermons-admin',
+            'lqdm-recent-admin',
             GC_Sermons_Plugin::$url . 'assets/js/lqdm-recent-admin.js',
             array('jquery'),
             GC_Sermons_Plugin::VERSION,
             true
         );
-        wp_localize_script('gc-sermons-admin', 'php_vars', array(
+        wp_localize_script('lqdm-recent-admin', 'php_vars', array(
                 'postID' => $_GET['post'],
                 'nonce' => wp_create_nonce('scripterz-nonce')
             )
         );
         wp_enqueue_script(
-            'gc-sermons-admin'
+            'lqdm-recent-admin'
         );
     }
 

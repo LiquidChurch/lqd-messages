@@ -1,5 +1,7 @@
 /**
- * Liquid Messages Admin Functionality
+ * Liquid Settings Page
+ *
+ * Handles the tabbed user interface.
  */
 
 window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};

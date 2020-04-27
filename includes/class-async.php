@@ -42,7 +42,7 @@ class GCS_Async extends WP_Async_Task {
 		$taxonomy = $data[3];
 
 		if ( $this->plugin->sermons->post_type() !== get_post_type( $object_id ) ) {
-			throw new Exception( 'We only want async tasks for sermons' );
+			throw new Exception( 'We only want async tasks for messages' );
 		}
 
 		return compact( 'object_id', 'taxonomy' );

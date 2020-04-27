@@ -307,7 +307,7 @@ class GCS_Option_Page
             'sections_config_arr' => $this->sections_config_arr
         );
 
-        $view = GCS_Template_Loader::get_template('../includes/pages/lqdm-options-page', $arg);
+        $view = GCS_Template_Loader::get_template('../includes/pages/lqdm-settings-page', $arg);
         echo $view;
     }
 
@@ -319,14 +319,14 @@ class GCS_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_style(
-            'lc-jquery-ui-css',
+            'lqdm-jquery-ui-css',
             '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui' . $min . '.css',
             array(),
             GC_Sermons_Plugin::VERSION
         );
 
         wp_enqueue_style(
-            'lc-style-admin',
+            'lqdm-style-admin',
             GC_Sermons_Plugin::$url . "assets/css/lqdm-style-admin{$min}.css",
             array(),
             GC_Sermons_Plugin::VERSION
@@ -341,22 +341,18 @@ class GCS_Option_Page
         $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
         wp_enqueue_script(
-            'lc-jquery-ui-js',
+            'lqdm-jquery-ui-js',
             '//code.jquery.com/ui/1.12.0/jquery-ui' . $min . '.js',
             array('jquery'),
             GC_Sermons_Plugin::VERSION
         );
 
         wp_enqueue_script(
-            'lc-func-admin-option-page',
-            GC_Sermons_Plugin::$url . "assets/js/lqdm-admin-options{$min}.js",
-            array('jquery', 'lc-jquery-ui-js'),
+            'lqdm-admin-settings-page',
+            GC_Sermons_Plugin::$url . "assets/js/lqdm-admin-settings{$min}.js",
+            array('jquery', 'lqdm-jquery-ui-js'),
             GC_Sermons_Plugin::VERSION
         );
-
-        wp_localize_script('lc-func-admin-message-config', 'LiquidChurchAdmin', array(
-            'path' => '/',
-        ));
     }
 
 	/**

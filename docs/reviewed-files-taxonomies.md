@@ -1,0 +1,49 @@
+- class-scripture.php
+    - Class: GCS_Scripture (extends GCS_Taxonomies_Base)
+        - __construct
+        - hooks
+- class-series.php
+    - Class: GCS_Series (exnteds GCS_Taxonomies_Base)
+        - __construct
+        - hooks
+        - fields
+- class-speaker.php
+    - Class: GCS_Speaker ...
+        - __construct
+        - hooks
+        - fields
+        - extra_term_data
+        - augment_speaker_info
+        - maybe_use_avatar
+- class-tag.php
+    - Class: GCS Tag ...
+    - __construct
+    - hooks
+- class-topic.php
+    - Class: GCS Topic ...
+        - __construct
+        - hooks
+- class-taxonomies.php
+    - Class: GCS_Taxonomies 
+        - __construct
+        - __get
+- class-taxonomies-base.php
+    - Class: GCS_Taxonomies_Base (extends Taxonomy_Core)
+    - __construct
+    - filter_values
+    - add_image_column
+    - add_column_header
+    - add_column_value
+    - hooks
+    - new_cmb2
+    - most_recent
+    - most_recent_sermon
+    - get_many
+    - search
+    - get
+    - extra_term_data
+    - add_image
+    - get_terms_in_sermon_data_order
+    - trigger_cache_flush
+    - get_terms
+    - __get

@@ -46,40 +46,40 @@ require 'vendor/autoload.php';
  */
 class GC_Sermons_Plugin
 {
-	// Current Version
+	/** @var string Current Version of Plugin */
 	const VERSION = '1.0.0';
 
-	// URL of plugin directory
+    /** @var string URL of plugin directory */
 	public static $url = '';
 
-	// Path of plugin directory
+    /** @var string Path of plugin */
 	public static $path = '';
 
-	// Plugin basename
+	/** @var string Plugin basename */
 	public static $basename = '';
 
-	// Singleton instance of plugin
+	/** @var null Singleton instance of plugin */
 	protected static $single_instance = null;
 
-	// Instance of GCS_Sermons
+	/** @var GCS_Sermons Instance of GCS_Sermons */
 	protected $sermons;
 
-	// Instance of GCS_Taxonomies
+	/** @var GCS_Taxonomies Instances of GCS_Taxonomies */
 	protected $taxonomies;
 
-	// Instance of GCS_Shortcodes
+	/** @var GCS_Shortcodes Instance of GCS_Shortcodes */
 	protected $shortcodes;
 
-	// Instance of GCS_Async
+	/** @var GCS_Async Instance of GCS_Async */
 	protected $async;
 
-	// Plugin settings key
+	/** @var string Plugin options setting key */
 	public static $plugin_option_key = 'lc-plugin-settings';
 
-	// Instance of GCS_Metaboxes
+	/** @var GCS_Metaboxes Instance of GCS_Metaboxes */
 	protected $metaboxes;
 
-	// Instance of GCS_Option_Page
+	/** @var GCS_Option_Page Instance of GCS_Option_Page */
 	protected $option_page;
 
 	/**
@@ -148,7 +148,7 @@ class GC_Sermons_Plugin
 	public function hooks()
 	{
 			add_action('init', array($this, 'init'));
-			$this->plugin_classes();
+			$this->attach_plugin_classes();
 	}
 
 	/**
@@ -158,7 +158,7 @@ class GC_Sermons_Plugin
 	 * @return void
 	 * @throws Exception
 	 */
-	public function plugin_classes()
+	public function attach_plugin_classes()
 	{
 		require_once self::$path . 'functions.php';
 
@@ -167,7 +167,7 @@ class GC_Sermons_Plugin
 		$this->taxonomies = new GCS_Taxonomies($this->sermons);
 		$this->async = new GCS_Async($this);
 
-		// Only create the full metabox object if in the admin.
+		// Only create the full metabox object if in admin.
 		if (is_admin()) {
 			$this->metaboxes = new GCS_Metaboxes( $this );
 			$this->metaboxes->hooks();

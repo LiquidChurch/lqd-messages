@@ -109,7 +109,7 @@ class GCS_Metaboxes
 				'remove_button' => __( 'Remove Resource', 'lqdm' ),
 				'sortable'      => true,
 			),
-			'after_group' => array( $this, 'enqueu_box_js' ),
+			'after_group' => array( $this, 'enqueue_box_js' ),
 		);
 
 		$sub_fields = array(
@@ -225,18 +225,18 @@ class GCS_Metaboxes
 	 *
 	 * @param $args
 	 */
-	public function enqueu_box_js( $args ) {
+	public function enqueue_box_js( $args ) {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_script(
-			'lc-func-admin',
-			GC_Sermons_Plugin::$url . "assets/js/liquidchurch-functionality-admin{$min}.js",
+			'lqdm-admin',
+			GC_Sermons_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
 			array( 'cmb2-scripts' ),
 			GC_Sermons_Plugin::VERSION,
 			1
 		);
 
-		wp_localize_script( 'lc-func-admin', 'LiquidChurchAdmin', array( 'id' => $args['id'] ) );
+		wp_localize_script( 'lqdm-admin', 'LiquidChurchAdmin', array( 'id' => $args['id'] ) );
 	}
 
 	/**

@@ -1,4 +1,4 @@
-window.GCSermonsAdmin = window.GCSermonsAdmin || {};
+window.LqdMAdmin = window.LqdMAdmin || {};
 
 (function (window, document, $, app, undefined) {
   "use strict";
@@ -47,4 +47,4 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
   };
 
   $(app.init);
-})(window, document, jQuery, window.GCSermonsAdmin);
+})(window, document, jQuery, window.LqdMAdmin);
