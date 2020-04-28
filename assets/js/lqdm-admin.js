@@ -1,5 +1,5 @@
 /**
- * Liquid Messages Admin Functionality
+ * Liquid Messages Admin JavaScript
  */
 
 window.LiquidChurchAdmin = window.LiquidChurchAdmin || {};

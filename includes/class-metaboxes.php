@@ -7,25 +7,25 @@
 
 class GCS_Metaboxes
 {
-	// Additional Resources CMB2 id.
+    /** @var string $resources_box_id Additional Resources CMB2 id. */
 	public $resources_box_id = '';
 
-	// Display order CMB2 id
+    /** @var string $display_ordr_box_id Display order CMB2 id */
 	public $display_ordr_box_id = '';
 
-	// Additional Resources meta id
+    /** @var string $resources_meta_id Additional resources meta id */
 	public $resources_meta_id = '';
 
-	// Display Order Meta ID
+    /** @var string $display_ordr_meta_id Display order meta id */
 	public $display_ordr_meta_id = '';
 
-	// Exclude Message Meta ID
+    /** @var string $exclude_msg_meta_id Exclude message meta id */
     public $exclude_msg_meta_id = '';
 
-    // Video Message Appear in Position
+    /** @var string $video_msg_appear_pos Video message appears in position */
     public $video_msg_appear_pos = '';
 
-    // Parent plugin class
+    /** @var object|null $plugin Parent plugin class */
     protected $plugin = null;
 
 	/**

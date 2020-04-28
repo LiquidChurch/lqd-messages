@@ -7,13 +7,13 @@
 class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
 {
 
-	// The Shortcode Tag
+	/** @var string $shortcode The Shortcode Tag */
 	public $shortcode = 'gc_series';
 
-	// GCS_Series Object
+    /** @var GCS_Series $series GCS Series Object */
 	public $series;
 
-	// Array of default attributes applied to the shortcode.
+    /** @var array $atts_defaults Array of default attributes applied to the shortcode */
 	public $atts_defaults = array(
 			'per_page'          => 10, // Will use WP's per-page option.
 			'remove_dates'      => false,
@@ -43,7 +43,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
 	public function __construct(GCS_Sermons $sermons, GCS_Series $series)
 	{
 		$this->series = $series;
-		$this->atts_defaults['paging_init_year'] = array(date('Y', time()));
+		$this->atts_defaults['paging_init_year'] = array(date('Y'));
 		parent::__construct($sermons);
 	}
 

@@ -7,10 +7,10 @@
 
 class GCS_Async extends WP_Async_Task {
 
-	// Parent plugin class
-	protected $plugin = null;
+    /** @var null|object $plugin Parent plugin class  */
+	protected $plugin;
 
-	// Action to perform
+    /** @var string $action Action to perform */
 	protected $action = 'set_object_terms';
 
 	/**

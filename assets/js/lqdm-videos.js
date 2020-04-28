@@ -1,3 +1,8 @@
+/**
+ * Liquid Messages Video
+ * 
+ * @type {*|{}}
+ */
 window.GCVideoModal = window.GCVideoModal || {};
 
 (function (window, document, $, app, undefined) {

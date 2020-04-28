@@ -8,13 +8,13 @@
 class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
 {
 
-    // Keep track of the levels of inception.
+    /** @var int $inception_levels Keep track of levels of inception */
     protected static $inception_levels = 0;
 
-    // The Shortcode Tag
+    /** @var string $shortcode The shortcode tag */
     public $shortcode = 'gc_sermons';
 
-    // Array of default attributes applied to the shortcode.
+    /** @var array $atts_defaults Array of default attributes applied to the shortcode */
     public $atts_defaults = array(
         'per_page'          => 10, // Will use WP's per-page option.
         'content'           => 'excerpt',
@@ -28,7 +28,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         'related_series'    => 0,
     );
 
-    // GCS_Taxonomies Object
+    /** @var GCS_Taxonomies GCS_Taxonomies Object */
     public $taxonomies;
 
     /**
@@ -67,17 +67,22 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
             return '';
         }
 
+        // If it is not an excluded post / it is singular / and is of the desired post type
         if (!isset($args['post__not_in']) && is_singular($this->sermons->post_type())) {
+            // Make it an excluded post
             $args['post__not_in'] = array(get_queried_object_id());
         } elseif(is_singular($this->sermons->post_type())) {
+            // Get posts that have specified meta_key with value
             $get_video_post = get_posts(array(
                 'post_type' => $this->sermons->post_type(),
                 'meta_key' => 'gc_exclude_msg',
                 'meta_value' => 'on',
             ));
 
+            // Retrieve the ID field from each post
             $get_video_post_ids = wp_list_pluck($get_video_post, 'ID');
 
+            // Merge our lists of excluded messages.
             $args['post__not_in'] = array_unique(array_merge($args['post__not_in'], $get_video_post_ids));
         }
 
@@ -91,7 +96,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $sermons = $this->map_sermon_args($sermons, $my_level);
 
         $content = '';
-        if (0 === $my_level) {
+        if ( $my_level === 0 ) {
             $content .= GCS_Style_Loader::get_template('list-item-style');
         }
 
@@ -135,7 +140,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
                 continue;
             }
 
-            if ('this' !== $this->att($param)) {
+            if ( $this->att($param) !== 'this' ) {
                 continue;
             }
 
@@ -220,7 +225,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
             $sermon['description']    = '';
             $sermon['do_description'] = $do_content;
             if ($do_content) {
-                $sermon['description'] = 'excerpt' === $type_of_content
+                $sermon['description'] = $type_of_content === 'excerpt'
                     ? $obj->loop_excerpt()
                     : apply_filters('the_content', $obj->post_content);
             }

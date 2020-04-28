@@ -11,16 +11,16 @@
 class GCS_Sermons extends GCS_Post_Types_Base
 {
 
-    // Bypass Temporary Cache Boolean
+    /** @var bool $flush Bypass temporary cache */
     public $flush = false;
 
-    // Identifier for this object
+    /** @var string $id Identifier for this object */
     protected $id = 'sermon';
 
-    // Parent plugin class
+    /** @var null $plugin Parent plugin class  */
     protected $plugin = null;
 
-    // Array of default WP_Query arguments
+    /** @var array $query_args Array of default WP_Query args */
     protected $query_args = array(
         'post_type'      => 'THIS(REPLACE)',
         'post_status'    => 'publish',
@@ -487,7 +487,7 @@ SQL;
         $sermon = false;
 
         // Only audio/video allowed.
-        $type = 'video' === $type ? $type : 'audio';
+        $type = $type === 'video' ? $type : 'audio';
 
         $args = $this->query_args;
         $args['meta_query'] = array(
@@ -521,7 +521,7 @@ SQL;
     {
         static $sermon = null;
 
-        if (null === $sermon || $this->flush) {
+        if ( $sermon === null || $this->flush) {
             $sermon = $this->most_recent();
 
             if (empty($sermon->media['audio'])) {

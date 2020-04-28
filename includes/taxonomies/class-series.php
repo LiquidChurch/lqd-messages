@@ -7,13 +7,13 @@
 
 class GCS_Series extends GCS_Taxonomies_Base {
 
-	// Identifier for this object
+    /** @var string $id Identifier for this object */
 	protected $id = 'series';
 
-	// Image meta key for this taxonomy
+    /** @var string $image_meta_key Image meta key for this taxonomy */
 	protected $image_meta_key = 'gc_sermon_series_image';
 
-	// Default arguments array for self::get()
+    /** @var string[] $term_get_args_defaults Default arguments array for self::get() */
 	protected $term_get_args_defaults = array(
 		'image_size' => 'medium',
 	);

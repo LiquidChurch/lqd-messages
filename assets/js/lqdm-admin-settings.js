@@ -1,5 +1,5 @@
 /**
- * Liquid Settings Page
+ * Liquid Messages Admin Settings Page
  *
  * Handles the tabbed user interface.
  */

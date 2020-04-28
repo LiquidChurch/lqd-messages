@@ -1,3 +1,8 @@
+/**
+ * Liquid Messages Recent Admin
+ * 
+ * @type {*|{}}
+ */
 window.LqdMAdmin = window.LqdMAdmin || {};
 
 (function (window, document, $, app, undefined) {

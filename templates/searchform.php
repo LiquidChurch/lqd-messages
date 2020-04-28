@@ -20,7 +20,7 @@
     </div>
 
     <?php if ($this->get('show_filter')) : ?>
-        <div class="row lqdt-second-row">
+        <div class="row lqdm-second-row">
             <div class="col-md-3">
                 <label><?php _ex('Show search results for :', 'Search results filter', 'lqdm'); ?></label>
             </div>
