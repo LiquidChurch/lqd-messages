@@ -39,9 +39,9 @@ A brief outline of the classes used by the Liquid Messages Plugin. The CSS files
 - lqdm-item-link
 - lqdm-no-thumb
 - lqdm-thumb
-- lqdm-msgs-shader
+- lqdm-msgs-overlay
 - lqdm-msgs-table-wrapper
-- always-show-title
+- lqdm-always-show-title
 - lqdm-next-link
 - lqdm-prev-link
 - lqdm-msg-title

@@ -7,10 +7,10 @@
 class GCSS_Resources_Run extends GCS_Shortcodes_Run_Base
 {
 
-	// The Shortcode Tag
+    /** @var string $shortcode The shortcode tag */
 	public $shortcode = 'sermon_resources';
 
-	// Array of default attributes applied to the shortcode.
+    /** @var array $atts_defaults Array of default attributes applied to shortcode */
 	public $atts_defaults = array(
         'data_type'              => 'sermon', // File or URL
 		'resource_type'          => array( 'files', 'urls', ), // File or URL
@@ -21,10 +21,10 @@ class GCSS_Resources_Run extends GCS_Shortcodes_Run_Base
         'resource_lang'          => array(), // For resource language
 	);
 
-    // Additional Resources meta id.
+    /** @var string $meta_id Additional resources meta id */
     protected $meta_id = '';
 
-    // Additional Resources default language
+    /** @var string $default_lang Additional resources default language */
     protected $default_lang = 'eng';
 
 	/**
@@ -60,7 +60,7 @@ class GCSS_Resources_Run extends GCS_Shortcodes_Run_Base
     protected function _shortcode()
     {
         $data_type = $this->att('data_type');
-        $post_id = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id);
+        $post_id   = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id);
 
 		if ( 'this' === $post_id ) {
             $post_id = $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id;
@@ -197,7 +197,7 @@ class GCSS_Resources_Run extends GCS_Shortcodes_Run_Base
             $resource['do_display_name'] = $resource_display_name;
 
             $type = isset($resource['type']) ? $resource['type'] : '';
-            if ('video' === $type && isset($resource['file'])) {
+            if ( $type === 'video' && isset($resource['file'])) {
                 $resource['embed_args'] = array(
                     'url' => $resource['file'],
                     'src' => $resource['file']

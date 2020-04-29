@@ -135,10 +135,10 @@ class GCS_Sermon_Post {
 		}
 
 		$video_player = '';
-		if ('url' === $video['type']) { // If the video is a url
+		if ( $video['type'] === 'url' ) { // If the video is a url
 			$wp_embed->post_ID = $this->ID;
 			$video_player = $wp_embed->shortcode($args, $video['value']);
-		} elseif ('attachment_id' === $video['type']) { // If the video is an attachment
+		} elseif ( $video['type'] === 'attachment_id' ) { // If the video is an attachment
 			$args['src'] = $video['attachment_url'];
 			if ($video_player = wp_video_shortcode($args)) {
 				$video_player = '<div class="lqdm-video-wrap">' . $video_player . '</div><!-- .lqdm-video-wrap -->';

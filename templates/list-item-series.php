@@ -6,7 +6,7 @@ $plugin_option = $this->get('plugin_option');
 	<?php
 	$hover_class = '';
 	if(!empty($plugin_option['series_img_type']) && $plugin_option['series_img_type'] == 'on_hover_overlay') {
-		$hover_class = 'hover-opposite';
+		$hover_class = 'lqdm-hover-opposite';
 	}
 	?>
 
@@ -15,14 +15,14 @@ $plugin_option = $this->get('plugin_option');
 
 		<?php
 		if(!empty($plugin_option['series_img_type']) && ($plugin_option['series_img_type'] != 'no_overlay')) {
-			echo '<div class="lqdm-msgs-shader"></div>';
+			echo '<div class="lqdm-overlay"></div>';
 		}
 		?>
 
 		<?php
 		if(!empty($plugin_option['title_over_series_featured_img']) && ($plugin_option['title_over_series_featured_img'] == 'yes')) {
 			?>
-			<div class="lqdm-msgs-table-wrapper">
+			<div class="lqdm-img-table-wrapper">
 				<table>
 					<tbody>
 					<tr>

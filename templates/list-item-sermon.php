@@ -6,7 +6,7 @@ $plugin_option = $this->get('plugin_option');
 	<?php
 	$hover_class = '';
 	if(!empty($plugin_option['message_img_type']) && $plugin_option['message_img_type'] == 'on_hover_overlay') {
-		$hover_class = 'hover-opposite';
+		$hover_class = 'lqdm-hover-opposite';
 	}
 	?>
 
@@ -15,14 +15,14 @@ $plugin_option = $this->get('plugin_option');
 
 		<?php
 		if(!empty($plugin_option['message_img_type']) && ($plugin_option['message_img_type'] != 'no_overlay')) {
-			echo '<div class="lqdm-msgs-shader"></div>';
+			echo '<div class="lqdm-overlay"></div>';
 		}
 		?>
 
 		<?php
 		if(!empty($plugin_option['title_over_message_featured_img']) && ($plugin_option['title_over_message_featured_img'] == 'yes' || $plugin_option['title_over_message_featured_img'] == 'always_show')) {
 			?>
-			<div class="lqdm-msgs-table-wrapper <?php echo ($plugin_option['title_over_message_featured_img'] == 'always_show') ? 'always-show-title' : '' ?>">
+			<div class="lqdm-img-table-wrapper <?php echo ($plugin_option['title_over_message_featured_img'] == 'always_show') ? 'lqdm-always-show-title' : '' ?>">
 				<table>
 					<tbody>
 					<tr>

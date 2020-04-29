@@ -136,6 +136,8 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
 /**
  * Get's video player for the message.
  *
+ * Wraps $sermon->get_video_player
+ *
  * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).

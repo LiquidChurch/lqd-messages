@@ -275,6 +275,6 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-msgs-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . 'break-cols lqdm-msgs-wrap';
     }
 }
