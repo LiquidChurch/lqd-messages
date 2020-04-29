@@ -288,7 +288,7 @@ ul.lqdm-msg-resources-list li {
   list-style-type: none;
 }
 
-ul.lqdm-msg-resources-list li.lqdm-list {
+ul.lqdm-msg-resources-list li.lqdm-msg-resources-lang-head {
   width: 45%;
   display: inline-block;
   margin-right: 20px;

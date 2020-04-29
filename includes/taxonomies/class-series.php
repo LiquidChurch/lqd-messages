@@ -29,7 +29,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Message Series', 'lqdm' ), __( 'Message Series', 'lqdm' ), 'gc-sermon-series' ),
+			'labels' => array( __( 'Series', 'lqdm' ), __( 'Series', 'lqdm' ), 'gc-sermon-series' ),
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,

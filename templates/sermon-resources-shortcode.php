@@ -9,7 +9,7 @@
         foreach ($resource_lang as $key => $val) {
             if (empty($items[$val]))
                 continue;
-            printf('<li class="lqdm-list" style="%s">', $lc_list_style);
+            printf('<li class="lqdm-msg-resources-lang-head" style="%s">', $lc_list_style);
             printf('<ul class="lqdm-resource-wrapper %s">', $lc_container_class);
             printf('<li class="lqdm-resources-lang">%s</li>', $lang_plugin_option[$val]);
             foreach ($items[$val] as $ik => $iv) {

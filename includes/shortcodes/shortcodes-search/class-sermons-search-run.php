@@ -7,16 +7,16 @@
 
 class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
-	// The current search query.
+    /** @var string $search_query The current search query */
 	protected $search_query = '';
 
-	// The current search results page number.
+    /** @var int $current_page The current search results page number */
 	public $current_page = 0;
 
-	// The total number of search results pages.
+    /** @var int $total_pages The total number of pages of search results */
 	public $total_pages = 0;
 
-	// Results of the call to shortcode_callback.
+    /** @var string $results Results of the call to shortcode_callback */
 	public $results = '';
 
 	/**
