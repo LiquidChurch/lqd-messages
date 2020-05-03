@@ -1,28 +1,28 @@
 <?php
 $plugin_option = $this->get('plugin_option');
 ?>
-<li class="gc-item gc-<?php if ( ! $this->get( 'do_image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
+<li class="lqdm-item gc-<?php if ( ! $this->get( 'do_image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
 
 	<?php
 	$hover_class = '';
 	if(!empty($plugin_option['series_img_type']) && $plugin_option['series_img_type'] == 'on_hover_overlay') {
-		$hover_class = 'hover-opposite';
+		$hover_class = 'lqdm-hover-opposite';
 	}
 	?>
 
-	<a class="gc-item-link <?php echo $hover_class ?>" href="<?php $this->output( 'url', 'esc_url' ); ?>" title="<?php $this->output( 'name', 'esc_attr' ); ?>">
+	<a class="lqdm-item-link <?php echo $hover_class ?>" href="<?php $this->output( 'url', 'esc_url' ); ?>" title="<?php $this->output( 'name', 'esc_attr' ); ?>">
 		<?php $this->maybe_output( 'image', '', 'do_image' ); ?>
 
 		<?php
 		if(!empty($plugin_option['series_img_type']) && ($plugin_option['series_img_type'] != 'no_overlay')) {
-			echo '<div class="gc-sermons-shader"></div>';
+			echo '<div class="lqdm-msgs-shader"></div>';
 		}
 		?>
 
 		<?php
 		if(!empty($plugin_option['title_over_series_featured_img']) && ($plugin_option['title_over_series_featured_img'] == 'yes')) {
 			?>
-			<div class="gc-sermons-table-wrapper">
+			<div class="lqdm-msgs-table-wrapper">
 				<table>
 					<tbody>
 					<tr>

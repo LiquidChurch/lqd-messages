@@ -7,50 +7,6 @@
     "content-hash": "3c3967b481b006edf115532ab3832b63",
     "packages": [
         {
-            "name": "jtsternberg/cmb2-related-links",
-            "version": "v0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jtsternberg/CMB2-Related-Links.git",
-                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "cmb2-related-links.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "jtsternberg",
-                    "email": "justin@dsgnwrks.pro",
-                    "homepage": "http://dsgnwrks.pro/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Custom field for CMB2 which adds a releated links repeatable group field.",
-            "homepage": "https://github.com/jtsternberg/CMB2-Related-Links",
-            "keywords": [
-                "CMB2",
-                "meta",
-                "wordpress"
-            ],
-            "time": "2016-05-30T07:10:25+00:00"
-        },
-        {
             "name": "jtsternberg/cmb2-term-select",
             "version": "v0.1.0",
             "source": {

@@ -3,7 +3,7 @@
 		<?php if ( ! $this->get( 'remove_dates' ) ) : ?>
 		<h4><?php echo $year; ?></h4>
 		<?php endif; ?>
-		<ul class="gc-sermons-list">
+		<ul class="lqdm-msgs-list">
 		<?php foreach ( $terms as $term ) : ?>
 			<?php GCS_Template_Loader::output_template( 'list-item-series', array_merge((array) $term, array('plugin_option' => $this->get('plugin_option'))) ); ?>
 		<?php endforeach; ?>

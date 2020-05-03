@@ -31,7 +31,7 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
     {
         wp_register_script(
             'gc-sermons-admin',
-            GC_Sermons_Plugin::$url . 'assets/js/gc-sermons-admin.js',
+            GC_Sermons_Plugin::$url . 'assets/js/lqdm-admin.js',
             array('jquery'),
             GC_Sermons_Plugin::VERSION,
             true

@@ -3,13 +3,13 @@
   "title": "Liquid Messages",
   "version": "0.9.1",
   "description": "Manage messages (sermons) and message content in WordPress",
-  "homepage": "http://www.liquidchurch.com/",
+  "homepage": "https://liquidchurch.com/",
   "bugs": {
     "url": "https://github.com/LiquidChurch/lqd-messages"
   },
   "author": {
     "name": "liquidchurch",
-    "url": "http://www.liquidchurch.com/"
+    "url":  "https://liquidchurch.com/"
   },
   "contributors": [
     {
@@ -18,10 +18,11 @@
     },
     {
       "name": "davidshq",
-      "url": "http://www.davemackey.net/"
+      "url":  "https://davemackey.net/"
     },
     {
-      "name": "surajprgupta"
+      "name": "surajprgupta",
+      "url": "https://github.com/surajprgupta"
     }
   ],
   "license": "GPL-2.0",

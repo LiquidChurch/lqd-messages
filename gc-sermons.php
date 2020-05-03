@@ -1,20 +1,21 @@
 <?php
 /**
- * Plugin Name: GC Sermons
- * Plugin URI:  https://liquidchurch.com
- * Description: Manage sermons and sermon content in WordPress
- * Version:     0.9.1
- * Author:      jtsternberg, surajprgupta
+ * Plugin Name: Liquid Messages
+ * Plugin URI:  https://github.com/liquidchurch/lqd-messages/
+ * Description: Manage messages and message content in WordPress.
+ * Version:     1.0.0
+ * Author:      liquidchurch, jtsternberg, surajprgupta, davidshq
  * Author URI:  https://liquidchurch.com
  * Donate link: https://liquidchurch.com
  * License:     GPLv2
- * Text Domain: gc-sermons
+ * Text Domain: lqdm
  * Domain Path: /languages
  */
 
 /**
  * Copyright (c) 2016 jtsternberg (email : justin@dsgnwrks.pro)
  * Copyright (c) 2016 jtsternberg (email : suraj.gupta@scripterz.in)
+ * Copyright (c) 2016-2020 liquidchurch (email : webmaster@liquidchurch.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -40,7 +41,7 @@ require 'vendor/autoload.php';
 class GC_Sermons_Plugin
 {
     /** @var string VERSION Current version */
-    const VERSION = '0.9.1';
+    const VERSION = '1.0.0';
 
     /** @var string $url URL of plugin directory */
     public static $url = '';
@@ -72,6 +73,19 @@ class GC_Sermons_Plugin
     /** @var GCS_Async $async GCS_Async Object */
     protected $async;
 
+    /** @var string $plugin_option_key Plugin options settings key */
+    public static $plugin_option_key = 'lc-plugin-settings';
+
+    /** @var LQDM_Metaboxes Instance of LQDM_Metaboxes */
+    protected $metaboxes;
+
+    /** @var LQDM_Shortcodes Instance of LQDM_Shortcodes */
+    protected $shortcodes;
+
+    /** @var LQDM_Settings_Page $option_page Instance of LQDM_Option_Page */
+    protected $option_page;
+
+
     /**
      * Constructs our plugin object
      *
@@ -87,6 +101,8 @@ class GC_Sermons_Plugin
     /**
      * Activate the plugin
      *
+     * This occurs once upon plugin activation.
+     *
      * @since  0.1.0
      * @return void
      */
@@ -97,7 +113,22 @@ class GC_Sermons_Plugin
     }
 
     /**
-     * Creates or returns an instance of this class.
+     * Deactivate the plugin
+     *
+     * This occurs once on plugin deactivation.
+     *
+     * Uninstall routines should be in uninstall.php
+     *
+     * @since  0.1.0
+     * @return void
+     */
+    public static function deactivate()
+    {
+        flush_rewrite_rules();
+    }
+
+    /**
+     * Creates or returns an instance of this class (GC_Sermons_Plugin).
      *
      * @since  0.1.0
      * @return GC_Sermons_Plugin A single instance of this class.
@@ -109,18 +140,6 @@ class GC_Sermons_Plugin
         }
 
         return self::$single_instance;
-    }
-
-    /**
-     * Deactivate the plugin
-     * Uninstall routines should be in uninstall.php
-     *
-     * @since  0.1.0
-     * @return void
-     */
-    public static function deactivate()
-    {
-        flush_rewrite_rules();
     }
 
     /**
@@ -213,12 +232,15 @@ class GC_Sermons_Plugin
             case 'sermons':
             case 'taxonomies':
             case 'shortcodes':
+            case 'metaboxes':
                 return $this->{$field};
             case 'series':
             case 'speaker':
             case 'topic':
             case 'tag':
                 return $this->taxonomies->{$field};
+            case 'plugin_option_key':
+                return $this->$field;
             default:
                 throw new Exception('Invalid ' . __CLASS__ . ' property: ' . $field);
         }
@@ -226,8 +248,9 @@ class GC_Sermons_Plugin
 }
 
 /**
- * Grab the GC_Sermons_Plugin object and return it.
  * Wrapper for GC_Sermons_Plugin::get_instance()
+ *
+ * Grab and return instance.
  *
  * @since  0.1.0
  * @return GC_Sermons_Plugin  Singleton instance of plugin class.

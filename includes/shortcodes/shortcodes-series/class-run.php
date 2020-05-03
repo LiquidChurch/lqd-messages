@@ -231,6 +231,6 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-series-wrap';
+        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols lqdm-series-wrap';
     }
 }
