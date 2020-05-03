@@ -1,10 +1,9 @@
 <?php
 /**
- * GC Sermons Shortcode
- * @version 0.1.6
- * @package GC Sermons
+ * Liquid Messages Message Shortcode
+ *
+ * @package Liquid Messages
  */
-
 class GCS_Shortcodes_Sermons extends GCS_Shortcodes_Base {
 	/**
 	 * Constructor

@@ -1,25 +1,14 @@
 <?php
 /**
- * GC Sermons Shortcode Base
+ * Liquid Messages Shortcode Base
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 abstract class GCS_Shortcodes_Base {
-
-	/**
-	 * Instance of GCS_Shortcodes_Run_Base
-	 *
-	 * @var GCS_Shortcodes_Run_Base
-	 */
+	/** @var GCS_Shortcodes_Run_Base $run Instance of GCS_Shortcodes_Run_Base */
 	public $run;
 
-	/**
-	 * Instance of GCS_Shortcodes_Admin_Base
-	 *
-	 * @var GCS_Shortcodes_Admin_Base
-	 */
+	/** @var GCS_Shortcodes_Admin_Base Instances of GCS_Shortcodes_Admin_Base  */
 	public $admin;
 
 	/**

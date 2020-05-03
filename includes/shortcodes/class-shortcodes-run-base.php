@@ -1,19 +1,11 @@
 <?php
 /**
- * GC Sermons Shortcode Base
+ * Liquid Messages Shortcode Base
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
-
-	/**
-	 * GCS_Sermons object
-	 *
-	 * @var   GCS_Sermons
-	 * @since 0.1.0
-	 */
+	/** @var GCS_Sermons GCS_Sermons object */
 	public $sermons;
 
 	/**

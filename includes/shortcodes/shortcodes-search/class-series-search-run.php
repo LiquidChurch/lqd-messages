@@ -1,32 +1,17 @@
 <?php
 /**
- * GC Series Search
+ * Liquid Messages Series Search - Run
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
-
 class GCSS_Series_Search_Run extends GCSS_Series_Run {
-
-	/**
-	 * The current search query.
-	 *
-	 * @var string
-	 */
+	/** @var string $search_query The current search query */
 	protected $search_query = '';
 
-	/**
-	 * The current search results page number.
-	 *
-	 * @var int
-	 */
+	/** @var int $current_page The current search results page number */
 	public $current_page = 0;
 
-	/**
-	 * Results of the call to shortcode_callback.
-	 *
-	 * @var mixed
-	 */
+	/** @var string $results Results of the call to shortcode_callback */
 	public $results = '';
 
 	/**
@@ -34,10 +19,10 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param string $search_query
-	 * @param $atts
+	 * @param string      $search_query
+	 * @param             $atts
 	 * @param GCS_Sermons $sermons
-	 * @param GCS_Series $series
+	 * @param GCS_Series  $series
 	 */
 	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Series $series ) {
 		$this->search_query = $search_query;
@@ -80,7 +65,7 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 
 		if ( $count > 900 ) {
 			// Whoops, warn!
-			trigger_error( 'You have more than 900 sermon series terms, and search queries which are requesting greater than 900 sermon series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
+			trigger_error( 'You have more than 900 series terms, and search queries which are requesting greater than 900 series terms. You may want to look into additional performance optimizations.', E_USER_WARNING );
 		}
 
 		$args = $this->get_pagination( $total_pages );

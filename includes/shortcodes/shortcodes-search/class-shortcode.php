@@ -1,11 +1,10 @@
 <?php
 /**
- * GC Sermons Search Shortcode
- * @version 0.1.6
- * @package GC Sermons
+ * Liquid Messages Search Shortcode
+ *
+ * @package Liquid Messages
  */
 class GCS_Shortcodes_Sermon_Search extends GCS_Shortcodes_Base {
-
 	/**
 	 * Constructor
 	 *
@@ -19,5 +18,4 @@ class GCS_Shortcodes_Sermon_Search extends GCS_Shortcodes_Base {
 
 		parent::hooks();
 	}
-
 }

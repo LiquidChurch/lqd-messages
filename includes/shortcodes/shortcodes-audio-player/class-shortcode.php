@@ -29,19 +29,10 @@ class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {
  * @package GC Sermons
  */
 class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
-
-	/**
-	 * The Shortcode Tag
-	 * @var string
-	 * @since 0.1.0
-	 */
+	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_audio_player';
 
-	/**
-	 * Default attributes applied to the shortcode.
-	 * @var array
-	 * @since 0.1.0
-	 */
+	/** @var int[] $atts_defaults Array of default attributes applied to the shortcode. */
 	public $atts_defaults = array(
 		'sermon_id' => 0, // 'Blank, "recent", or "0" will play the most recent audio.
 	);
@@ -64,13 +55,7 @@ class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
  * @package GC Sermons
  */
 class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
-
-	/**
-	 * Shortcode prefix for field ids.
-	 *
-	 * @var   string
-	 * @since 0.1.3
-	 */
+	/** @var string $prefix Shortcode prefix for field ids. */
 	protected $prefix = 'gc_audplayer_';
 
 	/**
@@ -82,8 +67,7 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
 		return array(
 			'qt_button_text' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
 			'button_tooltip' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
-			'icon'           => 'dashicons-format-audio',
-			// 'mceView'        => true, // The future
+			'icon'           => 'dashicons-format-audio'
 		);
 	}
 

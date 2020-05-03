@@ -1,39 +1,22 @@
 <?php
 /**
- * GC Sermons Search
+ * Liquid Messages Search Shortcode - Run
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
-	/**
-	 * The current search query.
-	 *
-	 * @var string
-	 */
+    /** @var string $search_query The current search query */
 	protected $search_query = '';
 
-	/**
-	 * The current search results page number.
-	 *
-	 * @var int
-	 */
+    /** @var int $current_page The current search results page number */
 	public $current_page = 0;
 
-	/**
-	 * The total number of search results pages.
-	 *
-	 * @var int
-	 */
+    /** @var int $total_pages The total number of pages of search results */
 	public $total_pages = 0;
 
-	/**
-	 * Results of the call to shortcode_callback.
-	 *
-	 * @var mixed
-	 */
+    /** @var string $results Results of the call to shortcode_callback */
 	public $results = '';
 
 	/**
@@ -41,9 +24,9 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 *
 	 * @since 0.1.3
 	 *
-	 * @param string $search_query
+	 * @param string         $search_query
 	 * @param $atts
-	 * @param GCS_Sermons $sermons
+	 * @param GCS_Sermons    $sermons
 	 * @param GCS_Taxonomies $taxonomies
 	 */
 	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {

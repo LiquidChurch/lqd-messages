@@ -1,25 +1,16 @@
 <?php
 /**
- * GC Sermons Post Types Base
+ * Liquid Messages Custom Post Types Base
  *
  * @version 0.1.6
  * @package GC Sermons
  */
 
 abstract class GCS_Post_Types_Base extends CPT_Core {
-
-	/**
-	 * Parent plugin class
-	 *
-	 * @since  0.1.0
-	 */
+    /** @var object|null $plugin Parent plugin class */
 	protected $plugin = null;
 
-	/**
-	 * The identifier for this object
-	 *
-	 * @var string
-	 */
+	/** @var string $id The identifier for this post */
 	protected $id = '';
 
 	protected $overrides_processed = false;
@@ -31,13 +22,11 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * @since 0.1.0
 	 *
 	 * @param  object $plugin Main plugin object.
-	 * @param $args
+	 * @param         $args
 	 */
 	public function __construct( $plugin, $args ) {
 		$this->plugin = $plugin;
 
-		// Register this cpt
-		// First parameter should be an array with Singular, Plural, and Registered name.
 		parent::__construct(
 			$args['labels'],
 			$args['args']
@@ -47,6 +36,9 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
 	}
 
+	/**
+	 * Filter Values
+	 */
 	public function filter_values() {
 		if ( $this->overrides_processed ) {
 			return;
@@ -76,9 +68,8 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * Provides access to protected class properties.
 	 * @since  0.2.0
 	 *
-	 * @param string $key Specific CPT parameter to return
-	 *
-	 * @return mixed        Specific CPT parameter or array of singular, plural and registered name
+	 * @param  string $key Specific CPT parameter to return
+	 * @return mixed       Specific CPT parameter or array of singular, plural and registered name
 	 */
 	public function post_type( $key = 'post_type' ) {
 		if ( ! $this->overrides_processed ) {

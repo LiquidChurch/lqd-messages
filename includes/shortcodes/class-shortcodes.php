@@ -1,59 +1,21 @@
 <?php
 /**
- * GC Sermons Shortcodes
-     *
- * @version 0.1.6
- * @package GC Sermons
+ * Liquid Messages Shortcodes
+ *
+ * @package Liquid Messages
  */
 
 class GCS_Shortcodes {
-
-	/**
-	 * Instance of GCS_Shortcodes_Play_Button
-	 *
-	 * @var GCS_Shortcodes_Play_Button
-	 * @since 0.1.0
-	 */
-	protected $play_button;
-
-	/**
-	 * Instance of GCS_Shortcodes_Sermons
-	 *
-	 * @var GCS_Shortcodes_Sermons
-	 * @since 0.1.4
-	 */
+	/** @var GCS_Shortcodes_Sermons $sermons Instance of GCS_Shortcodes_Sermons */
 	protected $sermons;
 
-	/**
-	 * Instance of GCS_Shortcodes_Recent_Series
-	 *
-	 * @var GCS_Shortcodes_Recent_Series
-	 * @since 0.1.4
-	 */
+	/** @var GCS_Shortcodes_Recent_Series $recent_series Instance of GCS_Shortcodes_Recent_Series */
 	protected $recent_series;
 
-	/**
-	 * Instance of GCS_Shortcodes_Recent_Speaker
-	 *
-	 * @var GCS_Shortcodes_Recent_Speaker
-	 * @since 0.1.4
-	 */
+	/** @var GCS_Shortcodes_Recent_Speaker $recent_speaker Instance of GCS_Shortcodes_Recent_Speaker */
 	protected $recent_speaker;
 
-	/**
-	 * Instance of GCS_Shortcodes_Related_Links
-	 *
-	 * @var GCS_Shortcodes_Related_Links
-	 * @since 0.1.4
-	 */
-	protected $related_links;
-
-	/**
-	 * Instance of GCS_Shortcodes_Video_Player
-	 *
-	 * @var GCS_Shortcodes_Video_Player
-	 * @since 0.1.4
-	 */
+	/** @var GCS_Shortcodes_Video_Player $video_player Instance of GCS_Shortcodes_Video_Player */
 	protected $video_player;
 
 	/**
@@ -64,12 +26,7 @@ class GCS_Shortcodes {
 	 */
 	protected $audio_player;
 
-	/**
-	 * Instance of GCS_Shortcodes_Sermon_Search
-	 *
-	 * @var GCS_Shortcodes_Sermon_Search
-	 * @since 0.1.5
-	 */
+	/** @var GCS_Shortcodes_Sermon_Search $search Instance of GCS_Shortcodes_Sermon_Search */
 	protected $search;
 
 	/**
@@ -80,12 +37,10 @@ class GCS_Shortcodes {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->play_button    = new GCS_Shortcodes_Play_Button( $plugin );
 		$this->sermons        = new GCS_Shortcodes_Sermons( $plugin );
 		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
 		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
 		$this->series         = new GCS_Shortcodes_Series( $plugin );
-		$this->related_links  = new GCS_Shortcodes_Related_Links( $plugin );
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
 		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );

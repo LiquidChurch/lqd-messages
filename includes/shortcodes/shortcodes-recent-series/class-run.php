@@ -1,25 +1,15 @@
 <?php
 /**
- * GC Sermons Recent Series Shortcode
+ * Liquid Messages Recent Series Shortcode
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
-
-	/**
-	 * The Shortcode Tag
-	 * @var string
-	 * @since 0.1.0
-	 */
+	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_recent_series';
 
-	/**
-	 * Default attributes applied to the shortcode.
-	 * @var array
-	 * @since 0.1.0
-	 */
+	/** @var array $atts_defaults Array of default attributes applied to the shortcode */
 	public $atts_defaults = array(
 		'sermon_id'          => 0, // 'Blank, "recent", or "0" will play the most recent video.
 		'recent'             => 'recent', // Options: 'recent', 'audio', 'video'
@@ -33,6 +23,7 @@ class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * Shortcode Output
+     *
 	 * @throws Exception
 	 */
 	public function shortcode() {
