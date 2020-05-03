@@ -1,22 +1,16 @@
 <?php
 /**
- * GC Sermons Async
- * @version 0.1.6
- * @package GC Sermons
+ * Liquid Messages Async
+ *
+ * @package Liquid Messages
  */
 
 class GCS_Async extends WP_Async_Task {
 
-	/**
-	 * Parent plugin class
-	 *
-	 * @since 0.1.1
-	 */
+    /** @var null|object $plugin Parent plugin class  */
 	protected $plugin = null;
 
-	/**
-	 * @var string
-	 */
+    /** @var string $action Action to perform */
 	protected $action = 'set_object_terms';
 
 	/**
@@ -48,7 +42,7 @@ class GCS_Async extends WP_Async_Task {
 		$taxonomy = $data[3];
 
 		if ( $this->plugin->sermons->post_type() !== get_post_type( $object_id ) ) {
-			throw new Exception( 'We only want async tasks for sermons' );
+			throw new Exception( 'We only want async tasks for messages' );
 		}
 
 		return compact( 'object_id', 'taxonomy' );

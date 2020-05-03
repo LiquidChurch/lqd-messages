@@ -1,48 +1,27 @@
 <?php
 /**
- * GC Sermons Template Loader
+ * Liquid Messages Template Loader
  *
  * @since 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 /**
- * GC Sermons Template Loader.
+ * Liquid Messages Template Loader.
  *
  * @since 0.1.3
  */
 class GCS_Template_Loader {
-
-	/**
-	 * Array of arguments for template
-	 *
-	 * @var array
-	 * @since 0.1.3
-	 */
+	/** @var array|string|null $args Array of arguments for template */
 	public $args = array();
 
-	/**
-	 * Template names array
-	 *
-	 * @var array
-	 * @since 0.1.3
-	 */
+	/** @var array $templates Template names array */
 	public $templates = array();
 
-	/**
-	 * Template name
-	 *
-	 * @var string
-	 * @since 0.1.3
-	 */
+	/** @var string $template Template name */
 	public $template = '';
 
-	/**
-	 * Template file extension
-	 *
-	 * @var string
-	 * @since 0.1.3
-	 */
+	/** @var string $extension Template file extension */
 	protected $extension = '.php';
 
 	/**
@@ -50,9 +29,9 @@ class GCS_Template_Loader {
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param string $template The template file name, relative to the includes/templates/ folder - with or without .php extension
-	 * @param string $name The name of the specialised template. If array, will take the place of the $args.
-	 * @param array $args An array of arguments to extract as variables into the template
+	 * @param string  $template The template file name, relative to the includes/templates/ folder - with or without .php extension
+	 * @param string  $name     The name of the specialised template. If array, will take the place of the $args.
+	 * @param array   $args     An array of arguments to extract as variables into the template
 	 *
 	 * @throws Exception
 	 * @return void
@@ -92,7 +71,7 @@ class GCS_Template_Loader {
 
 		// No template found.
 		if ( ! $template ) {
-			return;
+			return null;
 		}
 
 		// Filter args before outputting template.
@@ -105,7 +84,7 @@ class GCS_Template_Loader {
 			// grab the data from the output buffer and add it to our $content variable
 			$content = ob_get_clean();
 		} catch ( Exception $e ) {
-			wpdie( $e->getMessage() );
+			wp_die( $e->getMessage() );
 		}
 
 		$content = apply_filters( "template_output_for_{$this->template}", $content, $this );
@@ -115,6 +94,8 @@ class GCS_Template_Loader {
 		}
 
 		echo $content;
+
+		return null;
 	}
 
 	/**
@@ -202,6 +183,8 @@ class GCS_Template_Loader {
 		$val = $this->get( $arg, $default );
 
 		echo $esc_cb ? $esc_cb( $val ) : $val;
+
+		return null;
 	}
 
 	/**
@@ -240,10 +223,10 @@ class GCS_Template_Loader {
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param string $template The template file name, relative to the includes/templates/ folder
-	 *                          - without .php extension
-	 * @param string $name The name of the specialised template. If array, will take the place of the $args.
-	 * @param array $args An array of arguments to extract as variables into the template
+	 * @param string  $template  The template file name, relative to the includes/templates/ folder
+	 *                           - without .php extension
+	 * @param string  $name      The name of the specialised template. If array, will take the place of the $args.
+	 * @param array   $args      An array of arguments to extract as variables into the template
 	 *
 	 * @return string           Rendered template output
 	 * @throws Exception
@@ -260,8 +243,8 @@ class GCS_Template_Loader {
 	 *
 	 * @param  string $template The template file name, relative to the includes/templates/ folder
 	 *                          - without .php extension
-	 * @param  string $name The name of the specialised template. If array, will take the place of the $args.
-	 * @param  array $args An array of arguments to extract as variables into the template
+	 * @param  string  $name    The name of the specialised template. If array, will take the place of the $args.
+	 * @param  array  $args     An array of arguments to extract as variables into the template
 	 *
 	 * @return void
 	 * @throws Exception
