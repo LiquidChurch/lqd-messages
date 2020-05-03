@@ -1,45 +1,24 @@
 <?php
 /**
- * GC Sermons Taxonomies
- * @version 0.1.6
- * @package GC Sermons
+ * Liquid Messages Custom Taxonomies
+ *
+ * @package Liquid Messages
  */
 
 class GCS_Taxonomies {
-
-	/**
-	 * Instance of GCS_Series
-	 *
-	 * @var GCS_Series
-	 */
+	/** @var GCS_Series $series Instance of GCS_Series */
 	protected $series;
 
-	/**
-	 * Instance of GCS_Speaker
-	 *
-	 * @var GCS_Speaker
-	 */
+	/** @var GCS_Speaker $speaker Instance of GCS_Speaker */
 	protected $speaker;
 
-	/**
-	 * Instance of GCS_Topic
-	 *
-	 * @var GCS_Topic
-	 */
+	/** @var GCS_Topic $topic Instance of GCS_Topic */
 	protected $topic;
 
-	/**
-	 * Instance of GCS_Tag
-	 *
-	 * @var GCS_Tag
-	 */
+	/** @var GCS_Tag $tag Instance of GCS_Tag */
 	protected $tag;
 
-	/**
-	 * Instance of GCS_Scripture
-	 *
-	 * @var GCS_Scripture
-	 */
+	/** @var GCS_Scripture $scripture Instance of GCS_Scripture */
 	protected $scripture;
 
 	/**

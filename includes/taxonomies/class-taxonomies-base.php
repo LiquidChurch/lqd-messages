@@ -1,63 +1,32 @@
 <?php
 /**
- * GC Sermons Taxonomies Base
+ * Liquid Messages Custom Taxonomies Base
  *
- * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
 abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
-
-	/**
-	 * The identifier for this object
-	 *
-	 * @var string
-	 */
+	/** @var string $id The identifier for this object */
 	protected $id = '';
 
-	/**
-	 * GCS_Sermons object
-	 *
-	 * @var GCS_Sermons
-	 * @since  0.1.0
-	 */
+	/** @var object|null $sermons GCS_Sermons object */
 	protected $sermons = null;
 
-	/**
-	 * The image meta key for this taxonomy, if applicable
-	 *
-	 * @var string
-	 * @since  0.1.1
-	 */
+	/** @var string $image_meta_key The image meta key for this taxonomy */
 	protected $image_meta_key = '';
 
-	/**
-	 * The default args array for self::get()
-	 *
-	 * @var array
-	 * @since  0.1.1
-	 */
+	/** @var int[] $term_get_args_defaults The default args array for self::get() */
 	protected $term_get_args_defaults = array(
 		'image_size' => 512,
 	);
 
-	/**
-	 * The default args array for self::get_many()
-	 *
-	 * @var array
-	 * @since  0.1.1
-	 */
+	/** @var array $term_get_many_args_defaults The default args array for self::get_many() */
 	protected $term_get_many_args_defaults = array(
 		'orderby'       => 'name',
 		'augment_terms' => true,
 	);
 
-	/**
-	 * The image column title (if applicable).
-	 *
-	 * @var string
-	 * @since  0.1.3
-	 */
+	/** @var string $img_col_title The image column title, if applicable */
 	protected $img_col_title = '';
 
 	/**
@@ -75,19 +44,13 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 
 		$this->flush_cache = isset( $_GET['flush_cache'] ) && date( 'Y-m-d' ) === $_GET['flush_cache'];
 
-		/*
-		 * Register this taxonomy
-		 * First parameter should be an array with Singular, Plural, and Registered name
-		 * Second parameter is the register taxonomy arguments
-		 * Third parameter is post types to attach to.
-		 */
 		parent::__construct(
 			$args['labels'],
 			$args['args'],
 			array( $this->sermons->post_type() )
 		);
 
-		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
+		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 'plugins_loaded' === current_filter() ? 12 : 4 );
 		add_action( 'wp_async_set_sermon_terms', array( $this, 'trigger_cache_flush' ), 10, 2 );
 	}
 
@@ -122,15 +85,12 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Register image columns for $this->taxonomy().
 	 *
-	 * @todo  Need to disable JJJ's term image stuff for this taxonomy.
-	 *        https://twitter.com/Jtsternberg/status/735542428522971136
-	 *
 	 * @since 0.1.3
 	 *
 	 * @param string  $img_col_title The title for the Image column.
 	 */
 	protected function add_image_column( $img_col_title ) {
-		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'gc-sermons' );
+		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'lqdm' );
 
 		$tax = $this->taxonomy();
 
@@ -190,6 +150,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		}
 
 		echo $retval;
+
+		return null;
 	}
 
 	/** Required by Extended Classes  *****************************************/
@@ -243,7 +205,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Retrieve the most recent sermon which has terms in this taxonomy.
+	 * Retrieve the most recent message which has terms in this taxonomy.
 	 *
 	 * @since  0.2.0
 	 *
@@ -259,7 +221,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of arguments (passed to get_terms).
+	 * @param  array $args             Array of arguments (passed to get_terms).
 	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
@@ -299,9 +261,9 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.5
 	 *
-	 * @param  array $search_term The search term.
-	 * @param  array $args Array of arguments for GCS_Taxonomies_Base::get_many().
-	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
+	 * @param  string|array $search_term      The search term.
+	 * @param  array        $args             Array of arguments for GCS_Taxonomies_Base::get_many().
+	 * @param  array        $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 * @throws Exception
@@ -399,7 +361,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Gets terms in the sermon date order. Result is cached for a max. of a day.
+	 * Gets terms in the message date order. Result is cached for a max. of a day.
 	 *
 	 * @since  0.1.1
 	 *
@@ -446,7 +408,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since 0.1.1
 	 *
-	 * @param int $post_id Post ID
+	 * @param int    $post_id  Post ID
 	 * @param string $taxonomy Taxonomy
 	 *
 	 * @throws Exception
