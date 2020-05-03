@@ -1,9 +1,11 @@
-window.GCSermonsAdmin = window.GCSermonsAdmin || {};
+/**
+ * Liquid Messages Admin JavaScript
+ *
+ */
+window.LQDMAdmin = window.LQDMAdmin || {};
 
-( function( window, document, $, app, undefined ) {
+(function (window, document, $, app, undefined ) {
 	'use strict';
-
-	var methodBackup = null;
 
 	app.cache = function() {
 		app.$ = {};
@@ -43,27 +45,5 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 		$(temp).trigger('click');
 	};
 
-	app.checkDupVideo = function(){
-		var $elem = $(this);
-		var data = {
-			'action': 'check_sermon_duplicate_video',
-			'video_url': $elem.val(),
-			'curr_post_id': php_vars.postID,
-			'nonce': php_vars.nonce
-		};
-		$.ajax({
-			method: 'POST',
-			url: ajaxurl,
-			data: data,
-			dataType: 'json'
-		}).done(function(resp) {
-			$(".gc-sermon-duplicate-notice").remove();
-			if(resp.success == false) {
-				$(".cmb2-metabox-description").after(resp.data);
-			}
-		});
-	};
-
-	$( app.init );
-
-} )( window, document, jQuery, window.GCSermonsAdmin );
+	$(app.init);
+})(window, document, jQuery, window.LQDMAdmin);

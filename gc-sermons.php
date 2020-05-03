@@ -79,9 +79,6 @@ class GC_Sermons_Plugin
     /** @var LQDM_Metaboxes Instance of LQDM_Metaboxes */
     protected $metaboxes;
 
-    /** @var LQDM_Shortcodes Instance of LQDM_Shortcodes */
-    protected $shortcodes;
-
     /** @var LQDM_Settings_Page $option_page Instance of LQDM_Option_Page */
     protected $option_page;
 
@@ -213,7 +210,7 @@ class GC_Sermons_Plugin
      */
     public function init()
     {
-        load_plugin_textdomain('gc-sermons', false, dirname(self::$basename) . '/languages/');
+        load_plugin_textdomain('lqdm', false, dirname(self::$basename) . '/languages/');
     }
 
     /**
@@ -245,6 +242,40 @@ class GC_Sermons_Plugin
                 throw new Exception('Invalid ' . __CLASS__ . ' property: ' . $field);
         }
     }
+
+	/**
+	 * Get Plugin Settings Options
+	 *
+	 * @param string $arg
+	 * @param string $sub_arg
+	 *
+	 * @return bool|mixed|void
+	 */
+	public static function get_plugin_settings_options($arg = '', $sub_arg = '')
+	{
+		$options = get_option(self::$plugin_option_key);
+		if (empty($options)) {
+			return false;
+		}
+
+		if (!empty($arg)) {
+			if (!isset($options[$arg])) {
+				return false;
+			}
+
+			if (!empty($sub_arg)) {
+				if (!isset($options[$arg][$sub_arg])) {
+					return false;
+				}
+
+				return $options[$arg][$sub_arg];
+			}
+
+			return $options[$arg];
+		}
+
+		return $options;
+	}
 }
 
 /**
