@@ -122,9 +122,7 @@ module.exports = function( grunt ) {
 						expand: true,
 						src: [
 							'**',
-							'!**/**dandelion**.yml',
 							'!**/**.xml',
-							'!**/Dockunit.json',
 							'!**/package.json',
 							'!**/node_modules/**',
 							'!**/bin/**',
@@ -136,7 +134,6 @@ module.exports = function( grunt ) {
 							'!**/**Gruntfile.js',
 							'!**/**composer.json',
 							'!**/**composer.lock',
-							'!**/**bower.json',
  							'!vendor/tgmpa/tgm-plugin-activation/plugins/**',
  							'!vendor/jtsternberg/shortcode-button/**'
 						],

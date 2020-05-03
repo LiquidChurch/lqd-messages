@@ -16,7 +16,7 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
         return $sermon;
     }
 
-    $sermon = $sermon ? $sermon : get_the_id();
+    $sermon = $sermon ?: get_the_id();
 
     try {
 
@@ -59,9 +59,7 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
         'wrap_classes' => '',
     ));
 
-    $get_series_args['image_size'] = isset($get_series_args['image_size'])
-        ? $get_series_args['image_size']
-        : $args['thumbnail_size'];
+    $get_series_args['image_size'] = $get_series_args['image_size'] ?? $args['thumbnail_size'];
 
     if (!($series = $sermon->get_series($get_series_args))) {
         // If no series, bail.
@@ -109,9 +107,7 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
         'wrap_classes' => '',
     ));
 
-    $get_speaker_args['image_size'] = isset($get_speaker_args['image_size'])
-        ? $get_speaker_args['image_size']
-        : $args['thumbnail_size'];
+    $get_speaker_args['image_size'] = $get_speaker_args['image_size'] ?? $args['thumbnail_size'];
 
     if (!($speaker = $sermon->get_speaker($get_speaker_args))) {
         // If no speaker, bail.
@@ -131,48 +127,6 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
     $content = GCS_Template_Loader::get_template('sermon-speaker-info', (array)$speaker);
 
     return $content;
-}
-
-/**
- * Get's related links output for the sermon.
- *
- * @since  0.1.3
- *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
- *
- * @return string Sermon related links output.
- * @throws Exception
- */
-function gc_get_sermon_related_links($sermon = 0)
-{
-    $sermon = gc_get_sermon_post($sermon);
-
-    // If no sermon or no related links, bail.
-    if (!$sermon || !($links = $sermon->get_meta('gc_related_links')) || !is_array($links) || is_array_empty($links)) {
-        return '';
-    }
-
-    $content = GCS_Template_Loader::get_template('related-links', array(
-        'title' => __('Related Links', 'gc-sermons'),
-        'links' => $links,
-    ));
-
-    return $content;
-}
-
-function is_array_empty($InputVariable)
-{
-    $Result = true;
-
-    if (is_array($InputVariable) && count($InputVariable) > 0) {
-        foreach ($InputVariable as $Value) {
-            $Result = $Result && is_array_empty($Value);
-        }
-    } else {
-        $Result = empty($InputVariable);
-    }
-
-    return $Result;
 }
 
 /**
@@ -284,7 +238,7 @@ function gc_search_get_previous_results_link()
  */
 function gc__get_arg($arg, $default = null)
 {
-    return isset($_GET[$arg]) ? $_GET[$arg] : $default;
+    return $_GET[ $arg ] ?? $default;
 }
 
 function get_plugin_settings_options($arg1 = '', $arg2 = '')
@@ -295,8 +249,9 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
         $plugin_option = LiquidChurch_Functionality::get_plugin_settings_options($arg1, $arg2);
     }
 
-    if (empty($plugin_option))
+    if (empty($plugin_option)) {
         return array();
+    }
 
     return $plugin_option;
 }
