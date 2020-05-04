@@ -5,12 +5,12 @@
  * @package Liquid Messages
  */
 
-abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
+abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 	/** @var string $id The identifier for this object */
 	protected $id = '';
 
-	/** @var object|null $sermons GCS_Sermons object */
-	protected $sermons = null;
+	/** @var object|null $sermons LQDM_Sermons object */
+	protected $sermons;
 
 	/** @var string $image_meta_key The image meta key for this taxonomy */
 	protected $image_meta_key = '';
@@ -35,7 +35,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons LQDM_Sermons object.
 	 * @param $args
 	 */
 	public function __construct( $sermons, $args ) {
@@ -90,7 +90,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @param string  $img_col_title The title for the Image column.
 	 */
 	protected function add_image_column( $img_col_title ) {
-		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'lqdm' );
+		$this->img_col_title = $img_col_title ?: __( 'Image', 'lqdm' );
 
 		$tax = $this->taxonomy();
 
@@ -183,7 +183,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @param  boolean $get_single_term Whether to get the first term or all of them.
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws Exception
 	 */
 	public function most_recent( $get_single_term = false ) {
@@ -207,10 +207,10 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Retrieve the most recent message which has terms in this taxonomy.
 	 *
-	 * @since  0.2.0
-	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @since  0.2.0
+	 * @return LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws Exception
+	 *
 	 */
 	public function most_recent_sermon() {
 		return $this->sermons->most_recent_with_taxonomy( $this->id );
@@ -222,7 +222,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @since  0.1.1
 	 *
 	 * @param  array $args             Array of arguments (passed to get_terms).
-	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
+	 * @param  array $single_term_args Array of arguments for LQDM_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 * @throws Exception
@@ -262,8 +262,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @since  0.1.5
 	 *
 	 * @param  string|array $search_term      The search term.
-	 * @param  array        $args             Array of arguments for GCS_Taxonomies_Base::get_many().
-	 * @param  array        $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
+	 * @param  array        $args             Array of arguments for LQDM_Taxonomies_Base::get_many().
+	 * @param  array        $single_term_args Array of arguments for LQDM_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 * @throws Exception
@@ -352,10 +352,10 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			$size = is_numeric( $size ) ? array( $size, $size ) : $size;
 		}
 
-		$term->image = wp_get_attachment_image( $term->image_id, $size ? $size : 'thumbnail' );
+		$term->image = wp_get_attachment_image( $term->image_id, $size ?: 'thumbnail' );
 
-		$src = wp_get_attachment_image_src( $term->image_id, $size ? $size : 'thumbnail' );
-		$term->image_url = isset( $src[0] ) ? $src[0] : '';
+		$src = wp_get_attachment_image_src( $term->image_id, $size ?: 'thumbnail' );
+		$term->image_url = $src[0] ?? '';
 
 		return $term;
 	}
@@ -459,7 +459,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			case 'id':
 				return $this->id;
 			default:
-				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+				throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }

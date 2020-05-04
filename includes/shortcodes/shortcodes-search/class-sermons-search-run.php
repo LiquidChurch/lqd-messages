@@ -5,7 +5,7 @@
  * @package Liquid Messages
  */
 
-class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
+class LQDMS_Sermons_Search_Run extends LQDMS_Sermons_Run {
 
     /** @var string $search_query The current search query */
 	protected $search_query = '';
@@ -22,14 +22,14 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
-	 *
-	 * @param string         $search_query
-	 * @param $atts
-	 * @param GCS_Sermons    $sermons
-	 * @param GCS_Taxonomies $taxonomies
+     * @since 0.1.3
+     *
+	 * @param string            $search_query
+	 * @param                   $atts
+	 * @param LQDM_Sermons      $sermons
+     * @param LQDM_Taxonomies   $taxonomies
 	 */
-	public function __construct( $search_query, $atts, GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+	public function __construct( $search_query, $atts, LQDM_Sermons $sermons, LQDM_Taxonomies $taxonomies ) {
 		$this->search_query = $search_query;
 		$this->current_page = absint( gc__get_arg( 'results-page', 1 ) );
 
@@ -73,7 +73,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 
 		$this->results = '';
 		if ( 0 === $my_level ) {
-			$this->results .= GCS_Style_Loader::get_template( 'list-item-style' );
+			$this->results .= LQDM_Style_Loader::get_template( 'list-item-style' );
 		}
 
 		$args = $this->get_pagination( $max );
@@ -81,7 +81,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 		$args['sermons']      = $sermons;
 		$args['plugin_option'] = get_plugin_settings_options('search_view');
 
-		$this->results .= GCS_Template_Loader::get_template( 'sermons-list', $args );
+		$this->results .= LQDM_Template_Loader::get_template( 'sermons-list', $args );
 
 		remove_filter( 'gcs_get_sermons_args', array( $this, 'filter_sermon_args' ) );
 
@@ -138,7 +138,7 @@ class GCSS_Sermons_Search_Run extends GCSS_Sermons_Run {
 	 * @return string
 	 */
 	protected function get_wrap_classes() {
-		return parent::get_wrap_classes() . ' gc-sermons-search-wrap';
+		return parent::get_wrap_classes() . ' lqdm-search-wrap';
 	}
 
 }

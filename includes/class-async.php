@@ -5,10 +5,10 @@
  * @package Liquid Messages
  */
 
-class GCS_Async extends WP_Async_Task {
+class LQDM_Async extends WP_Async_Task {
 
     /** @var null|object $plugin Parent plugin class  */
-	protected $plugin = null;
+	protected $plugin;
 
     /** @var string $action Action to perform */
 	protected $action = 'set_object_terms';
@@ -42,7 +42,7 @@ class GCS_Async extends WP_Async_Task {
 		$taxonomy = $data[3];
 
 		if ( $this->plugin->sermons->post_type() !== get_post_type( $object_id ) ) {
-			throw new Exception( 'We only want async tasks for messages' );
+			throw new RuntimeException( 'We only want async tasks for messages' );
 		}
 
 		return compact( 'object_id', 'taxonomy' );

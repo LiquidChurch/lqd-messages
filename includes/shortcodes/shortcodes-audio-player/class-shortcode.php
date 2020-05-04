@@ -1,10 +1,10 @@
 <?php
 /**
- * GC Sermons Audio Player Shortcode
+ * Liquid Messages Audio Player Shortcode
  * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {
+class LQDM_Shortcodes_Audio_Player extends LQDM_Shortcodes_Base {
 
 	/**
 	 * Constructor
@@ -14,8 +14,8 @@ class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCS_Shortcodes_Audio_Player_Run( $plugin->sermons );
-		$this->admin = new GCS_Shortcodes_Audio_Player_Admin( $this->run );
+		$this->run   = new LQDM_Shortcodes_Audio_Player_Run( $plugin->sermons );
+		$this->admin = new LQDM_Shortcodes_Audio_Player_Admin( $this->run );
 
 		parent::hooks();
 	}
@@ -23,12 +23,12 @@ class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {
 }
 
 /**
- * GC Sermons Audio Player Shortcode
+ * Liquid Messages Audio Player Shortcode
  *
  * @version 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
+class LQDM_Shortcodes_Audio_Player_Run extends LQDM_Shortcodes_Run_Base {
 	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_audio_player';
 
@@ -50,11 +50,11 @@ class GCS_Shortcodes_Audio_Player_Run extends GCS_Shortcodes_Run_Base {
 
 
 /**
- * GC Sermons Audio Player Shortcode - Admin
+ * Liquid Messages Audio Player Shortcode - Admin
  * @version 0.1.3
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
+class LQDM_Shortcodes_Audio_Player_Admin extends LQDMS_Recent_Admin_Base {
 	/** @var string $prefix Shortcode prefix for field ids. */
 	protected $prefix = 'gc_audplayer_';
 
@@ -65,8 +65,8 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
-			'button_tooltip' => __( 'GC Sermon Audio Player', 'gc-sermons' ),
+			'qt_button_text' => __( 'GC Sermon Audio Player', 'lqdm' ),
+			'button_tooltip' => __( 'GC Sermon Audio Player', 'lqdm' ),
 			'icon'           => 'dashicons-format-audio'
 		);
 	}
@@ -82,8 +82,8 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
 	function fields( $fields, $button_data ) {
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'gc-sermons' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s audio player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+			'name'            => __( 'Sermon ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s audio player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),

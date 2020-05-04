@@ -5,29 +5,30 @@
  * @package Liquid Messages
  */
 
-class GCS_Shortcodes {
-	/** @var GCS_Shortcodes_Sermons $sermons Instance of GCS_Shortcodes_Sermons */
+class LQDM_Shortcodes {
+	/** @var LQDM_Shortcodes_Sermons $sermons Instance of LQDM_Shortcodes_Sermons */
 	protected $sermons;
 
-	/** @var GCS_Shortcodes_Recent_Series $recent_series Instance of GCS_Shortcodes_Recent_Series */
+	/** @var LQDM_Shortcodes_Recent_Series $recent_series Instance of LQDM_Shortcodes_Recent_Series */
 	protected $recent_series;
 
-	/** @var GCS_Shortcodes_Recent_Speaker $recent_speaker Instance of GCS_Shortcodes_Recent_Speaker */
+	/** @var LQDM_Shortcodes_Recent_Speaker $recent_speaker Instance of LQDM_Shortcodes_Recent_Speaker */
 	protected $recent_speaker;
 
-	/** @var GCS_Shortcodes_Video_Player $video_player Instance of GCS_Shortcodes_Video_Player */
+	/** @var LQDM_Shortcodes_Video_Player $video_player Instance of LQDM_Shortcodes_Video_Player */
 	protected $video_player;
 
-	/**
-	 * Instance of GCS_Shortcodes_Audio_Player
-	 *
-	 * @var GCS_Shortcodes_Audio_Player
-	 * @since 0.1.4
-	 */
+	/** @var LQDM_Shortcodes_Audio_Player $audio_player Instance of LQDM_Shortcodes_Audio_Player */
 	protected $audio_player;
 
-	/** @var GCS_Shortcodes_Sermon_Search $search Instance of GCS_Shortcodes_Sermon_Search */
+	/** @var LQDM_Series $series Instance of LQDM_Series */
+    protected $series;
+
+	/** @var LQDM_Shortcodes_Sermon_Search $search Instance of LQDM_Shortcodes_Sermon_Search */
 	protected $search;
+
+	/** @var LQDM_Shortcodes_Resources $resources Instance of LQDM_Shortcodes_Resources */
+    protected $resources;
 
 	/**
 	 * Constructor
@@ -37,13 +38,14 @@ class GCS_Shortcodes {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->sermons        = new GCS_Shortcodes_Sermons( $plugin );
-		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
-		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
-		$this->series         = new GCS_Shortcodes_Series( $plugin );
-		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
-		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
-		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );
+		$this->sermons        = new LQDM_Shortcodes_Sermons( $plugin );
+		$this->recent_series  = new LQDM_Shortcodes_Recent_Series( $plugin );
+		$this->recent_speaker = new LQDM_Shortcodes_Recent_Speaker( $plugin );
+		$this->series         = new LQDM_Shortcodes_Series( $plugin );
+		$this->video_player   = new LQDM_Shortcodes_Video_Player( $plugin );
+		$this->audio_player   = new LQDM_Shortcodes_Audio_Player( $plugin );
+		$this->search         = new LQDM_Shortcodes_Sermon_Search( $plugin );
+		$this->resources      = new LQDM_Shortcodes_Resources( $plugin );
 	}
 
 	/**

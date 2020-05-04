@@ -10,34 +10,9 @@ window.GCVideoModal = window.GCVideoModal || {};
 
 	app.cache = function() {
 		app.$ = {};
-		app.$.overlay = $(document.getElementById( 'gc-video-overlay' ));
+		app.$.overlay = $(document.getElementById( 'lqdm-video-overlay' ));
 		app.$.body = $(document.body);
-		app.$.modals = $( '.gc-sermons-modal' );
-	};
-
-	app.init = function () {
-		app.cache();
-		if ( 'function' === typeof $.fn.prettyPhoto ) {
-			$('.gc-sermons-play-button').prettyPhoto({
-				default_width  : 1100,
-				default_height : 619,
-				theme          : 'dark_square',
-			});
-
-			return;
-		}
-
-		$(document).on( 'keydown', function (evt) {
-			var escapeKey = 27;
-			if (escapeKey === evt.keyCode) {
-				evt.preventDefault();
-				app.closeModals();
-			}
-		});
-
-		app.$.body
-			.on( 'click', '.gc-sermons-play-button', app.clickOpenModal)
-			.on( 'click', '#gc-video-overlay', app.closeModals);
+		app.$.modals = $( '.lqdm-msgs-modal' );
 	};
 
 	app.clickOpenModal = function(evt) {
@@ -51,11 +26,11 @@ window.GCVideoModal = window.GCVideoModal || {};
 		app.$.overlay.fadeIn( 'fast' );
 
 		var $video = app.$.modals
-            .filter('#gc-sermons-video-'+ sermonId)
+            .filter('#lqdm-sermons-video-'+ sermonId)
             .removeClass('gcinvisible');
 
 		$video
-            .find('.gc-sermons-video-container')
+            .find('.lqdm-sermons-video-container')
             .html($video.find('.tmpl-videoModal').html())
             .fitVids();
 
@@ -68,7 +43,7 @@ window.GCVideoModal = window.GCVideoModal || {};
 		app.$.overlay.fadeOut();
 		app.$.modals
             .addClass('gcinvisible')
-            .find('.gc-sermons-video-container')
+            .find('.lqdm-sermons-video-container')
             .empty();
 	};
 

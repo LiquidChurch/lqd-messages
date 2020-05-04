@@ -4,8 +4,8 @@
  *
  * @package Liquid Messages
  */
-abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
-	/** @var GCS_Shortcodes_Run_Base $run Parent plugin class */
+abstract class LQDM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
+	/** @var LQDM_Shortcodes_Run_Base $run Parent plugin class */
 	protected $run;
 
 	/** @var string $prefix Shortcode prefix for field ids */
@@ -14,11 +14,11 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+     * @since 0.1.0
+     *
+	 * @param LQDM_Shortcodes_Run_Base  $run  Main plugin object.
 	 */
-	public function __construct( GCS_Shortcodes_Run_Base $run ) {
+	public function __construct( LQDM_Shortcodes_Run_Base $run ) {
 		$this->run = $run;
 
 		parent::__construct(
@@ -47,7 +47,7 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 
 			foreach ( $updated as $key => $value) {
 
-				if ( $this->prefix === substr( $key, 0, $prefix_length ) ) {
+				if ( strpos( $key, $this->prefix ) === 0 ) {
 				    $key = substr( $key, $prefix_length );
 				}
 

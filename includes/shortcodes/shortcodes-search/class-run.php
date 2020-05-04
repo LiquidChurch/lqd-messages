@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
+class LQDM_Shortcodes_Sermon_Search_Run extends LQDM_Shortcodes_Run_Base {
 	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_sermons_search';
 
@@ -38,7 +38,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 		'separate_results' => false,
 	);
 
-	/** @var GCS_Taxonomies $taxonomies Instance of GCS_Taxonomies object */
+	/** @var LQDM_Taxonomies $taxonomies Instance of LQDM_Taxonomies object */
 	public $taxonomies;
 
 	/** @var string $search_query The current search query */
@@ -47,12 +47,12 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
-	 *
-	 * @param GCS_Sermons $sermons
-	 * @param GCS_Taxonomies $taxonomies
+     * @since 0.1.3
+     *
+	 * @param  LQDM_Sermons     $sermons
+     * @param  LQDM_Taxonomies  $taxonomies
 	 */
-	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+	public function __construct( LQDM_Sermons $sermons, LQDM_Taxonomies $taxonomies ) {
 
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $sermons );
@@ -88,14 +88,14 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 			'separate_results'  => $separate_results,
 		);
 
-		$content = GCS_Template_Loader::get_template( $template, $args );
+		$content = LQDM_Template_Loader::get_template( $template, $args );
 
 		// If a search was performed, let's get the results.
 		if ( $this->search_query ) {
 
 			if ( strlen( $this->search_query ) < 3 ) {
 				// Uh-oh, we need at least 3 characters.
-				$content .= GCS_Template_Loader::get_template( 'search-query-error' );
+				$content .= LQDM_Template_Loader::get_template( 'search-query-error' );
 			} else {
 
 				$show_sermon_results = ! $show_results || $cpt_slug === $show_results;
@@ -120,20 +120,19 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Message Search Results
 	 *
-	 * @return GCSS_Sermons_Search_Run|string
+	 * @return LQDMS_Sermons_Search_Run|string
 	 * @throws Exception
 	 */
 	protected function sermon_search_results() {
 		$atts = $this->atts;
-		unset( $atts['search'] );
-		unset( $atts['wrap_classes'] );
+        unset( $atts['search'], $atts['wrap_classes'] );
 
-		$atts = wp_parse_args( $atts, $this->att( 'sermon_search_args', array() ) );
+        $atts = wp_parse_args( $atts, $this->att( 'sermon_search_args', array() ) );
 
-		$search = new GCSS_Sermons_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies );
+		$search = new LQDMS_Sermons_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies );
 		$search->get_search_results( );
 
-		return GCS_Template_Loader::get_template( 'sermon-search-results', array(
+		return LQDM_Template_Loader::get_template( 'sermon-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
 			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(
@@ -142,8 +141,6 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 				esc_html( $this->search_query )
 			),
 		) );
-
-		return $search;
 	}
 
 	/**
@@ -154,15 +151,14 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 	 */
 	protected function series_search_results() {
 		$atts = $this->atts;
-		unset( $atts['search'] );
-		unset( $atts['wrap_classes'] );
+        unset( $atts['search'], $atts['wrap_classes'] );
 
-		$atts = wp_parse_args( $atts, $this->att( 'series_search_args', array() ) );
+        $atts = wp_parse_args( $atts, $this->att( 'series_search_args', array() ) );
 
-		$search = new GCSS_Series_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies->series );
+		$search = new LQDMS_Series_Search_Run( $this->search_query, $atts, $this->sermons, $this->taxonomies->series );
 		$search->get_search_results();
 
-		return GCS_Template_Loader::get_template( 'series-search-results', array(
+		return LQDM_Template_Loader::get_template( 'series-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
 			'results'       => empty( $search->results ) ? __( 'No results.', 'lqdm' ) : $search->results,
 			'search_notice' => sprintf(

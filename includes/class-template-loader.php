@@ -11,7 +11,7 @@
  *
  * @since 0.1.3
  */
-class GCS_Template_Loader {
+class LQDM_Template_Loader {
 	/** @var array|string|null $args Array of arguments for template */
 	public $args = array();
 
@@ -38,7 +38,7 @@ class GCS_Template_Loader {
 	 */
 	public function __construct( $template, $name = null, array $args = array() ) {
 		if ( empty( $template ) ) {
-			throw new Exception( 'Template variable required for '. __CLASS__ .'.' );
+			throw new \RuntimeException( 'Template variable required for ' . __CLASS__ . '.' );
 		}
 
 		$file = $this->template = "{$template}{$this->extension}";
@@ -161,12 +161,8 @@ class GCS_Template_Loader {
 	 * @return mixed            Value or default.
 	 */
 	public function get( $arg, $default = null ) {
-		if ( isset( $this->args[ $arg ] ) ) {
-			return $this->args[ $arg ];
-		}
-
-		return $default;
-	}
+        return $this->args[ $arg ] ?? $default;
+    }
 
 	/**
 	 * Output one of the $args values.
@@ -200,7 +196,7 @@ class GCS_Template_Loader {
 	 * @return mixed                 Value if condition is met.
 	 */
 	public function maybe_output( $arg, $esc_cb = '', $arg_to_check = null ) {
-		$arg_to_check = null === $arg_to_check ? $arg : $arg_to_check;
+		$arg_to_check = $arg_to_check ?? $arg;
 
 		if ( $this->get( $arg_to_check ) ) {
 			$this->output( $arg, $esc_cb );

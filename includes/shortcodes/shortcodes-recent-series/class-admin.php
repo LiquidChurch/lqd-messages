@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
+class LQDMS_Recent_Series_Admin extends LQDMS_Recent_Admin_Base {
 	/** @var string $prefix Shortcode prefix for field ids. */
 	protected $prefix = 'rcnt_series_';
 

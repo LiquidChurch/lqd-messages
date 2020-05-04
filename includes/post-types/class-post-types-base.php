@@ -3,16 +3,17 @@
  * Liquid Messages Custom Post Types Base
  *
  * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
 
-abstract class GCS_Post_Types_Base extends CPT_Core {
+abstract class LQDM_Post_Types_Base extends CPT_Core {
     /** @var object|null $plugin Parent plugin class */
-	protected $plugin = null;
+	protected $plugin;
 
 	/** @var string $id The identifier for this post */
 	protected $id = '';
 
+	// Are overrides processed?
 	protected $overrides_processed = false;
 
 	/**
@@ -39,7 +40,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	/**
 	 * Filter Values
 	 */
-	public function filter_values() {
+	public function filter_values(): void {
 		if ( $this->overrides_processed ) {
 			return;
 		}
@@ -96,7 +97,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 *
 	 * @return CMB2
 	 */
-	public function new_cmb2( $args ) {
+	public function new_cmb2( $args ): CMB2 {
 		$cmb_id = $args['id'];
 		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
 	}
@@ -115,7 +116,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 			case 'cpt_args':
 				return $this->{$field};
 			default:
-				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+				throw new RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }

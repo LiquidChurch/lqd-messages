@@ -4,10 +4,12 @@
  *
  * Built using CPT_Core.
  *
+ * @link https://github.com/WebDevStudios/CPT_Core
+ *
  * @version 0.1.6
- * @package GC Sermons
+ * @package Liquid Messages
  */
-class GCS_Sermons extends GCS_Post_Types_Base
+class LQDM_Sermons extends LQDM_Post_Types_Base
 {
 
     /** @var bool $flush Bypass temporary cache */
@@ -17,7 +19,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
     protected $id = 'sermon';
 
     /** @var null $plugin Parent plugin class */
-    protected $plugin = null;
+    protected $plugin;
 
     /** @var array $query_args Array of default WP_Query args */
     protected $query_args = array(
@@ -105,50 +107,6 @@ class GCS_Sermons extends GCS_Post_Types_Base
         add_filter("manage_edit-{$this->post_type()}_columns", array($this, 'columns'));
         add_filter("manage_edit-{$this->post_type()}_sortable_columns", array($this, 'columns_sortable'), 10, 1);
         add_filter('posts_clauses', array($this, 'columns_sort_func'), 10, 2);
-        add_action('wp_ajax_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
-        add_action('wp_ajax_nopriv_check_sermon_duplicate_video', array($this, 'check_sermon_duplicate_video'));
-    }
-
-    /**
-     * check duplicate post with same video meta url
-     *
-     * @since  0.1.7
-     *
-     */
-    public function check_sermon_duplicate_video()
-    {
-        $response = array();
-        $response['success'] = true;
-        $nonce_verify = wp_verify_nonce($_POST['nonce'], 'scripterz-nonce');
-
-        if (!empty($_POST['video_url']) && $nonce_verify == true) {
-
-            $the_query = new WP_Query(
-                array(
-                    'post_type' => 'gc-sermons',
-                    'meta_key' => 'gc_sermon_video_url',
-                    'meta_value' => $_POST['video_url'],
-                    'order' => 'ASC',
-                    'post__not_in' => array($_POST['curr_post_id']),
-                )
-            );
-
-
-            if ($the_query->have_posts()) {
-                $response['success'] = false;
-                $response['data'] = __('<div class="gc-sermon-duplicate-notice"><p>There are other posts exists, containing the same meta video URL', 'gc-sermons');
-                while ($the_query->have_posts()) {
-                    $the_query->the_post();
-                    $response['data'] .= ', <a target="_blank" href="' . admin_url("post.php?post=" . get_the_ID() . "&action=edit") . '">' . get_the_title() . '</a>';
-                }
-                $response['data'] .= "</p></div>";
-
-                wp_reset_postdata();
-            }
-        }
-
-        echo json_encode($response);
-        die();
     }
 
     /**
@@ -176,9 +134,9 @@ class GCS_Sermons extends GCS_Post_Types_Base
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param $meta
-	 * @param  int $object_id Object ID.
-	 * @param  string $meta_key Meta key.
+	 * @param  null|array|string $meta       Value that get_metadata() should return - either single or array.
+	 * @param  int               $object_id  Object ID.
+	 * @param  string            $meta_key   Meta key.
 	 *
 	 * @return mixed Message featured image id, or Series image id, or nothing.
 	 * @throws Exception
@@ -198,7 +156,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             if (!$id || !get_post($id)) {
 
                 // Get message.
-                $sermon = new GCS_Sermon_Post(get_post($object_id));
+                $sermon = new LQDM_Sermon_Post(get_post($object_id));
 
                 // Get series.
                 $series = $sermon->get_series();
@@ -382,7 +340,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
             add_action('admin_footer', array($this, 'admin_column_css'));
 
             // Get message post object
-            $sermon = new GCS_Sermon_Post(get_post($post_id));
+            $sermon = new LQDM_Sermon_Post(get_post($post_id));
 
             // If we have message series...
             if (is_array($sermon->series)) {
@@ -406,7 +364,7 @@ class GCS_Sermons extends GCS_Post_Types_Base
                         $term = $series->name;
                     }
 
-                    echo '<div class="sermon-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
+                    echo '<div class="lqdm-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
                 }
             }
         } elseif ('thumb-' . $this->post_type() === $column) {
@@ -465,15 +423,15 @@ SQL;
 	 */
     public function admin_column_css()
     {
-        GCS_Style_Loader::output_template('admin-column');
+        LQDM_Style_Loader::output_template('admin-column');
     }
 
 	/**
 	 * Retrieve the most recent message with video media.
 	 *
-	 * @since  0.1.0
-	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @since 0.1.0
+     *
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     public function most_recent_with_video()
@@ -494,9 +452,9 @@ SQL;
 	/**
 	 * Retrieve the most recent message.
 	 *
-	 * @since  0.1.0
-	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @since 0.1.0
+     *
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     public function most_recent()
@@ -507,7 +465,7 @@ SQL;
             $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
             $sermon = false;
             if ($sermons->have_posts()) {
-                $sermon = new GCS_Sermon_Post($sermons->post);
+                $sermon = new LQDM_Sermon_Post( $sermons->post);
             }
         }
 
@@ -521,7 +479,7 @@ SQL;
 	 *
 	 * @param   string  $type Media type (audio or video)
 	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     protected function most_recent_with_media($type = 'video')
@@ -529,7 +487,7 @@ SQL;
         $sermon = false;
 
         // Only audio/video allowed.
-        $type = 'video' === $type ? $type : 'audio';
+        $type = $type === 'video' ? $type : 'audio';
 
         $args = $this->query_args;
         $args['meta_query'] = array(
@@ -545,7 +503,7 @@ SQL;
         $sermons = new WP_Query(apply_filters("gcs_recent_sermon_with_{$type}_args", $args));
 
         if ($sermons->have_posts()) {
-            $sermon = new GCS_Sermon_Post($sermons->post);
+            $sermon = new LQDM_Sermon_Post( $sermons->post);
         }
 
         return $sermon;
@@ -554,16 +512,16 @@ SQL;
 	/**
 	 * Retrieve the most recent message with audio media.
 	 *
-	 * @since  0.1.0
-	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+     * @since 0.1.0
+     *
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     public function most_recent_with_audio()
     {
         static $sermon = null;
 
-        if (null === $sermon || $this->flush) {
+        if ( $sermon === null || $this->flush) {
             $sermon = $this->most_recent();
 
             if (empty($sermon->media['audio'])) {
@@ -581,7 +539,7 @@ SQL;
 	 *
 	 * @param $args
 	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     public function get($args)
@@ -590,7 +548,7 @@ SQL;
         $sermons = new WP_Query(apply_filters('gcs_get_sermon_args', $args));
         $sermon = false;
         if ($sermons->have_posts()) {
-            $sermon = new GCS_Sermon_Post($sermons->post);
+            $sermon = new LQDM_Sermon_Post( $sermons->post);
         }
 
         return $sermon;
@@ -609,8 +567,7 @@ SQL;
     public function get_many($args)
     {
         $defaults = $this->query_args;
-        unset($defaults['posts_per_page']);
-        unset($defaults['no_found_rows']);
+        unset( $defaults['posts_per_page'], $defaults['no_found_rows'] );
         $args['augment_posts'] = true;
 
         $args = apply_filters('gcs_get_sermons_args', wp_parse_args($args, $defaults));
@@ -624,7 +581,7 @@ SQL;
             && $sermons->post_count < 100
         ) {
             foreach ($sermons->posts as $key => $post) {
-                $sermons->posts[$key] = new GCS_Sermon_Post($post);
+                $sermons->posts[$key] = new LQDM_Sermon_Post( $post);
             }
         }
 
@@ -634,13 +591,13 @@ SQL;
 	/**
 	 * Retrieve the most recent message which has terms in specified taxonomy.
 	 *
-     * @since  0.1.0
-     *
-	 * @param   string $taxonomy_id GCS_Taxonomies_Base taxonomy id
+     * @param   string $taxonomy_id LQDM_Taxonomies_Base taxonomy id
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
-	 * @throws Exception
-	 */
+	 * @return false|LQDM_Sermon_Post|WP_Error
+     * @throws Exception
+     *@since 0.1.0
+     *
+     */
     public function most_recent_with_taxonomy($taxonomy_id)
     {
         $sermon = $this->most_recent();
@@ -666,12 +623,12 @@ SQL;
 	/**
 	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
 	 *
-	 * @since  0.1.0
-	 *
-	 * @param  string  $taxonomy_id  GCS_Taxonomies_Base taxonomy id
+     * @since 0.1.0
+     *
+	 * @param  string  $taxonomy_id  LQDM_Taxonomies_Base taxonomy id
 	 * @param  array   $exclude      Array of excluded post IDs
 	 *
-	 * @return  GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return  LQDM_Sermon_Post|false  GC Sermon post object if successful.
 	 * @throws  Exception
 	 */
     protected function find_sermon_with_taxonomy($taxonomy_id, $exclude)
@@ -688,7 +645,7 @@ SQL;
             return false;
         }
 
-        $sermon = new GCS_Sermon_Post($sermons->post);
+        $sermon = new LQDM_Sermon_Post( $sermons->post);
 
         $terms = $sermon ? $sermon->{$taxonomy_id} : false;
 

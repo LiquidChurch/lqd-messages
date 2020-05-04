@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCS_Shortcodes_Recent_Series extends GCS_Shortcodes_Base {
+class LQDM_Shortcodes_Recent_Series extends LQDM_Shortcodes_Base {
 	/**
 	 * Constructor
 	 *
@@ -13,8 +13,8 @@ class GCS_Shortcodes_Recent_Series extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCSS_Recent_Series_Run( $plugin->sermons );
-		$this->admin = new GCSS_Recent_Series_Admin( $this->run );
+		$this->run   = new LQDMS_Recent_Series_Run( $plugin->sermons );
+		$this->admin = new LQDMS_Recent_Series_Admin( $this->run );
 
 		parent::hooks();
 	}

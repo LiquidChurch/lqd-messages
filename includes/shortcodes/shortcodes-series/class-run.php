@@ -4,12 +4,12 @@
  *
  * @package Liquid Messages
  */
-class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
+class LQDMS_Series_Run extends LQDM_Shortcodes_Run_Base
 {
     /** @var string $shortcode The shortcode tag */
     public $shortcode = 'gc_series';
 
-    /** @var GCS_Series $series GCS_Series object */
+    /** @var LQDM_Series $series LQDM_Series object */
     public $series;
 
     /** @var array $atts_defaults Array of default attributes applied to the shortcode */
@@ -36,10 +36,10 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
      *
      * @since 0.1.3
      *
-     * @param GCS_Sermons $sermons
-     * @param GCS_Series $series
+     * @param  LQDM_Sermons $sermons
+     * @param  LQDM_Series  $series
      */
-    public function __construct(GCS_Sermons $sermons, GCS_Series $series)
+    public function __construct( LQDM_Sermons $sermons, LQDM_Series $series)
     {
         $this->series = $series;
         $this->atts_defaults['paging_init_year'] = array(date('Y'));
@@ -67,7 +67,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
 
         if ($paging_by == 'per_page') {
             $total_pages = ceil(count($allterms) / $args['posts_per_page']);
-            $allterms = array_splice($allterms, $args['offset'], $args['posts_per_page']);
+            $allterms    = array_splice($allterms, $args['offset'], $args['posts_per_page']);
 
             if (empty($allterms)) {
                 return '';
@@ -93,9 +93,9 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
                 }
             }
 
-            $diff_year = array_diff_key($allterms, $paging_init_year, $paging_init_year_tmp);
+            $diff_year   = array_diff_key($allterms, $paging_init_year, $paging_init_year_tmp);
             $total_pages = count($diff_year) + count($paging_init_year_tmp) + 1;
-            $allterms = array_intersect_key($allterms, $curr_year);
+            $allterms    = array_intersect_key($allterms, $curr_year);
 
             if (empty($allterms)) {
                 return '';
@@ -103,15 +103,15 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
         }
 
         $args = $this->get_pagination($total_pages);
-        $args['terms'] = $allterms;
 
-        $args['remove_dates'] = $this->bool_att('remove_dates');
-        $args['wrap_classes'] = $this->get_wrap_classes();
+        $args['terms']         = $allterms;
+        $args['remove_dates']  = $this->bool_att('remove_dates');
+        $args['wrap_classes']  = $this->get_wrap_classes();
         $args['plugin_option'] = get_plugin_settings_options('series_view');
 
         $content  = '';
-        $content .= GCS_Style_Loader::get_template('list-item-style');
-        $content .= GCS_Template_Loader::get_template('series-list', $args);
+        $content .= LQDM_Style_Loader::get_template('list-item-style');
+        $content .= LQDM_Template_Loader::get_template('series-list', $args);
 
         return $content;
     }
@@ -143,17 +143,15 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
             $year_config = $this->att('paging_init_year');
         } else {
             $year_config = [
-                date('Y', time()),
-                date('Y', time()) - 1,
+                date('Y' ),
+                date('Y' ) - 1,
             ];
         }
 
         if (empty($year_config)) {
             $year_config = $this->atts_defaults['paging_init_year'];
-        } else {
-            if (!is_array($year_config)) {
-                $year_config = explode(',', $year_config);
-            }
+        } else if (!is_array($year_config)) {
+            $year_config = explode(',', $year_config);
         }
         $paged = (int)get_query_var('paged') ? get_query_var('paged') : 1;
 
@@ -212,10 +210,8 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
         $nav = array('prev_link' => '', 'next_link' => '');
 
         if (!$this->bool_att('remove_pagination')) {
-            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer',
-                'gc-sermons'), $total_pages);
-            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>',
-                'gc-sermons'), $total_pages);
+            $nav['prev_link'] = get_previous_posts_link(__('<span>&larr;</span> Newer', 'lqdm'));
+            $nav['next_link'] = get_next_posts_link(__('Older <span>&rarr;</span>', 'lqdm'), $total_pages);
         }
 
         return $nav;
@@ -231,6 +227,6 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols lqdm-series-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-series-wrap';
     }
 }

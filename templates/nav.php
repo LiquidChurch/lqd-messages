@@ -1,6 +1,6 @@
 <nav class="lqdm-prev-next">
 	<?php if ( $this->get( 'prev_link' ) ) : ?>
-		<span class="gc-prev-link">
+		<span class="lqdm-prev-link">
 			<?php $this->output( 'prev_link' ); ?>
 		</span>
 	<?php endif; ?>

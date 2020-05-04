@@ -4,18 +4,18 @@
  *
  * @package Liquid Messages
  */
-abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
-	/** @var GCS_Sermons GCS_Sermons object */
+abstract class LQDM_Shortcodes_Run_Base extends WDS_Shortcodes {
+	/** @var LQDM_Sermons LQDM_Sermons object */
 	public $sermons;
 
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.3
-	 *
-	 * @param GCS_Sermons $sermons
+     * @since 0.1.3
+     *
+	 * @param LQDM_Sermons $sermons
 	 */
-	public function __construct( GCS_Sermons $sermons ) {
+	public function __construct( LQDM_Sermons $sermons ) {
 		$this->sermons = $sermons;
 		parent::__construct();
 	}
@@ -49,7 +49,7 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 	/**
 	 * Get most recent sermon
 	 *
-	 * @return false|GCS_Sermon_Post
+	 * @return false|LQDM_Sermon_Post
 	 * @throws Exception
 	 */
 	protected function most_recent_sermon() {
@@ -63,31 +63,4 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 		return $this->sermons->most_recent();
 	}
-
-	/**
-	 * Get Inline Styles
-	 *
-	 * @return array
-	 */
-	public function get_inline_styles() {
-		$style = '';
-		$has_icon_font_size = false;
-
-		if ( $this->att( 'icon_color' ) || $this->att( 'icon_size' ) ) {
-			$style = ' style="';
-			// Get/check our text_color attribute
-			if ( $this->att( 'icon_color' ) ) {
-				$text_color = sanitize_text_field( $this->att( 'icon_color' ) );
-				$style .= 'color: ' . $text_color .';';
-			}
-			if ( is_numeric( $this->att( 'icon_size' ) ) ) {
-				$has_icon_font_size = absint( $this->att( 'icon_size' ) );
-				$style .= 'font-size: ' . $has_icon_font_size .'em;';
-			}
-			$style .= '"';
-		}
-
-		return array( $style, $has_icon_font_size );
-	}
-
 }

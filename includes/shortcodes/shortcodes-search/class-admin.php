@@ -4,22 +4,22 @@
  *
  * @package Liquid Messages
  */
-class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {
+class LQDM_Shortcodes_Sermon_Search_Admin extends LQDMS_Recent_Admin_Base {
 	/** @var string $prefix Shortcode prefix for field ids */
 	protected $prefix = 'gc_search_';
 
-	/** @var GCS_Taxonomies $taxonomies Instance of GCS Taxonomies */
+	/** @var LQDM_Taxonomies $taxonomies Instance of LQDM Taxonomies */
 	protected $taxonomies;
 
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
-	 * @param GCS_Taxonomies $taxonomies GCS_Taxonomies object.
+     * @since 0.1.0
+     *
+	 * @param LQDM_Shortcodes_Run_Base  $run         Main plugin object.
+	 * @param LQDM_Taxonomies           $taxonomies  LQDM_Taxonomies object.
 	 */
-	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
+	public function __construct( LQDM_Shortcodes_Run_Base $run, LQDM_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $run );
 	}

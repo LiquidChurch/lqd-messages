@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
+class LQDMS_Series_Admin extends LQDM_Shortcodes_Admin_Base {
 	/** @var string $prefix Shortcode prefix for field ids */
 	protected $prefix = 'series_';
 
@@ -110,7 +110,7 @@ class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
             'desc'    => __( 'This is only applicable if `show_num_years_first_page` is empty or 0', 'lqdm' ),
 			'type'    => 'text',
 			'id'      => $this->prefix . 'paging_init_year',
-			'default' => array(date('Y', time())),
+			'default' => array(date('Y' )),
 		);
 
 		return $fields;

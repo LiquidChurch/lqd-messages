@@ -5,7 +5,7 @@
  * @package Liquid Messages
  */
 
-class GCS_Series extends GCS_Taxonomies_Base {
+class LQDM_Series extends LQDM_Taxonomies_Base {
 
     /** @var string $id Identifier for this object */
 	protected $id = 'series';
@@ -23,7 +23,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 * Register Series Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons LQDM_Sermons object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {

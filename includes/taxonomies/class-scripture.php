@@ -6,10 +6,10 @@
  */
 
 /**
- * GCS_Scripture
+ * LQDM_Scripture
  * @since 0.1.3
  */
-class GCS_Scripture extends GCS_Taxonomies_Base {
+class LQDM_Scripture extends LQDM_Taxonomies_Base {
 	/** @var string $id The identifier for this object */
 	protected $id = 'scripture';
 
@@ -18,7 +18,7 @@ class GCS_Scripture extends GCS_Taxonomies_Base {
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.3
-	 * @param  object $sermons GCS_Sermons object.
+	 * @param  object $sermons LQDM_Sermons object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {

@@ -4,17 +4,17 @@
  *
  * @package Liquid Messages
  */
-abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
+abstract class LQDMS_Recent_Admin_Base extends LQDM_Shortcodes_Admin_Base
 {
 
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run Main plugin object.
+     * @since 0.1.0
+     *
+	 * @param LQDM_Shortcodes_Run_Base  $run  Main plugin object.
 	 */
-    public function __construct(GCS_Shortcodes_Run_Base $run)
+    public function __construct( LQDM_Shortcodes_Run_Base $run)
     {
         parent::__construct($run);
 
@@ -30,19 +30,19 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base
     public function enqueue_js()
     {
         wp_register_script(
-            'gc-sermons-admin',
-            GC_Sermons_Plugin::$url . 'assets/js/lqdm-admin.js',
+            'lqdm-recent-admin',
+            GC_Sermons_Plugin::$url . 'assets/js/lqdm-recent-admin.js',
             array('jquery'),
             GC_Sermons_Plugin::VERSION,
             true
         );
-        wp_localize_script('gc-sermons-admin', 'php_vars', array(
+        wp_localize_script('lqdm-recent-admin', 'php_vars', array(
                 'postID' => $_GET['post'],
                 'nonce' => wp_create_nonce('scripterz-nonce')
             )
         );
         wp_enqueue_script(
-            'gc-sermons-admin'
+            'lqdm-recent-admin'
         );
     }
 

@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCS_Sermon_Post {
+class LQDM_Sermon_Post {
     /** @var mixed|WP_Post $post Post object to wrap */
     protected $post;
 
@@ -21,13 +21,13 @@ class GCS_Sermon_Post {
     protected $scripture = array();
 
     /** @var null $single_series Single series term for the message post (array?) */
-    protected $single_series = null;
+    protected $single_series;
 
     /** @var array $speakers Speaker terms for the message post */
     protected $speakers = array();
 
     /** @var null $speaker Single speaker term for the message post */
-    protected $speaker = null;
+    protected $speaker;
 
     /** @var array $topics Topic terms for the message post */
     protected $topics = array();
@@ -47,13 +47,13 @@ class GCS_Sermon_Post {
 	 */
 	public function __construct( $post ) {
 	    if (!($post instanceof WP_Post)) {
-	        throw new Exception('Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
+	        throw new \RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 	    }
 
 	    $post_type = gc_sermons()->sermons->post_type();
 
 	    if ($post->post_type !== $post_type) {
-			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
+			throw new \RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a ' . $post_type . ' object.' );
 	    }
 
 	    $this->post = $post;
@@ -79,11 +79,11 @@ class GCS_Sermon_Post {
 	/**
 	 * Add media info to the media array for $type
 	 *
-	 * @since 0.1.0
-	 *
+     * @since 0.1.0
+     *
 	 * @param string $type type of media
 	 *
-	 * @return GCS_Sermon_Post
+	 * @return LQDM_Sermon_Post
 	 */
 	protected function add_media_type( $type = 'video' ) {
 	    // Only audio/video allowed.
@@ -128,20 +128,18 @@ class GCS_Sermon_Post {
 	    global $wp_embed;
 
 	    $media = empty($this->media) ? $this->init_media() : $this->media;
-	    $video = isset($media['video']) ? $media['video'] : array();
+	    $video = $media['video'] ?? array();
 	    if (!isset($video['type'])) {
 	        return '';
 	    }
 
-	    $video_url = '';
-	    if ('url' === $video['type']) {
+	    if ( $video['type'] === 'url' ) { // If the video is a url
 	        $wp_embed->post_ID = $this->ID;
 	        $video_player = $wp_embed->shortcode($args, $video['value']);
-	    } elseif ('attachment_id' === $video['type']) {
-
+	    } elseif ( $video['type'] === 'attachment_id' ) { // If the video is an attachment
 	        $args['src'] = $video['attachment_url'];
 	        if ($video_player = wp_video_shortcode($args)) {
-	            $video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
+	            $video_player = '<div class="lqdm-video-wrap">' . $video_player . '</div><!-- .lqdm-video-wrap -->';
 	        }
 	    }
 
@@ -174,7 +172,7 @@ class GCS_Sermon_Post {
         }
 
         if ($audio_player = wp_audio_shortcode(array('src' => $audio_url))) {
-			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
+			$audio_player = '<div class="lqdm-audio-wrap">' . $audio_player . '</div><!-- .lqdm-audio-wrap -->';
         }
 
         return $audio_player;
@@ -213,9 +211,7 @@ class GCS_Sermon_Post {
 	    ob_start();
 	    the_excerpt();
 	    // grab the data from the output buffer and add it to our $content variable
-        $excerpt = ob_get_clean();
-
-        return $excerpt;
+        return ob_get_clean();
 	}
 
 	/**
@@ -240,19 +236,15 @@ class GCS_Sermon_Post {
 		    }
 		}
 
-		if (isset($this->images[$size])) {
-		    // If we got it already, then send it back
-            if (isset($this->images[$size][$id])) {
-                return $this->images[$size][$id];
-            } else {
-                $this->images[$size][$id] = array();
-            }
-		} else {
-		    $this->images[$size][$id] = array();
-		}
+        // If we got it already, then send it back
+        if ( isset( $this->images[ $size ], $this->images[ $size ][ $id ] ) ) {
+            return $this->images[$size][$id];
+        }
 
-		$img = get_the_post_thumbnail($this->ID, $size, $attr);
-		$this->images[$size][$id] = $img ? $img : $this->series_image($size, $attr);
+        $this->images[$size][$id] = array();
+
+        $img = get_the_post_thumbnail($this->ID, $size, $attr);
+		$this->images[$size][$id] = $img ?: $this->series_image($size, $attr);
 
 		return $this->images[$size][$id];
 	}
@@ -281,19 +273,18 @@ class GCS_Sermon_Post {
      */
 	public function series_image( $size = 'full', $attr = '' ) {
 	    $args = array('image_size' => $size);
-	    $series = $this->get_series($args);
 
-	    return $series->image;
+        return $this->get_series($args)->image;
 	}
 
 	/**
      * Get all speakers for this message
      *
+     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
+     *
+     * @return array|false|WP_Term
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
-     *
-     * @return WP_Term|false Speaker term object.
      */
 	public function get_speakers( $args = array() ) {
 	    $speakers = $this->speakers();
@@ -314,7 +305,7 @@ class GCS_Sermon_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Speaker term object.
      */
@@ -336,7 +327,7 @@ class GCS_Sermon_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
      *
      * @return WP_Term|false Series term object.
      */
@@ -356,11 +347,11 @@ class GCS_Sermon_Post {
 	/**
      * Get scripture for this message
      *
+     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
+     *
+     * @return array|false|WP_Term
      * @since  0.1.7
      *
-     * @param  array         Args to pass to GCS_Taxonomies_Base::get()
-     *
-     * @return WP_Term|false scripture term object.
      */
 	public function get_scriptures( $args = array() ) {
 	    $scriptures = $this->scripture();
@@ -389,7 +380,7 @@ class GCS_Sermon_Post {
 	public function get_others_in_series( $args = array() ) {
 	    $series = $this->get_series();
 	    if (!$series) {
-	        return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'gc-sermons' ), $this->ID );
+	        return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -422,7 +413,7 @@ class GCS_Sermon_Post {
 	public function get_others_by_speaker( $args = array() ) {
 	    $speaker = $this->get_speaker();
 	    if (!$speaker) {
-	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'gc-sermons' ), $this->ID );
+	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
 	    $args = wp_parse_args($args, array(
@@ -576,7 +567,7 @@ class GCS_Sermon_Post {
                 if (isset($this->post->{$property})) {
                     return $this->post->{$property};
                 }
-                throw new Exception('Invalid ' . __CLASS__ . ' property: ' . $property);
+                throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $property);
         }
 	}
 

@@ -6,11 +6,11 @@
  */
 
 /**
- * GC Sermons Style Loader.
+ * Liquid Messages Style Loader.
  *
  * @since 0.1.3
  */
-class GCS_Style_Loader extends GCS_Template_Loader {
+class LQDM_Style_Loader extends LQDM_Template_Loader {
 	/** @var string $extension Template file extension */
 	protected $extension = '.css';
 

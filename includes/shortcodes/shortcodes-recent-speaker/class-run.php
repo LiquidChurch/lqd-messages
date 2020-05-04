@@ -5,7 +5,7 @@
  * @package Liquid Messages
  */
 
-class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
+class LQDMS_Recent_Speaker_Run extends LQDM_Shortcodes_Run_Base {
 	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_recent_speaker';
 
@@ -22,9 +22,7 @@ class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 	 * @throws Exception
 	 */
 	public function shortcode() {
-		$content = gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
-
-		return $content;
+        return gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
 	}
 
 }

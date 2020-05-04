@@ -41,7 +41,7 @@ require 'vendor/autoload.php';
 class GC_Sermons_Plugin
 {
     /** @var string VERSION Current version */
-    const VERSION = '1.0.0';
+    public const VERSION = '1.0.0';
 
     /** @var string $url URL of plugin directory */
     public static $url = '';
@@ -53,7 +53,7 @@ class GC_Sermons_Plugin
     public static $basename = '';
 
     /** @var null $single_instance Single instance of plugin object */
-    protected static $single_instance = null;
+    protected static $single_instance;
 
     /** @var array $requirements Array of plugin requirements, keyed by admin notice label. */
     protected $requirements = array();
@@ -61,16 +61,16 @@ class GC_Sermons_Plugin
     /** @var array $missed_requirements Array of plugin requirements which are not met. */
     protected $missed_requirements = array();
 
-    /** @var GCS_Sermons $sermons GCS_Sermons Object */
+    /** @var LQDM_Sermons $sermons LQDM_Sermons Object */
     protected $sermons;
 
-    /** @var GCS_Taxonomies $taxonomies GCS_Taxonomies Object */
+    /** @var LQDM_Taxonomies $taxonomies LQDM_Taxonomies Object */
     protected $taxonomies;
 
-    /** @var GCS_Shortcodes $shortcodes GCS_Shortcodes Object */
+    /** @var LQDM_Shortcodes $shortcodes LQDM_Shortcodes Object */
     protected $shortcodes;
 
-    /** @var GCS_Async $async GCS_Async Object */
+    /** @var LQDM_Async $async LQDM_Async Object */
     protected $async;
 
     /** @var string $plugin_option_key Plugin options settings key */
@@ -79,7 +79,7 @@ class GC_Sermons_Plugin
     /** @var LQDM_Metaboxes Instance of LQDM_Metaboxes */
     protected $metaboxes;
 
-    /** @var LQDM_Settings_Page $option_page Instance of LQDM_Option_Page */
+    /** @var LQDM_Settings_Page $option_page Instance of LQDM_Settings_Page */
     protected $option_page;
 
 
@@ -152,7 +152,7 @@ class GC_Sermons_Plugin
             add_action('tgmpa_register', array($this, 'register_required_plugin'));
         } else {
             add_action('init', array($this, 'init'));
-            $this->plugin_classes();
+            $this->attach_plugin_classes();
         }
     }
 
@@ -163,15 +163,35 @@ class GC_Sermons_Plugin
      * @return void
      * @throws Exception
      */
-    public function plugin_classes()
+    public function attach_plugin_classes()
     {
         require_once self::$path . 'functions.php';
 
         // Attach other plugin classes to the base plugin class.
-        $this->sermons = new GCS_Sermons($this);
-        $this->taxonomies = new GCS_Taxonomies($this->sermons);
-        $this->async = new GCS_Async($this);
-        $this->shortcodes = new GCS_Shortcodes($this);
+        $this->sermons = new LQDM_Sermons($this);
+        $this->taxonomies = new LQDM_Taxonomies($this->sermons);
+        $this->async = new LQDM_Async($this);
+
+        // Only create the full metabox object if in admin.
+        if (is_admin()) {
+            $this->metaboxes = new LQDM_Metaboxes( $this );
+            $this->metaboxes->hooks();
+        } else {
+            $this->metaboxes = (object)array();
+        }
+
+        // But set these properties of the object always.
+        $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
+        $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
+        $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
+        $this->metaboxes->display_ordr_meta_id = 'gc_display_order';
+        $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
+        $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
+
+        $this->shortcodes = new LQDM_Shortcodes($this);
+
+        $this->option_page = new LQDM_Settings_Page($this);
+        $this->option_page->hooks();
     }
 
     /**
@@ -239,7 +259,7 @@ class GC_Sermons_Plugin
             case 'plugin_option_key':
                 return $this->$field;
             default:
-                throw new Exception('Invalid ' . __CLASS__ . ' property: ' . $field);
+                throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field);
         }
     }
 

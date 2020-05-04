@@ -1,7 +1,7 @@
 <?php
 $plugin_option = $this->get('plugin_option');
 ?>
-<li class="lqdm-item gc-<?php if ( ! $this->get( 'do_image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
+<li class="lqdm-item lqdm-<?php if ( ! $this->get( 'do_image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
 
 	<?php
 	$hover_class = '';
@@ -38,7 +38,7 @@ $plugin_option = $this->get('plugin_option');
 		?>
 	</a>
 
-	<div class="gc-list-item-description">
+	<div class="lqdm-list-item-description">
 		<?php $this->maybe_output( 'description', '', 'do_description' ); ?>
 	</div>
 

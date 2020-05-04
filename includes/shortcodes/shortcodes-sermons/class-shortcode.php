@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCS_Shortcodes_Sermons extends GCS_Shortcodes_Base {
+class LQDM_Shortcodes_Sermons extends LQDM_Shortcodes_Base {
 	/**
 	 * Constructor
 	 *
@@ -13,8 +13,8 @@ class GCS_Shortcodes_Sermons extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCSS_Sermons_Run( $plugin->sermons, $plugin->taxonomies );
-		$this->admin = new GCSS_Sermons_Admin( $this->run, $plugin->taxonomies );
+		$this->run   = new LQDMS_Sermons_Run( $plugin->sermons, $plugin->taxonomies );
+		$this->admin = new LQDMS_Sermons_Admin( $this->run, $plugin->taxonomies );
 
 		parent::hooks();
 	}

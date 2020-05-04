@@ -4,7 +4,7 @@
  *
  * @package Liquid Messages
  */
-class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
+class LQDMS_Sermons_Run extends LQDM_Shortcodes_Run_Base
 {
 
     /** @var int $inception_levels Keep track of levels of inception */
@@ -27,7 +27,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         'related_series'    => 0,
     );
 
-    /** @var GCS_Taxonomies GCS_Taxonomies Object */
+    /** @var LQDM_Taxonomies LQDM_Taxonomies Object */
     public $taxonomies;
 
     /**
@@ -35,10 +35,10 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
      *
      * @since 0.1.3
      *
-     * @param GCS_Sermons    $sermons
-     * @param GCS_Taxonomies $taxonomies
+     * @param LQDM_Sermons      $sermons
+     * @param  LQDM_Taxonomies  $taxonomies
      */
-    public function __construct(GCS_Sermons $sermons, GCS_Taxonomies $taxonomies)
+    public function __construct( LQDM_Sermons $sermons, LQDM_Taxonomies $taxonomies)
     {
         $this->taxonomies = $taxonomies;
         parent::__construct($sermons);
@@ -96,8 +96,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $sermons = $this->map_sermon_args($sermons, $my_level);
 
         $content = '';
-        if (0 === $my_level) {
-            $content .= GCS_Style_Loader::get_template('list-item-style');
+        if ($my_level === 0) {
+            $content .= LQDM_Style_Loader::get_template('list-item-style');
         }
 
         $args = $this->get_pagination($max);
@@ -105,7 +105,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $args['sermons']       = $sermons;
         $args['plugin_option'] = get_plugin_settings_options('single_message_view');
 
-        $content .= GCS_Template_Loader::get_template('sermons-list', $args);
+        $content .= LQDM_Template_Loader::get_template('sermons-list', $args);
 
         return $content;
     }
@@ -140,7 +140,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
                 continue;
             }
 
-            if ('this' !== $this->att($param)) {
+            if ( $this->att($param) !== 'this' ) {
                 continue;
             }
 
@@ -155,7 +155,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
                 $term   = $sermon->$method();
 
                 if (!$term) {
-                    throw new Exception('No ' . $key . ' term.');
+                    throw new RuntimeException( 'No ' . $key . ' term.');
                 }
 
             } catch (Exception $e) {
@@ -225,7 +225,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
             $sermon['description']    = '';
             $sermon['do_description'] = $do_content;
             if ($do_content) {
-                $sermon['description'] = 'excerpt' === $type_of_content
+                $sermon['description'] = $type_of_content === 'excerpt'
                     ? $obj->loop_excerpt()
                     : apply_filters('the_content', $obj->post_content);
             }
@@ -275,7 +275,6 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base
         $columns = absint($this->att('number_columns'));
         $columns = $columns < 1 ? 1 : $columns;
 
-        return $this->att('wrap_classes') . ' gc-' . $columns . '-cols gc-sermons-wrap';
+        return $this->att('wrap_classes') . ' lqdm-' . $columns . '-cols lqdm-wrap';
     }
-
 }

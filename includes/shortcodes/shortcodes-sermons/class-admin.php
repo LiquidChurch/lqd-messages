@@ -4,8 +4,8 @@
  *
  * @package Liquid Messages
  */
-class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
-	/** @var GCS_Taxonomies $taxonomies Instance of GCS_Taxonomies */
+class LQDMS_Sermons_Admin extends LQDM_Shortcodes_Admin_Base {
+	/** @var LQDM_Taxonomies $taxonomies Instance of LQDM_Taxonomies */
 	protected $taxonomies;
 
 	/** @var string $prefix Shortcode prefix for field ids */
@@ -14,12 +14,12 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since  0.1.0
-	 *
-	 * @param GCS_Shortcodes_Run_Base $run        Main plugin object.
-	 * @param GCS_Taxonomies          $taxonomies GCS_Taxonomies object.
+     * @since 0.1.0
+     *
+	 * @param LQDM_Shortcodes_Run_Base  $run         Main plugin object.
+	 * @param LQDM_Taxonomies           $taxonomies  LQDM_Taxonomies object.
 	 */
-	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
+	public function __construct( LQDM_Shortcodes_Run_Base $run, LQDM_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $run );
 
@@ -153,7 +153,7 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 	public function return_taxonomy_term_id_only( $updated ) {
 		$term_id_params = array( 'sermon_related_series', 'sermon_related_speaker' );
 		foreach ( $term_id_params as $param ) {
-			if ( isset( $updated[ $param ], $updated[ $param ]['id'] ) ) {
+			if ( isset( $updated[ $param ]['id'] ) ) {
 				if ( isset( $updated[ $param ]['name'] ) && 'this' === $updated[ $param ]['name'] ) {
 					$updated[ $param ] = $updated[ $param ]['name'];
 				} else {

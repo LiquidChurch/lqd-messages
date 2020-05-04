@@ -5,7 +5,7 @@
  * @package Liquid Messages
  */
 
-class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
+class LQDMS_Recent_Series_Run extends LQDM_Shortcodes_Run_Base {
 	/** @var string $shortcode The shortcode tag */
 	public $shortcode = 'gc_recent_series';
 
@@ -34,7 +34,7 @@ class GCSS_Recent_Series_Run extends GCS_Shortcodes_Run_Base {
 				: $this->att( $key, $default_value );
 		}
 
-		$args['wrap_classes'] .= ' gc-recent-series';
+		$args['wrap_classes'] .= ' lqdm-recent-series';
 
 		return gc_get_sermon_series_info( $this->get_sermon(), $args );
 	}

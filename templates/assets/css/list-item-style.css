@@ -32,27 +32,27 @@
     padding: .5em;
 }
 
-.gc-1-cols .lqdm-item {
+.lqdm-1-cols .lqdm-item {
     float: none;
 }
 
-.gc-2-cols .lqdm-item {
+.lqdm-2-cols .lqdm-item {
     width: 50%;
 }
 
-.gc-3-cols .lqdm-item {
+.lqdm-3-cols .lqdm-item {
     width: 33.333333%;
 }
 
-.gc-4-cols .lqdm-item {
+.lqdm-4-cols .lqdm-item {
     width: 25%;
 }
 
-.gc-4-cols .lqdm-item td {
+.lqdm-4-cols .lqdm-item td {
     text-align: center;
 }
 
-.gc-4-cols .lqdm-item h3 {
+.lqdm-4-cols .lqdm-item h3 {
     font-size: 2.5rem; /* DM: 6/10/16 */
     padding: 0; /* DM: 6/10/16 */
 }
@@ -63,9 +63,9 @@
     box-sizing: border-box;
 }
 
-.gc-2-cols .lqdm-item:nth-child(2n+1),
-.gc-3-cols .lqdm-item:nth-child(3n+1),
-.gc-4-cols .lqdm-item:nth-child(4n+1) {
+.lqdm-2-cols .lqdm-item:nth-child(2n+1),
+.lqdm-3-cols .lqdm-item:nth-child(3n+1),
+.lqdm-4-cols .lqdm-item:nth-child(4n+1) {
     clear: both;
 }
 
@@ -236,7 +236,7 @@
     clear: both;
 }
 
-.lqm-msg-title {
+.lqdm-msg-title {
     padding: 0 0 !important;
 }
 
@@ -288,29 +288,29 @@
         font-size: 1.5em;
     }
 
-    .gc-4-cols .lqdm-item h3 {
+    .lqdm-4-cols .lqdm-item h3 {
         font-size: 1em;
     }
 }
 
 @media only screen and (max-width: 775px) {
 
-    .gc-3-cols .lqdm-item,
-    .gc-4-cols .lqdm-item {
+    .lqdm-3-cols .lqdm-item,
+    .lqdm-4-cols .lqdm-item {
         width: 50%;
     }
 
-    .gc-3-cols .lqdm-item:nth-child(3n+1),
-    .gc-4-cols .lqdm-item:nth-child(4n+1) {
+    .lqdm-3-cols .lqdm-item:nth-child(3n+1),
+    .lqdm-4-cols .lqdm-item:nth-child(4n+1) {
         clear: none;
     }
 
-    .gc-3-cols .lqdm-item:nth-child(2n+1),
-    .gc-4-cols .lqdm-item:nth-child(2n+1) {
+    .lqdm-3-cols .lqdm-item:nth-child(2n+1),
+    .lqdm-4-cols .lqdm-item:nth-child(2n+1) {
         clear: both;
     }
 
-    .gc-4-cols .lqdm-item h3 {
+    .lqdm-4-cols .lqdm-item h3 {
         font-size: 1.5em;
     }
 
@@ -318,9 +318,9 @@
 
 @media only screen and (max-width: 600px) {
 
-    .gc-2-cols .lqdm-item,
-    .gc-3-cols .lqdm-item,
-    .gc-4-cols .lqdm-item {
+    .lqdm-2-cols .lqdm-item,
+    .lqdm-3-cols .lqdm-item,
+    .lqdm-4-cols .lqdm-item {
         width: 100%;
     }
 

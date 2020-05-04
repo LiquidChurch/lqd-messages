@@ -4,11 +4,11 @@
  *
  * @package Liquid Messages
  */
-abstract class GCS_Shortcodes_Base {
-	/** @var GCS_Shortcodes_Run_Base $run Instance of GCS_Shortcodes_Run_Base */
+abstract class LQDM_Shortcodes_Base {
+	/** @var LQDM_Shortcodes_Run_Base $run Instance of LQDM_Shortcodes_Run_Base */
 	public $run;
 
-	/** @var GCS_Shortcodes_Admin_Base Instances of GCS_Shortcodes_Admin_Base  */
+	/** @var LQDM_Shortcodes_Admin_Base Instances of LQDM_Shortcodes_Admin_Base  */
 	public $admin;
 
 	/**
