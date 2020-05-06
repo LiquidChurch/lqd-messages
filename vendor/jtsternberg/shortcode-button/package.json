@@ -1,0 +1,18 @@
+{
+  "name": "Shortcode_Button",
+  "version": "0.2.3",
+  "description": "Tinymce and Quicktag buttons for outputting shortcodes",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtsternberg/Shortcode_Button"
+  },
+  "author": "Justin Sternberg",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/jtsternberg/Shortcode_Button/issues"
+  },
+  "homepage": "https://github.com/jtsternberg/Shortcode_Button",
+  "devDependencies": {
+  }
+}
