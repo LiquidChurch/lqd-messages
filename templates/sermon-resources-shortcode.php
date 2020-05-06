@@ -11,8 +11,8 @@
                 continue;
             }
             printf('<li class="lc-list" style="%s">', $lqdm_list_style);
-            printf('<ul class="lc-container %s">', $lqdm_container_class);
-            printf('<li class="lc-head">%s</li>', $lang_plugin_option[$val]);
+            printf( '<ul class="lqdm-resources-wrapper %s">', $lqdm_container_class);
+            printf('<li class="lqdm-resources-language">%s</li>', $lang_plugin_option[$val]);
             foreach ($items[$val] as $ik => $iv) {
                 echo $iv;
             }
