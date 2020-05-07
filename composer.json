@@ -30,26 +30,33 @@
     "classmap": [
       "gc-sermons.php",
       "includes/",
-      "vendor/webdevstudios/cpt-core/CPT_Core.php",
-      "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"
+      "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
+      "vendor/webdevstudios/wds-shortcodes/includes"
     ],
     "files": [
-      "vendor/webdevstudios/cmb2-user-select/cmb2-user-select.php",
-      "vendor/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php",
-      "vendor/jtsternberg/cmb2-term-select/cmb2-term-select.php",
-      "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
-      "vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
+      "vendor/jtsternberg/shortcode-button/shortcode-button.php"
     ]
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/liquidchurch/wds-shortcodes"
+    }
+  ],
   "require": {
     "php": ">=5.2",
     "techcrunch/wp-async-task": "dev-master",
-    "TGMPA/TGM-Plugin-Activation": "^2.5.2",
+    "tgmpa/tgm-plugin-activation": "^2.5.2",
     "webdevstudios/cpt-core": "dev-master",
     "webdevstudios/taxonomy_core": "^0.2.4",
     "webdevstudios/cmb2-post-search-field": "^v0.2.5",
     "jtsternberg/cmb2-term-select": "^v0.1.0",
-    "webdevstudios/wds-shortcodes": "^v1.0.4",
+    "jtsternberg/shortcode-button": "^1.0.7",
+    "webdevstudios/wds-shortcodes": "dev-master",
     "webdevstudios/cmb2-user-select": "^v0.2.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
   }
+
 }

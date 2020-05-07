@@ -190,7 +190,8 @@ class LQDM_Metaboxes
         $plugin_option_arr = array_map('trim', explode(',', $plugin_option));
         $option            = array();
         foreach ($plugin_option_arr as $item) {
-            $option[ucwords($item)] = ucwords($item);
+            $these_words = ucwords($item);
+            $option[$these_words] = $these_words;
         }
 
         return $option;

@@ -38,7 +38,7 @@ class LQDM_Template_Loader {
 	 */
 	public function __construct( $template, $name = null, array $args = array() ) {
 		if ( empty( $template ) ) {
-			throw new \RuntimeException( 'Template variable required for ' . __CLASS__ . '.' );
+			throw new RuntimeException( 'Template variable required for ' . __CLASS__ . '.' );
 		}
 
 		$file = $this->template = "{$template}{$this->extension}";

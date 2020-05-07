@@ -459,7 +459,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 			case 'id':
 				return $this->id;
 			default:
-				throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+				throw new RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }

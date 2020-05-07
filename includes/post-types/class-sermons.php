@@ -145,7 +145,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
     {
 
         // Override thumbnail_id check and get the series image id as a fallback.
-        if ('_thumbnail_id' === $meta_key && $this->post_type() === get_post_type($object_id)) {
+        if ( $meta_key === '_thumbnail_id' && $this->post_type() === get_post_type($object_id)) {
 
             // Have to remove this filter to get the actual value to see if we need to do the work.
             remove_filter('get_post_metadata', array($this, 'featured_image_fallback_to_series_image'), 10);

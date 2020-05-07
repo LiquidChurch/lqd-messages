@@ -47,13 +47,13 @@ class LQDM_Sermon_Post {
 	 */
 	public function __construct( $post ) {
 	    if (!($post instanceof WP_Post)) {
-	        throw new \RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
+	        throw new RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 	    }
 
 	    $post_type = gc_sermons()->sermons->post_type();
 
 	    if ($post->post_type !== $post_type) {
-			throw new \RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a ' . $post_type . ' object.' );
+			throw new RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a ' . $post_type . ' object.' );
 	    }
 
 	    $this->post = $post;
@@ -567,7 +567,7 @@ class LQDM_Sermon_Post {
                 if (isset($this->post->{$property})) {
                     return $this->post->{$property};
                 }
-                throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $property);
+                throw new RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $property);
         }
 	}
 

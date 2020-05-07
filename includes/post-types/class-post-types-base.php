@@ -1,6 +1,6 @@
 <?php
 /**
- * Liquid Messages Custom Post Types Base
+ * Liquid Messages: Custom Post Types Base
  *
  * @version 0.1.6
  * @package Liquid Messages

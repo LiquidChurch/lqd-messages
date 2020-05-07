@@ -33,7 +33,7 @@
  */
 
 // Use composer autoload.
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Main initiation class
@@ -57,9 +57,6 @@ class GC_Sermons_Plugin
 
     /** @var array $requirements Array of plugin requirements, keyed by admin notice label. */
     protected $requirements = array();
-
-    /** @var array $missed_requirements Array of plugin requirements which are not met. */
-    protected $missed_requirements = array();
 
     /** @var LQDM_Sermons $sermons LQDM_Sermons Object */
     protected $sermons;
@@ -130,9 +127,8 @@ class GC_Sermons_Plugin
      * @since  0.1.0
      * @return GC_Sermons_Plugin A single instance of this class.
      */
-    public static function get_instance()
-    {
-        if (null === self::$single_instance) {
+    public static function get_instance(): ?GC_Sermons_Plugin {
+        if ( self::$single_instance === null ) {
             self::$single_instance = new self();
         }
 
@@ -146,14 +142,13 @@ class GC_Sermons_Plugin
      * @return void
      * @throws Exception
      */
-    public function hooks()
-    {
-        if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
-            add_action('tgmpa_register', array($this, 'register_required_plugin'));
-        } else {
+    public function hooks(): void {
+        //if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
+          //  add_action('tgmpa_register', array($this, 'register_required_plugin'));
+        //} else {
             add_action('init', array($this, 'init'));
             $this->attach_plugin_classes();
-        }
+        //}
     }
 
     /**
@@ -163,8 +158,7 @@ class GC_Sermons_Plugin
      * @return void
      * @throws Exception
      */
-    public function attach_plugin_classes()
-    {
+    public function attach_plugin_classes(): void {
         require_once self::$path . 'functions.php';
 
         // Attach other plugin classes to the base plugin class.
@@ -197,8 +191,7 @@ class GC_Sermons_Plugin
     /**
      * Requires CMB2 to be installed
      */
-    public function register_required_plugin()
-    {
+    public function register_required_plugin(): void {
         $plugins = array(
             array(
                 'name'     => 'CMB2',
@@ -228,8 +221,7 @@ class GC_Sermons_Plugin
      * @since  0.1.0
      * @return void
      */
-    public function init()
-    {
+    public function init(): void {
         load_plugin_textdomain('lqdm', false, dirname(self::$basename) . '/languages/');
     }
 
@@ -259,7 +251,7 @@ class GC_Sermons_Plugin
             case 'plugin_option_key':
                 return $this->$field;
             default:
-                throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field);
+                throw new RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field);
         }
     }
 

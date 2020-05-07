@@ -101,8 +101,8 @@ class LQDM_Shortcodes_Sermon_Search_Run extends LQDM_Shortcodes_Run_Base {
 				$show_sermon_results = ! $show_results || $cpt_slug === $show_results;
 				$show_series_results = ! $show_results || $series_slug === $show_results;
 
-				$search_sermons = $search_both || in_array( $to_search, array( 'sermons' ), 1 );
-				$search_series  = $search_both || in_array( $to_search, array( 'series' ), 1 );
+				$search_sermons = $search_both || $to_search == 'sermons';
+				$search_series  = $search_both || $to_search == 'series';
 
 				if ( $search_sermons && $show_sermon_results ) {
 					$content .= $this->sermon_search_results();

@@ -52,7 +52,7 @@ class LQDM_Taxonomies {
 			case 'scripture':
 				return $this->{$field};
 			default:
-				throw new \RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+				throw new RuntimeException( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }

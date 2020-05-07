@@ -7,7 +7,7 @@ class WDSSC_Test_Shortcodes_Base extends WDSSC_Tests_Base {
 	}
 
 	function test_get_instance() {
-		$this->assertTrue( wds_shortcodes() instanceof \WDS_Shortcodes_Base );
+		$this->assertTrue( is_a( wds_shortcodes(), 'WDS_Shortcodes_Base' ) );
 	}
 
 	public function test_properties_exist() {
