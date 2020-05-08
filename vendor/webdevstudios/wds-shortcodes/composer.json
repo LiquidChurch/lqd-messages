@@ -17,12 +17,22 @@
         "issues": "https://github.com/WebDevStudios/WDS-Shortcodes/issues",
         "source": "https://github.com/WebDevStudios/WDS-Shortcodes"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/liquidchurch/shortcode_button"
+        }
+    ],
     "require": {
         "php": ">5.2",
-        "jtsternberg/shortcode-button": "^v1.0.7",
+        "jtsternberg/shortcode-button": "dev-master",
         "tgmpa/tgm-plugin-activation": "^2.6.1"
     },
     "autoload": {
+        "classmap": [
+            "wds-shortcodes.php",
+            "includes/"
+            ]
     },
     "minimum-stability": "dev"
 }

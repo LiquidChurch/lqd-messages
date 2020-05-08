@@ -29,12 +29,7 @@
   "autoload": {
     "classmap": [
       "lqdm.php",
-      "includes/",
-      "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
-      "vendor/webdevstudios/wds-shortcodes/includes"
-    ],
-    "files": [
-      "vendor/jtsternberg/shortcode-button/shortcode-button.php"
+      "includes/"
     ]
   },
   "repositories": [
@@ -51,7 +46,6 @@
     "webdevstudios/taxonomy_core": "^0.2.4",
     "webdevstudios/cmb2-post-search-field": "^v0.2.5",
     "jtsternberg/cmb2-term-select": "^v0.1.0",
-    "jtsternberg/shortcode-button": "^1.0.7",
     "webdevstudios/wds-shortcodes": "dev-master",
     "webdevstudios/cmb2-user-select": "^v0.2.0"
   },

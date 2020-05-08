@@ -47,8 +47,8 @@
     },
     {
         "name": "jtsternberg/shortcode-button",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/jtsternberg/Shortcode_Button.git",
@@ -65,7 +65,7 @@
         },
         "time": "2017-06-07T15:59:21+00:00",
         "type": "wordpress-plugin",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "classmap": [
                 "shortcode-button.php"
@@ -98,12 +98,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Roave/SecurityAdvisories.git",
-            "reference": "f46390d28af4fdb07c09d9aabf4c4e35149a7a08"
+            "reference": "640c8c23f8b02baa49527f8e17b54aca5168b8cf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/f46390d28af4fdb07c09d9aabf4c4e35149a7a08",
-            "reference": "f46390d28af4fdb07c09d9aabf4c4e35149a7a08",
+            "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/640c8c23f8b02baa49527f8e17b54aca5168b8cf",
+            "reference": "640c8c23f8b02baa49527f8e17b54aca5168b8cf",
             "shasum": ""
         },
         "conflict": {
@@ -248,7 +248,7 @@
             "socalnick/scn-social-auth": "<1.15.2",
             "spoonity/tcpdf": "<6.2.22",
             "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
-            "ssddanbrown/bookstack": "<0.25.3",
+            "ssddanbrown/bookstack": "<0.29.2",
             "stormpath/sdk": ">=0,<9.9.99",
             "studio-42/elfinder": "<2.1.49",
             "swiftmailer/swiftmailer": ">=4,<5.4.5",
@@ -339,7 +339,7 @@
             "zfcampus/zf-apigility-doctrine": ">=1,<1.0.3",
             "zfr/zfr-oauth2-server-module": "<0.1.2"
         },
-        "time": "2020-05-04T14:37:25+00:00",
+        "time": "2020-05-08T00:01:32+00:00",
         "type": "metapackage",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -659,22 +659,28 @@
         "source": {
             "type": "git",
             "url": "https://github.com/LiquidChurch/WDS-Shortcodes.git",
-            "reference": "ef039c6262ecbce89017bc6caba287ac1b31fceb"
+            "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/ef039c6262ecbce89017bc6caba287ac1b31fceb",
-            "reference": "ef039c6262ecbce89017bc6caba287ac1b31fceb",
+            "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/1bea2f3209d8e6f42e5d727de8fcad98fc365540",
+            "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540",
             "shasum": ""
         },
         "require": {
-            "jtsternberg/shortcode-button": "^v1.0.7",
+            "jtsternberg/shortcode-button": "dev-master",
             "php": ">5.2",
             "tgmpa/tgm-plugin-activation": "^2.6.1"
         },
-        "time": "2020-05-07T22:30:07+00:00",
+        "time": "2020-05-08T16:52:14+00:00",
         "type": "wordpress-plugin",
         "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "wds-shortcodes.php",
+                "includes/"
+            ]
+        },
         "license": [
             "GPL-2.0+"
         ],
