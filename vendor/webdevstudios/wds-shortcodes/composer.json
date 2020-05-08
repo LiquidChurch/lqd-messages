@@ -17,12 +17,6 @@
         "issues": "https://github.com/WebDevStudios/WDS-Shortcodes/issues",
         "source": "https://github.com/WebDevStudios/WDS-Shortcodes"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/liquidchurch/shortcode_button"
-        }
-    ],
     "require": {
         "php": ">5.2",
         "jtsternberg/shortcode-button": "dev-master",

@@ -30,12 +30,19 @@
     "classmap": [
       "lqdm.php",
       "includes/"
+    ],
+    "files": [
+      "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php"
     ]
   },
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/liquidchurch/wds-shortcodes"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/liquidchurch/shortcode_button"
     }
   ],
   "require": {
@@ -47,7 +54,8 @@
     "webdevstudios/cmb2-post-search-field": "^v0.2.5",
     "jtsternberg/cmb2-term-select": "^v0.1.0",
     "webdevstudios/wds-shortcodes": "dev-master",
-    "webdevstudios/cmb2-user-select": "^v0.2.0"
+    "webdevstudios/cmb2-user-select": "^v0.2.0",
+    "jtsternberg/shortcode-button": "dev-master"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"

@@ -1,6 +1,5 @@
 <?php
 // include composer autoloader (make sure you run `composer install`!)
-require_once WDS_SHORTCODES_DIR . 'vendor/autoload.php';
 
 /**
  * Built using generator-plugin-wp

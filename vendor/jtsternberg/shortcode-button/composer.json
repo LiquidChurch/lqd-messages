@@ -21,7 +21,10 @@
         "php": ">5.2"
     },
     "autoload": {
-        "classmap": ["shortcode-button.php"]
+        "classmap": [
+            "shortcode-button.php",
+            "lib/"
+        ]
     },
     "minimum-stability": "dev"
 }

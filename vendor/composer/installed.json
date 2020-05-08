@@ -51,27 +51,27 @@
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-            "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c"
+            "url": "https://github.com/LiquidChurch/Shortcode_Button.git",
+            "reference": "53f952b06acbd7777ad5c9e0bde5e866faf3f7dc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
-            "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
+            "url": "https://api.github.com/repos/LiquidChurch/Shortcode_Button/zipball/53f952b06acbd7777ad5c9e0bde5e866faf3f7dc",
+            "reference": "53f952b06acbd7777ad5c9e0bde5e866faf3f7dc",
             "shasum": ""
         },
         "require": {
             "php": ">5.2"
         },
-        "time": "2017-06-07T15:59:21+00:00",
+        "time": "2020-05-08T20:17:21+00:00",
         "type": "wordpress-plugin",
         "installation-source": "source",
         "autoload": {
             "classmap": [
-                "shortcode-button.php"
+                "shortcode-button.php",
+                "lib/"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "GPL-2.0+"
         ],
@@ -89,7 +89,11 @@
             "CMB2",
             "shortcodes",
             "wordpress"
-        ]
+        ],
+        "support": {
+            "issues": "https://github.com/jtsternberg/Shortcode_Button/issues",
+            "source": "https://github.com/jtsternberg/Shortcode_Button"
+        }
     },
     {
         "name": "roave/security-advisories",
@@ -659,12 +663,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/LiquidChurch/WDS-Shortcodes.git",
-            "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540"
+            "reference": "b25988b4c8bc24dec4f900945f1e0700fa64d71c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/1bea2f3209d8e6f42e5d727de8fcad98fc365540",
-            "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540",
+            "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/b25988b4c8bc24dec4f900945f1e0700fa64d71c",
+            "reference": "b25988b4c8bc24dec4f900945f1e0700fa64d71c",
             "shasum": ""
         },
         "require": {
@@ -672,7 +676,7 @@
             "php": ">5.2",
             "tgmpa/tgm-plugin-activation": "^2.6.1"
         },
-        "time": "2020-05-08T16:52:14+00:00",
+        "time": "2020-05-08T20:38:23+00:00",
         "type": "wordpress-plugin",
         "installation-source": "source",
         "autoload": {

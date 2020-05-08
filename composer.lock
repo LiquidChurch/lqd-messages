@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bfca99fe48921a3abaa51c9e271ca6a",
+    "content-hash": "2de40d3b6ac71c9149f06edd010b41da",
     "packages": [
         {
             "name": "jtsternberg/cmb2-term-select",
@@ -55,13 +55,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jtsternberg/Shortcode_Button.git",
-                "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c"
+                "url": "https://github.com/LiquidChurch/Shortcode_Button.git",
+                "reference": "53f952b06acbd7777ad5c9e0bde5e866faf3f7dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
-                "reference": "50a9cc8cfdeb5772570578c1f19ab408e0702b9c",
+                "url": "https://api.github.com/repos/LiquidChurch/Shortcode_Button/zipball/53f952b06acbd7777ad5c9e0bde5e866faf3f7dc",
+                "reference": "53f952b06acbd7777ad5c9e0bde5e866faf3f7dc",
                 "shasum": ""
             },
             "require": {
@@ -70,10 +70,10 @@
             "type": "wordpress-plugin",
             "autoload": {
                 "classmap": [
-                    "shortcode-button.php"
+                    "shortcode-button.php",
+                    "lib/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -92,7 +92,11 @@
                 "shortcodes",
                 "wordpress"
             ],
-            "time": "2017-06-07T15:59:21+00:00"
+            "support": {
+                "issues": "https://github.com/jtsternberg/Shortcode_Button/issues",
+                "source": "https://github.com/jtsternberg/Shortcode_Button"
+            },
+            "time": "2020-05-08T20:17:21+00:00"
         },
         {
             "name": "techcrunch/wp-async-task",
@@ -371,12 +375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LiquidChurch/WDS-Shortcodes.git",
-                "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540"
+                "reference": "b25988b4c8bc24dec4f900945f1e0700fa64d71c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/1bea2f3209d8e6f42e5d727de8fcad98fc365540",
-                "reference": "1bea2f3209d8e6f42e5d727de8fcad98fc365540",
+                "url": "https://api.github.com/repos/LiquidChurch/WDS-Shortcodes/zipball/b25988b4c8bc24dec4f900945f1e0700fa64d71c",
+                "reference": "b25988b4c8bc24dec4f900945f1e0700fa64d71c",
                 "shasum": ""
             },
             "require": {
@@ -413,7 +417,7 @@
                 "issues": "https://github.com/WebDevStudios/WDS-Shortcodes/issues",
                 "source": "https://github.com/WebDevStudios/WDS-Shortcodes"
             },
-            "time": "2020-05-08T16:52:14+00:00"
+            "time": "2020-05-08T20:38:23+00:00"
         }
     ],
     "packages-dev": [
@@ -701,6 +705,7 @@
         "techcrunch/wp-async-task": 20,
         "webdevstudios/cpt-core": 20,
         "webdevstudios/wds-shortcodes": 20,
+        "jtsternberg/shortcode-button": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
