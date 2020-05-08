@@ -59,7 +59,7 @@ class LQDM_Metaboxes
 		$args = array(
 			'id'           => $this->display_ordr_box_id,
 			'title'        => __( 'Display Conditions', 'lqdm' ),
-			'object_types' => array( gc_sermons()->sermons->post_type() ),
+			'object_types' => array( lqdm()->sermons->post_type() ),
 		);
 
 		$cmb = new_cmb2_box( $args );
@@ -97,7 +97,7 @@ class LQDM_Metaboxes
 		$args = array(
 			'id'           => $this->resources_box_id,
 			'title'        => __( 'Additional Resources', 'lqdm' ),
-			'object_types' => array( gc_sermons()->sermons->post_type() ),
+			'object_types' => array( lqdm()->sermons->post_type() ),
 		);
 
 		$field_group_args = array(
@@ -159,7 +159,7 @@ class LQDM_Metaboxes
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->resources_box_id . '_series',
 			'object_types' => array( 'term' ),
-			'taxonomies'   => array( gc_sermons()->taxonomies->series->taxonomy() ),
+			'taxonomies'   => array( lqdm()->taxonomies->series->taxonomy() ),
 		) );
 
 		$cmb->add_field( array(
@@ -182,7 +182,7 @@ class LQDM_Metaboxes
 	 * @return array|string[]
 	 */
     public static function get_disp_name_fld_option(): ?array {
-        $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
+        $plugin_option = LQDM_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'display_name_fld_val');
         if (empty($plugin_option)) {
             return array('Video' => 'Video', 'Audio' => 'Audio', 'Notes' => 'Notes', 'Group Guide' => 'Group Guide');
         }
@@ -203,7 +203,7 @@ class LQDM_Metaboxes
 	 * @return array|string[]
 	 */
     public static function get_lng_fld_option(): ?array {
-        $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
+        $plugin_option = LQDM_Plugin::get_plugin_settings_options('addtnl_rsrc_option', 'addtnl_rsrc_lng_optn');
         if (empty($plugin_option)) {
             return array(
                 'eng' => 'English',
@@ -231,9 +231,9 @@ class LQDM_Metaboxes
 
 		wp_enqueue_script(
 			'lqdm-admin',
-			GC_Sermons_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
+            LQDM_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
 			array( 'cmb2-scripts' ),
-			GC_Sermons_Plugin::VERSION,
+			LQDM_Plugin::VERSION,
 			1
 		);
 

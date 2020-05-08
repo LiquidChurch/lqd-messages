@@ -6,6 +6,6 @@ class LQDMSS_Shortcodes_Resources_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertTrue( gc_sermons()->shortcodes-resources instanceof LQDMS_Shortcodes_Resources );
+		$this->assertTrue( lqdm()->shortcodes - resources instanceof LQDMS_Shortcodes_Resources );
 	}
 }

@@ -81,7 +81,7 @@ class LQDMS_Resources_Admin extends LQDM_Shortcodes_Admin_Base
 			'desc'            => __( 'If nothing is selected, it will use <code>get_the_id()</code>', 'lqdm' ),
 			'id'              => 'resource_post_id',
 			'type'            => 'post_search_text',
-			'post_type'       => gc_sermons()->sermons->post_type(),
+			'post_type'       => lqdm()->sermons->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 		);

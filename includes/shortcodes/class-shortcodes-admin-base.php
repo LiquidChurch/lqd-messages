@@ -23,7 +23,7 @@ abstract class LQDM_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 
 		parent::__construct(
 			$this->run->shortcode,
-			GC_Sermons_Plugin::VERSION,
+			LQDM_Plugin::VERSION,
 			$this->run->atts_defaults
 		);
 

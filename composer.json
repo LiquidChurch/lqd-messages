@@ -28,7 +28,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "classmap": [
-      "gc-sermons.php",
+      "lqdm.php",
       "includes/",
       "vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
       "vendor/webdevstudios/wds-shortcodes/includes"

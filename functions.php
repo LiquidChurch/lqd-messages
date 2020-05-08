@@ -251,7 +251,7 @@ function gc__get_arg($arg, $default = null)
  */
 function get_plugin_settings_options($arg1 = '', $arg2 = '')
 {
-    $plugin_option = GC_Sermons_Plugin::get_plugin_settings_options($arg1, $arg2);
+    $plugin_option = LQDM_Plugin::get_plugin_settings_options($arg1, $arg2);
 
     if (empty($plugin_option)) {
         return array();

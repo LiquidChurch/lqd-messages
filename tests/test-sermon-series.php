@@ -7,7 +7,7 @@ class LQDM_Series_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertInstanceOf( LQDM_Series::class, gc_sermons()->series );
+		$this->assertInstanceOf( LQDM_Series::class, lqdm()->series );
 	}
 
   function test_taxonomy_exists() {

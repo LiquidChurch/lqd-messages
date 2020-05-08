@@ -44,7 +44,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'menu_icon' => 'dashicons-playlist-video',
                 'rewrite' => array(
-                    'slug' => 'sermons',
+                    'slug' => 'messages',
                     'with_front' => false,
                     'ep_mask' => EP_ALL,
                 ),

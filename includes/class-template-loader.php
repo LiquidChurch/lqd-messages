@@ -135,8 +135,8 @@ class LQDM_Template_Loader {
 		$locations = apply_filters( "template_locations_for_{$this->template}", array(
 			STYLESHEETPATH . '/gc-sermons/assets/css/',
 			TEMPLATEPATH . '/gc-sermons/',
-			GC_Sermons_Plugin::$path . 'templates/',
-			GC_Sermons_Plugin::$path . 'templates/assets/css/'
+            LQDM_Plugin::$path . 'templates/',
+            LQDM_Plugin::$path . 'templates/assets/css/'
 		), $this );
 
 		$located = '';

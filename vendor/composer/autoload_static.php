@@ -16,7 +16,6 @@ class ComposerStaticInitc70fe8c15faab18edb58115cdc0f0f9d
     );
 
     public static $classMap = array (
-        'GC_Sermons_Plugin' => __DIR__ . '/../..' . '/gc-sermons.php',
         'LQDMS_Recent_Admin_Base' => __DIR__ . '/../..' . '/includes/shortcodes/class-shortcodes-recent-admin-base.php',
         'LQDMS_Recent_Series_Admin' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-recent-series/class-admin.php',
         'LQDMS_Recent_Series_Run' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-recent-series/class-run.php',
@@ -32,6 +31,7 @@ class ComposerStaticInitc70fe8c15faab18edb58115cdc0f0f9d
         'LQDMS_Sermons_Search_Run' => __DIR__ . '/../..' . '/includes/shortcodes/shortcodes-search/class-sermons-search-run.php',
         'LQDM_Async' => __DIR__ . '/../..' . '/includes/class-async.php',
         'LQDM_Metaboxes' => __DIR__ . '/../..' . '/includes/class-metaboxes.php',
+        'LQDM_Plugin' => __DIR__ . '/../..',
         'LQDM_Post_Types_Base' => __DIR__ . '/../..' . '/includes/post-types/class-post-types-base.php',
         'LQDM_Scripture' => __DIR__ . '/../..' . '/includes/taxonomies/class-scripture.php',
         'LQDM_Series' => __DIR__ . '/../..' . '/includes/taxonomies/class-series.php',

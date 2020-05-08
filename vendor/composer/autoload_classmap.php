@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'GC_Sermons_Plugin' => $baseDir . '/gc-sermons.php',
     'LQDMS_Recent_Admin_Base' => $baseDir . '/includes/shortcodes/class-shortcodes-recent-admin-base.php',
     'LQDMS_Recent_Series_Admin' => $baseDir . '/includes/shortcodes/shortcodes-recent-series/class-admin.php',
     'LQDMS_Recent_Series_Run' => $baseDir . '/includes/shortcodes/shortcodes-recent-series/class-run.php',
@@ -22,6 +21,7 @@ return array(
     'LQDMS_Sermons_Search_Run' => $baseDir . '/includes/shortcodes/shortcodes-search/class-sermons-search-run.php',
     'LQDM_Async' => $baseDir . '/includes/class-async.php',
     'LQDM_Metaboxes' => $baseDir . '/includes/class-metaboxes.php',
+    'LQDM_Plugin' => $baseDir . '/lqdm.php',
     'LQDM_Post_Types_Base' => $baseDir . '/includes/post-types/class-post-types-base.php',
     'LQDM_Scripture' => $baseDir . '/includes/taxonomies/class-scripture.php',
     'LQDM_Series' => $baseDir . '/includes/taxonomies/class-series.php',

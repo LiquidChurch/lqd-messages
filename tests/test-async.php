@@ -12,6 +12,6 @@ class LQDM_Async_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertInstanceOf( LQDM_Async::class, gc_sermons()->async );
+		$this->assertInstanceOf( LQDM_Async::class, lqdm()->async );
 	}
 }

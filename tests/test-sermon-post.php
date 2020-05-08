@@ -7,7 +7,7 @@ class LQDM_Sermon_Post_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$sermons = gc_sermons()->sermons;
+		$sermons = lqdm()->sermons;
 		$this->assertFalse( $sermons->most_recent() );
 		$this->assertEquals( 'gc-sermons', $sermons->post_type() );
 

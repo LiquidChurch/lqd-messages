@@ -31,9 +31,9 @@ abstract class LQDMS_Recent_Admin_Base extends LQDM_Shortcodes_Admin_Base
     {
         wp_register_script(
             'lqdm-recent-admin',
-            GC_Sermons_Plugin::$url . 'assets/js/lqdm-recent-admin.js',
+            LQDM_Plugin::$url . 'assets/js/lqdm-recent-admin.js',
             array('jquery'),
-            GC_Sermons_Plugin::VERSION,
+            LQDM_Plugin::VERSION,
             true
         );
         wp_localize_script('lqdm-recent-admin', 'php_vars', array(

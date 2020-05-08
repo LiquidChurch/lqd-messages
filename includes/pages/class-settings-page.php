@@ -25,7 +25,7 @@ class LQDM_Settings_Page
     {
         $this->plugin = $plugin;
 
-        $this->plugin_option_key = GC_Sermons_Plugin::$plugin_option_key;
+        $this->plugin_option_key = LQDM_Plugin::$plugin_option_key;
 
         $this->sections_config_arr = $this->_get_sections_config_arr();
     }
@@ -322,14 +322,14 @@ class LQDM_Settings_Page
             'lqdm-jquery-ui-css',
             '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui' . $min . '.css',
             array(),
-            GC_Sermons_Plugin::VERSION
+            LQDM_Plugin::VERSION
         );
 
         wp_enqueue_style(
             'lqdm-style-admin',
-            GC_Sermons_Plugin::$url . "assets/css/lqdm-style-admin{$min}.css",
+            LQDM_Plugin::$url . "assets/css/lqdm-style-admin{$min}.css",
             array(),
-            GC_Sermons_Plugin::VERSION
+            LQDM_Plugin::VERSION
         );
     }
 
@@ -344,14 +344,14 @@ class LQDM_Settings_Page
             'lqdm-jquery-ui-js',
             '//code.jquery.com/ui/1.12.0/jquery-ui' . $min . '.js',
             array('jquery'),
-            GC_Sermons_Plugin::VERSION
+            LQDM_Plugin::VERSION
         );
 
         wp_enqueue_script(
             'lqdm-admin-settings-page',
-            GC_Sermons_Plugin::$url . "assets/js/lqdm-admin-settings{$min}.js",
+            LQDM_Plugin::$url . "assets/js/lqdm-admin-settings{$min}.js",
             array('jquery', 'lqdm-jquery-ui-js'),
-            GC_Sermons_Plugin::VERSION
+            LQDM_Plugin::VERSION
         );
     }
 

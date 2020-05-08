@@ -33,7 +33,7 @@ class LQDM_Series extends LQDM_Taxonomies_Base {
 				'hierarchical' => false,
 				'show_admin_column' => false,
 				'rewrite' => array(
-				    'slug' => 'sermon-series',
+				    'slug' => 'series',
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
                 ),

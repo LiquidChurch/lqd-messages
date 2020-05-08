@@ -7,7 +7,7 @@ class LQDM_Shortcodes_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		gc_sermons()->hooks();
-		$this->assertInstanceOf( LQDM_Shortcodes::class, gc_sermons()->shortcodes );
+		lqdm()->hooks();
+		$this->assertInstanceOf( LQDM_Shortcodes::class, lqdm()->shortcodes );
 	}
 }

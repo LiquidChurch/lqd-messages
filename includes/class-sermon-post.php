@@ -50,7 +50,7 @@ class LQDM_Sermon_Post {
 	        throw new RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a WP_Post object.');
 	    }
 
-	    $post_type = gc_sermons()->sermons->post_type();
+	    $post_type = lqdm()->sermons->post_type();
 
 	    if ($post->post_type !== $post_type) {
 			throw new RuntimeException( 'Sorry, ' . __CLASS__ . ' expects a ' . $post_type . ' object.' );
@@ -294,7 +294,7 @@ class LQDM_Sermon_Post {
 
 	    $speaker = array();
 	    foreach ($speakers as $key => $val) {
-	        $speaker[] = gc_sermons()->taxonomies->speaker->get($val, $args);
+	        $speaker[] = lqdm()->taxonomies->speaker->get($val, $args);
 	    }
 
 	    return $speaker;
@@ -316,7 +316,7 @@ class LQDM_Sermon_Post {
 	    }
 
 	    if (null === $this->speaker) {
-	        $this->speaker = gc_sermons()->taxonomies->speaker->get($speakers[0], $args);
+	        $this->speaker = lqdm()->taxonomies->speaker->get($speakers[0], $args);
 	    }
 
 	    return $this->speaker;
@@ -338,7 +338,7 @@ class LQDM_Sermon_Post {
 	    }
 
 	    if (null === $this->single_series) {
-	        $this->single_series = gc_sermons()->taxonomies->series->get($series[0], $args);
+	        $this->single_series = lqdm()->taxonomies->series->get($series[0], $args);
 	    }
 
 	    return $this->single_series;
@@ -361,7 +361,7 @@ class LQDM_Sermon_Post {
 
 	    $scripture = array();
 	    foreach ($scriptures as $key => $val) {
-	        $scripture[] = gc_sermons()->taxonomies->scripture->get($val, $args);
+	        $scripture[] = lqdm()->taxonomies->scripture->get($val, $args);
 	    }
 
 	    return $scripture;
@@ -397,7 +397,7 @@ class LQDM_Sermon_Post {
             ),
         );
 
-	    return gc_sermons()->sermons->get_many($args);
+	    return lqdm()->sermons->get_many($args);
 	}
 
 	/**
@@ -430,7 +430,7 @@ class LQDM_Sermon_Post {
             ),
         );
 
-	    return gc_sermons()->sermons->get_many($args);
+	    return lqdm()->sermons->get_many($args);
 	}
 
 	/**
@@ -518,7 +518,7 @@ class LQDM_Sermon_Post {
      * @return array             Array of terms for this taxonomy.
      */
 	protected function init_taxonomy( $taxonomy ) {
-	    $tax_slug = gc_sermons()->taxonomies->{$taxonomy}->taxonomy();
+	    $tax_slug = lqdm()->taxonomies->{$taxonomy}->taxonomy();
 	    return get_the_terms($this->ID, $tax_slug);
 	}
 

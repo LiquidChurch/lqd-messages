@@ -10,7 +10,7 @@ require_once $_tests_dir . '/includes/functions.php';
 function _manually_load_plugin() {
 	require dirname( dirname( dirname( __FILE__ ) ) ) . '/cmb2/init.php';
 	require dirname( dirname( dirname( __FILE__ ) ) ) . '/wds-shortcodes/wds-shortcodes.php';
-	require dirname( dirname( __FILE__ ) ) . '/gc-sermons.php';
+	require dirname( dirname( __FILE__ ) ) . '/lqdm.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 

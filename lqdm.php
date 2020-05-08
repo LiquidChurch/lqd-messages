@@ -38,7 +38,7 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Main initiation class
  */
-class GC_Sermons_Plugin
+class LQDM_Plugin
 {
     /** @var string VERSION Current version */
     public const VERSION = '1.0.0';
@@ -124,10 +124,10 @@ class GC_Sermons_Plugin
     /**
      * Creates or returns an instance of this class (GC_Sermons_Plugin).
      *
-     * @since  0.1.0
-     * @return GC_Sermons_Plugin A single instance of this class.
+     * @return LQDM_Plugin A single instance of this class.
+     *@since  0.1.0
      */
-    public static function get_instance(): ?GC_Sermons_Plugin {
+    public static function get_instance(): ?LQDM_Plugin {
         if ( self::$single_instance === null ) {
             self::$single_instance = new self();
         }
@@ -202,7 +202,7 @@ class GC_Sermons_Plugin
         );
 
         $config = array(
-            'domain'       => 'gc-sermons',
+            'domain'       => 'lqdm',
             'parent_slug'  => 'plugins.php',
             'capability'   => 'install_plugins',
             'menu'         => 'install-required-plugins',
@@ -295,15 +295,15 @@ class GC_Sermons_Plugin
  *
  * Grab and return instance.
  *
- * @since  0.1.0
- * @return GC_Sermons_Plugin  Singleton instance of plugin class.
+ * @return LQDM_Plugin  Singleton instance of plugin class.
+ *@since  0.1.0
  */
-function gc_sermons()
+function lqdm()
 {
-    return GC_Sermons_Plugin::get_instance();
+    return LQDM_Plugin::get_instance();
 }
 
 // Kick it off.
-add_action('plugins_loaded', array(gc_sermons(), 'hooks'));
-register_activation_hook(__FILE__, array('GC_Sermons_Plugin', 'activate'));
-register_deactivation_hook(__FILE__, array('GC_Sermons_Plugin', 'deactivate'));
+add_action('plugins_loaded', array(lqdm(), 'hooks'));
+register_activation_hook(__FILE__, array('LQDM_Plugin', 'activate'));
+register_deactivation_hook(__FILE__, array('LQDM_Plugin', 'deactivate'));
