@@ -22,8 +22,12 @@ class LQDM_Tag extends LQDM_Taxonomies_Base {
 			'labels' => array( __( 'Tag', 'lqdm' ), __( 'Tags', 'lqdm' ), 'gcs-tag' ),
 			'args'   => array(
 				'hierarchical' => false,
-				'rewrite' => array( 'slug' => 'sermon-tag' ),
+				'rewrite' => array( 'slug' => 'message-tag' ),
 			),
+            'show_in_rest' => true,
+            'show_in_graphql' => true,
+            'graphql_single_name' => 'lqdmTag',
+            'graphql_plural_name' => 'lqdmTags'
 		) );
 	}
 

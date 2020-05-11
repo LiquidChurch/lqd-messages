@@ -24,8 +24,14 @@ class LQDM_Scripture extends LQDM_Taxonomies_Base {
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Scripture Reference', 'lqdm' ), __( 'Scripture References', 'lqdm' ), 'gcs-scripture' ),
-			'args' => array(
-				'rewrite' => array( 'slug' => 'scripture-reference' ),
+			'args'   => array(
+				'rewrite'             => array(
+				    'slug' => 'scripture-reference'
+                ),
+                'show_in_rest'        => true,
+                'show_in_graphql'     => true,
+                'graphql_single_name' => 'lqdmScripture',
+                'graphql_plural_name' => 'lqdmScriptures'
 			),
 		) );
 	}

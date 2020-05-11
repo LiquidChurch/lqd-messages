@@ -18,7 +18,6 @@ abstract class LQDM_Post_Types_Base extends CPT_Core {
 
 	/**
 	 * Constructor
-	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
 	 *

@@ -27,6 +27,10 @@ class LQDM_Speaker extends LQDM_Taxonomies_Base {
 				'hierarchical' => false,
 				'rewrite' => array( 'slug' => 'speaker' ),
 			),
+            'show_in_rest' => true,
+            'show_in_graphql' => true,
+            'graphql_single_name' => 'lqdmSpeaker',
+            'graphql_plural_name' => 'lqdmSpeakers'
 		) );
 	}
 

@@ -21,8 +21,12 @@ class LQDM_Topic extends LQDM_Taxonomies_Base {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Topic', 'lqdm' ), __( 'Topics', 'lqdm' ), 'gcs-topic' ),
 			'args' => array(
-				'rewrite' => array( 'slug' => 'sermon-topic' ),
+				'rewrite' => array( 'slug' => 'message-topic' ),
 			),
+            'show_in_rest' => true,
+            'show_in_graphql' => true,
+            'graphql_single_name' => 'lqdmTopic',
+            'graphql_plural_name' => 'lqdmTopics'
 		) );
 	}
 

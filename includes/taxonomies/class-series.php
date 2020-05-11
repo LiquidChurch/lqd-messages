@@ -37,6 +37,10 @@ class LQDM_Series extends LQDM_Taxonomies_Base {
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
                 ),
+                'show_in_rest' => true,
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'lqdmSeriesNode',
+                'graphql_plural_name' => 'lqdmSeriesNodes'
 			),
 		) );
 	}

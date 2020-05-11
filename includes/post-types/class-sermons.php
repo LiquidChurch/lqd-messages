@@ -47,7 +47,12 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
                     'slug' => 'messages',
                     'with_front' => false,
                     'ep_mask' => EP_ALL,
+
                 ),
+                'show_in_rest' => true,
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'lqdmMessage',
+                'graphql_plural_name' => 'lqdmMessages'
             ),
         ));
         $this->query_args['post_type'] = $this->post_type();
