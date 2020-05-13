@@ -154,7 +154,7 @@ class LQDMS_Sermons_Admin extends LQDM_Shortcodes_Admin_Base {
 		$term_id_params = array( 'sermon_related_series', 'sermon_related_speaker' );
 		foreach ( $term_id_params as $param ) {
 			if ( isset( $updated[ $param ]['id'] ) ) {
-				if ( isset( $updated[ $param ]['name'] ) && 'this' === $updated[ $param ]['name'] ) {
+				if ( isset( $updated[ $param ]['name'] ) && $updated[ $param ]['name'] === 'this' ) {
 					$updated[ $param ] = $updated[ $param ]['name'];
 				} else {
 					$updated[ $param ] = $updated[ $param ]['id'];

@@ -126,7 +126,7 @@ class CMB2_Term_Select {
 			}
 		</style>
 		<script type="text/javascript">
-			<?php include_once( 'script.js' ); ?>
+			<?php include_once( __DIR__ . 'script.js' ); ?>
 		</script>
 		<?php
 	}

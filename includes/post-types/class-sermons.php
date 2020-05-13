@@ -443,7 +443,7 @@ SQL;
     {
         static $sermon = null;
 
-        if (null === $sermon || $this->flush) {
+        if ( $sermon === null || $this->flush) {
             $sermon = $this->most_recent();
 
             if (empty($sermon->media['video'])) {
@@ -466,7 +466,7 @@ SQL;
     {
         static $sermon = null;
 
-        if (null === $sermon || $this->flush) {
+        if ( $sermon === null || $this->flush) {
             $sermons = new WP_Query(apply_filters('gcs_recent_sermon_args', $this->query_args));
             $sermon = false;
             if ($sermons->have_posts()) {
