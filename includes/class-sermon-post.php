@@ -64,7 +64,7 @@ class LQDM_Sermon_Post {
      *
      * @since  0.1.0
      *
-     * @return array Array of video/audio media info.
+     * @return array|array[] Array of video/audio media info.
      */
 	protected function init_media() {
 	    $this->media = array(
@@ -83,7 +83,7 @@ class LQDM_Sermon_Post {
      *
 	 * @param string $type type of media
 	 *
-	 * @return LQDM_Sermon_Post
+	 * @return LQDM_Sermon_Post $this
 	 */
 	protected function add_media_type( $type = 'video' ) {
 	    // Only audio/video allowed.
@@ -151,7 +151,7 @@ class LQDM_Sermon_Post {
      *
      * @since  0.1.1
      *
-     * @return mixed The audio player if successful.
+     * @return string|void The audio player if successful.
      */
 	public function get_audio_player() {
 	    // Lazy-load the media-getting
@@ -223,7 +223,7 @@ class LQDM_Sermon_Post {
      *                                an array of width and height values in pixels (in that order).
      *                                Default 'full'.
      * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
-     * @return string             The post thumbnail image tag.
+     * @return mixed                  The post thumbnail image tag.
      */
 	public function featured_image( $size = 'full', $attr = '' ) {
 	    // Unique id for the passed-in attributes.
@@ -268,10 +268,9 @@ class LQDM_Sermon_Post {
      * @param  string|array $size     Optional. Image size to use. Accepts any valid image size, or
      *                                an array of width and height values in pixels (in that order).
      *                                Default 'full'.
-     * @param  string|array $attr     Optional. Query string or array of attributes. Default empty.
      * @return string             The series image tag.
      */
-	public function series_image( $size = 'full', $attr = '' ) {
+	public function series_image( $size = 'full' ) {
 	    $args = array('image_size' => $size);
 
         return $this->get_series($args)->image;
@@ -282,7 +281,7 @@ class LQDM_Sermon_Post {
      *
      * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
      *
-     * @return array|false|WP_Term
+     * @return array|bool
      * @since  0.1.7
      *
      */
@@ -305,9 +304,9 @@ class LQDM_Sermon_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
+     * @param  array   Args to pass to LQDM_Taxonomies_Base::get()
      *
-     * @return WP_Term|false Speaker term object.
+     * @return mixed   Speaker term object.
      */
 	public function get_speaker( $args = array() ) {
 	    $speakers = $this->speakers();
@@ -327,9 +326,9 @@ class LQDM_Sermon_Post {
      *
      * @since  0.1.1
      *
-     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
+     * @param  array $args Args to pass to LQDM_Taxonomies_Base::get()
      *
-     * @return WP_Term|false Series term object.
+     * @return mixed       Series term object.
      */
 	public function get_series( $args = array() ) {
 	    $series = $this->series();
@@ -347,11 +346,10 @@ class LQDM_Sermon_Post {
 	/**
      * Get scripture for this message
      *
-     * @param  array         Args to pass to LQDM_Taxonomies_Base::get()
+     * @param  array  $args       Args to pass to LQDM_Taxonomies_Base::get()
      *
      * @return array|false|WP_Term
      * @since  0.1.7
-     *
      */
 	public function get_scriptures( $args = array() ) {
 	    $scriptures = $this->scripture();
@@ -372,9 +370,9 @@ class LQDM_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args       Array of WP_Query arguments.
+	 * @param  string|array|object      $args  Array of WP_Query arguments.
 	 *
-	 * @return WP_Error|WP_Query WP_Query instance if successful.
+	 * @return WP_Error|WP_Query        WP_Query instance if successful.
 	 * @throws Exception
 	 */
 	public function get_others_in_series( $args = array() ) {
@@ -383,11 +381,12 @@ class LQDM_Sermon_Post {
 	        return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
-	    $args = wp_parse_args($args, array(
-	        'post__not_in'   => array($this->ID),
+	    $parse_args = array(
+            'post__not_in'   => array($this->ID),
             'posts_per_page' => 10,
             'no_found_rows'  => true,
-        ));
+        );
+	    $args = wp_parse_args($args, $parse_args);
 
 	    $args['tax_query'] = array(
 	        array(

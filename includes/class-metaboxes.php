@@ -49,13 +49,12 @@ class LQDM_Metaboxes
 	}
 
 	/**
-	 * Add Metabox
+	 * Add Metaboxes
 	 *
-	 * @param $metabox
 	 */
-	public function add_metabox( $metabox ): void {
+	public function add_metabox( ): void {
 
-		//display order field for messages
+		// Display Order Field for Messages
 		$args = array(
 			'id'           => $this->display_ordr_box_id,
 			'title'        => __( 'Display Conditions', 'lqdm' ),
@@ -74,6 +73,7 @@ class LQDM_Metaboxes
             ),
 		) );
 
+		// Whether to Exclude Message
         $cmb->add_field(array(
             'name' => __('Exclude as Message', 'lqdm'),
             'desc' => __('If selected the post will not appear as message in the message listing', 'lqdm'),
@@ -81,6 +81,7 @@ class LQDM_Metaboxes
             'type' => 'checkbox',
         ));
 
+        // Where to position message on archive page.
         $cmb->add_field(array(
             'name' => __('Position in Message Archive Page', 'lqdm'),
             'desc' => __('Based on this value, videos will appear above/below the normal messages listing', 'lqdm'),
@@ -92,8 +93,7 @@ class LQDM_Metaboxes
             ),
         ));
 
-		//additional resources fields
-
+        // Additional Resources
 		$args = array(
 			'id'           => $this->resources_box_id,
 			'title'        => __( 'Additional Resources', 'lqdm' ),
@@ -222,34 +222,11 @@ class LQDM_Metaboxes
     }
 
 	/**
-	 * Enqueue Box JS
-	 *
-	 * @param $args
-	 */
-	public function enqueue_box_js( $args ): void {
-		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		wp_enqueue_script(
-			'lqdm-admin',
-            LQDM_Plugin::$url . "assets/js/lqdm-admin{$min}.js",
-			array( 'cmb2-scripts' ),
-			LQDM_Plugin::VERSION,
-			1
-		);
-
-		wp_localize_script( 'lqdm-admin', 'LiquidChurchAdmin', array( 'id' => $args['id'] ) );
-	}
-
-	/**
 	 * input type number for meta fields
 	 *
-	 * @param $field
-	 * @param $escaped_value
-	 * @param $object_id
-	 * @param $object_type
 	 * @param $field_type_object
 	 */
-	function meta_addtnl_type_text_number( $field, $escaped_value, $object_id, $object_type, $field_type_object ): void {
+	private function meta_addtnl_type_text_number( $field_type_object ): void {
 		echo $field_type_object->input( array( 'type' => 'number', 'min' => 0 ) );
 	}
 
