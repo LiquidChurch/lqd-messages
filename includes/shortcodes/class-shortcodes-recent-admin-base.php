@@ -59,10 +59,8 @@ abstract class LQDMS_Recent_Admin_Base extends LQDM_Shortcodes_Admin_Base
     {
 
         // If recent is set, but shouldn't be, let's remove it.
-        if (isset($updated['recent'], $updated['sermon_id'])) {
-            if ($updated['sermon_id'] && $updated['sermon_id'] !== '0' && $updated['sermon_id'] !== 0 && $updated['sermon_id'] !== 'recent' ) {
-                unset($updated['recent']);
-            }
+        if ( isset( $updated['recent'], $updated['sermon_id'] ) && $updated['sermon_id'] && $updated['sermon_id'] !== '0' && $updated['sermon_id'] !== 0 && $updated['sermon_id'] !== 'recent' ) {
+            unset($updated['recent']);
         }
 
         return $updated;

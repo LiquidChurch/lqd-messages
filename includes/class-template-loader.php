@@ -215,7 +215,8 @@ class LQDM_Template_Loader {
 	 * @return string  Rendered template's HTML output.
 	 */
 	public function __toString() {
-		return $this->load();
+        /** @var string $this */
+        return $this->load();
 	}
 
 	/**

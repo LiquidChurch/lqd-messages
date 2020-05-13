@@ -121,7 +121,7 @@ class LQDM_Shortcodes_Sermon_Search_Run extends LQDM_Shortcodes_Run_Base {
 	/**
 	 * Message Search Results
 	 *
-	 * @return LQDMS_Sermons_Search_Run|string
+	 * @return string|null
 	 * @throws Exception
 	 */
 	protected function sermon_search_results() {

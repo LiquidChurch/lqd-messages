@@ -31,7 +31,7 @@ class LQDMS_Sermons_Admin extends LQDM_Shortcodes_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function js_button_data() {
+	public function js_button_data() {
 		return array(
 			'qt_button_text' => __( 'Messages', 'lqdm' ),
 			'button_tooltip' => __( 'Messages', 'lqdm' ),
@@ -47,7 +47,7 @@ class LQDMS_Sermons_Admin extends LQDM_Shortcodes_Admin_Base {
 	 *
 	 * @return array|mixed
 	 */
-	function fields( $fields, $button_data ) {
+	public function fields( $fields, $button_data ) {
 		$fields[] = array(
 			'name'    => __( 'Number of messages to show per-page', 'lqdm' ),
 			'type'    => 'text_small',

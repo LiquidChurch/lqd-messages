@@ -13,7 +13,7 @@ class LQDMS_Recent_Speaker_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function js_button_data() {
+	public function js_button_data() {
 		return array(
 			'qt_button_text' => __( 'Recent Speaker', 'lqdm' ),
 			'button_tooltip' => __( 'Recent Speaker', 'lqdm' ),
@@ -29,7 +29,7 @@ class LQDMS_Recent_Speaker_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function fields( $fields, $button_data ) {
+	public function fields( $fields, $button_data ) {
 		$fields[] = array(
 			'name'            => __( 'Message ID', 'lqdm' ),
 			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Message post.', 'lqdm' ),

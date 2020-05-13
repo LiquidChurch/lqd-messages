@@ -153,9 +153,7 @@ class LQDMS_Resources_Run extends LQDM_Shortcodes_Run_Base
 		}
 
 		if ( ! $obj->wants_files ) {
-
-			// send only urls
-			// we can ignore file types.
+			// send only urls, we can ignore file types.
 			return array_filter( $resources, array( $this, 'is_url_resource' ) );
 		}
 

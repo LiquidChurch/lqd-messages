@@ -402,6 +402,8 @@ class LQDM_Settings_Page
     {
         $prev_val = get_option($this->plugin_option_key);
         $run_external_setting_err = false;
+        $message = '';
+        $type = '';
 
         if (is_array($input) && !empty($input)) {
             foreach ($input as $key => $val) {

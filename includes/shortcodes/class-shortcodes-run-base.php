@@ -21,7 +21,7 @@ abstract class LQDM_Shortcodes_Run_Base extends WDS_Shortcodes {
 	}
 
 	/**
-	 * Get Sermon
+	 * Get message
 	 *
 	 * @return mixed
 	 * @throws Exception
@@ -47,7 +47,7 @@ abstract class LQDM_Shortcodes_Run_Base extends WDS_Shortcodes {
 	}
 
 	/**
-	 * Get most recent sermon
+	 * Get most recent message
 	 *
 	 * @return false|LQDM_Sermon_Post
 	 * @throws Exception

@@ -13,7 +13,7 @@ class LQDMS_Series_Admin extends LQDM_Shortcodes_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function js_button_data() {
+	public function js_button_data() {
 		return array(
 			'qt_button_text' => __( 'Message Series', 'lqdm' ),
 			'button_tooltip' => __( 'Message Series', 'lqdm' ),
@@ -29,7 +29,7 @@ class LQDMS_Series_Admin extends LQDM_Shortcodes_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function fields( $fields, $button_data ) {
+	public function fields( $fields, $button_data ) {
 		$fields[] = array(
 			'name'    => __( 'Number of Series to Show Per-Page', 'lqdm' ),
 			'type'    => 'text_small',

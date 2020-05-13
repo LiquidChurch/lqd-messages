@@ -265,17 +265,18 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 	 * @param  array        $args             Array of arguments for LQDM_Taxonomies_Base::get_many().
 	 * @param  array        $single_term_args Array of arguments for LQDM_Taxonomies_Base::get().
 	 *
-	 * @return array|false Array of term objects or false
+	 * @return array|bool|false Array of term objects or false
 	 * @throws Exception
 	 */
 	public function search( $search_term, $args = array(), $single_term_args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'name__like'   => sanitize_text_field( $search_term ),
-			'hide_empty'   => false,
-			'orderby'      => 'term_id',
-			'order'        => 'DESC',
-			'cache_domain' => 'gc_sermons_search_' . $this->id,
-		) );
+	    $parse_args = array(
+            'name__like'   => sanitize_text_field( $search_term ),
+            'hide_empty'   => false,
+            'orderby'      => 'term_id',
+            'order'        => 'DESC',
+            'cache_domain' => 'gc_sermons_search_' . $this->id,
+        );
+		$args = wp_parse_args( $args, $parse_args );
 
 		return $this->get_many( $args, $single_term_args );
 	}

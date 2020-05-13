@@ -78,7 +78,7 @@ class LQDM_Shortcodes_Video_Player_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function js_button_data() {
+	public function js_button_data() {
 		return array(
 			'qt_button_text' => __( 'GC Sermon Video Player', 'lqdm' ),
 			'button_tooltip' => __( 'GC Sermon Video Player', 'lqdm' ),
@@ -95,11 +95,11 @@ class LQDM_Shortcodes_Video_Player_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function fields( $fields, $button_data ) {
+	public function fields( $fields, $button_data ) {
 
 		$fields[] = array(
 			'name'            => __( 'Sermon ID', 'lqdm' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s video player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s video player. Otherwise enter a message ID. Click the magnifying glass to search for a message.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),

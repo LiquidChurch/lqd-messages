@@ -52,12 +52,13 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
         return '';
     }
 
-    $args = wp_parse_args($args, array(
+    $parse_args = array(
         'remove_thumbnail'   => false,
         'remove_description' => true,
         'thumbnail_size'     => 'medium',
         'wrap_classes'       => '',
-    ));
+    );
+    $args = wp_parse_args( $args, $parse_args );
 
     $get_series_args['image_size'] = $get_series_args['image_size'] ?? $args['thumbnail_size'];
 
@@ -101,11 +102,12 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
         return '';
     }
 
-    $args = wp_parse_args($args, array(
+    $parse_args = array(
         'remove_thumbnail' => false,
         'thumbnail_size'   => 'medium',
         'wrap_classes'     => '',
-    ));
+    );
+    $args = wp_parse_args( $args, $parse_args );
 
     $get_speaker_args['image_size'] = $get_speaker_args['image_size'] ?? $args['thumbnail_size'];
 
@@ -261,6 +263,8 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
 
 /**
  * Rewrite Permalinks
+ *
+ * Add the name of the series before the name of the message in the permalink.
  *
  * @param $post_link
  * @param $id

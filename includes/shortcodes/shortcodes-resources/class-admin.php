@@ -24,7 +24,7 @@ class LQDMS_Resources_Admin extends LQDM_Shortcodes_Admin_Base
 	 *
 	 * @return array
 	 */
-	function js_button_data(): array {
+	public function js_button_data(): array {
 		return array(
 			'qt_button_text' => __( 'Message Resources', 'lqdm' ),
 			'button_tooltip' => __( 'Message Resources', 'lqdm' ),
@@ -40,7 +40,7 @@ class LQDMS_Resources_Admin extends LQDM_Shortcodes_Admin_Base
 	 *
 	 * @return array
 	 */
-	function fields( $fields, $button_data ): array {
+	public function fields( $fields, $button_data ): array {
 		$fields[] = array(
 			'name'      => __( 'Resource Type', 'lqdm' ),
 			'desc'      => __( 'Select the type of resource to display.', 'lqdm' ),

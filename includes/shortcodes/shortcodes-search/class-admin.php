@@ -29,7 +29,7 @@ class LQDM_Shortcodes_Sermon_Search_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function js_button_data() {
+	public function js_button_data() {
 		return array(
 			'qt_button_text' => __( 'Messages Search', 'lqdm' ),
 			'button_tooltip' => __( 'Messages Search', 'lqdm' ),
@@ -45,7 +45,7 @@ class LQDM_Shortcodes_Sermon_Search_Admin extends LQDMS_Recent_Admin_Base {
 	 *
 	 * @return array
 	 */
-	function fields( $fields, $button_data ) {
+	public function fields( $fields, $button_data ) {
 		$fields[] = array(
 			'name'    => __( 'Search:', 'lqdm' ),
 			'desc'    => sprintf( __( 'Select whether form allows searching %s, %s, or both.', 'lqdm' ), $this->run->sermons->post_type( 'plural' ), $this->taxonomies->series->taxonomy( 'plural' ) ),

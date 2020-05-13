@@ -244,7 +244,7 @@ class LQDM_Sermon_Post {
         $this->images[$size][$id] = array();
 
         $img = get_the_post_thumbnail($this->ID, $size, $attr);
-		$this->images[$size][$id] = $img ?: $this->series_image($size, $attr);
+		$this->images[$size][$id] = $img ?: $this->series_image($size);
 
 		return $this->images[$size][$id];
 	}
