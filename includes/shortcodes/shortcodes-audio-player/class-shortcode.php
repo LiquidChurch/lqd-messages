@@ -65,8 +65,8 @@ class LQDM_Shortcodes_Audio_Player_Admin extends LQDMS_Recent_Admin_Base {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermon Audio Player', 'lqdm' ),
-			'button_tooltip' => __( 'GC Sermon Audio Player', 'lqdm' ),
+			'qt_button_text' => __( 'Message Audio Player', 'lqdm' ),
+			'button_tooltip' => __( 'Message Audio Player', 'lqdm' ),
 			'icon'           => 'dashicons-format-audio'
 		);
 	}
@@ -82,8 +82,8 @@ class LQDM_Shortcodes_Audio_Player_Admin extends LQDMS_Recent_Admin_Base {
 	function fields( $fields, $button_data ) {
 
 		$fields[] = array(
-			'name'            => __( 'Sermon ID', 'lqdm' ),
-			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s audio player. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'lqdm' ),
+			'name'            => __( 'Message ID', 'lqdm' ),
+			'desc'            => __( 'Blank, "recent", or "0" will get the most recent message\'s audio player. Otherwise enter a post ID. Click the magnifying glass to search for a message.', 'lqdm' ),
 			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),

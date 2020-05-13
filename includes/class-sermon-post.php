@@ -404,7 +404,7 @@ class LQDM_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of WP_Query arguments.
+	 * @param  array|object            $args  Array of WP_Query arguments.
 	 *
 	 * @return mixed|WP_Error|WP_Query        WP_Query instance if successful.
 	 * @throws Exception
@@ -415,11 +415,13 @@ class LQDM_Sermon_Post {
 	        return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'lqdm' ), $this->ID );
 	    }
 
-	    $args = wp_parse_args($args, array(
-	        'post__not_in'   => array($this->ID),
+	    $parse_args = array(
+            'post__not_in'   => array($this->ID),
             'posts_per_page' => 10,
             'no_found_rows'  => true,
-        ));
+        );
+
+	    $args = wp_parse_args($args, $parse_args);
 
 	    $args['tax_query'] = array(
 	        array(
