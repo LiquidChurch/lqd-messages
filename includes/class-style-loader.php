@@ -70,6 +70,8 @@ class LQDM_Style_Loader extends LQDM_Template_Loader {
 		}
 
 		echo $content;
+
+		return null;
 	}
 
 	/**
@@ -87,8 +89,10 @@ class LQDM_Style_Loader extends LQDM_Template_Loader {
 		$content = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $content );
 
 		// Remove space after colons.
+        /** @var string $content */
 		$content = str_replace( ': ', ':', $content );
 		// Remove whitespace.
+        /** @var string $content */
 		$content = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $content );
 
 		// Then wrap in a style tag.

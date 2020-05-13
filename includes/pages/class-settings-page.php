@@ -294,9 +294,10 @@ class LQDM_Settings_Page
         add_submenu_page('edit.php?post_type=gc-sermons', __('Settings', 'lqdm'), __('Settings', 'lqdm'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
     }
 
-	/**
-	 * Load Plugin Option Page View
-	 */
+    /**
+     * Load Plugin Option Page View
+     * @throws Exception
+     */
     public function plugin_option_page_view()
     {
         $this->enqueue_css();

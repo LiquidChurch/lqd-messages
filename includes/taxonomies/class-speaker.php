@@ -90,8 +90,9 @@ class LQDM_Speaker extends LQDM_Taxonomies_Base {
 	 * @return WP_Term|false
 	 */
 	protected function extra_term_data( $term, $args ) {
-		$term->connected_user = $term->connected_staff = null;
-		$term->nickname = '';
+        $term->connected_staff = null;
+        $term->connected_user  = $term->connected_staff;
+        $term->nickname        = '';
 
 		if (
 		    ( $connected_user = get_term_meta( $term->term_id, 'gc_sermon_speaker_connected_user', 1 ) )

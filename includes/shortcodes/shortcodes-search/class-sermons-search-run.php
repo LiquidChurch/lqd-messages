@@ -72,7 +72,7 @@ class LQDMS_Sermons_Search_Run extends LQDMS_Sermons_Run {
 		$sermons = $this->map_sermon_args( $sermons, $my_level );
 
 		$this->results = '';
-		if ( 0 === $my_level ) {
+		if ( $my_level === 0 ) {
 			$this->results .= LQDM_Style_Loader::get_template( 'list-item-style' );
 		}
 

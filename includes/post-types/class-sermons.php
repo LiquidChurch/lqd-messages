@@ -189,7 +189,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
     {
         if (
             !isset($postarr['ID'], $data['post_status'], $data['post_type'])
-            || 'future' !== $data['post_status']
+            || $data['post_status'] !== 'future'
             || $this->post_type() !== $data['post_type']
         ) {
             return $data;

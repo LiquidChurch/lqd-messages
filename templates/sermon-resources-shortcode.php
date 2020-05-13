@@ -2,8 +2,8 @@
 	<ul class="lqdm-resources-list">
         <?php
         $items = $this->get('items');
-        $lqdm_list_style = '1' == count($items) ? 'width: 100%;' : '';
-        $lqdm_container_class = '1' == count($items) ? 'single-item' : '';
+        $lqdm_list_style = count($items) == '1' ? 'width: 100%;' : '';
+        $lqdm_container_class = count($items) == '1' ? 'single-item' : '';
         $resource_lang = $this->get('resource_lang');
         $lang_plugin_option = $this->get('lang_plugin_option');
         foreach ($resource_lang as $key => $val) {

@@ -1,4 +1,4 @@
-<form role="search" method="get" id="searchform" class="searchform lqdm-search" action="<?php $this->output( 'action_url', 'esc_url' ); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
+<form role="search" method="get" id="searchform" class="searchform lqdm-search" action="<?php $this->output( 'action_url', 'esc_url' ); ?>" <?php echo ( $this->get('separate_results') == true ) ? 'target="_blank"' : '' ?>>
 	<div>
 		<?php if ( $this->get( 'show_filter' ) ) : ?>
 		<div class="lqdm-search-results-filter">

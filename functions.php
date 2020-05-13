@@ -5,9 +5,9 @@
  *
  * @since 0.1.3
  *
- * @param  mixed                  $sermon         Post object or ID or (LQDM_Sermon_Post object).
- * @param  bool                   $throw_on_error Use if you have exception handling in place.
- * @return false|LQDM_Sermon_Post                 LQDM_Sermon_Post object if successful
+ * @param  int|mixed                $sermon         Post object or ID or (LQDM_Sermon_Post object).
+ * @param  bool                     $throw_on_error Use if you have exception handling in place.
+ * @return bool|int|false|LQDM_Sermon_Post          LQDM_Sermon_Post object if successful
  * @throws Exception
  */
 function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
@@ -38,11 +38,11 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  *
  * @since  0.1.3
  *
- * @param  mixed  $sermon          Post object or ID or (LQDM_Sermon_Post object).
+ * @param  int|mixed  $sermon          Post object or ID or (LQDM_Sermon_Post object).
  * @param  array  $args            Args array
  * @param  array  $get_series_args Args for LQDM_Sermon_Post::get_series()
  *
- * @return string Message series info output.
+ * @return string|string[] Message series info output.
  * @throws Exception
  */
 function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_args = array())
@@ -87,11 +87,11 @@ function gc_get_sermon_series_info($sermon = 0, $args = array(), $get_series_arg
  *
  * @since  0.1.3
  *
- * @param  mixed  $sermon           Post object or ID or (LQDM_Sermon_Post object).
- * @param  array  $args             Args array
- * @param  array  $get_speaker_args Args for LQDM_Sermon_Post::get_speaker()
+ * @param  int|mixed  $sermon           Post object or ID or (LQDM_Sermon_Post object).
+ * @param  array      $args             Args array
+ * @param  array      $get_speaker_args Args for LQDM_Sermon_Post::get_speaker()
  *
- * @return string Message speaker info output.
+ * @return string|null Message speaker info output.
  * @throws Exception
  */
 function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_args = array())
@@ -134,10 +134,10 @@ function gc_get_sermon_speaker_info($sermon = 0, $args = array(), $get_speaker_a
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (LQDM_Sermon_Post object).
- * @param  mixed $args   Arguments passed to LQDM_Sermon_Post::get_video_player().
+ * @param  int|mixed   $sermon Post object or ID or (LQDM_Sermon_Post object).
+ * @param  array|mixed $args   Arguments passed to LQDM_Sermon_Post::get_video_player().
  *
- * @return string Message video player output.
+ * @return mixed|string Message video player output.
  * @throws Exception
  */
 function gc_get_sermon_video_player($sermon = 0, $args = array())
@@ -157,18 +157,17 @@ function gc_get_sermon_video_player($sermon = 0, $args = array())
  *
  * @since  0.1.3
  *
- * @param  mixed $sermon Post object or ID or (LQDM_Sermon_Post object).
- * @param  mixed $args Arguments passed to LQDM_Sermon_Post::get_audio_player().
+ * @param  int|mixed $sermon Post object or ID or (LQDM_Sermon_Post object).
  *
- * @return string Message audio player output.
+ * @return mixed|string Message audio player output.
  * @throws Exception
  */
-function gc_get_sermon_audio_player($sermon = 0, $args = array())
+function gc_get_sermon_audio_player($sermon = 0)
 {
     $sermon = gc_get_sermon_post($sermon);
 
     // If no message or audio, bail.
-    if (!$sermon || !($audio_player = $sermon->get_audio_player($args))) {
+    if (!$sermon || !($audio_player = $sermon->get_audio_player())) {
         return '';
     }
 
@@ -232,9 +231,9 @@ function gc_search_get_previous_results_link()
  * @since  0.1.5
  *
  * @param  string  $arg      Query arg to check
- * @param  mixed   $default  Optional default value. Defaults to null.
+ * @param  null|mixed   $default  Optional default value. Defaults to null.
  *
- * @return mixed            Result of query var or default.
+ * @return mixed|null            Result of query var or default.
  */
 function gc__get_arg($arg, $default = null)
 {
@@ -260,6 +259,14 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
     return $plugin_option;
 }
 
+/**
+ * Rewrite Permalinks
+ *
+ * @param $post_link
+ * @param $id
+ *
+ * @return string|string[]
+ */
 function lqdm_rewrite_permalinks( $post_link, $id ) {
     $post = get_post($id);
     if ( is_object( $post ) && $post->post_type == 'gc-sermons' ){

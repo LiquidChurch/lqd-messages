@@ -29,11 +29,11 @@ abstract class LQDM_Shortcodes_Run_Base extends WDS_Shortcodes {
 	protected function get_sermon() {
 		$sermon_id = $this->att( 'sermon_id' );
 
-		if ( ! $sermon_id || 'recent' === $sermon_id || '0' === $sermon_id || 0 === $sermon_id ) {
+		if ( ! $sermon_id || $sermon_id === 'recent' || $sermon_id === '0' || $sermon_id === 0 ) {
 
 			$this->shortcode_object->set_att( 'sermon', $this->most_recent_sermon() );
 
-		} elseif ( 'this' === $sermon_id ) {
+		} elseif ( $sermon_id === 'this' ) {
 
 			$this->shortcode_object->set_att( 'sermon', gc_get_sermon_post( get_queried_object_id() ) );
 

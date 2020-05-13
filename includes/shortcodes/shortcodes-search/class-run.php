@@ -58,9 +58,10 @@ class LQDM_Shortcodes_Sermon_Search_Run extends LQDM_Shortcodes_Run_Base {
 		parent::__construct( $sermons );
 	}
 
-	/**
-	 * Shortcode Output
-	 */
+    /**
+     * Shortcode Output
+     * @throws Exception
+     */
 	public function shortcode() {
 		$this->search_query = gc__get_arg( 'sermon-search', '' );
 		$show_results = gc__get_arg( 'results-for', '' );

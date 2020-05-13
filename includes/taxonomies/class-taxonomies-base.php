@@ -50,7 +50,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 			array( $this->sermons->post_type() )
 		);
 
-		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 'plugins_loaded' === current_filter() ? 12 : 4 );
+		add_action( 'plugins_loaded', array( $this, 'filter_values' ), current_filter() === 'plugins_loaded' ? 12 : 4 );
 		add_action( 'wp_async_set_sermon_terms', array( $this, 'trigger_cache_flush' ), 10, 2 );
 	}
 
@@ -127,7 +127,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 	public function add_column_value( $empty = '', $custom_column = '', $term_id = 0 ) {
 
 		// Bail if no taxonomy passed or not on the `tax-image` column
-		if ( empty( $_REQUEST['taxonomy'] ) || ( 'tax-image' !== $custom_column ) || ! empty( $empty ) ) {
+		if ( empty( $_REQUEST['taxonomy'] ) || ( $custom_column !== 'tax-image' ) || ! empty( $empty ) ) {
 			return;
 		}
 
@@ -189,7 +189,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 	public function most_recent( $get_single_term = false ) {
 		static $terms = null;
 
-		if ( null === $terms ) {
+		if ( $terms === null ) {
 			$sermon = $this->most_recent_sermon();
 
 			if ( ! $sermon ) {
@@ -221,7 +221,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args             Array of arguments (passed to get_terms).
+	 * @param  string|array|object $args Array of arguments (passed to get_terms).
 	 * @param  array $single_term_args Array of arguments for LQDM_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
@@ -231,7 +231,7 @@ abstract class LQDM_Taxonomies_Base extends Taxonomy_Core {
 		$args = wp_parse_args( $args, $this->term_get_many_args_defaults );
 		$args = apply_filters( "gcs_get_{$this->id}_args", $args );
 
-		if ( isset( $args['orderby'] ) && 'sermon_date' === $args['orderby'] ) {
+		if ( isset( $args['orderby'] ) && $args['orderby'] === 'sermon_date' ) {
 			$terms = $this->get_terms_in_sermon_date_order();
 		} else {
 			$terms = self::get_terms( $this->taxonomy(), $args );

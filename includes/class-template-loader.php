@@ -29,9 +29,9 @@ class LQDM_Template_Loader {
 	 *
 	 * @since  0.1.3
 	 *
-	 * @param string  $template The template file name, relative to the includes/templates/ folder - with or without .php extension
-	 * @param string  $name     The name of the specialised template. If array, will take the place of the $args.
-	 * @param array   $args     An array of arguments to extract as variables into the template
+	 * @param string        $template The template file name, relative to the includes/templates/ folder - with or without .php extension
+	 * @param string|array  $name     The name of the specialised template. If array, will take the place of the $args.
+	 * @param array         $args     An array of arguments to extract as variables into the template
 	 *
 	 * @throws Exception
 	 * @return void
@@ -41,17 +41,19 @@ class LQDM_Template_Loader {
 			throw new RuntimeException( 'Template variable required for ' . __CLASS__ . '.' );
 		}
 
-		$file = $this->template = "{$template}{$this->extension}";
+        $this->template = "{$template}{$this->extension}";
+        $file           = $this->template;
 
-		if ( is_array( $name ) ) {
+        if ( is_array( $name ) ) {
 			$this->args = $name;
 		} else {
 			$this->args = $args;
 
 			$name = (string) $name;
-			if ( '' !== $name ) {
-				$this->templates[] = $this->template = "{$template}-{$name}{$this->extension}";
-			}
+			if ( $name !== '' ) {
+                $this->template    = "{$template}-{$name}{$this->extension}";
+                $this->templates[] = $this->template;
+            }
 		}
 
 		$this->templates[] = $file;
@@ -201,6 +203,8 @@ class LQDM_Template_Loader {
 		if ( $this->get( $arg_to_check ) ) {
 			$this->output( $arg, $esc_cb );
 		}
+
+		return null;
 	}
 
 	/**

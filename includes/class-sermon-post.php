@@ -87,7 +87,7 @@ class LQDM_Sermon_Post {
 	 */
 	protected function add_media_type( $type = 'video' ) {
 	    // Only audio/video allowed.
-        $type = 'video' === $type ? $type : 'audio';
+        $type = $type === 'video' ? $type : 'audio';
         $media = false;
 
         if ($media_url = get_post_meta($this->ID, "gc_sermon_{$type}_url", 1)) {
@@ -165,9 +165,9 @@ class LQDM_Sermon_Post {
         }
 
         $audio_url = '';
-        if ('url' === $audio['type']) {
+        if ( $audio['type'] === 'url' ) {
             $audio_url = $audio['value'];
-        } elseif ('attachment_id' === $audio['type']) {
+        } elseif ( $audio['type'] === 'attachment_id' ) {
             $audio_url = $audio['attachment_url'];
         }
 
@@ -229,7 +229,7 @@ class LQDM_Sermon_Post {
 	    // Unique id for the passed-in attributes.
         $id = md5($attr);
 
-		if ( ! isset( $attr['series_image_fallback'] ) || false !== $attr['series_image_fallback'] ) {
+		if ( ! isset( $attr['series_image_fallback'] ) || $attr['series_image_fallback'] !== false ) {
 		    $series_image_fallback = true;
 		    if (isset($attr['series_image_fallback'])) {
 		        unset($attr['series_image_fallback']);
@@ -237,7 +237,7 @@ class LQDM_Sermon_Post {
 		}
 
         // If we got it already, then send it back
-        if ( isset( $this->images[ $size ], $this->images[ $size ][ $id ] ) ) {
+        if ( isset( $this->images[ $size ][ $id ] ) ) {
             return $this->images[$size][$id];
         }
 
@@ -315,7 +315,7 @@ class LQDM_Sermon_Post {
 	        return false;
 	    }
 
-	    if (null === $this->speaker) {
+	    if ( $this->speaker === null ) {
 	        $this->speaker = lqdm()->taxonomies->speaker->get($speakers[0], $args);
 	    }
 
@@ -337,7 +337,7 @@ class LQDM_Sermon_Post {
 	        return false;
 	    }
 
-	    if (null === $this->single_series) {
+	    if ( $this->single_series === null ) {
 	        $this->single_series = lqdm()->taxonomies->series->get($series[0], $args);
 	    }
 
@@ -372,9 +372,9 @@ class LQDM_Sermon_Post {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of WP_Query arguments.
+	 * @param  array $args       Array of WP_Query arguments.
 	 *
-	 * @return mixed        WP_Query instance if successful.
+	 * @return WP_Error|WP_Query WP_Query instance if successful.
 	 * @throws Exception
 	 */
 	public function get_others_in_series( $args = array() ) {
@@ -407,7 +407,7 @@ class LQDM_Sermon_Post {
 	 *
 	 * @param  array $args Array of WP_Query arguments.
 	 *
-	 * @return mixed        WP_Query instance if successful.
+	 * @return mixed|WP_Error|WP_Query        WP_Query instance if successful.
 	 * @throws Exception
 	 */
 	public function get_others_by_speaker( $args = array() ) {

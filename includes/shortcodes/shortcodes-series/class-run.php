@@ -78,8 +78,8 @@ class LQDMS_Series_Run extends LQDM_Shortcodes_Run_Base
             $allterms = $this->add_year_index_and_augment_terms($allterms);
 
             sort($args['year_config'], SORT_NUMERIC);
-            $paging_init_year
-                = $curr_year = array_flip(array_reverse($args['year_config']));
+            $curr_year        = array_flip( array_reverse( $args['year_config'] ) );
+            $paging_init_year = $curr_year;
 
             $paging_init_year_tmp = array();
             $max_year = max(array_keys($paging_init_year));

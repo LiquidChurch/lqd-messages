@@ -124,8 +124,8 @@ class LQDM_Plugin
     /**
      * Creates or returns an instance of this class (GC_Sermons_Plugin).
      *
-     * @return LQDM_Plugin A single instance of this class.
-     *@since  0.1.0
+     * @return LQDM_Plugin|null A single instance of this class.
+     * @since  0.1.0
      */
     public static function get_instance(): ?LQDM_Plugin {
         if ( self::$single_instance === null ) {
@@ -143,12 +143,12 @@ class LQDM_Plugin
      * @throws Exception
      */
     public function hooks(): void {
-        //if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
-          //  add_action('tgmpa_register', array($this, 'register_required_plugin'));
-        //} else {
+        if (!defined('CMB2_LOADED') || !defined('WDS_SHORTCODES_LOADED')) {
+            add_action('tgmpa_register', array($this, 'register_required_plugin'));
+        } else {
             add_action('init', array($this, 'init'));
             $this->attach_plugin_classes();
-        //}
+        }
     }
 
     /**

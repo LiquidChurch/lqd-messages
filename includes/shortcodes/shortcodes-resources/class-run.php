@@ -41,9 +41,11 @@ class LQDMS_Resources_Run extends LQDM_Shortcodes_Run_Base
 		parent::__construct($sermons);
 	}
 
-	/**
-	 * Shortcode Output
-	 */
+    /**
+     * Shortcode Output
+     *
+     * @throws Exception
+     */
 	public function shortcode()
 	{
 		$output = $this->_shortcode();
@@ -61,7 +63,7 @@ class LQDMS_Resources_Run extends LQDM_Shortcodes_Run_Base
         $data_type = $this->att('data_type');
         $post_id   = $this->att('resource_post_id', $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id);
 
-		if ( 'this' === $post_id ) {
+		if ( $post_id === 'this' ) {
             $post_id = $data_type == 'sermon' ? get_the_id() : get_queried_object()->term_id;
 		}
 

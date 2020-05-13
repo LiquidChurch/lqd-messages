@@ -1,5 +1,5 @@
 <form role="search" method="get" class="search-form lqdm-search"
-      action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo (true == $this->get('separate_results')) ? 'target="_blank"' : '' ?>>
+      action="<?php $this->output('action_url', 'esc_url'); ?>" <?php echo ( $this->get('separate_results') == true ) ? 'target="_blank"' : '' ?>>
 
     <div class="row first-row">
         <div class="col-md-3">
