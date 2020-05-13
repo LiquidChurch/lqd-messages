@@ -33,7 +33,7 @@ class LQDM_Series extends LQDM_Taxonomies_Base {
 				'hierarchical' => false,
 				'show_admin_column' => false,
 				'rewrite' => array(
-				    'slug' => '/messages',
+				    'slug' => '/messages/series',
 					'with_front' => false,
 					'ep_mask' => EP_CATEGORIES,
                 ),
@@ -62,13 +62,13 @@ class LQDM_Series extends LQDM_Taxonomies_Base {
 	 * @return void
 	 */
 	public function fields() {
-		$cmb = $this->new_cmb2( array(
+		$this->new_cmb2( array(
 			'id'           => 'gc_sermon_series_metabox',
 			'taxonomies'   => array( $this->taxonomy() ),
 			'object_types' => array( 'term' ),
 			'fields'       => array(
 				$this->image_meta_key => array(
-					'name' => __( 'Sermon Series Image', 'lqdm' ),
+					'name' => __( 'Series Image', 'lqdm' ),
 					'desc' => __( 'Select the series\' branding image', 'lqdm' ),
 					'id'   => $this->image_meta_key,
 					'type' => 'file'

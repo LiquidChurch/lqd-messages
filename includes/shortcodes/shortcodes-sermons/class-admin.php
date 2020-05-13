@@ -45,7 +45,7 @@ class LQDMS_Sermons_Admin extends LQDM_Shortcodes_Admin_Base {
 	 * @param $fields
 	 * @param $button_data
 	 *
-	 * @return array
+	 * @return array|mixed
 	 */
 	function fields( $fields, $button_data ) {
 		$fields[] = array(

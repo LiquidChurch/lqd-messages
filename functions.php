@@ -269,7 +269,7 @@ function get_plugin_settings_options($arg1 = '', $arg2 = '')
  */
 function lqdm_rewrite_permalinks( $post_link, $id ) {
     $post = get_post($id);
-    if ( is_object( $post ) && $post->post_type == 'gc-sermons' ){
+    if ( is_object( $post ) && $post->post_type === 'gc-sermons' ){
         $terms = wp_get_object_terms( $post->ID, 'gc-sermon-series' );
         if ( $terms[0] ) {
             return str_replace( '%gc-sermon-series%', $terms[0]->slug, $post_link );

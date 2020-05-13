@@ -71,7 +71,7 @@ class LQDM_Speaker extends LQDM_Taxonomies_Base {
 
 		$this->add_image_column( __( 'Speaker Avatar', 'lqdm' ) );
 
-		$cmb = $this->new_cmb2( array(
+		$this->new_cmb2( array(
 			'id'           => 'gc_sermon_speaker_metabox',
 			'taxonomies'   => array( $this->taxonomy() ), // Tells CMB2 which taxonomies should
 			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
