@@ -2,6 +2,7 @@
 # We use WP standards where they do not conflict with PSR standards.
 
 root = true
+
 [*]
 charset = utf-8
 end_of_line = lf
@@ -12,12 +13,12 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
-[*.yml]
+[{package.json,*.yml}]
 indent_style = space
 indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
 
-[*.txt]
+[{*.txt,wp-config-sample.php}]
 end_of_line = crlf
