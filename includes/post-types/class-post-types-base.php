@@ -13,7 +13,7 @@ abstract class LQDM_Post_Types_Base extends CPT_Core {
 	/** @var string $id The identifier for this post */
 	protected $id = '';
 
-	// Are overrides processed?
+	/** @var bool $overrides_processed Used in filter_values() */
 	protected $overrides_processed = false;
 
 	/**

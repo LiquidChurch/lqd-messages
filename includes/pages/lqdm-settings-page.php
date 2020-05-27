@@ -4,7 +4,7 @@ $sections_config_arr = $this->get('sections_config_arr');
 
 <div class="wrap lqdm-settings-wrap">
     <h2><?php echo __('Settings', 'lqdm') ?></h2>
-    <p> <?php echo __('Settings related to the plugin.', 'lqdm') ?></p>
+    <p> <?php echo __('Settings related to Liquid Messages.', 'lqdm') ?></p>
     <div id="tabs">
         <ul>
             <?php

@@ -89,7 +89,7 @@ class LQDMS_Sermons_Search_Run extends LQDMS_Sermons_Run {
 	}
 
 	/**
-	 * Filter Sermon Args
+	 * Filter Message Arguments
 	 *
 	 * @param $args
 	 *

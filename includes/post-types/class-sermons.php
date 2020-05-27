@@ -39,9 +39,18 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
     public function __construct($plugin)
     {
         parent::__construct($plugin, array(
-            'labels' => array(__('Message', 'lqdm'), __('Messages', 'lqdm'), 'gc-sermons'),
+            'labels' => array(
+                __('Message', 'lqdm'),
+                __('Messages', 'lqdm'),
+                'gc-sermons'
+            ),
             'args' => array(
-                'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'excerpt',
+                    'thumbnail'
+                ),
                 'menu_icon' => 'dashicons-playlist-video',
                 'rewrite' => array(
                     'slug' => '/messages/series/%gc-sermon-series%',
@@ -294,6 +303,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
             'title'        => __('Message Details', 'lqdm'),
             'object_types' => array($this->post_type()),
             'fields'       => $fields,
+            'show_in_rest' => WP_REST_Server::READABLE
         ));
     }
 
@@ -600,8 +610,7 @@ SQL;
 	 *
 	 * @return false|LQDM_Sermon_Post|WP_Error
      * @throws Exception
-     *@since 0.1.0
-     *
+     * @since 0.1.0
      */
     public function most_recent_with_taxonomy($taxonomy_id)
     {

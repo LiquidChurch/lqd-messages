@@ -291,7 +291,14 @@ class LQDM_Settings_Page
 	 */
     public function add_page()
     {
-        add_submenu_page('edit.php?post_type=gc-sermons', __('Settings', 'lqdm'), __('Settings', 'lqdm'), 'manage_options', 'lc-plugin-option', array($this, 'plugin_option_page_view'));
+        add_submenu_page(
+            'edit.php?post_type=gc-sermons',
+            __('Settings', 'lqdm'),
+            __('Settings', 'lqdm'),
+            'manage_options',
+            'lc-plugin-option',
+            array($this, 'plugin_option_page_view')
+        );
     }
 
     /**
@@ -386,7 +393,14 @@ class LQDM_Settings_Page
     {
         if (!empty($sectn_det['fields'])) {
             foreach ($sectn_det['fields'] as $key => $val) {
-                add_settings_field($sec_key . '_' . $val['name'], $val['title'], array($this, 'plugin_form_fields'), $sectn_det['page'], $sec_key, array_merge(array('key' => $sec_key), $val));
+                add_settings_field(
+                    $sec_key . '_' . $val['name'],
+                    $val['title'],
+                    array($this, 'plugin_form_fields'),
+                    $sectn_det['page'],
+                    $sec_key,
+                    array_merge(array('key' => $sec_key), $val)
+                );
             }
         }
     }

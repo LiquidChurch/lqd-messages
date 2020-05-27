@@ -283,3 +283,78 @@ function lqdm_rewrite_permalinks( $post_link, $id ) {
     return $post_link;
 }
 add_filter( 'post_type_link', 'lqdm_rewrite_permalinks', 1, 2 );
+
+/**
+ * Register Meta with WPGraphQL
+ */
+add_action( 'graphql_register_types', function() {
+    // Register Message Video URL
+    register_graphql_field( 'lqdmMessage', 'video_url', [
+       'type' => 'String',
+       'description' => __( 'The URL of the message video', 'lqdm' ),
+       'resolve' => function( $post ) {
+       $video_url = get_post_meta( $post->ID, 'gc_sermon_video_url', true );
+       return ! empty( $video_url ) ? $video_url : '';
+       }
+   ] );
+
+    // Register Message Video Src
+    register_graphql_field( 'gc-sermons', 'video_src', [
+        'type' => 'String',
+        'description' => __( 'The location of uploaded message video', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $video_src = get_post_meta( $post->ID, 'gc_sermon_video_src', true );
+            return ! empty( $video_src ) ? $video_src : '';
+        }
+    ] );
+
+    // Register Message Audio URL
+    register_graphql_field( 'gc-sermons', 'audio_url', [
+        'type' => 'String',
+        'description' => __( 'The URL of the message audio', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $audio_url = get_post_meta( $post->ID, 'gc_sermon_audio_url', true );
+            return ! empty( $audio_url ) ? $audio_url : '';
+        }
+    ] );
+
+    // Register Message Audio Src
+    register_graphql_field( 'gc-sermons', 'audio_src', [
+        'type' => 'String',
+        'description' => __( 'The location of uploaded message audio', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $audio_src = get_post_meta( $post->ID, 'gc_sermon_audio_src', true );
+            return ! empty( $audio_src ) ? $audio_src : '';
+        }
+    ] );
+
+    // Register Message Excerpt
+    register_graphql_field( 'gc-sermons', 'excerpt', [
+        'type' => 'String',
+        'description' => __( 'The excerpt for the message', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $excerpt = get_post_meta( $post->ID, 'excerpt', true );
+            return ! empty( $excerpt ) ? $excerpt : '';
+        }
+    ] );
+
+    // Register Message Featured Image
+    register_graphql_field( 'gc-sermons', 'featured_image', [
+        'type' => 'String',
+        'description' => __( 'The featured image for the message', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $thumbnail = get_post_meta( $post->ID, '_thumbnail', true );
+            return ! empty( $thumbnail ) ? $thumbnail : '';
+        }
+    ] );
+
+    // Register Message Notes
+    register_graphql_field( 'gc-sermons', 'notes', [
+        'type' => 'String',
+        'description' => __( 'The excerpt for the message', 'lqdm' ),
+        'resolve' => function( $post ) {
+            $notes = get_post_meta( $post->ID, 'gc_sermon_notes', true );
+            return ! empty( $notes ) ? $notes : '';
+        }
+    ] );
+} );
