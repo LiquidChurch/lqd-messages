@@ -32,7 +32,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-// Use composer autoload.
+// Use Composer Autoloader.
 require __DIR__ . '/vendor/autoload.php';
 
 /**
@@ -58,25 +58,25 @@ class LQDM_Plugin
     /** @var array $requirements Array of plugin requirements, keyed by admin notice label. */
     protected $requirements = array();
 
-    /** @var LQDM_Sermons $sermons LQDM_Sermons Object */
+    /** @var LQDM_Sermons $sermons Sermons Object */
     protected $sermons;
 
-    /** @var LQDM_Taxonomies $taxonomies LQDM_Taxonomies Object */
+    /** @var LQDM_Taxonomies $taxonomies Taxonomies Object */
     protected $taxonomies;
 
-    /** @var LQDM_Shortcodes $shortcodes LQDM_Shortcodes Object */
+    /** @var LQDM_Shortcodes $shortcodes Shortcodes Object */
     protected $shortcodes;
 
-    /** @var LQDM_Async $async LQDM_Async Object */
+    /** @var LQDM_Async $async Async Object */
     protected $async;
+
+    /** @var LQDM_Metaboxes Metabox Object */
+    protected $metaboxes;
 
     /** @var string $plugin_option_key Plugin options settings key */
     public static $plugin_option_key = 'lc-plugin-settings';
 
-    /** @var LQDM_Metaboxes Instance of LQDM_Metaboxes */
-    protected $metaboxes;
-
-    /** @var LQDM_Settings_Page $option_page Instance of LQDM_Settings_Page */
+    /** @var LQDM_Settings_Page $option_page Settings Page Object */
     protected $option_page;
 
 
@@ -122,7 +122,7 @@ class LQDM_Plugin
     }
 
     /**
-     * Creates or returns an instance of this class (GC_Sermons_Plugin).
+     * Creates or returns an instance of this class (LQDM_Plugin).
      *
      * @return LQDM_Plugin|null A single instance of this class.
      * @since  0.1.0
@@ -137,6 +137,10 @@ class LQDM_Plugin
 
     /**
      * Add hooks and filters
+     *
+     * Ensures that dependencies are available (CMB2 and WDS_SHORTCODES)
+     *
+     * Loads text domain, attaches plugin classes.
      *
      * @since  0.1.0
      * @return void
@@ -161,12 +165,11 @@ class LQDM_Plugin
     public function attach_plugin_classes(): void {
         require_once self::$path . 'functions.php';
 
-        // Attach other plugin classes to the base plugin class.
-        $this->sermons = new LQDM_Sermons($this);
-        $this->taxonomies = new LQDM_Taxonomies($this->sermons);
-        $this->async = new LQDM_Async($this);
+        $this->sermons       = new LQDM_Sermons($this);
+        $this->taxonomies    = new LQDM_Taxonomies($this->sermons);
+        $this->async         = new LQDM_Async($this);
 
-        // Only create the full metabox object if in admin.
+        // Only create the full metabox object if user is admin.
         if (is_admin()) {
             $this->metaboxes = new LQDM_Metaboxes( $this );
             $this->metaboxes->hooks();
@@ -175,21 +178,21 @@ class LQDM_Plugin
         }
 
         // But set these properties of the object always.
-        $this->metaboxes->resources_box_id = 'gc_addtl_resources_metabox';
-        $this->metaboxes->resources_meta_id = 'gc_addtl_resources';
-        $this->metaboxes->display_ordr_box_id = 'gc_display_order_metabox';
-        $this->metaboxes->display_ordr_meta_id = 'gc_display_order';
-        $this->metaboxes->exclude_msg_meta_id = 'gc_exclude_msg';
-        $this->metaboxes->video_msg_appear_pos = 'gc_video_msg_pos';
+        $this->metaboxes->resources_box_id      = 'gc_addtl_resources_metabox';
+        $this->metaboxes->resources_meta_id     = 'gc_addtl_resources';
+        $this->metaboxes->display_ordr_box_id   = 'gc_display_order_metabox';
+        $this->metaboxes->display_ordr_meta_id  = 'gc_display_order';
+        $this->metaboxes->exclude_msg_meta_id   = 'gc_exclude_msg';
+        $this->metaboxes->video_msg_appear_pos  = 'gc_video_msg_pos';
 
-        $this->shortcodes = new LQDM_Shortcodes($this);
+        $this->shortcodes  = new LQDM_Shortcodes($this);
 
         $this->option_page = new LQDM_Settings_Page($this);
         $this->option_page->hooks();
     }
 
     /**
-     * Requires CMB2 to be installed
+     * Adds CMB2 as required plugin
      */
     public function register_required_plugin(): void {
         $plugins = array(
@@ -218,6 +221,8 @@ class LQDM_Plugin
     /**
      * Init hooks
      *
+     * Loads textdomain.
+     *
      * @since  0.1.0
      * @return void
      */
@@ -229,8 +234,8 @@ class LQDM_Plugin
      * Magic getter for our object.
      *
      * @since  0.1.0
-     * @param string $field Field to get.
-     * @throws Exception Throws an exception if the field is invalid.
+     * @param  string    $field  Field to get.
+     * @throws Exception         Throws an exception if the field is invalid.
      * @return mixed
      */
     public function __get($field)
@@ -256,7 +261,7 @@ class LQDM_Plugin
     }
 
 	/**
-	 * Get Plugin Settings Options
+	 * Get Settings for Liquid Messages Plugin
 	 *
 	 * @param string $arg
 	 * @param string $sub_arg
@@ -291,12 +296,12 @@ class LQDM_Plugin
 }
 
 /**
- * Wrapper for GC_Sermons_Plugin::get_instance()
+ * Wrapper for LQDM_Plugin::get_instance()
  *
- * Grab and return instance.
+ * Grab and return instance of plugin object.
  *
  * @return LQDM_Plugin  Singleton instance of plugin class.
- *@since  0.1.0
+ * @since  0.1.0
  */
 function lqdm()
 {

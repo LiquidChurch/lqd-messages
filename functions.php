@@ -39,8 +39,8 @@ function gc_get_sermon_post($sermon = 0, $throw_on_error = false)
  * @since  0.1.3
  *
  * @param  int|mixed  $sermon          Post object or ID or (LQDM_Sermon_Post object).
- * @param  array  $args            Args array
- * @param  array  $get_series_args Args for LQDM_Sermon_Post::get_series()
+ * @param  array      $args            Args array
+ * @param  array      $get_series_args Args for LQDM_Sermon_Post::get_series()
  *
  * @return string|string[] Message series info output.
  * @throws Exception

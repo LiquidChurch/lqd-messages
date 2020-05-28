@@ -303,6 +303,7 @@ class LQDM_Settings_Page
 
     /**
      * Load Plugin Option Page View
+     *
      * @throws Exception
      */
     public function plugin_option_page_view()

@@ -115,8 +115,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
      * @since  0.1.1
      * @return void
      */
-    public function admin_hooks()
-    {
+    public function admin_hooks(): void {
         add_action('dbx_post_advanced', array($this, 'remove_default_boxes_for_sermons'));
         add_filter("manage_edit-{$this->post_type()}_columns", array($this, 'columns'));
         add_filter("manage_edit-{$this->post_type()}_sortable_columns", array($this, 'columns_sortable'), 10, 1);
@@ -130,8 +129,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
      *
      * @return void
      */
-    public function remove_default_boxes_for_sermons()
-    {
+    public function remove_default_boxes_for_sermons(): void {
         $screen = get_current_screen();
 
         if (isset($screen->post_type) && $this->post_type() === $screen->post_type) {
@@ -194,8 +192,7 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
      *
      * @return array          Modified post data array.
      */
-    public function save_future_as_published($data, $postarr)
-    {
+    public function save_future_as_published($data, $postarr): array {
         if (
             !isset($postarr['ID'], $data['post_status'], $data['post_type'])
             || $data['post_status'] !== 'future'
@@ -375,8 +372,9 @@ class LQDM_Sermons extends LQDM_Post_Types_Base
                         $title = ' title="' . esc_attr($series->name) . '"';
                         $term = '<img style="max-width: 100px;" src="' . esc_url($series->image_url) . '" /></a>';
                     } else {
-                        $class = $title = '';
-                        $term = $series->name;
+                        $title = '';
+                        $class = $title;
+                        $term  = $series->name;
                     }
 
                     echo '<div class="lqdm-series' . $class . '"><a' . $title . ' href="' . esc_url($edit_link) . '">' . $term . '</a></div>';
@@ -436,8 +434,7 @@ SQL;
 	 *
 	 * @throws Exception
 	 */
-    public function admin_column_css()
-    {
+    public function admin_column_css(): void {
         LQDM_Style_Loader::output_template('admin-column');
     }
 
