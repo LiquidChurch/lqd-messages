@@ -431,8 +431,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		// TODO: Reset all types
 		switch ( type ) {
 			case 'text':
-			case 'text-medium':
-			case 'text-small':
 				return $this.find( '[type="text"]' ).val( '' );
 			case 'file':
 				$this.find( '.cmb2-upload-file-id' ).val( '' );
@@ -463,8 +461,6 @@ window.wp_sc_buttons = window.wp_sc_buttons || {};
 		// TODO: Set fields for all types
 		switch ( data.type ) {
 			case 'text':
-			case 'text-medium':
-			case 'text-small':
 			case 'textarea':
 			case 'file':
 				return $field.val( data.value );
